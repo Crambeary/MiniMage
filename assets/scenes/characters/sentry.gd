@@ -138,6 +138,7 @@ func _physics_process(delta: float) -> void:
 	_process_detection(delta) # Handle alertness logic
 	_process_movement(delta)   # Handle movement logic
 	_process_animations()      # Handle animation updates
+	_update_layered_status_bar() # Update status bar continuously
 
 func _process(_delta: float) -> void:
 	_update_status_bar_positioning()

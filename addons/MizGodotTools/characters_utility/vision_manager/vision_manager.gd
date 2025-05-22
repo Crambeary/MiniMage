@@ -22,9 +22,16 @@ signal target_lost_sight(target: Node2D)
 
 func _ready() -> void:
 	if not is_instance_valid(sentry_character):
-		push_warning("VisionManager: 'sentry_character' not assigned. Cannot update Sentry visibility.")
-	elif not sentry_character.has_method("set_player_visibility"):
-		push_warning("VisionManager: Assigned 'sentry_character' does not have a 'set_player_visibility' method.")
+		# Try to assign parent as sentry_character if not set by export
+		var parent_node = get_parent()
+		if is_instance_valid(parent_node) and parent_node.has_method("set_player_visibility"):
+			sentry_character = parent_node
+			# print_debug("VisionManager: Auto-assigned parent node as 'sentry_character': ", sentry_character.name) # Optional debug
+		else:
+			push_warning("VisionManager: 'sentry_character' not assigned via export, and could not auto-assign parent or parent lacks 'set_player_visibility' method. Sentry visibility updates will fail.")
+	elif not sentry_character.has_method("set_player_visibility"): # If it was assigned, but is wrong type
+		push_warning("VisionManager: Assigned 'sentry_character' ('%s') does not have a 'set_player_visibility' method." % sentry_character.name if is_instance_valid(sentry_character) else "Unknown")
+		sentry_character = null # Invalidate it if it's not suitable
 
 	# Try to auto-assign target_node if not already set in editor
 	if not is_instance_valid(target_node):
