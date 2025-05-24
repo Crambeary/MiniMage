@@ -74,6 +74,7 @@ var _player_was_visible_last_frame: bool = false # More robust tracking for visi
 
 # Player's last known position
 var player_last_known_position: Vector2 = Vector2.ZERO
+@export var obstacle_collision_mask: int = 1 # Layer mask for obstacles that block Line of Sight for LKP updates. Configure in editor.
 
 @export var speed: float = 10.0
 var _last_movement_dir: Vector2 = Vector2.DOWN # Store the last direction of movement
@@ -111,12 +112,26 @@ func update_alertness():
 	elif alertness_value >= suspicion_threshold \
 	and alertness_value < alertness_threshold \
 	and alertness_state != AlertnessState.SUSPICIOUS:
-		update_alert_state(AlertnessState.SUSPICIOUS)
+		update_alert_state(AlertnessState.SUSPICIOUS) # Change state first
+
 		if is_instance_valid(player):
-			player_last_known_position = player.global_position
-		else:
-			# Fallback if player instance is somehow invalid, use self position
-			player_last_known_position = global_position 
+			var space_state = get_world_2d().direct_space_state
+			if space_state:
+				var query_params = PhysicsRayQueryParameters2D.create(global_position, player.global_position, obstacle_collision_mask)
+				query_params.collide_with_areas = true # Ensure checks against Area2D obstacles
+				query_params.collide_with_bodies = true # Ensure checks against PhysicsBody2D obstacles
+				
+				var result = space_state.intersect_ray(query_params)
+				
+				if not result: # No obstacle hit, LOS is clear to player's current position
+					player_last_known_position = player.global_position
+				# else: Obstacle hit, LKP not updated, player_last_known_position remains unchanged
+			else: # space_state is null, fallback to updating LKP without this specific check
+				player_last_known_position = player.global_position
+		else: # player not valid, fallback
+			player_last_known_position = global_position
+		
+		# These actions occur because the sentry is now suspicious.
 		idle_task = IdleTasks.WAIT # Initial halt for surprise
 		question_mark.visible = true
 		exclamation.visible = false
