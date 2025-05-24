@@ -30,7 +30,7 @@ const ALERTED_COLOR := Color.RED
 @onready var waypoints: Array = get_tree().get_first_node_in_group(path_group_name).get_children()
 var current_index: int = 0
 var dir: Vector2
-enum IdleTasks {PATROL, WAIT, INSPECT, RETURN}
+enum IdleTasks {PATROL, WAIT, INSPECT, RETURN, INVESTIGATE_LKP}
 enum AlertnessState {IDLE, SUSPICIOUS, ALERTED}
 @export var idle_task = IdleTasks.PATROL
 @export var alertness_state = AlertnessState.IDLE
@@ -70,13 +70,18 @@ var cooldown_timer: float = 0.0
 var is_in_cooldown: bool = false
 var was_player_seen: bool = false
 var was_previously_seen: bool = false  # For tracking when player first leaves sight
+var _player_was_visible_last_frame: bool = false # More robust tracking for visibility change
+
+# Player's last known position
+var player_last_known_position: Vector2 = Vector2.ZERO
 
 @export var speed: float = 10.0
+var _last_movement_dir: Vector2 = Vector2.DOWN # Store the last direction of movement
 
 func get_enum_name(enum_dict: Dictionary, value: int) -> String:
-	for name in enum_dict.keys():
-		if enum_dict[name] == value:
-			return name
+	for enum_key in enum_dict.keys(): # Renamed 'name' to 'enum_key'
+		if enum_dict[enum_key] == value:
+			return enum_key
 	return "Unknown"
 
 func get_current_waypoint():
@@ -97,7 +102,8 @@ func set_vision_direction(direction: Vector2) -> void:
 	
 func update_alertness():
 	if alertness_value < suspicion_threshold \
-	and alertness_state != AlertnessState.IDLE:
+	and alertness_state != AlertnessState.IDLE \
+	and idle_task != IdleTasks.INVESTIGATE_LKP:
 		update_alert_state(AlertnessState.IDLE)
 		idle_task = IdleTasks.PATROL
 		question_mark.visible = false
@@ -106,15 +112,47 @@ func update_alertness():
 	and alertness_value < alertness_threshold \
 	and alertness_state != AlertnessState.SUSPICIOUS:
 		update_alert_state(AlertnessState.SUSPICIOUS)
-		idle_task = IdleTasks.WAIT
+		if is_instance_valid(player):
+			player_last_known_position = player.global_position
+		else:
+			# Fallback if player instance is somehow invalid, use self position
+			player_last_known_position = global_position 
+		idle_task = IdleTasks.WAIT # Initial halt for surprise
 		question_mark.visible = true
 		exclamation.visible = false
+		call_deferred("_start_investigation_after_surprise")
 	elif alertness_value >= alertness_threshold \
 	and alertness_state != AlertnessState.ALERTED:
 		update_alert_state(AlertnessState.ALERTED)
 		question_mark.visible = false
 		exclamation.visible = true
 
+# Helper function to update the status bar color based on current alertness_state
+func _update_status_bar_color() -> void:
+	if not is_instance_valid(status_bar_instance):
+		return
+
+	match alertness_state:
+		AlertnessState.IDLE:
+			status_bar_instance.set_fill_color(IDLE_COLOR)
+		AlertnessState.SUSPICIOUS:
+			status_bar_instance.set_fill_color(SUSPICIOUS_COLOR)
+		AlertnessState.ALERTED:
+			status_bar_instance.set_fill_color(ALERTED_COLOR)
+		_:
+			# Fallback, though ideally this case shouldn't be reached if states are managed
+			status_bar_instance.set_fill_color(Color.WHITE)
+
+func _start_investigation_after_surprise() -> void:
+	if alertness_state != AlertnessState.SUSPICIOUS: # Ensure we are still suspicious
+		return
+	await get_tree().create_timer(1.0).timeout # Adjust time as needed (e.g., 1.0 seconds)
+	
+	# Check state again after timer, as it might have changed (e.g., player re-spotted and became ALERTED)
+	if alertness_state == AlertnessState.SUSPICIOUS:
+		idle_task = IdleTasks.INVESTIGATE_LKP
+	else:
+		return
 
 func update_alert_state(new_state: AlertnessState) -> void:
 	if alertness_state == new_state:
@@ -138,22 +176,6 @@ func update_alert_state(new_state: AlertnessState) -> void:
 		AlertnessState.ALERTED:
 			question_mark.visible = false
 			exclamation.visible = true
-
-# Helper function to update the status bar color based on current alertness_state
-func _update_status_bar_color() -> void:
-	if not is_instance_valid(status_bar_instance):
-		return
-
-	match alertness_state:
-		AlertnessState.IDLE:
-			status_bar_instance.set_fill_color(IDLE_COLOR)
-		AlertnessState.SUSPICIOUS:
-			status_bar_instance.set_fill_color(SUSPICIOUS_COLOR)
-		AlertnessState.ALERTED:
-			status_bar_instance.set_fill_color(ALERTED_COLOR)
-		_:
-			# Fallback, though ideally this case shouldn't be reached if states are managed
-			status_bar_instance.set_fill_color(Color.WHITE)
 
 func _ready() -> void:
 	print("Sentry _ready: Attempting to initialize status bar.") # Debug print
@@ -183,131 +205,141 @@ func _ready() -> void:
 		# This case should ideally be caught by the null check above
 		push_error("Sentry _ready: STATUS_BAR_SCENE was unexpectedly null after initial check.")
 
+	player_last_known_position = global_position # Initialize LKP to self position
+
 func _physics_process(delta: float) -> void:
-	var target = get_current_waypoint().global_position
-	dir = (target - global_position).normalized()
+	# Task-specific logic first
 	if idle_task == IdleTasks.WAIT:
-		if dir.x <= -0.5:
-			animated_sprite_2d.flip_h = true
+		# Animation logic for waiting, facing last movement direction
+		if abs(_last_movement_dir.x) > abs(_last_movement_dir.y): # Was moving more horizontally
 			animated_sprite_2d.play("idle_side")
-		elif dir.x >= 0.5:
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("idle_side")
-		if dir.y >= 0.5:
-			animated_sprite_2d.play("idle_down")
-		elif dir.y <= -0.5:
-			animated_sprite_2d.play("idle_up")
-			
-	if idle_task == IdleTasks.PATROL:
-		if dir.x <= -0.5:
-			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("walk_side")
-		elif dir.x >= 0.5:
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("walk_side")
-		if dir.y >= 0.5:
-			animated_sprite_2d.play("walk_down")
-		elif dir.y <= -0.5:
-			animated_sprite_2d.play("walk_up")
-		
-		set_vision_direction(dir)
-		position += dir * speed * delta
-	
-		if global_position.distance_to(target) < 1:
-			var wp = get_current_waypoint()
-			if wp.wait_time > 0.0:
-				await handle_waypoint_action(wp)
-			current_index = (current_index + 1) % waypoints.size()
-	
-	update_alertness() # Initial update based on patrol/wait
-	
-	if player:
-		var player_global_pos: Vector2 = player.global_position
-		var player_in_sight = vision_manager.can_see_point(player_global_pos)
-		was_player_seen = was_player_seen or player_in_sight
-
-		# These will store the currently applicable delay/rate for logic and debug output
-		var active_cooldown_delay: float = idle_cooldown_delay
-		var active_cooldown_rate: float = idle_cooldown_rate
-
-		# Handle alertness changes based on player visibility and state
-		# Track previous seen state for detection events
-		was_previously_seen = player_in_sight
-		
-		if player_in_sight:
-			# Stop cooldown if player is seen
-			is_in_cooldown = false
-			cooldown_timer = 0.0
-			
-			# Different increase rates based on current state
-			if alertness_value < suspicion_threshold:
-				alertness_value = min(alertness_value + (initial_alertness_increase_rate * delta), 1.0)
+			animated_sprite_2d.flip_h = _last_movement_dir.x < 0
+		else: # Was moving more vertically
+			if _last_movement_dir.y > 0:
+				animated_sprite_2d.play("idle_down")
 			else:
-				alertness_value = min(alertness_value + (alertness_increase_rate * delta), 1.0)
-			
-			# Emit the player detected signal with the current alertness level
+				animated_sprite_2d.play("idle_up")
+		# Original line that made sentry always face down:
+		# animated_sprite_2d.play("idle_down") 
+		pass # No movement, just animation handled above
+
+	elif idle_task == IdleTasks.PATROL:
+		if waypoints.size() == 0:
+			# print_debug("Sentry has no waypoints for patrol.")
+			return # Cannot patrol without waypoints
+		var target = get_current_waypoint().global_position
+		dir = (target - global_position).normalized() # dir is updated here for patrol
+		
+		if global_position.distance_to(target) > 0.5:
+			global_position += dir * speed * delta
+			set_vision_direction(dir)
+			_last_movement_dir = dir # Store this direction
+
+			# Animation based on direction
+			if dir.x <= -0.5:
+				animated_sprite_2d.flip_h = true
+				animated_sprite_2d.play("walk_side")
+			elif dir.x >= 0.5:
+				animated_sprite_2d.flip_h = false
+				animated_sprite_2d.play("walk_side")
+			if dir.y >= 0.5:
+				animated_sprite_2d.play("walk_down")
+			elif dir.y <= -0.5:
+				animated_sprite_2d.play("walk_up")
+		else:
+			handle_waypoint_action(get_current_waypoint())
+			current_index = (current_index + 1) % waypoints.size()
+			# print_debug("Waypoint reached: ", get_current_waypoint().name)
+
+	elif idle_task == IdleTasks.INVESTIGATE_LKP:
+		var target_position = player_last_known_position
+		# dir is updated here for investigation
+		dir = (target_position - global_position).normalized() 
+		var distance_to_lkp = global_position.distance_to(target_position)
+		
+		if distance_to_lkp > 10.0: # Threshold to stop, adjust as needed
+			global_position += dir * speed * delta
+			set_vision_direction(dir)
+			_last_movement_dir = dir # Store this direction
+			# Animation based on direction (similar to PATROL)
+			if dir.x <= -0.5:
+				animated_sprite_2d.flip_h = true
+				animated_sprite_2d.play("walk_side")
+			elif dir.x >= 0.5:
+				animated_sprite_2d.flip_h = false
+				animated_sprite_2d.play("walk_side")
+			if dir.y >= 0.5:
+				animated_sprite_2d.play("walk_down")
+			elif dir.y <= -0.5:
+				animated_sprite_2d.play("walk_up")
+		else:
+			idle_task = IdleTasks.WAIT # Reached LKP, now wait/scan
+
+	elif idle_task == IdleTasks.INSPECT:
+		pass
+
+	# General updates that should happen every physics frame, regardless of most idle_tasks
+	if is_instance_valid(vision_manager) and is_instance_valid(player):
+		var player_is_currently_visible: bool = vision_manager.can_see_point(player.global_position)
+		_on_vision_manager_player_visibility_updated(player_is_currently_visible, delta)
+
+	_handle_alertness_cooldown(delta)
+	update_alertness() # Crucial for state changes based on new alertness_value
+	# print_alertness_bar() # Optional: Moved to _process or keep here if physics-tick debug is fine
+
+func _on_vision_manager_player_visibility_updated(p_is_visible: bool, delta: float) -> void: # Renamed is_visible, removed _detection_strength
+	if p_is_visible:
+		# Stop cooldown if player is seen
+		is_in_cooldown = false
+		cooldown_timer = 0.0
+		was_player_seen = true # Player has been seen
+		
+		# Different increase rates based on current state
+		if alertness_value < suspicion_threshold:
+			alertness_value = min(alertness_value + (initial_alertness_increase_rate * delta), 1.0)
+		else:
+			alertness_value = min(alertness_value + (alertness_increase_rate * delta), 1.0)
+		
+		# Emit the player detected signal with the current alertness level
+		if not _player_was_visible_last_frame: # Only emit if newly detected this frame
 			emit_signal("player_detected", self, alertness_value)
+		
+	else: # Player not in sight
+		# If player was just seen but now isn't, emit the lost detection signal
+		if _player_was_visible_last_frame: # Player was visible last frame, but not this one
+			emit_signal("player_detection_lost", self)
+		
+		# If we've seen the player before (in this alert cycle) and now don't see them, start cooldown timer
+		if was_player_seen and !is_in_cooldown:
+			cooldown_timer += delta
 			
-		else: # Player not in sight
-			# If player was just seen but now isn't, emit the lost detection signal
-			if was_player_seen and was_previously_seen:
-				emit_signal("player_detection_lost", self)
-				was_previously_seen = false
-				
-			# If we've seen the player before and now don't see them, start cooldown timer
-			if was_player_seen and !is_in_cooldown:
-				cooldown_timer += delta
-				
-				# Determine which delay to use
-				if alertness_state == AlertnessState.SUSPICIOUS:
-					active_cooldown_delay = suspicious_cooldown_delay
-				else:
-					active_cooldown_delay = idle_cooldown_delay
-				
-				if cooldown_timer >= active_cooldown_delay:
-					is_in_cooldown = true
-					cooldown_timer = 0.0 # Reset timer as we are now in cooldown
+			# Determine which delay to use
+			var active_cooldown_delay: float = idle_cooldown_delay
+			if alertness_state == AlertnessState.SUSPICIOUS:
+				active_cooldown_delay = suspicious_cooldown_delay
 			
-			# Only decrease alertness if in cooldown mode
-			if is_in_cooldown:
-				# Determine which rate to use
-				if alertness_value >= suspicion_threshold: # If still suspicious or cooling down from alerted
-					active_cooldown_rate = suspicious_cooldown_rate
-				else: # Cooling down below suspicious, towards idle
-					active_cooldown_rate = idle_cooldown_rate
-				
-				alertness_value = max(alertness_value - (active_cooldown_rate * delta), 0.0)
-				
-				if alertness_value <= 0.0:
-					alertness_value = 0.0
-					was_player_seen = false
-					is_in_cooldown = false
-					# Explicitly signal player_detection_lost when alertness drops to zero
-					emit_signal("player_detection_lost", self)
-		
-		# Update state based on alertness value changes from player interaction
-		update_alertness()
-		
-		# Debug output
-		var state_str = "IDLE"
-		if alertness_value >= alertness_threshold:
-			state_str = "ALERTED"
-		elif alertness_value >= suspicion_threshold:
-			state_str = "SUSPICIOUS"
-		
-		# Build cooldown status string
-		var cooldown_status_text = "Cooldown: " + ("Active" if is_in_cooldown else "Inactive")
-		if was_player_seen and !player_in_sight: # Only show timer details if relevant
-			if !is_in_cooldown: # Show timer counting up to delay
-				cooldown_status_text += ", Timer: %.1f/%.1f (Delay)" % [cooldown_timer, active_cooldown_delay]
-			else: # Show that cooldown is active (decreasing alertness)
-				cooldown_status_text += ", Rate: %.2f" % active_cooldown_rate
-		
-		# Create visual bar
-		var _bar = "[" + ("|" as String).repeat(int(alertness_value * 20)) \
-			+ (" " as String).repeat(20 - int(alertness_value * 20)) \
-			+ "] %3d%% %-10s (%s)" % [int(alertness_value * 100), state_str, cooldown_status_text]
-		#print("Alertness: ", _bar)
+			if cooldown_timer >= active_cooldown_delay:
+				is_in_cooldown = true
+				cooldown_timer = 0.0 # Reset timer as we are now in cooldown
+	
+	_player_was_visible_last_frame = p_is_visible # Update for next frame's check
+	# update_alertness() # This was moved to _physics_process to run after cooldown handling
+
+func _handle_alertness_cooldown(delta: float) -> void:
+	if is_in_cooldown:
+		var _initial_alertness = alertness_value # Prefixed with underscore
+		# Determine which rate to use
+		var active_cooldown_rate: float = idle_cooldown_rate # Default to idle
+		if alertness_value >= suspicion_threshold: # If still suspicious or cooling down from alerted
+			active_cooldown_rate = suspicious_cooldown_rate
+		alertness_value = max(alertness_value - (active_cooldown_rate * delta), 0.0)
+			
+		if alertness_value <= 0.0:
+			alertness_value = 0.0
+			was_player_seen = false
+			is_in_cooldown = false
+			# Explicitly signal player_detection_lost when alertness drops to zero
+			emit_signal("player_detection_lost", self)
 
 func _process(_delta: float) -> void: # Renamed delta to _delta to address unused parameter warning
 	# Update status bar position

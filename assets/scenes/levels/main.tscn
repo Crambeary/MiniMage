@@ -69,13 +69,13 @@ script = ExtResource("2_07mv4")
 facing_direction = Vector2(0, 1)
 
 [node name="Point4" type="Marker2D" parent="Paths/Paths_2"]
-position = Vector2(-296, -11)
+position = Vector2(-296, -8)
 script = ExtResource("2_07mv4")
 action = "wait"
 wait_time = 3.0
 
 [node name="Point5" type="Marker2D" parent="Paths/Paths_2"]
-position = Vector2(-256, -11)
+position = Vector2(-256, -8)
 script = ExtResource("2_07mv4")
 
 [node name="Point6" type="Marker2D" parent="Paths/Paths_2"]

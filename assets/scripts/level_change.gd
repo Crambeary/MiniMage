@@ -18,7 +18,6 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	# Check if the entering body is the player (assumes player is in group "player")
-	print("Entered Zone")
 	if body.is_in_group("player"):
 		if next_level_path.is_empty():
 			print_debug("LevelChangeArea: next_level_path is not set on ", get_path())
