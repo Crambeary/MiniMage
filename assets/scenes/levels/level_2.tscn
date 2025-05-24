@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bg46bc8mvw3qj"]
+[gd_scene load_steps=8 format=4 uid="uid://bg46bc8mvw3qj"]
 
 [ext_resource type="PackedScene" uid="uid://btykre1m0ouee" path="res://assets/scenes/tilesets/castle_tileset.tscn" id="1_icxrv"]
 [ext_resource type="PackedScene" uid="uid://b0blgbxf1vgsh" path="res://assets/scenes/characters/player.tscn" id="2_ttb08"]
 [ext_resource type="PackedScene" uid="uid://cl4ybl3p53ljw" path="res://assets/scenes/characters/sentry.tscn" id="3_aeyps"]
 [ext_resource type="Script" uid="uid://dawy80ds4ku5r" path="res://assets/scripts/Waypoint2D.gd" id="4_xfbpt"]
 [ext_resource type="Script" uid="uid://dg5sfcbymcey7" path="res://assets/scripts/level_change.gd" id="5_xfbpt"]
+[ext_resource type="PackedScene" uid="uid://cvmuna5eakt7q" path="res://assets/scenes/environment/torch.tscn" id="6_5gbqh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbqh"]
 size = Vector2(20, 26)
@@ -161,3 +162,22 @@ next_level_path = "uid://daf4l4nb6vxdj"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(208, 3)
 shape = SubResource("RectangleShape2D_5gbqh")
+
+[node name="Torch" parent="." instance=ExtResource("6_5gbqh")]
+position = Vector2(60, 24)
+rotation = -0.261799
+
+[node name="Torch2" parent="." instance=ExtResource("6_5gbqh")]
+position = Vector2(60, 116)
+rotation = -0.261799
+
+[node name="Torch3" parent="." instance=ExtResource("6_5gbqh")]
+position = Vector2(148, 116)
+rotation = 0.261799
+
+[node name="Torch4" parent="." instance=ExtResource("6_5gbqh")]
+position = Vector2(148, 24)
+rotation = 0.261799
+
+[node name="Torch5" parent="." instance=ExtResource("6_5gbqh")]
+position = Vector2(104, 180)
