@@ -191,7 +191,9 @@ func update_alert_state(new_state: AlertnessState) -> void:
 		AlertnessState.ALERTED:
 			question_mark.visible = false
 			exclamation.visible = true
-
+			# Trigger game over
+			get_tree().change_scene_to_file("res://assets/scenes/ui/game_over_screen.tscn")
+	
 func _ready() -> void:
 	print("Sentry _ready: Attempting to initialize status bar.") # Debug print
 	if STATUS_BAR_SCENE == null:

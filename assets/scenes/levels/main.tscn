@@ -1,12 +1,25 @@
-[gd_scene load_steps=7 format=4 uid="uid://b82ljks0hknpj"]
+[gd_scene load_steps=12 format=4 uid="uid://b82ljks0hknpj"]
 
 [ext_resource type="PackedScene" uid="uid://b0blgbxf1vgsh" path="res://assets/scenes/characters/player.tscn" id="1_l3887"]
 [ext_resource type="Script" uid="uid://dawy80ds4ku5r" path="res://assets/scripts/Waypoint2D.gd" id="2_07mv4"]
 [ext_resource type="PackedScene" uid="uid://btykre1m0ouee" path="res://assets/scenes/tilesets/castle_tileset.tscn" id="2_snkx0"]
 [ext_resource type="PackedScene" uid="uid://cl4ybl3p53ljw" path="res://assets/scenes/characters/sentry.tscn" id="4_4pjnc"]
 [ext_resource type="Script" uid="uid://dg5sfcbymcey7" path="res://assets/scripts/level_change.gd" id="5_snkx0"]
+[ext_resource type="PackedScene" uid="uid://cvmuna5eakt7q" path="res://assets/scenes/environment/torch.tscn" id="6_i66uq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pjnc"]
+
+[sub_resource type="Environment" id="Environment_q46cc"]
+ambient_light_energy = 0.4
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_i66uq"]
+exposure_multiplier = 0.17
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j10tk"]
+polygon = PackedVector2Array(96, -168, -528, -168, -528, 128, 96, 128, 24, 24, 24, 40, -472, 40, -472, 24, -488, 24, -488, -128, -472, -128, -472, -144, 24, -144, 24, -128, 40, -128, 40, 24, 24, 24, 96, 128)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vd7hs"]
+polygon = PackedVector2Array(-432, -64, -432, 0, -416, 0, -416, -64)
 
 [node name="Main" type="Node2D"]
 
@@ -99,3 +112,25 @@ next_level_path = "uid://bg46bc8mvw3qj"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-48, -96)
 shape = SubResource("RectangleShape2D_4pjnc")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q46cc")
+camera_attributes = SubResource("CameraAttributesPhysical_i66uq")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_j10tk")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_vd7hs")
+
+[node name="Torch" parent="." instance=ExtResource("6_i66uq")]
+position = Vector2(-368, -104)
+
+[node name="Torch2" parent="." instance=ExtResource("6_i66uq")]
+position = Vector2(-272, -104)
+
+[node name="Torch3" parent="." instance=ExtResource("6_i66uq")]
+position = Vector2(-176, -104)
+
+[node name="Torch4" parent="." instance=ExtResource("6_i66uq")]
+position = Vector2(-80, -104)

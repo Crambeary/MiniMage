@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://b0blgbxf1vgsh"]
+[gd_scene load_steps=108 format=3 uid="uid://b0blgbxf1vgsh"]
 
 [ext_resource type="Texture2D" uid="uid://nsh6yphxopl1" path="res://assets/art/characters/DG_Asha/Blue Asha Idle 32x32.png" id="1_1afkf"]
 [ext_resource type="Script" uid="uid://dufdfer22yehx" path="res://addons/MizGodotTools/example_scenes/top_down_player_example/top_down_player.gd" id="1_03h60"]
@@ -748,6 +748,9 @@ animations = [{
 radius = 1.0
 height = 6.0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y5lh6"]
+polygon = PackedVector2Array(-2, -8, 2, -8, 2, -7, 3, -7, 3, -6, 3, -6, 3, 0, -3, 0, -3, -6, -3, -7, -2, -7)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 slide_on_ceiling = false
@@ -776,3 +779,6 @@ zoom = Vector2(3, 3)
 
 [node name="PlayerDetectionHandler" type="Node2D" parent="."]
 script = ExtResource("4_nrtg8")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_y5lh6")

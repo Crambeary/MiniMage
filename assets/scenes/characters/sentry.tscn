@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cl4ybl3p53ljw"]
+[gd_scene load_steps=27 format=3 uid="uid://cl4ybl3p53ljw"]
 
 [ext_resource type="Script" uid="uid://cptjrtmqy74b5" path="res://assets/scenes/characters/sentry.gd" id="1_1ae5g"]
 [ext_resource type="PackedScene" uid="uid://c7i2wn723ofv4" path="res://addons/MizGodotTools/characters_utility/vision_manager/vision_manager.tscn" id="1_hkm4p"]
@@ -165,6 +165,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g80ai"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_g80ai"]
+polygon = PackedVector2Array(-8, -26, -8, -12, -10, -12, -10, -8, -8, -8, -8, 0, 8, 0, 10, 0, 10, -4, 8, -4, 8, -6, 10, -6, 10, -8, 12, -8, 12, -12, 10, -12, 10, -14, 8, -14, 8, -26, 6, -26, 6, -28, -6, -28, -6, -26)
+
 [node name="Sentry" type="Node2D" groups=["sentry"]]
 script = ExtResource("1_1ae5g")
 speed = 50.0
@@ -194,3 +201,12 @@ scale = Vector2(0.6, 0.6)
 visible = false
 position = Vector2(0, -32)
 scale = Vector2(0.6, 0.6)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_g80ai")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_g80ai")

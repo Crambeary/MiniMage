@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://cvmuna5eakt7q"]
+
+[ext_resource type="Texture2D" uid="uid://bxkxbv6b4ugn1" path="res://assets/art/vfx/2d_lights_and_shadows_neutral_point_light.webp" id="1_yayxl"]
+[ext_resource type="Texture2D" uid="uid://hmhkx03b2k3q" path="res://assets/art/tilesets/CastleTiles.png" id="2_q7for"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi0r5"]
+atlas = ExtResource("2_q7for")
+region = Rect2(336, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdc8c"]
+atlas = ExtResource("2_q7for")
+region = Rect2(352, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlm4y"]
+atlas = ExtResource("2_q7for")
+region = Rect2(368, 160, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27k6m"]
+atlas = ExtResource("2_q7for")
+region = Rect2(384, 160, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fnxkt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi0r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdc8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlm4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27k6m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3.05176e-05, 0)
+scale = Vector2(-0.568565, 0.48384)
+shadow_enabled = true
+texture = ExtResource("1_yayxl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fnxkt")
+autoplay = "default"
+frame_progress = 0.567873
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.109804)
+texture = ExtResource("2_q7for")
+region_enabled = true
+region_rect = Rect2(176, 192, 80, 80)
