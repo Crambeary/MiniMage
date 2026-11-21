@@ -157,7 +157,7 @@ position = Vector2(0, 16)
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 3
 script = ExtResource("5_xfbpt")
-next_level_path = "uid://daf4l4nb6vxdj"
+next_level_path = "uid://bp8hjdgv1ynqf"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(208, 3)

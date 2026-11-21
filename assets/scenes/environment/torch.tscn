@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvmuna5eakt7q"]
 
-[ext_resource type="Texture2D" uid="uid://bxkxbv6b4ugn1" path="res://assets/art/vfx/2d_lights_and_shadows_neutral_point_light.webp" id="1_yayxl"]
+[ext_resource type="Texture2D" uid="uid://dy4m4n3b4buof" path="res://assets/art/vfx/2d_32x32_lights_and_shadows_neutral_point_light.png" id="1_yayxl"]
 [ext_resource type="Texture2D" uid="uid://hmhkx03b2k3q" path="res://assets/art/tilesets/CastleTiles.png" id="2_q7for"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xi0r5"]
@@ -43,9 +43,11 @@ animations = [{
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(3.05176e-05, 0)
-scale = Vector2(-0.568565, 0.48384)
+scale = Vector2(-1.37231, 1.16781)
 shadow_enabled = true
+shadow_item_cull_mask = 3
 texture = ExtResource("1_yayxl")
+texture_scale = 4.77
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fnxkt")

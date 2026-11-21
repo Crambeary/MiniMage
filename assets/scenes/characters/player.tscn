@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://drgy5ywjdpjnl" path="res://addons/MizGodotTools/characters_utility/top_down_character_mover/top_down_character_mover.tscn" id="4_o6put"]
 [ext_resource type="Script" uid="uid://b1ckqjcr6vftk" path="res://assets/scenes/characters/top_down_player_animation.gd" id="7_6uukj"]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y5lh6"]
+polygon = PackedVector2Array(-2, -8, 2, -8, 2, -7, 3, -7, 3, -6, 3, -6, 3, 0, -3, 0, -3, -6, -3, -7, -2, -7)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_03h60"]
 atlas = ExtResource("1_1afkf")
 region = Rect2(0, 0, 32, 32)
@@ -748,13 +751,13 @@ animations = [{
 radius = 1.0
 height = 6.0
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y5lh6"]
-polygon = PackedVector2Array(-2, -8, 2, -8, 2, -7, 3, -7, 3, -6, 3, -6, 3, 0, -3, 0, -3, -6, -3, -7, -2, -7)
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 slide_on_ceiling = false
 script = ExtResource("1_03h60")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_y5lh6")
 
 [node name="TopDownCharacterMover" parent="." instance=ExtResource("4_o6put")]
 max_move_speed = 100.0
@@ -779,6 +782,3 @@ zoom = Vector2(3, 3)
 
 [node name="PlayerDetectionHandler" type="Node2D" parent="."]
 script = ExtResource("4_nrtg8")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_y5lh6")
