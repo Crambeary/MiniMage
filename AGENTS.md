@@ -20,3 +20,17 @@ agents (Codex etc.) get no enforcement, so follow these rules yourself:
   `scene_get_hierarchy`, `node_get_properties`, ...) with your `session_id`.
 - Only launch an editor at your own worktree (`tools/open-editor.sh`).
 
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for Crambeary/MiniMage (via `gh`). See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five-label vocabulary (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: root `GLOSSARY.md` + `docs/adr/`. See `docs/agents/domain.md`.
