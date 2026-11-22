@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://daf4l4nb6vxdj"]
+[gd_scene load_steps=6 format=4 uid="uid://daf4l4nb6vxdj"]
 
 [ext_resource type="PackedScene" uid="uid://btykre1m0ouee" path="res://assets/scenes/tilesets/castle_tileset.tscn" id="1_2guls"]
 [ext_resource type="PackedScene" uid="uid://cl4ybl3p53ljw" path="res://assets/scenes/characters/sentry.tscn" id="2_l6tgs"]
 [ext_resource type="Script" uid="uid://dawy80ds4ku5r" path="res://assets/scripts/Waypoint2D.gd" id="3_ic2y8"]
 [ext_resource type="PackedScene" uid="uid://b0blgbxf1vgsh" path="res://assets/scenes/characters/player.tscn" id="4_3xxnt"]
+[ext_resource type="Script" uid="uid://cu25arjndhx4d" path="res://assets/scripts/patrol_path_2d.gd" id="patrol_path_2d"]
 
 [node name="Level2" type="Node2D"]
 
@@ -18,12 +19,14 @@ tile_map_data = PackedByteArray("AAD9//z/AAACAAQAAAD+//z/AAACAAQAAAD///z/AAACAAQ
 [node name="Objects" parent="Tiles" instance=ExtResource("1_2guls")]
 tile_map_data = PackedByteArray("AAD//wIAAAAVAAAAAAAAAAIAAAAVAAAAAAD+/wQAAAAIAAUAAAABAAcAAAATAAQAAAADAAwAAAAVAAAAAAADABAAAAAVAAAAAAD6/wwAAAAWAAAAAAD8/w0AAAAVAAAAAAD6/w0AAAAVAAAAAAD8/w4AAAAVAAAAAAADABYAAAATAA0AAAACABcAAAATAA0AAAACABYAAAATAA0AAAD+/xcAAAATAA8AAAD8/xcAAAAVAAAAAAADAAsAAAAVAAAAAAALAAwAAAAVAAAAAAALAAsAAAAVAAAAAAAMAAsAAAAVAAAAAAAMAAwAAAAVAAAAAAAMABQAAAATAAQAAAANABQAAAAVAAcAAAALABgAAAAVAAAAAAAMABgAAAAVAAAAAAAQAA8AAAAVAAAAAAAMAAAAAAAXAAYAAAA=")
 
-[node name="Sentry" parent="." instance=ExtResource("2_l6tgs")]
+[node name="Sentry" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_l6tgs")]
+patrol_path = NodePath("../Paths/Paths_1")
 position = Vector2(40, 64)
 
 [node name="Paths" type="Node2D" parent="."]
 
-[node name="Paths_1" type="Node2D" parent="Paths" groups=["Sentry1"]]
+[node name="Paths_1" type="Node2D" parent="Paths"]
+script = ExtResource("patrol_path_2d")
 
 [node name="Point1" type="Marker2D" parent="Paths/Paths_1"]
 position = Vector2(40, 82)

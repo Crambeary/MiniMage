@@ -25,8 +25,7 @@ func _setup() -> void:
 	var level := Node2D.new()
 	root.add_child(level)
 
-	var paths := Node2D.new()
-	paths.add_to_group("Sentry1")
+	var paths: Node2D = (load("res://assets/scripts/patrol_path_2d.gd") as GDScript).new()
 	var waypoint_script: Script = load("res://assets/scripts/Waypoint2D.gd")
 	var first := Marker2D.new()
 	first.set_script(waypoint_script)
@@ -45,6 +44,7 @@ func _setup() -> void:
 
 	_sentry = (load("res://assets/scenes/characters/sentry.tscn") as PackedScene).instantiate()
 	_sentry.position = Vector2.ZERO
+	_sentry.patrol_path = paths
 	level.add_child(_sentry)
 
 	_handler = (

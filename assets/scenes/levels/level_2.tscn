@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bg46bc8mvw3qj"]
+[gd_scene load_steps=9 format=4 uid="uid://bg46bc8mvw3qj"]
 
 [ext_resource type="PackedScene" uid="uid://btykre1m0ouee" path="res://assets/scenes/tilesets/castle_tileset.tscn" id="1_icxrv"]
 [ext_resource type="PackedScene" uid="uid://b0blgbxf1vgsh" path="res://assets/scenes/characters/player.tscn" id="2_ttb08"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dawy80ds4ku5r" path="res://assets/scripts/Waypoint2D.gd" id="4_xfbpt"]
 [ext_resource type="Script" uid="uid://dg5sfcbymcey7" path="res://assets/scripts/level_change.gd" id="5_xfbpt"]
 [ext_resource type="PackedScene" uid="uid://cvmuna5eakt7q" path="res://assets/scenes/environment/torch.tscn" id="6_5gbqh"]
+[ext_resource type="Script" uid="uid://cu25arjndhx4d" path="res://assets/scripts/patrol_path_2d.gd" id="patrol_path_2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gbqh"]
 size = Vector2(20, 26)
@@ -23,16 +24,18 @@ tile_map_data = PackedByteArray("AAD9//z/AAACAAQAAAD+//z/AAACAAQAAAD///z/AAACAAQ
 [node name="Objects" parent="Tiles" instance=ExtResource("1_icxrv")]
 tile_map_data = PackedByteArray("AAD//wIAAAAVAAAAAAAAAAIAAAAVAAAAAAD+/wQAAAAIAAUAAAABAAcAAAATAAQAAAADAAwAAAAVAAAAAAADABAAAAAVAAAAAAD6/wwAAAAWAAAAAAD8/w0AAAAVAAAAAAD6/w0AAAAVAAAAAAD8/w4AAAAVAAAAAAADABYAAAATAA0AAAACABcAAAATAA0AAAACABYAAAATAA0AAAD+/xcAAAATAA8AAAD8/xcAAAAVAAAAAAADAAsAAAAVAAAAAAALAAwAAAAVAAAAAAALAAsAAAAVAAAAAAAMAAsAAAAVAAAAAAAMAAwAAAAVAAAAAAAMABQAAAATAAQAAAANABQAAAAVAAcAAAALABgAAAAVAAAAAAAMABgAAAAVAAAAAAAQAA8AAAAVAAAAAAAMAAAAAAAXAAYAAAA=")
 
-[node name="Sentry" parent="." instance=ExtResource("3_aeyps")]
+[node name="Sentry" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("3_aeyps")]
+patrol_path = NodePath("../Paths/Paths_1")
 position = Vector2(40, 64)
 
-[node name="Sentry2" parent="." instance=ExtResource("3_aeyps")]
+[node name="Sentry2" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("3_aeyps")]
+patrol_path = NodePath("../Paths/Paths_2")
 position = Vector2(166, 64)
-path_group_name = "Sentry2"
 
 [node name="Paths" type="Node2D" parent="."]
 
-[node name="Paths_1" type="Node2D" parent="Paths" groups=["Sentry1"]]
+[node name="Paths_1" type="Node2D" parent="Paths"]
+script = ExtResource("patrol_path_2d")
 
 [node name="Point1" type="Marker2D" parent="Paths/Paths_1"]
 position = Vector2(40, 82)
@@ -89,7 +92,8 @@ script = ExtResource("4_xfbpt")
 position = Vector2(-32, 82)
 script = ExtResource("4_xfbpt")
 
-[node name="Paths_2" type="Node2D" parent="Paths" groups=["Sentry2"]]
+[node name="Paths_2" type="Node2D" parent="Paths"]
+script = ExtResource("patrol_path_2d")
 
 [node name="Point1" type="Marker2D" parent="Paths/Paths_2"]
 position = Vector2(166, 72)
