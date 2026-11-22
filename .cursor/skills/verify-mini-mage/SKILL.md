@@ -44,9 +44,15 @@ A healthy doctor prints `VERIFY_DOCTOR ok`.
 .cursor/skills/verify-mini-mage/helpers/mm-verify drive walk
 ```
 
-`start-game` is the other automated feature. `sentry-detection`, `level-change`, and `touch-scheme` are mapped but not automated: `drive` exits 3 and does not write a pass.
+`start-game` and `touch-scheme` are the other automated features. `sentry-detection` and `level-change` are mapped but not automated: `drive` exits 3 and does not write a pass.
 
-The window is 960×540 at (40, 40), renderer `gl_compatibility`, audio driver `Dummy`. `drive.gd` loads the project main scene, waits until a `Button` with text `Start Game` has a real rectangle, left-clicks that rectangle through `Viewport.push_input`, and waits until the current scene is `res://assets/scenes/levels/main.tscn` with a node in group `player`. `walk` then posts a physical `D` key-down on every physics frame for 45 frames and one key-up. A script has no OS key repeat, so the repeated key-down is how the held key reaches `Input.get_vector("move_left", "move_right", "move_up", "move_down")`. The driver never writes `position` or `velocity`.
+The window is 960×540 at (40, 40) unless `MM_VERIFY_RESOLUTION=WxH` is set, in which case the evidence directory gets a `-WxH` suffix. A tiling compositor (Hyprland, sway) ignores `--resolution`; run through `GODOT=helpers/godot-gamescope GODOT_BIN=<godot>` to get the exact size in a nested gamescope. gamescope may make `drive` exit 1 after `VERIFY_PASS` ("Broken pipe" on teardown); `result.json` is the verdict.
+
+Stretch is `canvas_items`/`expand` and `ScreenLayout` sets the content scale, so viewport units are not window pixels: a 960×540 window is 1066×600 units. `drive.gd` converts every point with `root.get_final_transform()` before `push_input`.
+
+The window, renderer `gl_compatibility`, audio driver `Dummy`. `drive.gd` loads the project main scene, waits until a `Button` with text `Start Game` has a real rectangle, left-clicks that rectangle through `Viewport.push_input`, and waits until the current scene is `res://assets/scenes/levels/main.tscn` with a node in group `player`. `walk` then posts a physical `D` key-down on every physics frame for 45 frames and one key-up. A script has no OS key repeat, so the repeated key-down is how the held key reaches `Input.get_vector("move_left", "move_right", "move_up", "move_down")`. The driver never writes `position` or `velocity`.
+
+`touch-scheme` presses `Locked`, `Floating`, then `Drag` on the switcher. After each press it swipes with `InputEventScreenTouch`/`InputEventScreenDrag`: locked from the stick's centre to the right, floating at (0.3w, 0.65h) to the left, drag at (0.5w, 0.65h) to the right. It holds for 45 physics frames and releases. Pass: each press makes that scheme current, and each swipe moves the player at least 8 px the right way. Directions alternate because of the wall right of the spawn.
 
 Pass for `walk`: the player's `global_position.x` increases by at least 20 pixels. From the level-1 spawn `(-464, -24)`, `D` stops near `x=-435` on a collision, so a longer hold does not mean a longer walk.
 
@@ -57,10 +63,11 @@ Proof for a drive is the directory `.cursor/skills/verify-mini-mage/evidence/<fe
 - `menu.png` — menu before the click, with the title `Mini Mage` and the `Start Game` button
 - `level-before.png` — level 1 after the click, before movement
 - `level-after.png` — `walk` only, after the key-up
-- `result.json` — feature id, pass flag, Godot version, click point, scene path, player position before and after, `delta_x`
+- `touch-<scheme>.png` — `touch-scheme` only, after each scheme's swipe
+- `result.json` — feature id, pass flag, Godot version, click point, scene path, player position before and after, `delta_x`, window pixels and viewport units; `touch_runs` for `touch-scheme`
 - `drive.log` — stdout and stderr, including `VERIFY_READY`, `VERIFY_MOVED`, and `VERIFY_PASS` or `VERIFY_FAIL`
 
-Override the directory with `VERIFY_EVIDENCE_DIR`. The seed proof for `walk` is committed under `evidence/walk/`. A copy of that run also lives at `/cursor/stores/bc-01a201c0-b5fd-7d18-80ac-5bd56fbc62cc/media/verify-mini-mage/walk/`.
+Override the directory with `VERIFY_EVIDENCE_DIR`. The seed proof for `walk` is committed under `evidence/walk/`, and `touch-scheme` at phone landscape, phone portrait and design size under `evidence/touch-scheme-{844x390,390x844,1152x648}/`. A copy of the original (pre-stretch) `walk` run lives at `/cursor/stores/bc-01a201c0-b5fd-7d18-80ac-5bd56fbc62cc/media/verify-mini-mage/walk/`.
 
 Standards: click and key events only, then read the scene path and the player position back. Screenshots show the window at the action and after it. Do not treat a log line alone as proof. Audio falling back to Dummy does not touch gameplay. `gl_compatibility` is the verification renderer because machines without Vulkan (including llvmpipe on X11) cannot start the default renderer.
 
