@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://b0blgbxf1vgsh"]
+[gd_scene load_steps=109 format=3 uid="uid://b0blgbxf1vgsh"]
 
 [ext_resource type="Texture2D" uid="uid://nsh6yphxopl1" path="res://assets/art/characters/DG_Asha/Blue Asha Idle 32x32.png" id="1_1afkf"]
 [ext_resource type="Script" uid="uid://dufdfer22yehx" path="res://addons/MizGodotTools/example_scenes/top_down_player_example/top_down_player.gd" id="1_03h60"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://baawngol8cord" path="res://assets/scenes/characters/player_detection_handler.gd" id="4_nrtg8"]
 [ext_resource type="PackedScene" uid="uid://drgy5ywjdpjnl" path="res://addons/MizGodotTools/characters_utility/top_down_character_mover/top_down_character_mover.tscn" id="4_o6put"]
 [ext_resource type="Script" uid="uid://b1ckqjcr6vftk" path="res://assets/scenes/characters/top_down_player_animation.gd" id="7_6uukj"]
+[ext_resource type="Script" path="res://assets/scripts/camera_fit.gd" id="9_camfit"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_y5lh6"]
 polygon = PackedVector2Array(-2, -8, 2, -8, 2, -7, 3, -7, 3, -6, 3, -6, 3, 0, -3, 0, -3, -6, -3, -7, -2, -7)
@@ -779,6 +780,7 @@ shape = SubResource("CapsuleShape2D_y5lh6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+script = ExtResource("9_camfit")
 
 [node name="PlayerDetectionHandler" type="Node2D" parent="."]
 script = ExtResource("4_nrtg8")
