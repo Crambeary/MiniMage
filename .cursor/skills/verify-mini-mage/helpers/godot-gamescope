@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Runs Godot inside a nested gamescope at exactly $MM_VERIFY_RESOLUTION (WxH), so a tiling
+# compositor (Hyprland, sway) cannot resize the verification window. Use it as $GODOT:
+#   GODOT=helpers/godot-gamescope GODOT_BIN=/path/to/godot MM_VERIFY_RESOLUTION=844x390 mm-verify drive touch-scheme
+# Version and headless calls (doctor, launch) pass straight through to Godot.
+set -euo pipefail
+bin="${GODOT_BIN:-$(command -v godot)}"
+case " $* " in *" --version "*|*" --headless "*) exec "$bin" "$@";; esac
+res="${MM_VERIFY_RESOLUTION:?set MM_VERIFY_RESOLUTION=WxH}"
+w="${res%x*}"; h="${res#*x}"
+exec gamescope -W "$w" -H "$h" -w "$w" -h "$h" -- "$bin" --display-driver x11 "$@"

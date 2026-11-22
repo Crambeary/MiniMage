@@ -7,7 +7,7 @@ This directory is the maintained source for verifying what a player can do in Mi
 - Repo root contains `project.godot` with features `4.7`.
 - `mm-verify launch` has printed `VERIFY_READY import` since the last `mm-verify cleanup`.
 - `mm-verify doctor` prints `VERIFY_DOCTOR ok` for this repo path.
-- `DISPLAY` is set. The drive opens a 960×540 window with `--rendering-method gl_compatibility`.
+- `DISPLAY` is set. The drive opens a 960×540 window (or `MM_VERIFY_RESOLUTION`) with `--rendering-method gl_compatibility`.
 - Do not drive a Godot process you did not start. Do not start a second drive against the same repo path.
 
 ## Driving conventions

@@ -1,0 +1,110 @@
+{
+  "button": "Start Game",
+  "click": {
+    "x": 421.549621582031,
+    "y": 224.272506713867
+  },
+  "delta_x": 28.99951171875,
+  "detail": "switched to each scheme with its button, then swiped with ScreenTouch/ScreenDrag",
+  "feature": "touch-scheme",
+  "godot": "4.7",
+  "godot_string": "4.7.2-stable (official)",
+  "hold_frames": 0,
+  "key": "",
+  "menu_title": "Mini Mage",
+  "pass": true,
+  "player_after": {
+    "x": -435.00048828125,
+    "y": -24.0
+  },
+  "player_before": {
+    "x": -464.0,
+    "y": -24.0
+  },
+  "scene_after_click": "res://assets/scenes/levels/main.tscn",
+  "touch_runs": [
+    {
+      "active_after_click": "locked",
+      "button_rect": {
+        "h": 48.0,
+        "w": 88.0,
+        "x": 649.0,
+        "y": 8.0
+      },
+      "direction": 1.0,
+      "finger_viewport": {
+        "x": 110.0,
+        "y": 323.0
+      },
+      "moved_px": 28.9976196289062,
+      "pass": true,
+      "player_after": {
+        "x": -435.002380371094,
+        "y": -24.0
+      },
+      "player_before": {
+        "x": -464.0,
+        "y": -24.0
+      },
+      "scheme": "locked"
+    },
+    {
+      "active_after_click": "floating",
+      "button_rect": {
+        "h": 48.0,
+        "w": 88.0,
+        "x": 745.0,
+        "y": 8.0
+      },
+      "direction": -1.0,
+      "finger_viewport": {
+        "x": 281.100006103516,
+        "y": 281.450012207031
+      },
+      "moved_px": 41.9968566894531,
+      "pass": true,
+      "player_after": {
+        "x": -476.999237060547,
+        "y": -24.0
+      },
+      "player_before": {
+        "x": -435.002380371094,
+        "y": -24.0
+      },
+      "scheme": "floating"
+    },
+    {
+      "active_after_click": "drag",
+      "button_rect": {
+        "h": 48.0,
+        "w": 88.0,
+        "x": 841.0,
+        "y": 8.0
+      },
+      "direction": 1.0,
+      "finger_viewport": {
+        "x": 468.5,
+        "y": 281.450012207031
+      },
+      "moved_px": 41.9987487792969,
+      "pass": true,
+      "player_after": {
+        "x": -435.00048828125,
+        "y": -24.0
+      },
+      "player_before": {
+        "x": -476.999237060547,
+        "y": -24.0
+      },
+      "scheme": "drag"
+    }
+  ],
+  "viewport_units": {
+    "x": 937.0,
+    "y": 433.0
+  },
+  "window_px": {
+    "x": 844,
+    "y": 390
+  }
+}
