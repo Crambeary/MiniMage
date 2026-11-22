@@ -50,9 +50,11 @@ alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 text = "We've survived the game jam.
 
 This development has taught me more than I expected."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
