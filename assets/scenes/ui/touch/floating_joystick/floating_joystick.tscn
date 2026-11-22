@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://un5v0njn00id"]
+
+[ext_resource type="Script" uid="uid://bnpu5q08m3avx" path="res://assets/scenes/ui/touch/floating_joystick/floating_joystick.gd" id="1_rxvv6"]
+
+[node name="FloatingJoystick" type="CanvasLayer" unique_id=138634823]
+layer = 100
+script = ExtResource("1_rxvv6")
+
+[node name="Canvas" type="Control" parent="." unique_id=1267978123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
