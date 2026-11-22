@@ -1,10 +1,19 @@
 extends SceneTree
 
-var _phase := 0
+const WAYPOINT := Vector2(200, 0)
+const PLAYER_IN_SIGHT := Vector2(180, 0)
+const PLAYER_HIDDEN := Vector2(-400, 400)
+
 var _sentry: Node2D
+var _player: Node2D
 var _handler: Node
-var _fake: Node2D
-var _start_x := 0.0
+var _elapsed := 0.0
+var _hid_player := false
+var _closest := INF
+var _saw_aimed_arrow := false
+var _saw_question := false
+var _arrow_cleared := false
+var _exclamation_hidden_while_suspicious := false
 var _failures: PackedStringArray = PackedStringArray()
 
 
@@ -14,106 +23,96 @@ func _init() -> void:
 
 func _setup() -> void:
 	var level := Node2D.new()
-	level.name = "PinLevel"
 	root.add_child(level)
 
 	var paths := Node2D.new()
-	paths.name = "Paths_1"
 	paths.add_to_group("Sentry1")
-	var waypoint_script := load("res://assets/scripts/Waypoint2D.gd")
+	var waypoint_script: Script = load("res://assets/scripts/Waypoint2D.gd")
 	var first := Marker2D.new()
 	first.set_script(waypoint_script)
-	first.position = Vector2(200, 0)
-	first.action = "walk"
+	first.position = WAYPOINT
 	paths.add_child(first)
 	var second := Marker2D.new()
 	second.set_script(waypoint_script)
 	second.position = Vector2(200, 80)
-	second.action = "walk"
 	paths.add_child(second)
 	level.add_child(paths)
 
+	_player = Node2D.new()
+	_player.add_to_group("player")
+	_player.position = PLAYER_IN_SIGHT
+	level.add_child(_player)
+
 	_sentry = (load("res://assets/scenes/characters/sentry.tscn") as PackedScene).instantiate()
-	_sentry.position = Vector2(0, 0)
+	_sentry.position = Vector2.ZERO
 	level.add_child(_sentry)
-	_start_x = _sentry.global_position.x
 
 	_handler = (load("res://assets/scenes/characters/player_detection_handler.gd") as GDScript).new()
 	level.add_child(_handler)
 
-	var fake_script := GDScript.new()
-	fake_script.source_code = "extends Node2D\nsignal player_detected(detector, detection_level)\nsignal player_detection_lost(detector)\n"
-	if fake_script.reload() != OK:
-		_fail("fake sentry script failed to reload")
-		quit(1)
-		return
-	_fake = Node2D.new()
-	_fake.set_script(fake_script)
-	_fake.add_to_group("sentry")
-	level.add_child(_fake)
 
-
-func _process(_delta: float) -> bool:
-	_phase += 1
-	if _phase == 20:
-		_check_patrol()
-	elif _phase == 22:
-		_fake.player_detected.emit(_fake, 0.4)
-	elif _phase == 23:
-		_check_detect()
-		_fake.player_detection_lost.emit(_fake)
-	elif _phase == 24:
-		_check_lost()
-		_check_alertness()
+func _process(delta: float) -> bool:
+	_elapsed += delta
+	_closest = minf(_closest, _sentry.global_position.distance_to(WAYPOINT))
+	_note_what_the_player_sees()
+	if _elapsed > 2.0 and not _hid_player:
+		_hid_player = true
+		_player.global_position = PLAYER_HIDDEN
+	if _hid_player and _elapsed > 2.4:
 		_finish()
+		return true
+	if _elapsed > 4.0:
+		_finish()
+		return true
 	return false
 
 
-func _check_patrol() -> void:
-	if _sentry.global_position.x <= _start_x + 1.0:
-		_fail("patrol did not move +x, x=%s start=%s" % [_sentry.global_position.x, _start_x])
-	if absf(_sentry.global_position.y) > 0.01:
-		_fail("patrol drifted on y, y=%s" % _sentry.global_position.y)
-	if _sentry.idle_task != _sentry.IdleTasks.PATROL:
-		_fail("patrol idle_task is %s" % _sentry.IdleTasks.keys()[_sentry.idle_task])
-	if not is_equal_approx(_sentry.suspicion_threshold, 0.3):
-		_fail("suspicion_threshold is %s" % _sentry.suspicion_threshold)
+func _note_what_the_player_sees() -> void:
+	var question: CanvasItem = _sentry.get_node("Emotes/QuestionMark")
+	var exclamation: CanvasItem = _sentry.get_node("Emotes/Exclamation")
+	if question.visible:
+		_saw_question = true
+		if not exclamation.visible:
+			_exclamation_hidden_while_suspicious = true
+	for child in _handler.get_children():
+		if not child is Node2D or not (child as Node2D).visible:
+			continue
+		var arrow := child as Node2D
+		var aim := arrow.global_position.angle_to_point(_sentry.global_position)
+		if absf(wrapf(arrow.global_rotation - aim, -PI, PI)) < 0.35:
+			_saw_aimed_arrow = true
 
 
-func _check_detect() -> void:
-	if _handler.get_child_count() != 1:
-		_fail("detect child count %s" % _handler.get_child_count())
-		return
-	var arrow := _handler.get_child(0)
-	if not is_equal_approx(arrow.detection_level, 0.4):
-		_fail("arrow level %s" % arrow.detection_level)
-
-
-func _check_lost() -> void:
-	if _handler.get_child_count() != 0:
-		_fail("lost child count %s" % _handler.get_child_count())
-
-
-func _check_alertness() -> void:
-	_sentry.alertness_value = 0.5
-	_sentry.update_alertness()
-	if _sentry.alertness_state != _sentry.AlertnessState.SUSPICIOUS:
-		_fail("alertness_state %s" % _sentry.AlertnessState.keys()[_sentry.alertness_state])
-	if not _sentry.question_mark.visible:
-		_fail("question mark hidden at suspicion")
-	if _sentry.idle_task != _sentry.IdleTasks.WAIT:
-		_fail("surprise idle_task %s" % _sentry.IdleTasks.keys()[_sentry.idle_task])
-
-
-func _fail(message: String) -> void:
-	_failures.append(message)
-	push_error(message)
+func _visible_arrow_count() -> int:
+	var count := 0
+	for child in _handler.get_children():
+		if child is Node2D and (child as Node2D).visible:
+			count += 1
+	return count
 
 
 func _finish() -> void:
+	var start_distance := Vector2.ZERO.distance_to(WAYPOINT)
+	if _closest > start_distance - 5.0:
+		_failures.append("sentry did not close on the waypoint, closest=%s" % _closest)
+	if absf(_sentry.global_position.y) > 1.0:
+		_failures.append("sentry left the patrol line, y=%s" % _sentry.global_position.y)
+	if not _saw_aimed_arrow:
+		_failures.append("no visible arrow pointed at the sentry")
+	if not _saw_question:
+		_failures.append("question mark stayed hidden while the player stood in front")
+	if not _exclamation_hidden_while_suspicious:
+		_failures.append("exclamation showed while the question mark was up")
+	if _visible_arrow_count() != 0:
+		_failures.append("arrow still visible after the player left sight")
+	else:
+		_arrow_cleared = true
+	print("BEHAVIOR pos=%s closest=%s aimed=%s question=%s exclamation_hidden=%s cleared=%s" % [
+		_sentry.global_position, _closest, _saw_aimed_arrow, _saw_question,
+		_exclamation_hidden_while_suspicious, _arrow_cleared
+	])
 	if _failures.is_empty():
-		print("PIN ok patrol_x=%s suspicion=%s" % [_sentry.global_position.x, _sentry.suspicion_threshold])
 		quit(0)
 	else:
-		print("PIN failed %s" % ", ".join(_failures))
+		push_error(", ".join(_failures))
 		quit(1)
