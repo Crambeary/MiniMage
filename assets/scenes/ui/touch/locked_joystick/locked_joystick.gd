@@ -5,8 +5,6 @@ signal vector_changed(v: Vector2)
 
 const MOUSE_POINTER: int = -2
 const NO_POINTER: int = -1
-const DESIGN_VIEWPORT_HEIGHT: float = 648.0
-const MIN_UI_SCALE: float = 0.5
 const GRAB_RADIUS_FACTOR: float = 1.25
 const KNOB_RADIUS_FACTOR: float = 0.45
 const BASE_BORDER_WIDTH: float = 2.0
@@ -37,7 +35,7 @@ var _canvas: Control
 func _ready() -> void:
 	_canvas = $Canvas as Control
 	_canvas.draw.connect(_on_canvas_draw)
-	get_viewport().size_changed.connect(_canvas.queue_redraw)
+	ScreenLayout.layout_changed.connect(_canvas.queue_redraw)
 	visibility_changed.connect(_on_visibility_changed)
 	if visible_only_on_touchscreen and not DisplayServer.is_touchscreen_available():
 		visible = false
@@ -80,22 +78,16 @@ func _is_held() -> bool:
 	return _active_pointer != NO_POINTER
 
 
-func _ui_scale() -> float:
-	return maxf(get_viewport().get_visible_rect().size.y / DESIGN_VIEWPORT_HEIGHT, MIN_UI_SCALE)
-
-
-func _scaled_radius() -> float:
-	return radius * _ui_scale()
-
-
+# Sizes are UI units; ScreenLayout scales them to the screen. The stick sits in the
+# bottom-left corner of the safe area so it clears a notch and the home indicator.
 func _base_center() -> Vector2:
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
-	var inset: float = margin * _ui_scale() + _scaled_radius()
-	return Vector2(inset, viewport_size.y - inset)
+	var safe: Rect2 = ScreenLayout.get_safe_rect()
+	var inset: float = margin + radius
+	return Vector2(safe.position.x + inset, safe.end.y - inset)
 
 
 func _grab_radius() -> float:
-	return maxf(_scaled_radius() * GRAB_RADIUS_FACTOR, min_grab_radius * _ui_scale())
+	return maxf(radius * GRAB_RADIUS_FACTOR, min_grab_radius)
 
 
 func _try_grab(pointer: int, screen_position: Vector2) -> void:
@@ -109,9 +101,8 @@ func _try_grab(pointer: int, screen_position: Vector2) -> void:
 
 
 func _move_knob_to(position: Vector2) -> void:
-	var stick_radius: float = _scaled_radius()
-	_knob_offset_px = (position - _base_center()).limit_length(stick_radius)
-	_publish_vector(_knob_offset_px / stick_radius)
+	_knob_offset_px = (position - _base_center()).limit_length(radius)
+	_publish_vector(_knob_offset_px / radius)
 	_canvas.queue_redraw()
 
 
@@ -164,8 +155,7 @@ func _on_visibility_changed() -> void:
 
 func _on_canvas_draw() -> void:
 	var center: Vector2 = _base_center()
-	var stick_radius: float = _scaled_radius()
-	_canvas.draw_circle(center, stick_radius, base_color)
-	_canvas.draw_arc(center, stick_radius, 0.0, TAU, CIRCLE_SEGMENTS, base_border_color, BASE_BORDER_WIDTH, true)
+	_canvas.draw_circle(center, radius, base_color)
+	_canvas.draw_arc(center, radius, 0.0, TAU, CIRCLE_SEGMENTS, base_border_color, BASE_BORDER_WIDTH, true)
 	var current_knob_color: Color = knob_pressed_color if _is_held() else knob_color
-	_canvas.draw_circle(center + _knob_offset_px, stick_radius * KNOB_RADIUS_FACTOR, current_knob_color)
+	_canvas.draw_circle(center + _knob_offset_px, radius * KNOB_RADIUS_FACTOR, current_knob_color)
