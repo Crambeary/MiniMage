@@ -44,6 +44,16 @@ func set_mode(scheme_name: String) -> void:
 		(_scheme_buttons[button_scheme_name] as Button).button_pressed = button_scheme_name == scheme_name
 
 
+## The scheme in use ("locked", "floating", "drag"), or "" when touch controls are off.
+func get_scheme_name() -> String:
+	return _current_scheme_name
+
+
+## The active scheme node (a LockedJoystick, FloatingJoystick or DragArea), or null.
+func get_scheme() -> Node:
+	return _scheme if is_instance_valid(_scheme) else null
+
+
 ## True when a viewport point lands on a switcher button, so a scheme can leave that touch alone.
 func is_switcher_at(viewport_position: Vector2) -> bool:
 	return is_instance_valid(_switcher) and _switcher.visible and _switcher.get_global_rect().has_point(viewport_position)
@@ -87,9 +97,10 @@ func _build_switcher() -> void:
 
 # Keeps the row in the top-right corner of the safe area (clear of a notch or island).
 func _place_switcher() -> void:
-	var insets: Vector4 = ScreenLayout.get_safe_insets()
+	var safe: Rect2 = ScreenLayout.get_safe_rect()
+	var viewport_width: float = get_viewport().get_visible_rect().size.x
 	var row_size: Vector2 = _switcher.get_combined_minimum_size()
-	_switcher.offset_right = -(insets.z + SWITCHER_MARGIN)
+	_switcher.offset_right = safe.end.x - viewport_width - SWITCHER_MARGIN
 	_switcher.offset_left = _switcher.offset_right - row_size.x
-	_switcher.offset_top = insets.y + SWITCHER_MARGIN
+	_switcher.offset_top = safe.position.y + SWITCHER_MARGIN
 	_switcher.offset_bottom = _switcher.offset_top + row_size.y

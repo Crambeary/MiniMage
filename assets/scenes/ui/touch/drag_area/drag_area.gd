@@ -126,10 +126,10 @@ func get_max_distance() -> float:
 	return clampf(distance_px, min_distance, max_distance)
 
 
+# active_area is a fraction of the safe rect, so a drag never starts on the home
+# indicator or beside a notch.
 func _is_in_active_area(screen_position: Vector2) -> bool:
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
-	var area_in_pixels := Rect2(active_area.position * viewport_size, active_area.size * viewport_size)
-	return area_in_pixels.has_point(screen_position)
+	return ScreenLayout.get_safe_fraction_rect(active_area).has_point(screen_position)
 
 
 func _release_threshold() -> float:

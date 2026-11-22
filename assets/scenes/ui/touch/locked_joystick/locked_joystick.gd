@@ -78,9 +78,10 @@ func _is_held() -> bool:
 	return _active_pointer != NO_POINTER
 
 
-# Sizes are UI units; ScreenLayout scales them to the screen. The stick sits in the
-# bottom-left corner of the safe area so it clears a notch and the home indicator.
-func _base_center() -> Vector2:
+## The stick's centre in viewport units. Sizes are UI units; ScreenLayout scales them to
+## the screen. The stick sits in the bottom-left corner of the safe area so it clears a
+## notch and the home indicator.
+func get_base_center() -> Vector2:
 	var safe: Rect2 = ScreenLayout.get_safe_rect()
 	var inset: float = margin + radius
 	return Vector2(safe.position.x + inset, safe.end.y - inset)
@@ -93,7 +94,7 @@ func _grab_radius() -> float:
 func _try_grab(pointer: int, screen_position: Vector2) -> void:
 	if _is_held():
 		return
-	if screen_position.distance_to(_base_center()) > _grab_radius():
+	if screen_position.distance_to(get_base_center()) > _grab_radius():
 		return
 	_active_pointer = pointer
 	_move_knob_to(screen_position)
@@ -101,7 +102,7 @@ func _try_grab(pointer: int, screen_position: Vector2) -> void:
 
 
 func _move_knob_to(position: Vector2) -> void:
-	_knob_offset_px = (position - _base_center()).limit_length(radius)
+	_knob_offset_px = (position - get_base_center()).limit_length(radius)
 	_publish_vector(_knob_offset_px / radius)
 	_canvas.queue_redraw()
 
@@ -154,7 +155,7 @@ func _on_visibility_changed() -> void:
 
 
 func _on_canvas_draw() -> void:
-	var center: Vector2 = _base_center()
+	var center: Vector2 = get_base_center()
 	_canvas.draw_circle(center, radius, base_color)
 	_canvas.draw_arc(center, radius, 0.0, TAU, CIRCLE_SEGMENTS, base_border_color, BASE_BORDER_WIDTH, true)
 	var current_knob_color: Color = knob_pressed_color if _is_held() else knob_color

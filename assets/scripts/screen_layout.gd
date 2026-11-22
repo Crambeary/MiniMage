@@ -50,13 +50,19 @@ func get_safe_rect() -> Rect2:
 	return Rect2(top_left, viewport_size - top_left - bottom_right)
 
 
-## Insets from each edge: x = left, y = top, z = right, w = bottom, in UI units.
-func get_safe_insets() -> Vector4:
-	return _safe_insets
+## A part of the safe rect given as fractions of it (0..1 on each axis), in UI units.
+## Touch schemes use this so an activation area never reaches under a notch or home indicator.
+func get_safe_fraction_rect(fraction: Rect2) -> Rect2:
+	var safe: Rect2 = get_safe_rect()
+	return Rect2(safe.position + fraction.position * safe.size, fraction.size * safe.size)
 
 
+## True on a phone: a mobile build, or a Web export whose short side is under
+## HANDHELD_MAX_SHORT_POINTS. A desktop window never counts, however small or HiDPI.
 func is_handheld() -> bool:
-	return OS.has_feature("mobile") or _logical_short_side < HANDHELD_MAX_SHORT_POINTS
+	if OS.has_feature("mobile"):
+		return true
+	return OS.has_feature("web") and _logical_short_side < HANDHELD_MAX_SHORT_POINTS
 
 
 func _on_root_size_changed() -> void:
