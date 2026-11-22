@@ -21,8 +21,8 @@ Performance will be affected.
 [gamescope] [[0;34mInfo[0m]  [0;37mscriptmgr:[0m Running script file '/usr/share/gamescope/scripts/00-gamescope/displays/zotac.zone.oled.lua' (id: 13)
 [gamescope] [[0;34mInfo[0m]  [0;37mscriptmgr:[0m Loading scripts from: '/etc/gamescope/scripts'
 [gamescope] [[0;33mWarn[0m]  [0;37mscriptmgr:[0m Directory '/etc/gamescope/scripts' does not exist
-[gamescope] [[0;34mInfo[0m]  [0;37mscriptmgr:[0m Loading scripts from: '/home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.scratch/verify-run/xdg-config/gamescope/scripts'
-[gamescope] [[0;33mWarn[0m]  [0;37mscriptmgr:[0m Directory '/home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.scratch/verify-run/xdg-config/gamescope/scripts' does not exist
+[gamescope] [[0;34mInfo[0m]  [0;37mscriptmgr:[0m Loading scripts from: '/home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.scratch/mmv/xdg-config/gamescope/scripts'
+[gamescope] [[0;33mWarn[0m]  [0;37mscriptmgr:[0m Directory '/home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.scratch/mmv/xdg-config/gamescope/scripts' does not exist
 [gamescope] [[0;34mInfo[0m]  [0;37mvulkan:[0m selecting physical device 'NVIDIA GeForce RTX 2070 with Max-Q Design': queue family 2 (general queue family 0)
 [gamescope] [[0;34mInfo[0m]  [0;37mvulkan:[0m physical device supports DRM format modifiers
 [gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m [backend/headless/backend.c:60] Creating headless backend
@@ -43,13 +43,14 @@ Performance will be affected.
 [gamescope] [[0;34mInfo[0m]  [0;37mvulkan:[0m   AR30 (0x30335241)
 [gamescope] [[0;34mInfo[0m]  [0;37mvulkan:[0m   XR30 (0x30335258)
 [gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m Using explicit sync when available
-[gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m Running compositor on wayland display 'gamescope-0'
+[gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m [wayland] unable to lock lockfile /run/user/1000/gamescope-0.lock, maybe another compositor is running
+[gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m Running compositor on wayland display 'gamescope-1'
 [gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m [backend/headless/backend.c:17] Starting headless backend
 [gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m Successfully initialized libei for input emulation!
-[gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m [xwayland/server.c:108] Starting Xwayland on :1
+[gamescope] [[0;34mInfo[0m]  [0;37mwlserver:[0m [xwayland/server.c:108] Starting Xwayland on :2
 [gamescope] [[0;34mInfo[0m]  [0;37mpipewire:[0m stream state changed: connecting
 [gamescope] [[0;34mInfo[0m]  [0;37mpipewire:[0m stream state changed: paused
-[gamescope] [[0;34mInfo[0m]  [0;37mpipewire:[0m stream available on node ID: 111
+[gamescope] [[0;34mInfo[0m]  [0;37mpipewire:[0m stream available on node ID: 113
 [gamescope] [[0;34mInfo[0m]  [0;37mxdg_backend:[0m HDR INFO
 [gamescope] [[0;34mInfo[0m]  [0;37mxdg_backend:[0m   cv_hdr_enabled: false
 [gamescope] [[0;34mInfo[0m]  [0;37mxdg_backend:[0m   uMaxLum: 80, uRefLum: 80
@@ -75,20 +76,20 @@ OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDI
 
 [godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
 VERIFY_READY menu title=Mini Mage button=Start Game
-VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/menu.png (390, 844)
+VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/menu.png (390, 844)
 Sentry _ready: Attempting to initialize status bar.
 Sentry _ready: STATUS_BAR_SCENE loaded successfully.
-Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#49895441884>
+Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#50046436828>
 Sentry _ready: Attempting to initialize status bar.
 Sentry _ready: STATUS_BAR_SCENE loaded successfully.
-Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#49996105188>
-VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/level-before.png (390, 844)
-VERIFY_LEVEL scene=res://assets/scenes/levels/main.tscn player=(-464.0, -24.0) window=(390, 844) viewport=(433.0, 937.0) zoom=(2.255208, 2.255208)
-VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-locked.png (390, 844)
+Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#50147100132>
+VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/level-before.png (390, 844)
+VERIFY_LEVEL scene=res://assets/scenes/levels/main.tscn player=(-464.0, -24.0) window=(390, 844) viewport=(433.0, 937.0) zoom=(2.00463, 2.00463)
+VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-locked.png (390, 844)
 VERIFY_TOUCH scheme=locked active=locked finger=(110.0, 827.0) before=(-464.0, -24.0) after=(-435.0024, -24.0) moved=28.9976196289062 pass=true
-VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-floating.png (390, 844)
+VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-floating.png (390, 844)
 VERIFY_TOUCH scheme=floating active=floating finger=(129.9, 609.05) before=(-435.0024, -24.0) after=(-476.9992, -24.0) moved=41.9968566894531 pass=true
-VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-797aea10-06c36c7eaa32a641/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-drag.png (390, 844)
+VERIFY_SHOT /home/marc/.t3/worktrees/MiniMage/t3-fbcdcb2d-d925e0bc75f04760/.cursor/skills/verify-mini-mage/evidence/touch-scheme-390x844/touch-drag.png (390, 844)
 VERIFY_TOUCH scheme=drag active=drag finger=(216.5, 609.05) before=(-476.9992, -24.0) after=(-435.0001, -24.0) moved=41.9991455078125 pass=true
 VERIFY_PASS touch-scheme
 [gamescope] [[0;34mInfo[0m]  [0;37mlaunch:[0m Primary child shut down!

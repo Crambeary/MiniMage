@@ -4,7 +4,7 @@
     "x": 421.549621582031,
     "y": 224.272506713867
   },
-  "delta_x": 28.99951171875,
+  "delta_x": 28.9962158203125,
   "detail": "switched to each scheme with its button, then swiped with ScreenTouch/ScreenDrag",
   "feature": "touch-scheme",
   "godot": "4.7",
@@ -14,7 +14,7 @@
   "menu_title": "Mini Mage",
   "pass": true,
   "player_after": {
-    "x": -435.00048828125,
+    "x": -435.003784179688,
     "y": -24.0
   },
   "player_before": {
@@ -86,10 +86,10 @@
         "x": 468.5,
         "y": 281.450012207031
       },
-      "moved_px": 41.9987487792969,
+      "moved_px": 41.9954528808594,
       "pass": true,
       "player_after": {
-        "x": -435.00048828125,
+        "x": -435.003784179688,
         "y": -24.0
       },
       "player_before": {

@@ -165,7 +165,7 @@ func _drive_touch_schemes(title: String, click_at: Vector2, player: CharacterBod
 			return
 		await _click(button)
 		await process_frame
-		var active: String = touch_controls.get("_current_scheme_name")
+		var active: String = touch_controls.call("get_scheme_name")
 		var finger := _touch_start(entry.scheme, touch_controls)
 		var before: Vector2 = player.global_position
 		await _swipe(finger, finger + Vector2(entry.direction * TOUCH_PUSH_UNITS, 0.0), HOLD_FRAMES)
@@ -203,7 +203,7 @@ func _touch_start(scheme: String, touch_controls: Node) -> Vector2:
 	var size := root.get_visible_rect().size
 	match scheme:
 		"locked":
-			return touch_controls.get("_scheme").call("_base_center")
+			return touch_controls.call("get_scheme").call("get_base_center")
 		"floating":
 			return Vector2(size.x * 0.3, size.y * 0.65)
 	return Vector2(size.x * 0.5, size.y * 0.65)
