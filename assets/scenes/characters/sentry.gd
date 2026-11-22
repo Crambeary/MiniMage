@@ -19,7 +19,8 @@ const CATCH_DISTANCE: float = 8.0
 # Centre of the sentry's body capsule, measured from its feet.
 const BODY_CENTER_OFFSET := Vector2(0.0, -8.0)
 
-@export var path_group_name: String = "Sentry1"
+## The route this sentry patrols. Edit it in the 2D viewport.
+@export var patrol_path: PatrolPath2D
 @export var idle_task = IdleTasks.PATROL
 @export var alertness_state = AlertnessState.IDLE
 @export_range(0.0, 1.0, 0.01) var alertness_value: float = 0.0:
@@ -63,7 +64,9 @@ const BODY_CENTER_OFFSET := Vector2(0.0, -8.0)
 
 var player: Node2D
 var status_bar_instance: StatusBar
+var waypoints: Array[Waypoint2D] = []
 var current_index: int = 0
+var _patrol_step: int = 1
 var dir: Vector2
 var cooldown_timer: float = 0.0
 var is_in_cooldown: bool = false
@@ -81,7 +84,6 @@ var _surprise_time_left: float = 0.0
 @onready var question_mark: Node2D = $Emotes/QuestionMark
 @onready var exclamation: Node2D = $Emotes/Exclamation
 @onready var emote_node: Node2D = $Emotes
-@onready var waypoints: Array = get_tree().get_first_node_in_group(path_group_name).get_children()
 
 
 func get_current_waypoint():
@@ -200,6 +202,11 @@ func update_alert_state(new_state: AlertnessState) -> void:
 
 
 func _ready() -> void:
+	if patrol_path:
+		waypoints = patrol_path.get_waypoints()
+	else:
+		push_warning("Sentry %s has no patrol_path; it will stand still." % name)
+
 	print("Sentry _ready: Attempting to initialize status bar.")
 	if STATUS_BAR_SCENE == null:
 		push_error("Sentry _ready: STATUS_BAR_SCENE is null! Preload failed.")
@@ -330,7 +337,9 @@ func _physics_process(delta: float) -> void:
 				animated_sprite_2d.play("walk_up")
 		else:
 			handle_waypoint_action(get_current_waypoint())
-			current_index = (current_index + 1) % waypoints.size()
+			var next := patrol_path.next(current_index, _patrol_step)
+			current_index = next.x
+			_patrol_step = next.y
 
 	elif idle_task == IdleTasks.INVESTIGATE_LKP:
 		var target_position = player_last_known_position
