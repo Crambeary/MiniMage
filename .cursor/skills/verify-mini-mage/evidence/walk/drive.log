@@ -1,0 +1,19 @@
+Godot Engine v4.7.stable.official.5b4e0cb0f - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.5 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.4 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+VERIFY_READY menu title=Mini Mage button=Start Game
+VERIFY_SHOT /agent/repos/MiniMage/.cursor/skills/verify-mini-mage/evidence/walk/menu.png (960, 540)
+Sentry _ready: Attempting to initialize status bar.
+Sentry _ready: STATUS_BAR_SCENE loaded successfully.
+Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#48335160793>
+Sentry _ready: Attempting to initialize status bar.
+Sentry _ready: STATUS_BAR_SCENE loaded successfully.
+Sentry _ready: status_bar_instance created successfully: StatusBar:<Control#48435824098>
+VERIFY_SHOT /agent/repos/MiniMage/.cursor/skills/verify-mini-mage/evidence/walk/level-before.png (960, 540)
+VERIFY_LEVEL scene=res://assets/scenes/levels/main.tscn player=(-464.0, -24.0)
+VERIFY_SHOT /agent/repos/MiniMage/.cursor/skills/verify-mini-mage/evidence/walk/level-after.png (960, 540)
+VERIFY_MOVED before=(-464.0, -24.0) after=(-435.0001, -24.0) dx=28.9999084472656
+VERIFY_PASS walk

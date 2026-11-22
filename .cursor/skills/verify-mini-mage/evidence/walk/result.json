@@ -1,0 +1,25 @@
+{
+  "button": "Start Game",
+  "click": {
+    "x": 480.0,
+    "y": 302.5
+  },
+  "delta_x": 28.9999084472656,
+  "detail": "held physical D through the move_right action",
+  "feature": "walk",
+  "godot": "4.7",
+  "godot_string": "4.7-stable (official)",
+  "hold_frames": 45,
+  "key": "D",
+  "menu_title": "Mini Mage",
+  "pass": true,
+  "player_after": {
+    "x": -435.000091552734,
+    "y": -24.0
+  },
+  "player_before": {
+    "x": -464.0,
+    "y": -24.0
+  },
+  "scene_after_click": "res://assets/scenes/levels/main.tscn"
+}
