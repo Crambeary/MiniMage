@@ -62,7 +62,12 @@ func snap_global(point: Vector2) -> Vector2:
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
-		child_order_changed.connect(queue_redraw)
+		child_order_changed.connect(_on_child_order_changed)
+
+
+func _on_child_order_changed() -> void:
+	queue_redraw()
+	update_configuration_warnings()
 
 
 func _get_configuration_warnings() -> PackedStringArray:

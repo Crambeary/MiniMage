@@ -62,6 +62,8 @@ The plugin runs when a `PatrolPath2D`, or one of its waypoints, is selected:
 | Drag a handle | Moves the waypoint, snapped to the path's grid |
 | Ctrl + click | Adds a waypoint. Near a segment it is inserted there, otherwise it is appended at the end |
 | Right-click a handle | Removes the waypoint |
+| Click a handle (no drag) | Selects that waypoint, so you can edit it in the inspector |
+| Esc while dragging | Cancels the drag and puts the waypoint back |
 
 Every change goes through `EditorUndoRedoManager`. Handles are numbered in
 patrol order and drawn in screen space, so they stay the same size at any zoom.

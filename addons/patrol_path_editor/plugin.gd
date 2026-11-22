@@ -5,6 +5,8 @@ extends EditorPlugin
 ##   Drag a handle      move the waypoint (snapped to the path's snap_step)
 ##   Ctrl + click       add a waypoint (inserted into a nearby segment, else appended)
 ##   Right-click handle remove the waypoint
+##   Click a handle     select that waypoint (to edit it in the inspector)
+##   Esc while dragging cancel the drag
 ## Every edit is undoable. See docs/design/patrol-path-editor.md.
 
 const HANDLE_RADIUS := 6.0
@@ -13,6 +15,7 @@ const SEGMENT_PICK_DISTANCE := 10.0
 
 var _path: PatrolPath2D
 var _drag_index := -1
+var _drag_wp: Waypoint2D
 var _drag_from := Vector2.ZERO
 var _hover_index := -1
 
@@ -22,16 +25,18 @@ func _handles(object: Object) -> bool:
 
 
 func _edit(object: Object) -> void:
-	_path = _path_for(object)
-	_drag_index = -1
+	var path := _path_for(object)
+	if path != _path:
+		_end_drag()
+	_path = path
 	_hover_index = -1
 	update_overlays()
 
 
 func _make_visible(visible: bool) -> void:
 	if not visible:
+		_end_drag()
 		_path = null
-		_drag_index = -1
 	update_overlays()
 
 
@@ -47,12 +52,20 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 	if not is_instance_valid(_path) or not _path.is_inside_tree():
 		return false
 
+	if _is_dragging() and event is InputEventKey:
+		var key := event as InputEventKey
+		if key.pressed and key.keycode == KEY_ESCAPE:
+			_cancel_drag()
+			return true
+
 	if event is InputEventMouseMotion:
 		var motion := event as InputEventMouseMotion
-		if _drag_index >= 0:
-			var wps := _path.get_waypoints()
-			if _drag_index < wps.size():
-				wps[_drag_index].global_position = _path.snap_global(_screen_to_global(motion.position))
+		if _is_dragging():
+			if not (motion.button_mask & MOUSE_BUTTON_MASK_LEFT):
+				# The release happened outside the viewport and never reached us.
+				_commit_drag()
+				return false
+			_drag_wp.global_position = _path.snap_global(_screen_to_global(motion.position))
 			update_overlays()
 			return true
 		var hover := _pick_handle(motion.position)
@@ -67,19 +80,23 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 
 	if button.button_index == MOUSE_BUTTON_LEFT:
 		if button.pressed:
-			if button.ctrl_pressed or button.meta_pressed:
-				_add_waypoint_at(button.position)
-				return true
 			var index := _pick_handle(button.position)
+			if button.ctrl_pressed or button.meta_pressed:
+				if index < 0: # Ctrl+click on a handle must not stack a new waypoint on it
+					_add_waypoint_at(button.position)
+				return true
 			if index >= 0:
 				_drag_index = index
-				_drag_from = _path.get_waypoints()[index].position
+				_drag_wp = _path.get_waypoints()[index]
+				_drag_from = _drag_wp.position
 				return true
-		elif _drag_index >= 0:
+		elif _is_dragging():
 			_commit_drag()
 			return true
 
 	if button.button_index == MOUSE_BUTTON_RIGHT and button.pressed:
+		if _is_dragging():
+			return true # never remove waypoints mid-drag
 		var index := _pick_handle(button.position)
 		if index >= 0:
 			_remove_waypoint(index)
@@ -100,15 +117,39 @@ func _forward_canvas_draw_over_viewport(overlay: Control) -> void:
 		overlay.draw_circle(screen, HANDLE_RADIUS, fill)
 		overlay.draw_string(font, screen + Vector2(HANDLE_RADIUS + 2.0, -HANDLE_RADIUS), str(i + 1),
 				HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.WHITE)
-	var hint := "Patrol path: drag to move · Ctrl+click to add · right-click to remove"
+	var hint := "Patrol path: drag to move (Esc cancels) · click to select · Ctrl+click to add · right-click to remove"
 	overlay.draw_string(font, Vector2(8, overlay.size.y - 10), hint, HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(1, 1, 1, 0.8))
 
 
+func _is_dragging() -> bool:
+	return _drag_index >= 0 and is_instance_valid(_drag_wp)
+
+
+## Commits a drag that is still in progress (selection changed, plugin hidden).
+func _end_drag() -> void:
+	if _is_dragging():
+		_commit_drag()
+	_drag_index = -1
+	_drag_wp = null
+
+
+func _cancel_drag() -> void:
+	_drag_wp.position = _drag_from
+	_drag_index = -1
+	_drag_wp = null
+	update_overlays()
+
+
 func _commit_drag() -> void:
-	var wp: Waypoint2D = _path.get_waypoints()[_drag_index]
+	var wp := _drag_wp
 	var to := wp.position
 	_drag_index = -1
+	_drag_wp = null
 	if to == _drag_from:
+		# A click without movement selects the waypoint, so it can be edited in the inspector.
+		var selection := EditorInterface.get_selection()
+		selection.clear()
+		selection.add_node(wp)
 		update_overlays()
 		return
 	var ur := get_undo_redo()

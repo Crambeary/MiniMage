@@ -314,7 +314,7 @@ func _physics_process(delta: float) -> void:
 		_play_idle_animation()
 
 	elif idle_task == IdleTasks.PATROL:
-		if waypoints.size() == 0:
+		if patrol_path == null or waypoints.is_empty():
 			return
 		var target = get_current_waypoint().global_position
 		dir = (target - global_position).normalized()
