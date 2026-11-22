@@ -1,0 +1,2085 @@
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+---  GUT  ---
+[INFO]:  using [$USER_DATA] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.4.0
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #1, invalid UID: 'uid://cvuyhf4wy765y' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chop.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #2, invalid UID: 'uid://bufvplfcpjr5t' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chopping.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #3, invalid UID: 'uid://curqhh4je2jux' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Drink.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #4, invalid UID: 'uid://dnu05tqnmlawr' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Holding_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #5, invalid UID: 'uid://g534keusvm40' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Idle_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #6, invalid UID: 'uid://c153gx070e241' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Interact.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #7, invalid UID: 'uid://cwk843hntx42g' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Pickup.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #8, invalid UID: 'uid://dgs2xocwkyqhv' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Saw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #9, invalid UID: 'uid://cyh4mke7mfp46' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Sawing.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #10, invalid UID: 'uid://dcpmm464abtch' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Throw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #11, invalid UID: 'uid://ch7n5k17b7fek' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Walking_B.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #12, invalid UID: 'uid://yc336kmciqoa' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Work_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #13, invalid UID: 'uid://t0cvvd2mygmd' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Working_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:4 - ext_resource, invalid UID: uid://b8f4thdipyl5q - using text path instead: res://models/fry_guy/animations/FryGuy_Chop.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:5 - ext_resource, invalid UID: uid://cmjfdrclw7ays - using text path instead: res://models/fry_guy/animations/FryGuy_Chopping.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:6 - ext_resource, invalid UID: uid://nh2e7tgvp0e3 - using text path instead: res://models/fry_guy/animations/FryGuy_Drink.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:7 - ext_resource, invalid UID: uid://bypylxhkw13r - using text path instead: res://models/fry_guy/animations/FryGuy_Holding_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:8 - ext_resource, invalid UID: uid://cckosg66po7df - using text path instead: res://models/fry_guy/animations/FryGuy_Idle_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:9 - ext_resource, invalid UID: uid://dx3b7wgjvgef2 - using text path instead: res://models/fry_guy/animations/FryGuy_Interact.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:10 - ext_resource, invalid UID: uid://cwd6g1fiu0ogx - using text path instead: res://models/fry_guy/animations/FryGuy_Pickup.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:11 - ext_resource, invalid UID: uid://d3lpqn58wf5u7 - using text path instead: res://models/fry_guy/animations/FryGuy_Saw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:12 - ext_resource, invalid UID: uid://dfvo65ufcyvqo - using text path instead: res://models/fry_guy/animations/FryGuy_Sawing.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:13 - ext_resource, invalid UID: uid://cdkbqalr6qbnq - using text path instead: res://models/fry_guy/animations/FryGuy_Throw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:14 - ext_resource, invalid UID: uid://vmkenlptvpwy - using text path instead: res://models/fry_guy/animations/FryGuy_Walking_B.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:15 - ext_resource, invalid UID: uid://b3wi3d7ms3nnp - using text path instead: res://models/fry_guy/animations/FryGuy_Work_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:16 - ext_resource, invalid UID: uid://bsgu4rjwemi22 - using text path instead: res://models/fry_guy/animations/FryGuy_Working_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] add_directory (res://addons/gut/gut.gd:1040)
+         [5] _apply_options (res://addons/gut/gut_config.gd:119)
+         [6] apply_options (res://addons/gut/gut_config.gd:177)
+         [7] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [8] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [9] main (res://addons/gut/cli/gut_cli.gd:266)
+         [10] _init (res://addons/gut/gut_cmdln.gd:39)
+
+
+res://tests/unit/test_ambient_weather.gd
+* test_dusk_shower_follows_clock_boundaries_and_wrap
+* test_manual_inspection_holds_until_resumed
+* test_emitters_are_bounded_and_compatible_with_web_renderer
+* test_main_scene_contains_authored_weather
+4/4 passed.
+
+
+res://tests/unit/test_auto_unlock.gd
+* test_upgrade_level_measure_reports_zero_until_min_level_reached
+* test_upgrade_level_measure_counts_levels_above_the_minimum
+* test_auto_unlock_does_nothing_below_target
+* test_auto_unlock_turns_flag_on_when_measure_reaches_target
+* test_auto_unlock_fires_once
+* test_auto_unlock_works_with_a_fries_measure
+* test_auto_unlock_without_measure_or_flag_never_fires
+* test_new_auto_unlock_is_untitled
+* test_shipped_first_helper_stays_untitled_and_valid
+* test_title_survives_saving_and_loading
+* test_cleared_title_survives_saving_and_loading
+11/11 passed.
+
+
+res://tests/unit/test_auto_unlock_editor.gd
+* test_editor_builds_a_block_for_each_auto_unlock
+* test_add_button_appends_an_auto_unlock_and_emits_change
+    [Orphans]:  42.0 new orphans in test.
+* test_picking_upgrade_level_swaps_the_measure_type
+    [Orphans]:  34.0 new orphans in test.
+* test_each_block_shows_the_auto_unlocks_title
+* test_untitled_auto_unlock_shows_an_empty_title_field
+* test_submitting_a_title_adds_it_and_emits_change
+* test_editing_and_clearing_a_title
+* test_editor_saves_the_title_to_the_config_file
+[Orphans]:  76.0 new orphans in script.
+8/8 passed.
+
+
+res://tests/unit/test_bottleneck_vm.gd
+* test_lower_demand_limits_sales
+* test_supply_limits_sales_at_parity_or_lower_supply
+* test_cash_per_second_is_actual_sales_not_demand
+* test_selling_from_stock_when_supply_short_but_truck_has_fries
+* test_cash_per_second_includes_stock_draw
+5/5 passed.
+
+
+res://tests/unit/test_camera_controller.gd
+* test_center_on_instant_puts_target_on_view_axis_keeping_zoom
+* test_center_on_tween_arrives_at_target
+    -- Awaiting 0.3 second(s) --
+* test_center_on_clamps_to_bounds
+* test_tweened_center_on_never_leaves_bounds
+    -- Awaiting 0.3 second(s) --
+* test_drag_cancels_running_center
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.6 second(s) --
+* test_drag_still_clamps
+* test_grab_camera_position_puts_anchor_on_ray
+* test_grabbed_point_stays_under_cursor_through_drag
+* test_grab_tracks_after_zoom_change
+* test_clamped_drag_does_not_drift
+* test_center_on_respects_rotated_camera_depth
+11/11 passed.
+
+
+res://tests/unit/test_cinematic_letterbox.gd
+* test_start_and_interrupted_finish_reverse_without_popping
+    -- Awaiting 0.12 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_full_rect_tracks_viewport_and_does_not_capture_input
+* test_bars_render_over_world
+* test_started_bars_render_while_game_processing_is_disabled
+    -- Awaiting 0.6 second(s) --
+4/4 passed.
+
+
+res://tests/unit/test_city_day_night.gd
+* test_inspection_before_game_started_does_not_freeze_gameplay
+* test_world_binding_ignores_icon_viewport_and_supports_direct_game
+* test_inspection_wrap_resume_and_midnight_clock_wrap
+* test_moods_blend_gradually_and_are_continuous_at_midnight
+* test_clock_and_inspection_leave_state_unchanged
+5/5 passed.
+
+
+res://tests/unit/test_click_supply.gd
+* test_each_fry_cooking_level_raises_held_click_supply
+ERROR: Node not found: "RobotHelpers" (relative to "/root/GutRunner/@Node@506/@Node3D@508").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_ready (res://scripts/interactables/fry_truck_interactable.gd:7)
+       [1] add_child_autofree (res://addons/gut/test.gd:2436)
+       [2] before_each (res://tests/unit/test_click_supply.gd:21)
+       [3] _run_test (res://addons/gut/gut.gd:583)
+       [4] _test_the_scripts (res://addons/gut/gut.gd:780)
+SCRIPT ERROR: Cannot call method 'connect' on a null value.
+          at: FryTruckInteractable.initialize_gameplay (res://scripts/interactable_object.gd:38)
+          GDScript backtrace (most recent call first):
+              [0] initialize_gameplay (res://scripts/interactable_object.gd:38)
+              [1] initialize_gameplay (res://scripts/interactables/fry_truck_interactable.gd:15)
+              [2] _ready (res://scripts/interactable_object.gd:33)
+              [3] add_child_autofree (res://addons/gut/test.gd:2436)
+              [4] before_each (res://tests/unit/test_click_supply.gd:21)
+              [5] _run_test (res://addons/gut/gut.gd:583)
+              [6] _test_the_scripts (res://addons/gut/gut.gd:780)
+* test_each_fry_cooking_level_raises_sales
+ERROR: Node not found: "RobotHelpers" (relative to "/root/GutRunner/@Node@506/@Node3D@510").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] @implicit_ready (res://scripts/interactables/fry_truck_interactable.gd:7)
+       [1] add_child_autofree (res://addons/gut/test.gd:2436)
+       [2] before_each (res://tests/unit/test_click_supply.gd:21)
+       [3] _run_test (res://addons/gut/gut.gd:583)
+       [4] _test_the_scripts (res://addons/gut/gut.gd:780)
+SCRIPT ERROR: Cannot call method 'connect' on a null value.
+          at: FryTruckInteractable.initialize_gameplay (res://scripts/interactable_object.gd:38)
+          GDScript backtrace (most recent call first):
+              [0] initialize_gameplay (res://scripts/interactable_object.gd:38)
+              [1] initialize_gameplay (res://scripts/interactables/fry_truck_interactable.gd:15)
+              [2] _ready (res://scripts/interactable_object.gd:33)
+              [3] add_child_autofree (res://addons/gut/test.gd:2436)
+              [4] before_each (res://tests/unit/test_click_supply.gd:21)
+              [5] _run_test (res://addons/gut/gut.gd:583)
+              [6] _test_the_scripts (res://addons/gut/gut.gd:780)
+2/2 passed.
+
+
+res://tests/unit/test_curbside.gd
+* test_complete_fence_and_location_clearance_contract
+1/1 passed.
+
+
+res://tests/unit/test_dock_transition.gd
+* test_starts_closed_and_hidden
+* test_open_ends_visible_and_on_screen
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_close_ends_hidden
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting signal "closed" or for 3.0 second(s) --
+* test_closing_dock_ignores_mouse
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_close_when_already_closed_is_noop
+* test_open_when_already_open_keeps_open_state
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_rapid_open_close_open_ends_open
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_rapid_open_close_ends_closed
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting signal "closed" or for 3.0 second(s) --
+* test_close_then_open_mid_close_ends_open
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_switch_replaces_rows_with_new_rows_visible_while_open
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    [DEPRECATED]:  wait_frames has been replaced with wait_physics_frames which is counted in _physics_process.  wait_process_frames has also been added which is counted in _process.
+    -- Awaiting 2 physics frame(s) --
+* test_open_while_rows_replaced_mid_open_ends_consistent
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+11/11 passed.
+
+
+res://tests/unit/test_economy_manager.gd
+* test_money_increases_with_no_click_input
+* test_income_matches_throughput_per_tick
+* test_committed_outcomes_report_existing_tick_results_after_credit
+* test_balance_assignments_are_not_earnings_events
+* test_surplus_fills_the_truck_and_sells_at_demand
+* test_full_truck_wastes_the_overflow
+* test_shortfall_drains_the_truck_and_sells_at_demand
+* test_empty_truck_falls_back_to_supply
+* test_stock_does_not_change_the_fries_measure
+* test_stock_capacity_upgrades_raise_the_cap
+10/10 passed.
+
+
+res://tests/unit/test_economy_simulation.gd
+* test_introduction_and_first_helper_arrive_on_schedule
+* test_marketing_is_never_needed_before_helpers
+* test_marketing_breaks_the_bottleneck_right_after_the_first_helper
+* test_demand_keeps_rough_parity_with_supply
+* test_full_progression_takes_about_twenty_minutes
+* test_purchases_after_the_first_helper_are_tens_of_seconds_apart
+* test_free_play_still_has_flyers_worth_saving_for
+* test_stock_changes_the_scripted_purchase_side
+* test_full_truck_buffers_a_helper_sized_shortfall_at_every_capacity_level
+* test_pacing_is_stable_under_ten_percent_parameter_changes
+Sensitivity growth × 0.9: capped 1115.25 s, median gap 21.00 s
+Sensitivity growth × 1.1: capped 1174.00 s, median gap 22.75 s
+Sensitivity base_cost × 0.9: capped 1140.25 s, median gap 22.75 s
+Sensitivity base_cost × 1.1: capped 1147.00 s, median gap 22.50 s
+Sensitivity base_cost × 0.9: capped 1140.25 s, median gap 22.75 s
+Sensitivity base_cost × 1.1: capped 1168.50 s, median gap 23.75 s
+Sensitivity base_cost × 0.9: capped 1140.25 s, median gap 22.75 s
+Sensitivity base_cost × 1.1: capped 1172.00 s, median gap 22.75 s
+Sensitivity base_cost × 0.9: capped 1107.00 s, median gap 20.50 s
+Sensitivity base_cost × 1.1: capped 1204.50 s, median gap 25.00 s
+Sensitivity base_stock_capacity × 0.9: capped 1155.25 s, median gap 22.75 s
+Sensitivity base_stock_capacity × 1.1: capped 1153.50 s, median gap 22.75 s
+Sensitivity upgrade_value × 0.9: capped 1156.25 s, median gap 22.75 s
+Sensitivity upgrade_value × 1.1: capped 1152.25 s, median gap 22.75 s
+10/10 passed.
+
+
+res://tests/unit/test_feedback_settings.gd
+* test_missing_preferences_use_restrained_defaults_and_system_motion
+* test_all_explicit_preferences_survive_a_fresh_instance
+* test_audio_changes_do_not_save_an_implicit_system_motion_choice
+* test_invalid_types_and_out_of_range_volumes_fall_back_independently
+* test_partial_settings_keep_valid_fields
+* test_adding_hover_opt_out_preserves_existing_preferences_and_unknown_settings
+* test_malformed_file_falls_back
+ERROR: ConfigFile parse error at user://test_feedback_settings.cfg:0: Unexpected EOF while parsing simple tag.
+   at: _parse (core/io/config_file.cpp:293)
+   GDScript backtrace (most recent call first):
+       [0] load_settings (res://scripts/feedback_settings.gd:29)
+       [1] test_malformed_file_falls_back (res://tests/unit/test_feedback_settings.gd:117)
+       [2] _run_test (res://addons/gut/gut.gd:587)
+       [3] _test_the_scripts (res://addons/gut/gut.gd:780)
+* test_alternating_writers_preserve_other_sections_and_unknown_keys
+* test_non_persistent_feedback_ignores_and_preserves_existing_settings
+9/9 passed.
+
+
+res://tests/unit/test_flag_registry_auto_unlocks.gd
+* test_auto_unlock_counts_as_a_source_for_its_flag
+* test_registering_the_same_auto_unlock_twice_is_idempotent
+* test_clear_forgets_auto_unlocks
+* test_scanner_lists_first_helper_with_the_fry_truck_auto_unlock_as_source
+4/4 passed.
+
+
+res://tests/unit/test_focus_manager.gd
+* test_starts_unfocused
+* test_focus_sets_current_and_emits
+* test_focus_same_node_again_does_not_re_emit
+* test_focus_other_node_switches_directly_without_clearing
+* test_clear_focus_emits_null
+* test_clear_focus_when_unfocused_is_silent
+* test_focus_null_is_clear_focus
+* test_freed_focused_node_clears_focus
+* test_empty_space_click_clears_focus
+* test_empty_space_click_is_ignored_when_interactable_claimed_same_click
+* test_empty_space_claim_does_not_leak_into_next_click
+* test_empty_space_click_then_interactable_claim_in_same_frame_keeps_focus
+* test_freed_focused_node_emits_focus_changed_null
+* test_freeing_previously_focused_node_does_not_clear_new_focus
+* test_clear_focus_disconnects_tree_exiting
+* test_interactable_claim_without_empty_space_event_does_not_swallow_next_empty_click
+16/16 passed.
+
+
+res://tests/unit/test_gesture_trace.gd
+* test_lines_carry_source_and_time
+* test_the_oldest_line_drops_when_full
+* test_repeated_keys_fold_into_one_counted_line
+* test_interleaved_motion_keys_each_keep_one_line
+* test_a_different_line_between_breaks_the_fold
+* test_an_unkeyed_line_never_folds
+* test_screen_touch_names_index_phase_and_cancel
+* test_a_real_mouse_is_told_apart_from_touch_emulation
+* test_hover_motion_is_not_traced
+* test_other_events_are_not_traced
+* test_diagnostics_orders_queued_events_before_rendering
+11/11 passed.
+
+
+res://tests/unit/test_hover_manager.gd
+* test_starts_unfocused
+* test_hover_enter_focuses_and_emits
+* test_hover_exit_keeps_focus_during_grace
+* test_hover_exit_clears_after_grace
+* test_reentering_within_grace_cancels_hide
+* test_cursor_reaching_dock_within_grace_keeps_focus
+* test_leaving_dock_clears_after_grace
+* test_hovering_other_interactable_switches_directly
+* test_exit_of_non_current_node_does_not_start_hide
+* test_focus_same_node_does_not_re_emit
+* test_clear_focus_emits_null
+* test_empty_space_click_clears_focus
+* test_empty_space_click_ignored_while_on_dock
+* test_interactable_click_focuses
+* test_freed_focused_node_clears_focus
+15/15 passed.
+
+
+res://tests/unit/test_hud_money_reaction.gd
+* test_reset_during_failure_nudge_restores_label_position
+* test_purchase_ticker_spawns_a_label
+* test_balance_animates_and_retargets_in_both_directions
+* test_balance_initializes_from_state
+4/4 passed.
+
+
+res://tests/unit/test_input_manager.gd
+* test_plain_click_emits_empty_space_clicked
+* test_drag_release_does_not_emit_empty_space_clicked
+* test_just_finished_drag_is_true_when_release_input_runs_after_reset
+* test_motion_within_threshold_still_counts_as_click
+* test_next_press_clears_just_finished_drag
+* test_release_whose_press_was_consumed_by_ui_is_not_empty_space
+6/6 passed.
+
+
+res://tests/unit/test_interaction_settings.gd
+* test_large_screen_defaults_to_focus
+* test_former_hover_threshold_defaults_to_focus
+* test_small_screen_defaults_to_focus
+* test_wide_but_short_screen_defaults_to_focus
+* test_no_override_uses_focus_at_every_size
+* test_override_focus_wins_on_large_screen
+* test_legacy_hover_request_resolves_to_focus
+* test_clear_override_returns_to_auto
+* test_normalized_focus_override_persists_across_instances
+* test_missing_file_loads_as_auto
+* test_garbage_value_loads_as_auto
+* test_persisted_legacy_hover_resolves_to_focus
+* test_tracking_defaults_to_nothing_pinned_for_missing_or_legacy_settings
+* test_tracking_variant_persists_alongside_focus_preference
+* test_invalid_tracking_preference_falls_back_to_starting_variant
+* test_non_persistent_never_writes_a_new_file
+* test_non_persistent_leaves_existing_file_untouched_and_ignores_it
+17/17 passed.
+
+
+res://tests/unit/test_location_icon_renderer.gd
+* test_side_view_matches_the_game_camera_axis
+* test_isometric_view_is_the_classic_angle
+* test_collect_meshes_skips_hidden_helpers
+* test_collect_meshes_ignores_the_roots_own_visibility
+* test_collect_lights_ignores_the_roots_own_visibility
+* test_projected_bounds_side_view_is_the_front_face
+* test_projected_bounds_ignores_world_position
+* test_projected_bounds_empty_without_meshes
+* test_render_returns_null_without_visible_meshes
+* test_render_draws_the_model_into_a_square_texture
+* test_render_draws_a_location_that_is_still_hidden_in_the_world
+* test_render_draws_the_marketing_sign_while_it_is_hidden
+12/12 passed.
+
+
+res://tests/unit/test_location_strip.gd
+* test_one_button_per_location_with_title
+* test_tolerates_many_locations_and_rebuilds
+* test_pressing_button_emits_location_selected_with_source_node
+* test_color_keys_off_dominant_upgrade_target
+* test_every_upgrade_target_has_a_color
+* test_rendered_model_is_untinted_and_keeps_underline
+    -- Awaiting 3 idle frame(s) --
+* test_placeholder_stays_tinted_and_has_underline
+* test_neutral_underline_for_undeclared_target
+* test_shipped_locations_default_to_side_view
+* test_model_mode_keeps_placeholder_for_locations_without_a_3d_model
+* test_location_revealed_partway_gets_a_button
+* test_refresh_without_changes_keeps_the_same_buttons
+* test_location_with_new_row_has_highlighted_icon_others_do_not
+* test_hovering_icon_does_not_clear_it
+    -- Awaiting 0.7 second(s) --
+* test_icon_stays_until_its_last_highlighted_row_is_dismissed
+    -- Awaiting 0.7 second(s) --
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_newly_revealed_location_icon_is_highlighted
+* test_new_row_unlocked_after_build_highlights_existing_icon_on_refresh
+* test_location_without_unlocked_rows_gets_no_button_until_one_unlocks
+* test_claimable_marker_follows_the_locations_claimable_state_on_refresh
+* test_claimable_marker_is_shown_on_a_freshly_built_button
+20/20 passed.
+
+
+res://tests/unit/test_marketing_upgrade_effects.gd
+* test_better_sign_adds_six_demand_per_level
+* test_menu_board_adds_a_quarter_demand_multiplier
+* test_word_of_mouth_adds_twenty_percent_per_level_for_five_levels
+* test_flyers_adds_four_demand_per_level_and_is_repeatable
+* test_marketing_config_has_no_validation_errors
+* test_throughput_readout_includes_base_demand_and_both_upgrades
+6/6 passed.
+
+
+res://tests/unit/test_measure.gd
+* test_fries_measure_reads_total_fries_cooked
+* test_fries_measure_does_not_drop_when_money_is_spent
+* test_max_defaults_to_the_configured_target
+* test_feature_flag_measure_reports_zero_until_its_flag_is_on
+4/4 passed.
+
+
+res://tests/unit/test_measure_kinds.gd
+* test_first_kind_is_none_and_creates_null
+* test_every_kind_creates_an_instance_of_its_own_script
+* test_index_of_null_is_zero
+* test_registry_lists_fries_and_upgrade_level
+* test_populate_picker_selects_current_kind
+* test_param_rows_only_for_kinds_with_parameters
+* test_param_edit_writes_to_measure_and_calls_back
+* test_registry_lists_feature_flag
+* test_feature_flag_param_edit_writes_to_measure_and_calls_back
+9/9 passed.
+
+
+res://tests/unit/test_money.gd
+* test_money_shows_whole_coins_only
+1/1 passed.
+
+
+res://tests/unit/test_night_lights.gd
+* test_night_amount_follows_the_clock
+* test_clock_drives_night_lights
+* test_curbside_lamps_and_sign_have_night_lights
+3/3 passed.
+
+
+res://tests/unit/test_phone_layout_scale.gd
+* test_iphone_portrait_scale
+* test_landscape_uses_the_short_side
+* test_a_smaller_canvas_is_larger_on_screen
+* test_logical_for_css_inverts_the_scale
+* test_the_phone_canvas_beats_the_floor_for_the_default_theme_font
+* test_a_degenerate_canvas_does_not_divide_by_zero
+* test_diagnostics_name_the_build_and_the_scale
+* test_the_project_setting_forces_the_layout
+8/8 passed.
+
+
+res://tests/unit/test_pinned_quest_row.gd
+* test_row_arrow_emits_its_location_without_requesting_stage_completion
+* test_progress_only_shows_100_percent_when_requirement_is_met
+* test_complete_pin_stops_counting_and_resets_for_the_next_requirement
+3/3 passed.
+
+
+res://tests/unit/test_prologue_panel.gd
+* test_idle_and_hidden_before_start
+* test_start_shows_the_first_sentence_and_waits_for_a_gesture
+* test_first_shift_uses_only_fry_guy_voice
+* test_first_gesture_starts_typing_second_sentence
+* test_characters_are_emitted_one_at_a_time_as_typed
+* test_typing_to_the_end_waits_and_does_not_auto_advance
+* test_advance_while_typing_completes_the_line_without_a_voice_burst
+* test_advance_while_waiting_moves_to_next_letter_beat
+* test_reading_to_the_end_finishes_exactly_once
+* test_skip_from_the_first_sentence
+* test_skip_from_the_first_line_before_typing
+* test_skip_mid_typing
+* test_everything_is_ignored_when_idle
+* test_start_resets_a_run_in_progress
+* test_space_and_enter_advance_and_escape_skips
+* test_the_visible_buttons_drive_the_panel
+* test_scrim_click_advances_on_release_and_is_swallowed
+* test_the_panel_stops_catching_the_mouse_once_finished
+* test_leaving_the_tree_mid_run_stops_the_voice
+* test_the_game_tree_is_never_paused
+* test_losing_window_focus_keeps_typing_without_replaying_missed_characters
+21/21 passed.
+
+
+res://tests/unit/test_prologue_pixel_grid.gd
+* test_the_card_frame_renders_on_the_3px_grid
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+1/1 passed.
+
+
+res://tests/unit/test_prologue_voice.gd
+* test_vowels_follow_letters_and_silence_spaces_and_punctuation
+* test_delays_pause_at_clause_and_sentence_breaks
+* test_clips_are_valid_bounded_pcm
+* test_clips_are_seed_stable_cached_and_distinct_per_voice
+* test_malformed_clip_requests_return_null
+* test_typed_character_plays_on_effects_bus_and_reports
+* test_silent_or_malformed_characters_present_nothing
+* test_pool_of_three_drops_the_fourth_without_queueing
+    [DEPRECATED]:  wait_frames has been replaced with wait_physics_frames which is counted in _physics_process.  wait_process_frames has also been added which is counted in _process.
+    -- Awaiting 3 physics frame(s) --
+* test_mute_stops_and_suppresses_without_replay
+* test_focus_loss_stops_and_suppresses_without_replay
+* test_zero_effects_volume_silences_voice
+* test_disposal_stops_voices
+12/12 passed.
+
+
+res://tests/unit/test_purchase_ticker.gd
+* test_spawn_shows_muted_minus_cost_label_centred_on_origin
+* test_ticker_rises_straight_up
+    -- Awaiting 0.2 second(s) --
+* test_ticker_shrinks_and_hides_when_done
+    -- Awaiting 0.85 second(s) --
+* test_tickers_overlap_freely
+* test_pool_is_capped_and_recycles_the_oldest
+* test_reduced_motion_fades_in_place
+    -- Awaiting 0.2 second(s) --
+6/6 passed.
+
+
+res://tests/unit/test_quest_bar.gd
+* test_progress_bar_reflects_value_and_max_value
+* test_progress_bar_updates_on_rebind
+* test_ascend_button_uses_action_text
+* test_ascend_button_disabled_until_can_activate
+* test_null_requirement_hides_bar_and_shows_free_play_label
+* test_requirement_shows_bar_and_hides_free_play_label
+* test_zero_max_value_does_not_divide_by_zero
+* test_ascend_pressed_signal_emits_on_click
+* test_height_comes_from_shared_theme_constant
+* test_binding_a_dock_vm_leaves_the_hud_quest_bar_alone
+10/10 passed.
+
+
+res://tests/unit/test_save_registry.gd
+* test_round_trip_restores_registered_progress_and_ignores_transient_state
+* test_missing_corrupt_future_and_invalid_sections_start_fresh
+* test_new_fields_use_defaults_and_new_game_deletes_the_file
+* test_location_mid_quest_and_free_play_survive_a_round_trip
+* test_new_highlights_round_trip_without_resurrecting_dismissed_rows
+* test_unsupported_fields_do_not_poison_supported_progress
+WARNING: Progress field skipped (unsupported type): run.items
+     at: push_warning (core/variant/variant_utility.cpp:1033)
+     GDScript backtrace (most recent call first):
+         [0] register_object (res://scripts/save/save_registry.gd:21)
+         [1] test_unsupported_fields_do_not_poison_supported_progress (res://tests/unit/test_save_registry.gd:120)
+         [2] _run_test (res://addons/gut/gut.gd:587)
+         [3] _test_the_scripts (res://addons/gut/gut.gd:780)
+WARNING: Progress field skipped (unsupported type): run.position
+     at: push_warning (core/variant/variant_utility.cpp:1033)
+     GDScript backtrace (most recent call first):
+         [0] register_object (res://scripts/save/save_registry.gd:21)
+         [1] test_unsupported_fields_do_not_poison_supported_progress (res://tests/unit/test_save_registry.gd:120)
+         [2] _run_test (res://addons/gut/gut.gd:587)
+         [3] _test_the_scripts (res://addons/gut/gut.gd:780)
+WARNING: Progress field skipped (unsupported type): run.nested
+     at: push_warning (core/variant/variant_utility.cpp:1033)
+     GDScript backtrace (most recent call first):
+         [0] register_object (res://scripts/save/save_registry.gd:21)
+         [1] test_unsupported_fields_do_not_poison_supported_progress (res://tests/unit/test_save_registry.gd:120)
+         [2] _run_test (res://addons/gut/gut.gd:587)
+         [3] _test_the_scripts (res://addons/gut/gut.gd:780)
+* test_invalid_live_number_preserves_previous_snapshot
+* test_rejected_files_are_preserved_before_autosave
+* test_stage_autosave_accepts_two_and_three_argument_signals
+9/9 passed.
+
+
+res://tests/unit/test_save_transfer.gd
+* test_export_then_import_round_trips_exactly
+* test_bad_input_is_rejected_with_a_message_and_current_save_survives
+* test_future_version_message_mentions_newer_version
+* test_failed_import_leaves_no_temp_file
+4/4 passed.
+
+
+res://tests/unit/test_selected_ui_theme.gd
+* test_selected_theme_is_available_without_the_lab
+* test_stage_cards_fit_and_shrink_after_wrapping_without_the_lab
+    -- Awaiting 0.8 second(s) --
+    -- Awaiting 0.8 second(s) --
+* test_pin_reserves_space_for_its_icon_inside_the_selected_frame
+3/3 passed.
+
+
+res://tests/unit/test_throughput_dock.gd
+* test_shows_real_rate_and_unit_from_throughput_vm
+* test_rate_rounds_to_one_decimal
+* test_throughput_icon_is_a_texture_not_emoji
+* test_null_throughput_does_not_break
+* test_dock_stays_content_width_inside_hud
+WARNING: Nodes with non-equal opposite anchors will have their size overridden after _ready().
+If you want to set size, change the anchors or consider using set_deferred().
+     at: _set_size (scene/gui/control.cpp:1519)
+     GDScript backtrace (most recent call first):
+         [0] test_dock_stays_content_width_inside_hud (res://tests/unit/test_throughput_dock.gd:74)
+         [1] _run_test (res://addons/gut/gut.gd:587)
+         [2] _test_the_scripts (res://addons/gut/gut.gd:780)
+    [DEPRECATED]:  wait_frames has been replaced with wait_physics_frames which is counted in _physics_process.  wait_process_frames has also been added which is counted in _process.
+    -- Awaiting 2 physics frame(s) --
+* test_icon_uses_resource_kind_independently_of_display_wording
+* test_hidden_until_first_helper_flag_turns_on
+* test_other_flags_do_not_show_the_dock
+* test_stock_meter_reads_real_state_and_marks_full_capacity
+* test_balance_meter_uses_center_zero_and_stock_aware_bottleneck
+* test_cash_throughput_tracks_actual_sales_not_demand
+11/11 passed.
+
+
+res://tests/unit/test_throughput_vm.gd
+* test_computes_rate_from_linear_and_multiplier_bonuses
+* test_ignores_upgrades_at_level_zero
+* test_ignores_upgrades_targeting_unrelated_effects
+* test_no_multiplier_upgrades_leaves_rate_equal_to_linear_bonus
+* test_multiply_operation_on_linear_target_is_excluded_from_linear_bonus
+* test_base_rate_counts_even_with_no_upgrades
+* test_resource_kind_follows_upgrade_target_independently_of_unit_label
+7/7 passed.
+
+
+res://tests/unit/test_unlock_cue_stack.gd
+* test_nothing_is_shown_until_a_cue_arrives
+* test_cue_names_every_unlocked_upgrade
+* test_cue_without_upgrades_still_gives_feedback
+* test_consecutive_cues_are_all_visible
+* test_cue_goes_away_on_its_own
+    -- Awaiting 1.5 second(s) --
+* test_cue_never_blocks_input_to_the_game
+* test_a_cue_is_a_badge_naming_what_is_new
+* test_cue_text_uses_the_hud_theme_font_and_size
+* test_cue_badge_uses_the_selected_hud_frame
+* test_with_no_moment_showing_a_cue_appears_at_once
+* test_a_cue_waits_while_a_moment_is_showing
+* test_a_held_cue_appears_once_the_moment_finishes
+    -- Awaiting 0.1 second(s) --
+* test_a_held_cue_waits_for_every_queued_moment
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.1 second(s) --
+* test_held_cues_all_appear_in_arrival_order
+    -- Awaiting 0.6 second(s) --
+* test_existing_cue_is_hidden_and_its_audio_stops_when_a_moment_starts
+    --Awaiting callable to return TRUE or 1.0s.
+    -- Awaiting 2.8 second(s) --
+    --Awaiting callable to return TRUE or 1.0s.
+* test_interrupted_stagger_and_new_cues_keep_order_across_repeated_moments
+    --Awaiting callable to return TRUE or 1.0s.
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.7 second(s) --
+    -- Awaiting 0.7 second(s) --
+* test_finished_badges_do_not_replay_and_new_cues_cannot_overtake_held_ones
+    -- Awaiting 0.9 second(s) --
+    -- Awaiting 0.4 second(s) --
+17/17 passed.
+
+
+res://tests/unit/test_unlock_highlights.gd
+* test_icon_is_new_while_any_of_its_rows_is_new
+* test_icon_is_scoped_to_its_own_location
+* test_clear_upgrade_reports_the_location_only_when_its_last_row_clears
+* test_clearing_an_unknown_row_is_a_no_op
+4/4 passed.
+
+
+res://tests/unit/test_unlock_moment_panel.gd
+* test_panel_is_hidden_until_a_moment_is_presented
+* test_presenting_shows_the_headline_and_every_unlocked_item
+* test_presenting_a_moment_with_no_content_shows_only_the_headline
+* test_next_moment_replaces_the_previous_content
+* test_blank_stage_hides_only_the_headline_and_next_moment_restores_it
+* test_finishing_hides_the_panel_and_reports_completion
+* test_a_moment_left_alone_finishes_on_its_own
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_a_moment_holds_game_input_while_it_shows
+* test_finishing_releases_game_input
+* test_clicks_and_keys_during_the_lock_do_not_dismiss_it
+    -- Awaiting 0.4 second(s) --
+* test_the_continue_hint_appears_once_dismissal_is_allowed
+    -- Awaiting 0.2 second(s) --
+* test_after_the_lock_a_click_anywhere_dismisses_it
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_after_the_lock_space_dismisses_it
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_after_the_lock_enter_dismisses_it
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_after_the_lock_escape_dismisses_it
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_each_consecutive_moment_starts_a_fresh_lock
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.3 second(s) --
+16/16 passed.
+
+
+res://tests/unit/test_unlock_moment_pixel_grid.gd
+* test_the_card_frame_renders_on_the_3px_grid
+    -- Awaiting 0.6 second(s) --
+* test_the_grid_check_catches_a_smooth_rounded_card
+    -- Awaiting 0.6 second(s) --
+* test_confetti_renders_on_its_own_3px_grid_through_the_burst
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 0.16 second(s) --
+    -- Awaiting 0.16 second(s) --
+    -- Awaiting 0.16 second(s) --
+    -- Awaiting 0.16 second(s) --
+    -- Awaiting 0.16 second(s) --
+* test_a_piece_visibly_tumbles_and_falls_in_whole_art_pixels
+* test_final_rays_and_flat_scrim_render_on_the_3px_grid_with_confetti
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 0.13 second(s) --
+    -- Awaiting 0.13 second(s) --
+    -- Awaiting 0.13 second(s) --
+    -- Awaiting 0.13 second(s) --
+* test_dock_meters_stay_on_the_3px_grid
+6/6 passed.
+
+
+res://tests/unit/test_unlock_moment_pixel_style.gd
+* test_the_card_uses_the_docks_pixel_frame
+* test_the_kicker_sits_inside_the_card
+* test_the_headline_and_kicker_use_white_ink_with_no_heavy_outline
+* test_the_pop_in_only_takes_stepped_keyframe_scales
+4/4 passed.
+
+
+res://tests/unit/test_unlock_presentation.gd
+* test_announced_moment_is_presented_with_its_headline_and_content
+* test_moment_without_new_content_is_still_presented
+* test_blank_subtitle_stages_keep_the_moment_queue_and_completion_contract
+* test_blank_subtitle_stage_does_not_substitute_a_location_headline
+* test_next_moment_waits_until_the_presenter_finishes
+* test_moments_are_presented_in_arrival_order
+* test_presentation_goes_idle_after_the_last_moment_finishes
+* test_moment_announced_after_going_idle_is_presented_immediately
+* test_queued_content_is_kept_when_the_caller_changes_its_arrays
+* test_finishing_a_moment_reports_which_moment_finished
+* test_moments_wait_for_a_presenter_to_be_attached
+* test_titled_auto_unlock_gets_a_full_moment_headlined_by_its_title
+* test_untitled_milestone_gets_a_cue_instead_of_a_moment
+* test_cue_does_not_wait_behind_a_moment_being_presented
+* test_untitled_location_reveal_gets_a_full_moment_named_after_the_location
+* test_untitled_location_reveal_without_upgrade_rows_still_gets_a_moment
+* test_titled_location_reveal_keeps_the_authored_title
+* test_cue_without_a_cue_presenter_is_dropped_quietly
+18/18 passed.
+
+
+res://tests/unit/test_upgrade_def_validation.gd
+* test_upgrade_with_a_flag_has_no_errors
+* test_upgrade_with_empty_flag_reports_an_error
+* test_shipped_upgrades_all_declare_a_flag
+3/3 passed.
+
+
+res://tests/unit/test_upgrade_ui.gd
+* test_null_requirement_and_resource_shows_hint_and_hides_sections
+* test_present_requirement_and_resource_hides_hint_and_shows_sections
+* test_null_resource_only_does_not_show_hint
+* test_location_in_free_play_shows_free_play_instead_of_the_hint
+* test_location_without_a_quest_line_hides_the_quest_section
+* test_quest_highlight_pulses_twice_fades_and_replays
+    --Awaiting callable to return TRUE or 1.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+* test_bind_vm_builds_a_row_per_upgrade_entry
+* test_bind_vm_emits_vm_bound_with_the_same_vm
+* test_close_button_emits_close_requested
+* test_close_button_press_clears_focus_when_wired_like_game_manager
+* test_close_button_hover_swaps_icon_and_restores_on_exit
+* test_close_button_has_tooltip_and_44px_hit_target
+* test_new_row_is_highlighted_and_others_are_not
+* test_hovering_a_new_row_fades_its_highlight_over_half_a_second
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_hovering_one_new_row_leaves_other_new_rows_highlighted
+    -- Awaiting 0.7 second(s) --
+* test_hovering_a_row_clears_it_in_the_highlight_model
+* test_dismissing_the_last_row_of_a_location_announces_its_icon_cleared
+17/17 passed.
+
+
+res://tests/integration/test_auto_unlock_flow.gd
+* test_before_hiring_a_helper_first_helper_stays_off
+* test_buying_first_helper_turns_on_flag_on_next_tick_and_shows_rows
+* test_auto_unlock_fires_once_and_flag_stays_on
+* test_fries_measure_auto_unlock_fires_through_main_scene
+* test_fresh_run_marketing_is_hidden_and_has_no_strip_button
+* test_buying_first_helper_reveals_marketing_in_world_strip_and_panel
+* test_locked_marketing_ignores_clicks
+* test_auto_unlock_highlights_rows_and_icons_like_a_reward_would
+* test_hovering_the_marketing_icon_changes_nothing
+* test_dismissing_marketings_rows_clears_its_icon
+* test_titled_auto_unlock_presents_a_moment_with_its_title_and_new_rows
+* test_untitled_auto_unlock_shows_a_cue_and_no_moment
+* test_untitled_location_reveal_with_rows_gets_one_moment_named_after_it
+* test_untitled_location_reveal_without_rows_still_gets_a_moment
+* test_titled_location_reveal_is_headlined_by_the_title
+* test_location_available_at_startup_gets_no_reveal_moment
+* test_later_ticks_do_not_replay_a_fired_auto_unlock
+* test_titled_auto_unlock_waits_behind_a_moment_already_showing
+* test_presenting_an_auto_unlock_leaves_new_highlights_intact
+* test_restored_progression_replays_no_auto_unlock_announcements
+* test_titled_auto_unlock_is_displayed_by_the_real_hud
+* test_untitled_auto_unlock_is_shown_by_the_real_hud_as_a_cue_only
+* test_simultaneous_titled_unlocks_announce_only_their_own_content
+* test_simultaneous_later_reveal_does_not_promote_first_cue_to_moment
+24/24 passed.
+
+
+res://tests/integration/test_claimable_marker_flow.gd
+* test_truck_icon_has_no_marker_while_its_stage_is_unmet
+    -- Awaiting 2 idle frame(s) --
+* test_truck_icon_shows_marker_once_its_stage_is_met_without_claiming
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_keeps_the_marker_while_the_next_stage_is_already_ready
+    -- Awaiting 2 idle frame(s) --
+* test_marker_clears_after_the_last_claim_into_free_play
+    -- Awaiting 2 idle frame(s) --
+* test_claim_clears_marker_when_the_next_stage_is_unmet
+    -- Awaiting 2 idle frame(s) --
+* test_marketing_marker_appears_when_better_sign_is_bought_with_its_dock_closed
+    -- Awaiting 2 idle frame(s) --
+* test_marketing_marker_is_independent_of_the_hud_tracking_the_truck
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_marketing_clears_its_marker_in_free_play
+    -- Awaiting 2 idle frame(s) --
+* test_both_locations_can_be_claimable_at_once
+    -- Awaiting 2 idle frame(s) --
+* test_claimable_and_new_show_together_as_different_elements
+    -- Awaiting 2 idle frame(s) --
+* test_dismissing_new_does_not_dismiss_a_waiting_claimable_marker
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.7 second(s) --
+* test_claiming_does_not_clear_unrelated_new_highlights
+    -- Awaiting 2 idle frame(s) --
+* test_ready_cue_is_held_while_the_unlock_moment_is_showing
+    -- Awaiting 2 idle frame(s) --
+* test_held_ready_cue_plays_once_the_moment_is_over_and_the_stage_is_still_ready
+    -- Awaiting 2 idle frame(s) --
+* test_held_ready_cue_is_dropped_when_the_stage_is_no_longer_ready
+    -- Awaiting 2 idle frame(s) --
+15/15 passed.
+
+
+res://tests/integration/test_feedback_audio_mix.gd
+* test_camera_motion_pans_actual_truck_audio
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_effects_slider_changes_measured_loudness_and_leaves_celebration_independent
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_selected_hover_gain_reaches_output_without_changing_other_effects
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+#125 hover output energy: old=0.00167866284028 selected=0.00342797860503 ratio=2.04208881187028
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_hover_remains_bounded_during_busy_production_and_drops_suppressed_events
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 0.145 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+4/4 passed.
+
+
+res://tests/integration/test_focus_flow.gd
+* test_dock_starts_hidden_and_unfocused
+* test_clicking_interactable_focuses_it_and_shows_dock
+* test_clicking_other_interactable_switches_focus_and_keeps_dock_open
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+* test_empty_space_click_hides_dock
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_close_button_hides_dock
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_click_on_drag_release_does_not_focus
+* test_click_on_drag_release_does_not_close_open_dock
+* test_same_click_interactable_and_empty_space_keeps_dock_open
+* test_switch_crossfades_content_without_closing_dock
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+* test_rapid_switch_then_close_cleans_up_snapshot
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_hover_alone_does_not_open_dock
+* test_unhover_does_not_close_focused_dock
+    -- Awaiting 0.5 second(s) --
+* test_hovering_other_interactable_does_not_switch_focus
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 0.5 second(s) --
+* test_leaving_dock_does_not_close_it
+    -- Awaiting 0.5 second(s) --
+* test_hover_still_drives_outline
+* test_clicking_focused_interactable_again_keeps_it_focused
+* test_click_on_dock_is_not_empty_space
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_loaded_hover_setting_uses_click_focus_manager
+* test_runtime_hover_request_cannot_enable_hover_focus
+* test_legacy_f9_hook_keeps_click_focus_and_current_dock
+* test_navigation_feedback_tracks_only_semantic_transitions
+    [Orphans]:  55.0 new orphans in test.
+* test_location_icons_share_focus_feedback_and_reselection_is_silent
+* test_drag_release_and_world_hover_never_emit_navigation_feedback
+* test_hover_sounds_have_shared_cooldown_across_real_ui_targets
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 0.14 second(s) --
+    -- Awaiting 0.14 second(s) --
+    -- Awaiting 0.14 second(s) --
+* test_hover_off_still_acknowledges_new_row_and_icon_hover_does_not
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 0.6 second(s) --
+* test_hover_and_navigation_reuse_master_effects_and_window_suppression
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    [Orphans]:  55.0 new orphans in test.
+* test_pointer_can_toggle_and_hover_a_real_location_icon_without_focus
+    -- Awaiting 0.14 second(s) --
+27/27 passed.
+
+
+res://tests/integration/test_helper_paints.gd
+* test_slot_order_is_the_approved_paint_order
+* test_every_mesh_of_every_slot_uses_that_slots_paint
+* test_each_slot_has_its_own_material_with_shared_shader_and_palettes
+* test_changing_one_arms_paint_leaves_the_others_alone
+* test_paint_does_not_touch_the_shared_mesh_surface_materials
+* test_reinstancing_the_game_gives_the_same_slot_the_same_paint
+* test_hiring_reveals_the_first_n_slots_in_paint_order
+7/7 passed.
+
+
+res://tests/integration/test_hold_drag_fries.gd
+* test_holding_a_finger_on_the_truck_makes_fries
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_dragging_a_held_finger_keeps_making_fries
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_a_second_finger_pinching_stops_the_fries
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_dragging_onto_hud_stops_cooking_behind_it
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_pinch_movement_and_either_release_order_keep_cooking_stopped
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+5/5 passed.
+
+
+res://tests/integration/test_introduction_flow.gd
+* test_intro_hides_dock_strip_icon_and_throughput
+* test_intro_keeps_money_and_quest_bar
+* test_stage_ready_cue_during_introduction_does_not_claim_or_open_dock
+* test_clicking_truck_during_intro_does_nothing
+* test_pressing_begin_presents_its_moment_while_the_dock_stays_closed
+* test_finishing_the_intro_moment_opens_dock_on_truck_with_fry_cooking
+    -- Awaiting 2 idle frame(s) --
+* test_auto_open_keeps_focus_state_in_sync_for_later_clicks
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_auto_open_happens_only_once
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_later_moments_finishing_do_not_reopen_the_dock
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_first_helper_marketing_moment_is_not_the_introduction_moment
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_dock_opens_after_the_real_hud_finishes_the_moment
+* test_blank_intro_subtitle_still_waits_for_the_real_moment_before_opening_once
+    -- Awaiting signal "opened" or for 1.0 second(s) --
+    -- Awaiting signal "closed" or for 1.0 second(s) --
+* test_finishing_the_intro_moment_keeps_new_highlights
+* test_throughput_stays_hidden_after_fry_cooking
+* test_throughput_appears_once_first_helper_is_hired
+* test_reaching_30_fries_waits_for_begin_before_revealing_upgrades
+* test_startup_with_unlocked_rows_shows_icon_without_replaying_auto_open
+    -- Awaiting 2 idle frame(s) --
+* test_startup_with_first_helper_shows_throughput_without_flag_signal
+    -- Awaiting 2 idle frame(s) --
+* test_available_location_without_rows_cannot_open_dock
+* test_manual_feedback_follows_accepted_production_without_changing_focus
+* test_rapid_manual_actions_drop_excess_feedback_without_a_backlog
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.0625 second(s) --
+    -- Awaiting 0.3 second(s) --
+* test_hud_master_mute_silences_audio_but_keeps_manual_production
+* test_hud_reduced_motion_uses_truck_color_without_squashing_or_changing_production
+    -- Awaiting 0.3 second(s) --
+* test_real_volume_sliders_route_groups_independently
+    -- Awaiting 0.2 second(s) --
+* test_window_focus_silences_playback_and_restores_latest_preferences_without_replay
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+* test_real_economy_positive_outcomes_present_together_after_credit
+    -- Awaiting 0.06 second(s) --
+    -- Awaiting 0.25 second(s) --
+* test_zero_results_and_unrelated_balance_changes_do_not_present
+    -- Awaiting 2 idle frame(s) --
+* test_positive_production_without_demand_has_no_earnings_accent
+* test_click_only_tick_earns_without_duplicating_manual_production
+* test_busy_economy_drops_presentations_without_changing_results_or_queueing
+    -- Awaiting 0.65 second(s) --
+* test_economy_feedback_inherits_motion_volume_mute_and_focus_preferences
+    -- Awaiting 0.65 second(s) --
+    -- Awaiting 0.65 second(s) --
+* test_real_upgrade_spending_does_not_present_earnings
+    -- Awaiting 2 idle frame(s) --
+* test_restored_balance_at_scene_start_does_not_present_earnings
+    -- Awaiting 2 idle frame(s) --
+* test_shared_effects_voice_budget_drops_excess_without_replay
+    -- Awaiting 0.3 second(s) --
+* test_unlock_audio_starts_on_real_presentation_and_restores_before_intro_dock
+* test_unlock_audio_real_queue_classification_combined_content_and_held_cue
+    -- Awaiting 3 idle frame(s) --
+* test_unlock_audio_fanfare_completion_and_focus_restore_latest_mix_without_replay
+    -- Awaiting 0.65 second(s) --
+    [Orphans]:  1.0 new orphan in test.
+* test_restored_unlock_progress_does_not_start_actual_audio_players
+    -- Awaiting 2 idle frame(s) --
+* test_suppressed_unlock_audio_never_ducks_or_replays_when_preferences_return
+    -- Awaiting 3 idle frame(s) --
+* test_separated_earnings_ticks_refresh_readout_but_bound_sound_to_three_seconds
+40/40 passed.
+
+
+res://tests/integration/test_marketing_quest_flow.gd
+* test_marketing_stays_hidden_and_has_no_quest_before_first_helper
+    -- Awaiting 2 idle frame(s) --
+* test_first_helper_reveals_marketing_on_its_first_stage
+    -- Awaiting 2 idle frame(s) --
+* test_a_run_started_with_first_helper_on_begins_marketing_on_its_first_stage
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_marketing_dock_shows_its_own_stage_subtitle_bar_and_locked_claim
+    -- Awaiting 2 idle frame(s) --
+* test_unpinned_hud_stays_empty_while_marketing_is_open
+    -- Awaiting 2 idle frame(s) --
+* test_fry_truck_dock_shows_its_own_stage_in_the_dock
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  37.0 new orphans in test.
+* test_better_sign_can_be_bought_in_the_dock_for_money
+    -- Awaiting 2 idle frame(s) --
+* test_better_sign_is_not_bought_without_enough_money
+    -- Awaiting 2 idle frame(s) --
+* test_better_sign_stops_at_its_max_level
+    -- Awaiting 2 idle frame(s) --
+* test_buying_better_sign_meets_the_requirement_without_advancing_the_stage
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_before_better_sign_grants_nothing
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_the_stage_unlocks_menu_board_in_the_open_dock
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_announces_menu_board_as_an_unlock_moment
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  64.0 new orphans in test.
+* test_marketing_reaches_free_play_after_its_third_claim
+    -- Awaiting 2 idle frame(s) --
+* test_repeating_the_claim_grants_nothing_more
+    -- Awaiting 2 idle frame(s) --
+* test_menu_board_buys_to_level_one_and_multiplies_demand_only
+    -- Awaiting 2 idle frame(s) --
+* test_word_of_mouth_and_flyers_change_demand_on_the_real_economy_tick
+    -- Awaiting 2 idle frame(s) --
+* test_flyers_can_be_bought_repeatedly_in_marketing_free_play
+    -- Awaiting 2 idle frame(s) --
+* test_better_sign_raises_the_real_demand_rate_by_six_per_level
+    -- Awaiting 2 idle frame(s) --
+* test_marketing_cash_readout_matches_the_real_sales_tick
+    -- Awaiting 2 idle frame(s) --
+* test_free_play_survives_ticks_and_reopening_the_dock_while_the_economy_runs
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  506.0 new orphans in test.
+* test_claiming_marketing_leaves_the_fry_truck_stage_alone
+    -- Awaiting 2 idle frame(s) --
+* test_claiming_the_fry_truck_leaves_marketing_stage_alone
+    -- Awaiting 2 idle frame(s) --
+* test_stage_one_leads_to_better_sign_level_three_before_granting_word_of_mouth
+    -- Awaiting 2 idle frame(s) --
+* test_buying_and_claiming_menu_board_finishes_marketing_while_play_continues
+    -- Awaiting 2 idle frame(s) --
+* test_fry_truck_counter_display_stage_waits_for_claimed_marketing_reward
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  372.0 new orphans in test.
+* test_word_of_mouth_granted_before_arrival_makes_truck_stage_ready
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  235.0 new orphans in test.
+* test_ready_claims_on_both_locations_advance_and_queue_moments
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  408.0 new orphans in test.
+* test_bottleneck_on_both_location_docks_tracks_real_purchases
+    -- Awaiting 2 idle frame(s) --
+* test_marketing_selection_and_purchase_keep_truck_hud_progress_without_a_tick
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  201.0 new orphans in test.
+30/30 passed.
+
+
+res://tests/integration/test_phone_introduction.gd
+* test_engine_turns_touch_into_mouse_input
+* test_portrait_phone_shows_the_whole_truck_and_clear_hud
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_portrait_hud_fits_the_screen_whatever_scale_it_was_built_at
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_landscape_phone_shows_the_whole_truck_and_clear_hud
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_rotating_the_phone_reframes_the_truck
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_hud_text_is_readable_in_css_px_in_both_orientations
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 1 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 1 idle frame(s) --
+* test_portrait_hud_top_does_not_overlap
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_portrait_coins_remain_visible_with_dock_open_and_rotate
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_landscape_dock_has_priority_over_stock
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_landscape_hud_keeps_the_authored_top_row
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_the_floors_follow_the_live_scale
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_desktop_keeps_its_layout
+    -- Awaiting 3 idle frame(s) --
+* test_holding_a_finger_on_the_truck_cooks_fries_until_it_lifts
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_touching_empty_space_does_not_cook
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_dragging_a_finger_off_the_truck_stops_cooking
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_a_touch_on_the_dock_does_not_cook_the_truck_behind_it
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 3 physics frame(s) --
+* test_portrait_player_completes_the_introduction_and_first_stage_by_touch
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+* test_landscape_player_completes_the_introduction_and_first_stage_by_touch
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+* test_phone_opening_advances_by_tap_into_the_game
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+    -- Awaiting 0.3 second(s) --
+* test_phone_startup_applies_the_phone_canvas_and_desktop_does_not
+20/20 passed.
+
+
+res://tests/integration/test_phone_touch_navigation.gd
+* test_a_tap_on_a_location_opens_its_dock
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_a_tap_on_another_location_switches_the_dock
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    [Orphans]:  55.0 new orphans in test.
+* test_a_tap_on_empty_space_dismisses_the_dock
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_holding_a_finger_on_a_location_then_lifting_does_not_open_the_dock
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_holding_a_finger_on_another_location_does_not_switch_the_dock
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_holding_a_finger_on_empty_space_does_not_dismiss_the_dock
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_a_tap_after_a_hold_still_works
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_dragging_from_a_location_pans_without_selecting
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_dragging_from_a_location_does_not_switch_the_dock
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_dragging_on_empty_space_does_not_dismiss_the_dock
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_spreading_two_fingers_zooms_in
+    -- Awaiting 3 idle frame(s) --
+* test_pinching_two_fingers_together_zooms_out
+    -- Awaiting 3 idle frame(s) --
+* test_a_pinch_does_not_pan
+    -- Awaiting 3 idle frame(s) --
+* test_a_pinch_across_a_location_does_not_select_it
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_a_pinch_does_not_dismiss_the_dock
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_after_a_pinch_the_remaining_finger_does_not_pan
+    -- Awaiting 3 idle frame(s) --
+* test_a_tap_after_a_pinch_still_selects
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_the_mouse_still_clicks_and_drags_on_desktop
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_a_held_mouse_button_still_clicks
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_nonzero_touch_identifier_selects_and_later_identifier_dismisses
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_canceled_touch_does_not_select_or_dismiss
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_nonzero_identifier_hold_does_not_select
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_touch_and_drag_on_dock_do_not_pan_or_dismiss
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_pinch_with_nonzero_identifiers_zooms
+    -- Awaiting 3 idle frame(s) --
+* test_the_trace_names_a_tap_and_what_it_selected
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_the_trace_names_a_hold_as_the_reason_for_no_tap
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 0.5 second(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_the_trace_shows_a_finger_that_landed_on_the_hud
+    -- Awaiting 3 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 3 idle frame(s) --
+* test_the_trace_names_a_pinch
+    -- Awaiting 3 idle frame(s) --
+28/28 passed.
+
+
+res://tests/integration/test_pinned_quest_flow.gd
+* test_introduction_resource_details_follow_live_progress_and_keep_begin_action
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_unpinned_dock_resource_details_refresh_and_allow_completion
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_dock_pin_adds_one_row_and_unpin_keeps_local_progress
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_unpinned_marketing_condition_stays_usable_and_free_play_clears_details
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_two_pins_keep_live_location_stage_and_requirement_across_dock_switches
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_dock_completion_refreshes_pinned_progress_after_arrow_navigation
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_new_run_resets_both_pins_and_restores_actionable_introduction
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_free_play_removes_pinned_quests_and_empty_panel_while_play_continues
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+8/8 passed.
+
+
+res://tests/integration/test_pinned_quest_navigation.gd
+* test_dock_pin_is_compact_icon_only_and_updates_pin_state_and_tooltip
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  6.0 new orphans in test.
+* test_pinned_arrow_opens_its_location_and_centers_without_claiming_or_zooming
+    -- Awaiting 2 idle frame(s) --
+    --Awaiting callable to return TRUE or 1.0s.
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 0.6 second(s) --
+* test_arrow_waits_for_open_dock_and_replays_highlight_on_every_press
+    -- Awaiting 2 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    --Awaiting callable to return TRUE or 2.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+    --Awaiting callable to return TRUE or 1.0s.
+* test_leaving_arrow_target_cancels_pending_cue_even_if_player_returns
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.7 second(s) --
+* test_hidden_global_quest_bar_cannot_complete_a_stage_after_introduction
+    -- Awaiting 2 idle frame(s) --
+* test_close_cancels_pending_arrow_and_a_later_ordinary_open_has_no_cue
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.7 second(s) --
+    -- Awaiting 0.7 second(s) --
+* test_switching_away_during_highlight_clears_it_on_the_other_location
+    -- Awaiting 2 idle frame(s) --
+    --Awaiting callable to return TRUE or 2.0s.
+    -- Awaiting 0.4 second(s) --
+7/7 passed.
+
+
+res://tests/integration/test_prologue_startup.gd
+* test_normal_entry_uses_wrapper_and_preserves_feedback_evaluation_entry
+    -- Awaiting 2 idle frame(s) --
+* test_first_letter_sentence_waits_for_gesture_and_scrim_clicks_never_reach_game
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.2 second(s) --
+* test_escape_skips_letter_and_duplicate_completion_activates_one_game
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_skip_button_click_does_not_start_gameplay_click_or_economy
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_full_keyboard_completion_activates_exactly_one_game
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_mute_is_above_scrim_and_keyboard_navigation_remains_usable
+    -- Awaiting 2 idle frame(s) --
+* test_opening_settings_toggle_hover_audio_without_advancing
+    -- Awaiting 2 idle frame(s) --
+* test_focus_loss_keeps_typing_and_line_wait_without_starting_game
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+    -- Awaiting 0.1 second(s) --
+* test_next_startup_skips_the_completed_letter
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_prologue_voice_reaches_mixer_and_honors_volume_mute_and_focus
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.1 second(s) --
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting 0.25 second(s) --
+* test_world_press_drag_and_wheel_cannot_change_state_or_camera
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_last_line_mouse_release_hands_off_without_gameplay_press
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_completed_prologue_resumes_without_showing_the_letter
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 3 idle frame(s) --
+* test_opening_animates_letterbox_while_game_is_disabled
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.6 second(s) --
+    -- Awaiting 0.6 second(s) --
+14/14 passed.
+
+
+res://tests/integration/test_purchase_feedback.gd
+* test_confirmed_upgrade_purchase_spends_levels_and_presents_success
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_unaffordable_visible_attempt_nudges_without_spending_or_level_change
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_noop_maxed_upgrade_does_not_present_success
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_confirmed_helper_hire_uses_only_robot_cue_and_reveals_helper
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_unaffordable_helper_attempt_never_plays_robot_cue
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_reduced_motion_toggle_restores_interrupted_purchase_nudge_position
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+* test_earnings_restore_interrupted_purchase_nudge_position
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.2 second(s) --
+* test_marketing_unaffordable_row_rejects_without_purchase_or_robot_cue
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_stale_unaffordable_row_refreshes_without_buying_through_its_body
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_actual_income_during_purchase_keeps_visible_confirmation
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+    --Awaiting callable to return TRUE or 0.4s.
+    -- Awaiting 0.6 second(s) --
+* test_back_to_back_successes_each_get_feedback
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_failures_stay_rate_limited
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_purchase_appends_a_named_line_to_the_feed
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_repeat_purchases_stack_in_the_feed_without_a_cap
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+* test_click_on_row_that_became_affordable_does_not_report_failure
+    -- Awaiting signal "opened" or for 3.0 second(s) --
+15/15 passed.
+
+
+res://tests/integration/test_quest_tracking_variants.gd
+* test_every_variant_keeps_introduction_actionable_then_applies_its_treatment
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_variant_a_default_pin_is_removable_and_selecting_same_setting_keeps_choice
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_variant_c_permanent_reminder_cannot_be_unpinned_and_navigates_to_its_dock
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    [Orphans]:  37.0 new orphans in test.
+* test_runtime_switching_preserves_progress_optional_pins_and_live_dock_content
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_new_runs_retain_variant_but_discard_individual_pins
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+* test_completed_optional_entries_leave_all_variants_and_permanent_free_play_remains
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+    -- Awaiting 0.4 second(s) --
+* test_f10_cycles_setting_at_runtime_without_losing_begin
+    -- Awaiting 2 idle frame(s) --
+7/7 passed.
+
+
+res://tests/integration/test_requirement_flow.gd
+* test_fresh_run_shows_first_stage_requirement
+* test_requirement_value_rises_as_economy_ticks
+* test_action_button_activates_once_fries_reach_target
+* test_stage_ready_cue_follows_requirement_edge_once
+* test_each_subsequent_stage_has_its_own_readiness_edge
+* test_startup_with_ready_or_unlocked_stage_suppresses_past_cue
+* test_pressing_action_before_requirement_met_changes_nothing
+* test_pressing_action_on_met_requirement_grants_reward_and_advances
+* test_finishing_first_quest_chains_to_next_quests_first_stage
+* test_finishing_last_quest_leaves_no_requirement_and_game_keeps_ticking
+* test_action_press_in_free_play_does_nothing
+* test_completing_a_stage_presents_one_moment_headlined_by_its_subtitle
+* test_the_moment_names_the_completed_stage_resource
+* test_pressing_action_before_requirement_met_presents_nothing
+* test_consecutive_stages_queue_in_order_with_only_their_new_content
+* test_queued_moment_keeps_its_content_through_later_progression
+* test_presentation_leaves_new_highlights_intact
+* test_stage_revealing_a_location_announces_it_with_its_rows_in_one_moment
+* test_completed_stage_is_displayed_by_the_real_hud
+* test_real_hud_presents_queued_stages_one_after_another
+    [Orphans]:  1.0 new orphan in test.
+* test_restored_progression_replays_no_moments
+* test_reward_unlock_highlights_the_new_row_and_truck_icon
+22/22 passed.
+
+
+res://tests/integration/test_save_resume.gd
+* test_resume_mid_quest_restores_before_initialization_and_replays_no_moments
+    -- Awaiting 3 idle frame(s) --
+* test_new_game_ui_requires_confirmation_and_cancel_keeps_progress
+* test_stage_claim_and_purchase_autosave_the_completed_action
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+* test_scene_ready_manager_registers_and_loads_before_gameplay
+    -- Awaiting 3 idle frame(s) --
+* test_resume_with_first_helper_shows_throughput_dock_with_truck_reading
+    -- Awaiting 3 idle frame(s) --
+5/5 passed.
+
+
+res://tests/integration/test_save_transfer_ui.gd
+* test_settings_has_export_and_import_controls
+* test_bad_code_shows_message_and_skips_confirmation
+* test_valid_code_asks_for_confirmation_before_replacing
+3/3 passed.
+
+
+res://tests/integration/test_truck_stock_flow.gd
+* test_demand_limited_stock_carries_a_supply_limited_stretch
+    -- Awaiting 2 idle frame(s) --
+* test_production_dock_meters_follow_the_real_run_state
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 2 idle frame(s) --
+2/2 passed.
+
+
+res://tests/integration/test_unlock_moment_input_flow.gd
+* test_a_cue_appears_after_a_dismissed_moment_on_a_real_economy_tick
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+    --Awaiting callable to return TRUE or 5.0s.
+* test_a_cue_during_a_moment_waits_and_appears_once_it_is_dismissed
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+    -- Awaiting 0.1 second(s) --
+* test_a_moment_swallows_a_real_click_on_the_dock_until_dismissed
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+    -- Awaiting signal "opened" or for 2.0 second(s) --
+    -- Awaiting 2 idle frame(s) --
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+* test_escape_dismisses_a_real_stage_moment_and_the_dock_opens_once
+    -- Awaiting 0.25 second(s) --
+    -- Awaiting signal "finished" or for 2.0 second(s) --
+4/4 passed.
+
+
+res://tests/integration/test_upgrade_unlock_flow.gd
+* test_fresh_run_shows_no_fry_truck_rows
+* test_plenty_of_fries_and_money_do_not_unlock_without_a_flag
+* test_upgrade_without_a_flag_is_never_shown_even_when_everything_looks_satisfied
+* test_upgrade_appears_exactly_when_its_flag_turns_on
+* test_pressing_action_before_requirement_met_changes_no_flags_or_rows
+* test_requirement_met_and_action_pressed_shows_fry_cooking
+* test_upgrades_gated_on_first_helper_stay_hidden_before_a_helper_is_hired
+7/7 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+---- Totals ----
+Deprecated        3
+
+Scripts           68
+Tests             693
+  Passing         693
+Asserts           5031
+Time              194.257s
+
+
+---- All tests passed! ----

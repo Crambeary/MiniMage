@@ -1,0 +1,13 @@
+{
+  "endpoint": "legacy :8000",
+  "server_info": {
+    "name": "Godot AI",
+    "version": "3.4.11"
+  },
+  "connected_editor_count": 3,
+  "plugin_versions": [
+    "3.1.1"
+  ],
+  "foreign_editor_calls": 0,
+  "note": "Discovery only; no foreign pinned editor reads."
+}

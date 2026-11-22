@@ -1,0 +1,9 @@
+{
+  "dirs": [],
+  "tests": [
+    "res://tests/integration/test_hold_drag_fries.gd",
+    "res://tests/integration/test_phone_touch_navigation.gd"
+  ],
+  "should_exit": true,
+  "should_exit_on_success": true
+}

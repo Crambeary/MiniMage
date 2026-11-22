@@ -1,0 +1,252 @@
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #1, invalid UID: 'uid://cvuyhf4wy765y' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chop.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #2, invalid UID: 'uid://bufvplfcpjr5t' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chopping.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #3, invalid UID: 'uid://curqhh4je2jux' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Drink.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #4, invalid UID: 'uid://dnu05tqnmlawr' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Holding_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #5, invalid UID: 'uid://g534keusvm40' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Idle_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #6, invalid UID: 'uid://c153gx070e241' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Interact.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #7, invalid UID: 'uid://cwk843hntx42g' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Pickup.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #8, invalid UID: 'uid://dgs2xocwkyqhv' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Saw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #9, invalid UID: 'uid://cyh4mke7mfp46' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Sawing.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #10, invalid UID: 'uid://dcpmm464abtch' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Throw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #11, invalid UID: 'uid://ch7n5k17b7fek' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Walking_B.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #12, invalid UID: 'uid://yc336kmciqoa' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Work_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #13, invalid UID: 'uid://t0cvvd2mygmd' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Working_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: res://models/fry_guy/fry_guy.tscn:4 - ext_resource, invalid UID: uid://b8f4thdipyl5q - using text path instead: res://models/fry_guy/animations/FryGuy_Chop.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:5 - ext_resource, invalid UID: uid://cmjfdrclw7ays - using text path instead: res://models/fry_guy/animations/FryGuy_Chopping.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:6 - ext_resource, invalid UID: uid://nh2e7tgvp0e3 - using text path instead: res://models/fry_guy/animations/FryGuy_Drink.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:7 - ext_resource, invalid UID: uid://bypylxhkw13r - using text path instead: res://models/fry_guy/animations/FryGuy_Holding_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:8 - ext_resource, invalid UID: uid://cckosg66po7df - using text path instead: res://models/fry_guy/animations/FryGuy_Idle_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:9 - ext_resource, invalid UID: uid://dx3b7wgjvgef2 - using text path instead: res://models/fry_guy/animations/FryGuy_Interact.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:10 - ext_resource, invalid UID: uid://cwd6g1fiu0ogx - using text path instead: res://models/fry_guy/animations/FryGuy_Pickup.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:11 - ext_resource, invalid UID: uid://d3lpqn58wf5u7 - using text path instead: res://models/fry_guy/animations/FryGuy_Saw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:12 - ext_resource, invalid UID: uid://dfvo65ufcyvqo - using text path instead: res://models/fry_guy/animations/FryGuy_Sawing.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:13 - ext_resource, invalid UID: uid://cdkbqalr6qbnq - using text path instead: res://models/fry_guy/animations/FryGuy_Throw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:14 - ext_resource, invalid UID: uid://vmkenlptvpwy - using text path instead: res://models/fry_guy/animations/FryGuy_Walking_B.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:15 - ext_resource, invalid UID: uid://b3wi3d7ms3nnp - using text path instead: res://models/fry_guy/animations/FryGuy_Work_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:16 - ext_resource, invalid UID: uid://bsgu4rjwemi22 - using text path instead: res://models/fry_guy/animations/FryGuy_Working_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+[GodotVim] Plugin disabled in settings, skipping initialization.
+SCAN_PROBE pid=2894219 seconds=0.531 scanning=true importing=false processing=true progress=0.0
+SCAN_PROBE pid=2894220 seconds=0.532 scanning=true importing=false processing=true progress=0.0
+SCAN_PROBE pid=2894220 seconds=1.871 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=1.958 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=2.951 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=3.036 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=4.021 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=4.104 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=5.092 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=5.18 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=6.157 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=6.25 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=7.241 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=7.328 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=8.317 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=8.394 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=9.394 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=9.472 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=10.455 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=10.537 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=11.528 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=11.61 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=12.594 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=12.675 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=13.677 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=13.748 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE stopping render load
+SCAN_PROBE pid=2894220 seconds=15.122 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=15.125 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=16.189 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=16.192 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=17.261 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=17.268 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=18.335 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=18.34 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=19.414 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=19.42 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=20.479 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=20.484 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=21.585 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=21.59 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=22.695 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=22.706 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=23.804 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=23.817 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=24.923 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=24.931 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=26.028 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=26.038 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=27.14 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=27.153 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=28.266 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=28.274 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=29.388 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=29.394 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894219 seconds=30.506 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=30.515 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=31.619 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=31.629 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=32.732 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=32.742 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=33.864 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=33.874 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=34.947 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=34.957 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=36.022 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=36.036 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=37.122 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=37.14 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=38.237 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=38.239 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=39.332 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=39.346 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=40.43 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2894220 seconds=40.439 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=41.574 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=41.579 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=42.669 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=42.673 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=43.78 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=43.789 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=44.865 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=44.872 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=45.962 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=45.986 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=47.073 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=47.088 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=48.172 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=48.183 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=49.296 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=49.314 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=50.407 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=50.42 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=51.546 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=51.551 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=52.647 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=52.657 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=53.755 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=53.769 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=54.86 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=54.878 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=55.943 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=55.963 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=57.045 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=57.084 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=58.104 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=58.53 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=59.166 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=59.605 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=60.242 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=60.672 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=61.323 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=61.754 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=62.394 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=62.823 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=63.472 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=63.913 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=64.553 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894220 seconds=64.98 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE pid=2894219 seconds=65.629 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE TIMEOUT

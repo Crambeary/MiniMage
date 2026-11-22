@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "godot_lsp": {
+      "type": "stdio",
+      "command": "bash",
+      "args": ["-c", "exec bash \"$(git rev-parse --show-toplevel)/tools/lsp/serve_upstream.sh\""]
+    }
+  }
+}

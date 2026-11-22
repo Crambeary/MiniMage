@@ -1,0 +1,170 @@
+{
+  "ports": [
+    18435,
+    19435
+  ],
+  "headed": true,
+  "sessions": [
+    {
+      "session_id": "t3-d7199fde@2418272175e64f83",
+      "name": "t3-d7199fde",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$WORKTREE/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "res://scenes/prologue_startup.tscn",
+      "play_state": "stopped",
+      "readiness": "ready",
+      "editor_pid": 3803852,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T01:48:41.214199+00:00",
+      "last_seen": "2026-10-29T01:48:43.760427+00:00",
+      "is_active": true
+    },
+    {
+      "session_id": "fry-v4-owned-peer@c3f7bfe35395827c",
+      "name": "fry-v4-owned-peer",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$PEER/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "",
+      "play_state": "stopped",
+      "readiness": "importing",
+      "editor_pid": 3803853,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T01:48:41.443493+00:00",
+      "last_seen": "2026-10-29T01:48:41.447387+00:00",
+      "is_active": false
+    }
+  ],
+  "pinned_reads": [
+    {
+      "project_path": "$WORKTREE",
+      "session_id": "t3-d7199fde@2418272175e64f83",
+      "state": {
+        "current_scene": "res://scenes/prologue_startup.tscn",
+        "game_capture_ready": false,
+        "game_status": {
+          "active": false,
+          "editor_log_cursor": 0,
+          "elapsed_msec": 0,
+          "helper_expected": true,
+          "helper_live": false,
+          "ready": false,
+          "ready_wait_msec": 20000,
+          "run_started_msec": 0,
+          "run_token": 0,
+          "session_active": false,
+          "status": "stopped"
+        },
+        "godot_version": "4.7.2-stable (official)",
+        "helper_live": false,
+        "is_playing": false,
+        "project_name": "FryTruckGame",
+        "readiness": "ready",
+        "session_active": false
+      },
+      "hierarchy": {
+        "has_more": false,
+        "limit": 100,
+        "nodes": [
+          {
+            "children_count": 1,
+            "name": "PrologueStartup",
+            "path": "/PrologueStartup",
+            "type": "Node"
+          },
+          {
+            "children_count": 2,
+            "name": "Opening",
+            "path": "/PrologueStartup/Opening",
+            "type": "CanvasLayer"
+          },
+          {
+            "children_count": 0,
+            "name": "ProloguePanel",
+            "path": "/PrologueStartup/Opening/ProloguePanel",
+            "type": "Control"
+          },
+          {
+            "children_count": 2,
+            "name": "FeedbackControls",
+            "path": "/PrologueStartup/Opening/FeedbackControls",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 2,
+            "name": "Buttons",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons",
+            "type": "HBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "Mute",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Mute",
+            "type": "Button"
+          },
+          {
+            "children_count": 0,
+            "name": "Settings",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Settings",
+            "type": "Button"
+          },
+          {
+            "children_count": 1,
+            "name": "Options",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options",
+            "type": "PanelContainer"
+          },
+          {
+            "children_count": 6,
+            "name": "Contents",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "ReducedMotion",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/ReducedMotion",
+            "type": "CheckButton"
+          },
+          {
+            "children_count": 0,
+            "name": "HoverAudio",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/HoverAudio",
+            "type": "CheckButton"
+          }
+        ],
+        "offset": 0,
+        "total_count": 15
+      }
+    }
+  ]
+}

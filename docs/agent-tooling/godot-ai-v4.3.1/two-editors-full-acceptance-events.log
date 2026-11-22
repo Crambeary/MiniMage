@@ -1,0 +1,63 @@
+Public fixture/MCP event excerpts only; unrelated import and runtime diagnostics omitted.
+
+$WORKTREE editor
+MIGRATION_FIXTURE: isolated endpoint settings applied
+MCP | [event] scene_changed -> res://scenes/prologue_startup.tscn
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] open_scene({"path":"res://scenes/prologue_startup.tscn"})
+MCP | [send] open_scene -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_scene_tree({"depth":10.0,"limit":100.0,"offset":0.0})
+MCP | [send] get_scene_tree -> ok
+MIGRATION_FIXTURE: isolated endpoint settings applied
+MCP | [event] scene_changed -> res://scenes/prologue_startup.tscn
+MCP | [recv] get_scene_tree({"depth":10.0,"limit":100.0,"offset":0.0})
+MCP | [send] get_scene_tree -> ok
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+MCP | [recv] set_property({"path":"/PrologueStartup","property":"process_priority","value":7.0})
+MCP | [send] set_property -> ok
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+MIGRATION_FIXTURE: undo=true
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+MCP | [recv] run_project({"autosave":false,"mode":"main"})
+MCP | [event] play_state_changed -> playing
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] stop_project({})
+MCP | [event] play_state_changed -> stopped
+
+$PEER editor
+MIGRATION_FIXTURE: isolated endpoint settings applied
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] open_scene({"path":"res://scenes/prologue_startup.tscn"})
+MCP | [event] scene_changed -> res://scenes/prologue_startup.tscn
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+MCP | [recv] get_scene_tree({"depth":10.0,"limit":100.0,"offset":0.0})
+MCP | [send] get_scene_tree -> ok

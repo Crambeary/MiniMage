@@ -1,0 +1,405 @@
+{
+  "ports": [
+    18435,
+    19435
+  ],
+  "headed": true,
+  "sessions": [
+    {
+      "session_id": "t3-d7199fde@aa646f2ff80e2a6a",
+      "name": "t3-d7199fde",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$WORKTREE/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "res://scenes/prologue_startup.tscn",
+      "play_state": "stopped",
+      "readiness": "ready",
+      "editor_pid": 1669048,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T15:36:29.097301+00:00",
+      "last_seen": "2026-10-29T15:36:31.750520+00:00",
+      "is_active": true
+    },
+    {
+      "session_id": "validation-godot-ai-v4-peer@d6332429de2a20f6",
+      "name": "validation-godot-ai-v4-peer",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$PEER/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "",
+      "play_state": "stopped",
+      "readiness": "importing",
+      "editor_pid": 1669049,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T15:36:30.940176+00:00",
+      "last_seen": "2026-10-29T15:36:30.946295+00:00",
+      "is_active": false
+    }
+  ],
+  "pinned_reads": [
+    {
+      "project_path": "$WORKTREE",
+      "session_id": "t3-d7199fde@aa646f2ff80e2a6a",
+      "state": {
+        "current_scene": "res://scenes/prologue_startup.tscn",
+        "game_capture_ready": false,
+        "game_status": {
+          "active": false,
+          "editor_log_cursor": 0,
+          "elapsed_msec": 0,
+          "helper_expected": true,
+          "helper_live": false,
+          "ready": false,
+          "ready_wait_msec": 20000,
+          "run_started_msec": 0,
+          "run_token": 0,
+          "session_active": false,
+          "status": "stopped"
+        },
+        "godot_version": "4.7.2-stable (official)",
+        "helper_live": false,
+        "is_playing": false,
+        "project_name": "FryTruckGame",
+        "readiness": "ready",
+        "session_active": false
+      },
+      "hierarchy": {
+        "has_more": false,
+        "limit": 100,
+        "nodes": [
+          {
+            "children_count": 1,
+            "name": "PrologueStartup",
+            "path": "/PrologueStartup",
+            "type": "Node"
+          },
+          {
+            "children_count": 2,
+            "name": "Opening",
+            "path": "/PrologueStartup/Opening",
+            "type": "CanvasLayer"
+          },
+          {
+            "children_count": 0,
+            "name": "ProloguePanel",
+            "path": "/PrologueStartup/Opening/ProloguePanel",
+            "type": "Control"
+          },
+          {
+            "children_count": 2,
+            "name": "FeedbackControls",
+            "path": "/PrologueStartup/Opening/FeedbackControls",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 2,
+            "name": "Buttons",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons",
+            "type": "HBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "Mute",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Mute",
+            "type": "Button"
+          },
+          {
+            "children_count": 0,
+            "name": "Settings",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Settings",
+            "type": "Button"
+          },
+          {
+            "children_count": 1,
+            "name": "Options",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options",
+            "type": "PanelContainer"
+          },
+          {
+            "children_count": 6,
+            "name": "Contents",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "ReducedMotion",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/ReducedMotion",
+            "type": "CheckButton"
+          },
+          {
+            "children_count": 0,
+            "name": "HoverAudio",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/HoverAudio",
+            "type": "CheckButton"
+          }
+        ],
+        "offset": 0,
+        "total_count": 15
+      }
+    },
+    {
+      "project_path": "$PEER",
+      "session_id": "validation-godot-ai-v4-peer@d6332429de2a20f6",
+      "state": {
+        "current_scene": "res://scenes/prologue_startup.tscn",
+        "game_capture_ready": false,
+        "game_status": {
+          "active": false,
+          "editor_log_cursor": 0,
+          "elapsed_msec": 0,
+          "helper_expected": true,
+          "helper_live": false,
+          "ready": false,
+          "ready_wait_msec": 20000,
+          "run_started_msec": 0,
+          "run_token": 0,
+          "session_active": false,
+          "status": "stopped"
+        },
+        "godot_version": "4.7.2-stable (official)",
+        "helper_live": false,
+        "is_playing": false,
+        "project_name": "FryTruckGame",
+        "readiness": "ready",
+        "session_active": false
+      },
+      "hierarchy": {
+        "has_more": false,
+        "limit": 100,
+        "nodes": [
+          {
+            "children_count": 1,
+            "name": "PrologueStartup",
+            "path": "/PrologueStartup",
+            "type": "Node"
+          },
+          {
+            "children_count": 2,
+            "name": "Opening",
+            "path": "/PrologueStartup/Opening",
+            "type": "CanvasLayer"
+          },
+          {
+            "children_count": 0,
+            "name": "ProloguePanel",
+            "path": "/PrologueStartup/Opening/ProloguePanel",
+            "type": "Control"
+          },
+          {
+            "children_count": 2,
+            "name": "FeedbackControls",
+            "path": "/PrologueStartup/Opening/FeedbackControls",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 2,
+            "name": "Buttons",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons",
+            "type": "HBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "Mute",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Mute",
+            "type": "Button"
+          },
+          {
+            "children_count": 0,
+            "name": "Settings",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Buttons/Settings",
+            "type": "Button"
+          },
+          {
+            "children_count": 1,
+            "name": "Options",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options",
+            "type": "PanelContainer"
+          },
+          {
+            "children_count": 6,
+            "name": "Contents",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents",
+            "type": "VBoxContainer"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "EffectsVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/EffectsVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationLabel",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationLabel",
+            "type": "Label"
+          },
+          {
+            "children_count": 0,
+            "name": "CelebrationVolume",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/CelebrationVolume",
+            "type": "HSlider"
+          },
+          {
+            "children_count": 0,
+            "name": "ReducedMotion",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/ReducedMotion",
+            "type": "CheckButton"
+          },
+          {
+            "children_count": 0,
+            "name": "HoverAudio",
+            "path": "/PrologueStartup/Opening/FeedbackControls/Options/Contents/HoverAudio",
+            "type": "CheckButton"
+          }
+        ],
+        "offset": 0,
+        "total_count": 15
+      }
+    }
+  ],
+  "reconnect": {
+    "old": "t3-d7199fde@aa646f2ff80e2a6a",
+    "new": "t3-d7199fde@1487ba75ef0c671a"
+  },
+  "undo": {
+    "before": {
+      "count": 1,
+      "node_type": "Node",
+      "path": "/PrologueStartup",
+      "properties": [
+        {
+          "name": "process_priority",
+          "type": "int",
+          "value": 0
+        }
+      ],
+      "total_count": 8,
+      "unknown_fields": []
+    },
+    "edit": {
+      "old_value": 0,
+      "path": "/PrologueStartup",
+      "property": "process_priority",
+      "undoable": true,
+      "value": 7
+    },
+    "changed": {
+      "count": 1,
+      "node_type": "Node",
+      "path": "/PrologueStartup",
+      "properties": [
+        {
+          "name": "process_priority",
+          "type": "int",
+          "value": 7
+        }
+      ],
+      "total_count": 8,
+      "unknown_fields": []
+    },
+    "after": {
+      "count": 1,
+      "node_type": "Node",
+      "path": "/PrologueStartup",
+      "properties": [
+        {
+          "name": "process_priority",
+          "type": "int",
+          "value": 0
+        }
+      ],
+      "total_count": 8,
+      "unknown_fields": []
+    }
+  },
+  "runtime": {
+    "run": {
+      "autosave": false,
+      "current_run_errors": [],
+      "game_status": {
+        "active": true,
+        "editor_log_cursor": 26,
+        "elapsed_msec": 2243,
+        "helper_expected": true,
+        "helper_live": true,
+        "ready": true,
+        "ready_wait_msec": 3000,
+        "run_started_msec": 12308,
+        "run_token": 1,
+        "session_active": true,
+        "status": "live"
+      },
+      "helper_live": true,
+      "mode": "main",
+      "reason": "Game launched and the Godot AI game helper is live.",
+      "recent_errors": [],
+      "recent_errors_may_predate_run": false,
+      "recent_errors_scope": "none",
+      "recent_errors_truncated": false,
+      "retained_errors": [],
+      "scene": "",
+      "session_active": true,
+      "undoable": false,
+      "was_already_running": false
+    },
+    "state": {
+      "current_scene": "res://scenes/prologue_startup.tscn",
+      "game_capture_ready": true,
+      "game_status": {
+        "active": true,
+        "editor_log_cursor": 26,
+        "elapsed_msec": 10344,
+        "helper_expected": true,
+        "helper_live": true,
+        "ready": true,
+        "ready_wait_msec": 20000,
+        "run_started_msec": 12308,
+        "run_token": 1,
+        "session_active": true,
+        "status": "live"
+      },
+      "godot_version": "4.7.2-stable (official)",
+      "helper_live": true,
+      "is_playing": true,
+      "project_name": "FryTruckGame",
+      "readiness": "playing",
+      "session_active": true
+    }
+  },
+  "passed": true
+}

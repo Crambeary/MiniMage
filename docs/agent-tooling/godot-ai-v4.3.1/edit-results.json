@@ -1,0 +1,53 @@
+{
+  "before": {
+    "count": 1,
+    "node_type": "Node",
+    "path": "/PrologueStartup",
+    "properties": [
+      {
+        "name": "process_priority",
+        "type": "int",
+        "value": 0
+      }
+    ],
+    "total_count": 8,
+    "unknown_fields": []
+  },
+  "edit": {
+    "old_value": 0,
+    "path": "/PrologueStartup",
+    "property": "process_priority",
+    "undoable": true,
+    "value": 7
+  },
+  "changed": {
+    "count": 1,
+    "node_type": "Node",
+    "path": "/PrologueStartup",
+    "properties": [
+      {
+        "name": "process_priority",
+        "type": "int",
+        "value": 7
+      }
+    ],
+    "total_count": 8,
+    "unknown_fields": []
+  },
+  "after_undo": {
+    "count": 1,
+    "node_type": "Node",
+    "path": "/PrologueStartup",
+    "properties": [
+      {
+        "name": "process_priority",
+        "type": "int",
+        "value": 0
+      }
+    ],
+    "total_count": 8,
+    "unknown_fields": []
+  },
+  "old_session_id": "t3-d7199fde@38a32ee275246544",
+  "new_session_id": "t3-d7199fde@11001e75a6b02973"
+}

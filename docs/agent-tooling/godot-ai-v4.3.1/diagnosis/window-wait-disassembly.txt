@@ -1,0 +1,121 @@
+[New LWP 2878354 (id 2)]
+[New LWP 2877823 (id 3)]
+[New LWP 2877821 (id 4)]
+[New LWP 2877450 (id 5)]
+[New LWP 2877449 (id 6)]
+[New LWP 2877162 (id 7)]
+[New LWP 2877161 (id 8)]
+[New LWP 2877158 (id 9)]
+[New LWP 2877152 (id 10)]
+[New LWP 2877150 (id 11)]
+[New LWP 2877106 (id 12)]
+[New LWP 2877105 (id 13)]
+[New LWP 2877104 (id 14)]
+[New LWP 2877103 (id 15)]
+[New LWP 2877102 (id 16)]
+[New LWP 2877101 (id 17)]
+[New LWP 2877100 (id 18)]
+[New LWP 2877099 (id 19)]
+[New LWP 2877098 (id 20)]
+[New LWP 2877097 (id 21)]
+[New LWP 2877096 (id 22)]
+[New LWP 2877095 (id 23)]
+[New LWP 2877093 (id 24)]
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.cachyos.org>
+  <https://debuginfod.archlinux.org>
+Enable debuginfod for this session? (y or [n]) [answered N; input not from terminal]
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/libthread_db.so.1".
+[Switching to thread 1 (Thread 0x7f1989b76b40 (LWP 2877087))]
+0x00007f19898b5a22 in ?? () from /usr/lib/libc.so.6
+Dump of assembler code from 0x50cbd0 to 0x50cd60:
+   0x000000000050cbd0:	scas   (%rdi),%eax
+   0x000000000050cbd1:	movq   0x4e59df7(%rip),%xmm1        # 0x53669d0
+   0x000000000050cbd9:	lea    0x1c(%rsp),%rsi
+   0x000000000050cbde:	mov    %r8,%rdi
+   0x000000000050cbe1:	pmaxsd %xmm1,%xmm0
+   0x000000000050cbe6:	pextrd $0x1,%xmm0,%r15d
+   0x000000000050cbed:	movd   %xmm0,%r14d
+   0x000000000050cbf2:	movq   %xmm0,0x8(%rsp)
+   0x000000000050cbf8:	call   0x507f90
+   0x000000000050cbfd:	movq   0x8(%rsp),%xmm0
+   0x000000000050cc03:	cmpq   $0x0,0x100(%rax)
+   0x000000000050cc0b:	mov    %rax,%rbx
+   0x000000000050cc0e:	jne    0x50ce37
+   0x000000000050cc14:	cmp    %r14d,0x4c(%rbx)
+   0x000000000050cc18:	je     0x50ce04
+   0x000000000050cc1e:	movq   %xmm0,0x8(%rsp)
+   0x000000000050cc24:	mov    0x318(%r13),%rdi
+   0x000000000050cc2b:	xor    %esi,%esi
+   0x000000000050cc2d:	call   *0x8a973d5(%rip)        # 0x8fa4008
+   0x000000000050cc33:	lea    0x40(%rsp),%rdx
+   0x000000000050cc38:	mov    (%rbx),%rsi
+   0x000000000050cc3b:	mov    0x318(%r13),%rdi
+   0x000000000050cc42:	call   *0x8a97880(%rip)        # 0x8fa44c8
+   0x000000000050cc48:	mov    (%rsp),%esi
+   0x000000000050cc4b:	mov    %r13,%rdi
+   0x000000000050cc4e:	mov    0x48(%rsp),%ebp
+   0x000000000050cc52:	movq   0x8(%rsp),%xmm0
+   0x000000000050cc58:	mov    0x4c(%rsp),%r12d
+   0x000000000050cc5d:	movq   %xmm0,0x4c(%rbx)
+   0x000000000050cc62:	call   0x50c160
+   0x000000000050cc67:	mov    %r14d,%edx
+   0x000000000050cc6a:	mov    (%rbx),%rsi
+   0x000000000050cc6d:	mov    %r15d,%ecx
+   0x000000000050cc70:	mov    0x318(%r13),%rdi
+   0x000000000050cc77:	mov    $0x32,%r14d
+   0x000000000050cc7d:	call   *0x8a972f5(%rip)        # 0x8fa3f78
+   0x000000000050cc83:	nopl   0x0(%rax,%rax,1)
+   0x000000000050cc88:	xor    %esi,%esi
+   0x000000000050cc8a:	mov    0x318(%r13),%rdi
+   0x000000000050cc91:	call   *0x8a97371(%rip)        # 0x8fa4008
+   0x000000000050cc97:	mov    (%rbx),%rsi
+   0x000000000050cc9a:	lea    0x40(%rsp),%rdx
+   0x000000000050cc9f:	mov    0x318(%r13),%rdi
+   0x000000000050cca6:	call   *0x8a9781c(%rip)        # 0x8fa44c8
+   0x000000000050ccac:	cmp    %ebp,0x48(%rsp)
+   0x000000000050ccb0:	jne    0x50cd30
+   0x000000000050ccb2:	cmp    %r12d,0x4c(%rsp)
+   0x000000000050ccb7:	jne    0x50cd30
+   0x000000000050ccb9:	mov    0x8a968e0(%rip),%rdi        # 0x8fa35a0
+   0x000000000050ccc0:	mov    (%rdi),%rax
+   0x000000000050ccc3:	mov    0x210(%rax),%rax
+   0x000000000050ccca:	cmp    $0x1873970,%rax
+   0x000000000050ccd0:	jne    0x50cda8
+   0x000000000050ccd6:	movq   $0x0,0x20(%rsp)
+   0x000000000050ccdf:	mov    $0x989680,%eax
+   0x000000000050cce4:	jmp    0x50cd09
+   0x000000000050cce6:	cs nopw 0x0(%rax,%rax,1)
+   0x000000000050ccf0:	call   0x409480 <__errno_location@plt>
+   0x000000000050ccf5:	cmpl   $0x4,(%rax)
+   0x000000000050ccf8:	jne    0x50cd22
+   0x000000000050ccfa:	mov    0x30(%rsp),%rax
+   0x000000000050ccff:	mov    %rax,0x20(%rsp)
+   0x000000000050cd04:	mov    0x38(%rsp),%rax
+   0x000000000050cd09:	lea    0x30(%rsp),%rsi
+   0x000000000050cd0e:	lea    0x20(%rsp),%rdi
+   0x000000000050cd13:	mov    %rax,0x28(%rsp)
+   0x000000000050cd18:	call   0x408c90 <nanosleep@plt>
+   0x000000000050cd1d:	cmp    $0xffffffff,%eax
+   0x000000000050cd20:	je     0x50ccf0
+   0x000000000050cd22:	sub    $0x1,%r14d
+   0x000000000050cd26:	jne    0x50cc88
+   0x000000000050cd2c:	nopl   0x0(%rax)
+   0x000000000050cd30:	mov    0x248(%r13),%rbx
+   0x000000000050cd37:	test   %rbx,%rbx
+   0x000000000050cd3a:	je     0x50cd50
+   0x000000000050cd3c:	mov    (%rsp),%esi
+   0x000000000050cd3f:	mov    %rbx,%rdi
+   0x000000000050cd42:	call   0x3c4f060
+   0x000000000050cd47:	test   %rax,%rax
+   0x000000000050cd4a:	jne    0x50ce13
+   0x000000000050cd50:	mov    0x238(%r13),%rax
+   0x000000000050cd57:	test   %rax,%rax
+   0x000000000050cd5a:	je     0x50cd7f
+   0x000000000050cd5c:	mov    0x48(%rsp),%rdx
+End of assembler dump.
+[Inferior 1 (process 2877087) detached]

@@ -1,0 +1,8 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+SCAN_PROBE seconds=0.00416666666667 scanning=true progress=0.0
+SCAN_PROBE seconds=1.00539244444444 scanning=false progress=1.0
+SCAN_PROBE seconds=2.005799 scanning=false progress=1.0
+SCAN_PROBE seconds=3.00636155555556 scanning=false progress=1.0
+SCAN_PROBE PASS

@@ -1,0 +1,7 @@
+Command: python3 -m unittest discover -s tools/tests -p test_godot_ai*.py
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 18.130s
+
+OK
+Exit: 0

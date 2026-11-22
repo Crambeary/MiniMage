@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/hi-godot/godot-ai",
+  "commit": "35da2c2fe1e2c20e11b5be01841e966951d6314b",
+  "public_key_spki_sha256": "84ebbd811f3a12c09ff4e236bbbbb9310fc23e03fcfc3717ba546747d0d21072",
+  "files": {
+    "LICENSE": "f2afe4af4ec80c453ca34704bc61d5d24a9bd948d365ca22699cabb8b4a18308",
+    "script/v4-release": "fb8c7a3df85b0cf9127b8cac016a3a298a4ab324fe441ddcab2f2615f2a7b03d",
+    "src/godot_ai/release_verify.py": "1b8c60c01f907c90092752b596caedc92022b3fba235620ae8fe510fc487a09d"
+  }
+}

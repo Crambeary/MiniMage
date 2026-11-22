@@ -1,0 +1,271 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+[GodotVim] Plugin disabled in settings, skipping initialization.
+SCAN_PROBE seconds=0.52 scanning=true progress=0.0
+SCAN_PROBE seconds=0.519 scanning=true progress=0.0
+SCAN_PROBE seconds=1.888 scanning=true progress=1.0
+SCAN_PROBE seconds=1.938 scanning=true progress=1.0
+SCAN_PROBE seconds=2.932 scanning=true progress=1.0
+SCAN_PROBE seconds=2.986 scanning=true progress=1.0
+SCAN_PROBE seconds=3.982 scanning=true progress=1.0
+SCAN_PROBE seconds=4.038 scanning=true progress=1.0
+SCAN_PROBE seconds=5.021 scanning=true progress=1.0
+SCAN_PROBE seconds=5.074 scanning=true progress=1.0
+SCAN_PROBE seconds=6.057 scanning=true progress=1.0
+SCAN_PROBE seconds=6.112 scanning=true progress=1.0
+SCAN_PROBE seconds=7.094 scanning=true progress=1.0
+SCAN_PROBE seconds=7.149 scanning=true progress=1.0
+SCAN_PROBE seconds=8.132 scanning=true progress=1.0
+SCAN_PROBE seconds=8.195 scanning=true progress=1.0
+SCAN_PROBE seconds=9.17 scanning=true progress=1.0
+SCAN_PROBE seconds=9.238 scanning=true progress=1.0
+SCAN_PROBE seconds=10.208 scanning=true progress=1.0
+SCAN_PROBE seconds=10.291 scanning=true progress=1.0
+SCAN_PROBE seconds=11.242 scanning=true progress=1.0
+SCAN_PROBE seconds=11.332 scanning=true progress=1.0
+SCAN_PROBE seconds=12.281 scanning=true progress=1.0
+SCAN_PROBE seconds=12.371 scanning=true progress=1.0
+SCAN_PROBE seconds=13.321 scanning=true progress=1.0
+SCAN_PROBE seconds=13.407 scanning=true progress=1.0
+SCAN_PROBE seconds=14.36 scanning=true progress=1.0
+SCAN_PROBE seconds=14.446 scanning=true progress=1.0
+SCAN_PROBE seconds=15.396 scanning=true progress=1.0
+SCAN_PROBE seconds=15.487 scanning=true progress=1.0
+SCAN_PROBE seconds=16.435 scanning=true progress=1.0
+SCAN_PROBE seconds=16.527 scanning=true progress=1.0
+SCAN_PROBE seconds=17.478 scanning=true progress=1.0
+SCAN_PROBE seconds=17.565 scanning=true progress=1.0
+SCAN_PROBE seconds=18.517 scanning=true progress=1.0
+SCAN_PROBE seconds=18.604 scanning=true progress=1.0
+SCAN_PROBE seconds=19.556 scanning=true progress=1.0
+SCAN_PROBE seconds=19.639 scanning=true progress=1.0
+SCAN_PROBE seconds=20.59 scanning=true progress=1.0
+SCAN_PROBE seconds=20.682 scanning=true progress=1.0
+SCAN_PROBE seconds=21.626 scanning=true progress=1.0
+SCAN_PROBE seconds=21.72 scanning=true progress=1.0
+SCAN_PROBE seconds=22.667 scanning=true progress=1.0
+SCAN_PROBE seconds=22.763 scanning=true progress=1.0
+SCAN_PROBE seconds=23.709 scanning=true progress=1.0
+SCAN_PROBE seconds=23.806 scanning=true progress=1.0
+SCAN_PROBE seconds=24.755 scanning=true progress=1.0
+SCAN_PROBE seconds=24.851 scanning=true progress=1.0
+SCAN_PROBE seconds=25.789 scanning=true progress=1.0
+SCAN_PROBE seconds=25.884 scanning=true progress=1.0
+SCAN_PROBE seconds=26.828 scanning=true progress=1.0
+SCAN_PROBE seconds=26.929 scanning=true progress=1.0
+SCAN_PROBE seconds=27.868 scanning=true progress=1.0
+SCAN_PROBE seconds=27.97 scanning=true progress=1.0
+SCAN_PROBE seconds=28.916 scanning=true progress=1.0
+SCAN_PROBE seconds=29.012 scanning=true progress=1.0
+SCAN_PROBE seconds=29.95 scanning=true progress=1.0
+SCAN_PROBE seconds=30.05 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=30.983 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=31.083 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=32.237 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=32.279 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=33.335 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=33.358 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=34.38 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=34.401 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE seconds=35.454 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE seconds=35.637 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE seconds=36.833 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=36.873 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=38.05 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=38.134 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=39.203 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=39.378 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=40.43 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=40.583 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=41.472 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=41.625 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=42.513 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=42.665 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=43.559 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=43.714 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=44.621 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=44.789 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=46.123 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=46.324 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=47.197 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=47.396 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=48.244 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=48.444 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=50.153 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=50.438 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=51.228 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=51.5 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=52.268 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=52.539 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=53.343 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=53.626 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=54.386 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE seconds=54.671 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE seconds=55.474 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=55.756 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=56.874 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=57.137 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=57.911 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=58.181 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=58.958 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=59.225 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=60.046 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=60.313 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=61.092 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=61.357 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=62.169 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=62.438 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=63.205 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=63.475 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=64.415 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=64.676 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=65.61 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=65.9 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=66.692 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=66.947 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=67.993 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=68.047 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=69.057 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=69.109 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=70.156 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=70.145 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=71.193 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=71.266 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=72.244 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=72.316 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=73.368 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=73.415 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=74.409 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=74.454 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=75.494 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=75.503 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=76.54 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=76.578 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=77.587 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=77.63 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=78.685 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=78.709 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT

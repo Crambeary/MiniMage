@@ -1,0 +1,9 @@
+Command: bash tools/tests/test_worktree_plumbing.sh
+PASS: physical tracked addon survives repeated hooks and checkout
+PASS: open-editor.sh runs in a fresh worktree
+[36m◎[39m [36mCreating worktree for [1mtest/godot-ai-plumbing-3657163[22m...[39m
+Preparing worktree (new branch 'test/godot-ai-plumbing-3657163')
+HEAD is now at fa718f6 Vendor verified Godot AI 4.3.1 and route discovery through attach
+✓ Created branch test/godot-ai-plumbing-3657163 from HEAD and worktree @ $FIXTURE
+Already on 'test/godot-ai-plumbing-3657163'
+Exit: 0

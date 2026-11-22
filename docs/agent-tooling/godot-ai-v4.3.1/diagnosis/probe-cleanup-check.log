@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+ERROR: Could not create ObjectDB Snapshots directory: user://objectdb_snapshots
+   at: _get_and_create_snapshot_storage_dir (modules/objectdb_profiler/editor/objectdb_profiler_panel.cpp:162)
+SCAN_PROBE pid=2943204 seconds=0.003 scanning=true importing=false processing=true progress=0.0
+SCAN_PROBE pid=2943205 seconds=0.014 scanning=true importing=false processing=true progress=0.0
+SCAN_PROBE pid=2943204 seconds=1.006 scanning=false importing=false processing=false progress=1.0
+SCAN_PROBE pid=2943205 seconds=1.095 scanning=false importing=false processing=false progress=1.0
+SCAN_PROBE pid=2943204 seconds=2.01 scanning=false importing=false processing=false progress=1.0
+SCAN_PROBE pid=2943205 seconds=2.095 scanning=false importing=false processing=false progress=1.0
+SCAN_PROBE pid=2943204 seconds=3.011 scanning=false importing=false processing=false progress=1.0
+SCAN_PROBE PASS
+SCAN_PROBE pid=2943205 seconds=3.212 scanning=true importing=false processing=true progress=2.0
+SCAN_PROBE pid=2943205 seconds=4.215 scanning=false importing=false processing=false progress=2.0
+SCAN_PROBE PASS

@@ -1,0 +1,20 @@
+{
+  "installed_at_utc": "2026-10-29T15:43:49.194563+00:00",
+  "scope": "clone-wide post-checkout only",
+  "baseline_source": "e346267:tools/git-hooks/post-checkout",
+  "before_sha256": "64d72fcf9eb3c26a01dd2e3999f8fa614212e3a3a0749c019e5eaa23ee891f1e",
+  "installed_source": "tools/git-hooks/post-checkout",
+  "after_sha256": "7c74053947c72d141a7754a27515cebce14a00d920221749b9763806201ebfb0",
+  "backup": "clone common Git directory: hooks/post-checkout.pre-godot-ai-v4",
+  "other_existing_hooks_unchanged": true,
+  "inventory": {
+    "total_worktrees": 153,
+    "v3_gitlinks": 152,
+    "v3_expected_symlinks": 152,
+    "v4_physical": 1,
+    "core_hooksPath_overrides": 0
+  },
+  "own_v4_smoke_exit": 0,
+  "clients_reconfigured": false,
+  "worktree_branches_changed": false
+}

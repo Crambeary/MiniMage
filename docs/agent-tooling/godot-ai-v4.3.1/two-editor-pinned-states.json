@@ -1,0 +1,94 @@
+{
+  "ports": [
+    18435,
+    19435
+  ],
+  "headed": true,
+  "correct_distinct_projects": true,
+  "results": [
+    {
+      "session": {
+        "session_id": "t3-d7199fde@2418272175e64f83",
+        "name": "t3-d7199fde",
+        "godot_version": "4.7.2-stable (official)",
+        "project_path": "$WORKTREE/",
+        "plugin_version": "4.3.1",
+        "server_version": "4.3.1",
+        "protocol_version": 2,
+        "current_scene": "res://scenes/prologue_startup.tscn",
+        "play_state": "stopped",
+        "readiness": "ready",
+        "editor_pid": 3803852,
+        "server_launch_mode": "uvx",
+        "connected_at": "2026-10-29T01:48:41.214199+00:00",
+        "last_seen": "2026-10-29T01:48:49.076163+00:00",
+        "is_active": true
+      },
+      "pinned_state": {
+        "current_scene": "res://scenes/prologue_startup.tscn",
+        "game_capture_ready": false,
+        "game_status": {
+          "active": false,
+          "editor_log_cursor": 0,
+          "elapsed_msec": 0,
+          "helper_expected": true,
+          "helper_live": false,
+          "ready": false,
+          "ready_wait_msec": 20000,
+          "run_started_msec": 0,
+          "run_token": 0,
+          "session_active": false,
+          "status": "stopped"
+        },
+        "godot_version": "4.7.2-stable (official)",
+        "helper_live": false,
+        "is_playing": false,
+        "project_name": "FryTruckGame",
+        "readiness": "ready",
+        "session_active": false
+      }
+    },
+    {
+      "session": {
+        "session_id": "fry-v4-owned-peer@c3f7bfe35395827c",
+        "name": "fry-v4-owned-peer",
+        "godot_version": "4.7.2-stable (official)",
+        "project_path": "$PEER/",
+        "plugin_version": "4.3.1",
+        "server_version": "4.3.1",
+        "protocol_version": 2,
+        "current_scene": "",
+        "play_state": "stopped",
+        "readiness": "importing",
+        "editor_pid": 3803853,
+        "server_launch_mode": "uvx",
+        "connected_at": "2026-10-29T01:48:41.443493+00:00",
+        "last_seen": "2026-10-29T01:50:11.717146+00:00",
+        "is_active": false
+      },
+      "pinned_state": {
+        "current_scene": "",
+        "game_capture_ready": false,
+        "game_status": {
+          "active": false,
+          "editor_log_cursor": 0,
+          "elapsed_msec": 0,
+          "helper_expected": true,
+          "helper_live": false,
+          "ready": false,
+          "ready_wait_msec": 20000,
+          "run_started_msec": 0,
+          "run_token": 0,
+          "session_active": false,
+          "status": "stopped"
+        },
+        "godot_version": "4.7.2-stable (official)",
+        "helper_live": false,
+        "is_playing": false,
+        "project_name": "Migration peer fixture",
+        "readiness": "importing",
+        "session_active": false
+      }
+    }
+  ]
+}

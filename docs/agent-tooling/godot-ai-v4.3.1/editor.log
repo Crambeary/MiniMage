@@ -1,0 +1,321 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+MCP | using uvx (godot-ai==4.3.1)
+MCP | plugin loaded
+MCP | Probing the configured server endpoint.
+MIGRATION_FIXTURE: isolated endpoint settings applied
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+Downloading beartype (1.5MiB)
+Downloading cryptography (4.5MiB)
+Downloading pygments (1.2MiB)
+Downloading pydantic-core (2.0MiB)
+ Downloading pydantic-core
+ Downloading cryptography
+ Downloading pygments
+ Downloading beartype
+Installed 73 packages in 46ms
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+httpx2 | HTTP Request: GET https://pypi.org/pypi/fastmcp/json "HTTP/1.1 200 OK"
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.1.3                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      Godot AI, 4.3.1                             │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                          🎉 Update available: 4.1.4                          │
+│                      Run: pip install --upgrade fastmcp                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+godot_ai.server | WebSocket server starting on port 19431
+godot_ai.transport.websocket | Starting WebSocket server on port 19431
+websockets.server | server listening on 127.0.0.1:19431
+godot_ai.server | Orphan reaper armed for owner editor pid 3552390
+godot_ai.server | Idle self-terminate backstop armed for plugin-spawned server
+[10/28/26 21:31:24] INFO     Starting MCP server 'Godot AI'     transport.py:358
+                             with transport 'streamable-http'
+                             on http://127.0.0.1:18431/mcp
+INFO:     Started server process [3555204]
+INFO:     Waiting for application startup.
+mcp.server.streamable_http_manager | StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18431 (Press CTRL+C to quit)
+godot-ai-telemetry | Telemetry disabled
+MCP | started server (PID 3555204)
+MCP | connecting to server (attempt 1)
+websockets.server | connection open
+MCP | connected to server; authenticating
+godot_ai.transport.websocket | Session connected: t3-d7199fde@38a32ee275246544 (pid=3552390, Godot 4.7.2-stable (official), $WORKTREE/)
+MCP | authenticated with server
+godot_ai.transport.websocket | Session t3-d7199: custom tools -> 0 registered (0 enabled)
+godot_ai.transport.websocket | Session t3-d7199 opted this server out of telemetry for the rest of its life; restart it to re-enable.
+ERROR: Unrecognized UID: "uid://b8f4thdipyl5q".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cmjfdrclw7ays".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://nh2e7tgvp0e3".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bypylxhkw13r".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cckosg66po7df".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dx3b7wgjvgef2".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cwd6g1fiu0ogx".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://d3lpqn58wf5u7".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dfvo65ufcyvqo".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cdkbqalr6qbnq".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://vmkenlptvpwy".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://b3wi3d7ms3nnp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bsgu4rjwemi22".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://docs/validation/feedback-125/verification.gd:44)
+ERROR: Failed to load script "res://docs/validation/feedback-125/verification.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_first" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_auto_unlock_flow.gd:78)
+ERROR: Failed to load script "res://tests/integration/test_auto_unlock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_highlights" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_focus_flow.gd:353)
+ERROR: Failed to load script "res://tests/integration/test_focus_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_hold_drag_fries.gd:105)
+ERROR: Failed to load script "res://tests/integration/test_hold_drag_fries.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:281)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "authored_subtitle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:283)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:527)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:528)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:531)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:564)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:585)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:586)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:633)
+ERROR: Failed to load script "res://tests/integration/test_introduction_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:361)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:362)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:452)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:523)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:646)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:647)
+ERROR: Failed to load script "res://tests/integration/test_marketing_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_flow.gd:316)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:88)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:89)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:144)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_navigation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:244)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:275)
+ERROR: Failed to load script "res://tests/integration/test_purchase_feedback.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:188)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:269)
+ERROR: Failed to load script "res://tests/integration/test_quest_tracking_variants.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:201)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "original" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:321)
+ERROR: Failed to load script "res://tests/integration/test_requirement_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stocked" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:83)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:89)
+ERROR: Failed to load script "res://tests/integration/test_truck_stock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:15)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:32)
+ERROR: Failed to load script "res://tests/unit/test_bottleneck_vm.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:56)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected_income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:60)
+ERROR: Failed to load script "res://tests/unit/test_economy_manager.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:147)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:149)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:180)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "next_quest_id" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:189)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "demand_limited" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:200)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "capacity" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:415)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:429)
+ERROR: Failed to load script "res://tests/unit/test_economy_simulation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:18)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:30)
+ERROR: Failed to load script "res://tests/unit/test_measure.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "per_second" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_throughput_dock.gd:149)
+ERROR: Failed to load script "res://tests/unit/test_throughput_dock.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+res://models/environment/source/kaykit-city/citybits_texture.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-commercial/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-roads/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/graveyard-kit/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+godot_ai.transport.websocket | Session t3-d7199: readiness -> no_scene
+MCP | [event] scene_changed -> res://scenes/prologue_startup.tscn
+godot_ai.transport.websocket | Session t3-d7199: scene changed to res://scenes/prologue_startup.tscn
+godot_ai.transport.websocket | Session t3-d7199: readiness -> ready
+mcp.server.streamable_http_manager | Created new transport with session ID: 2cb1f822c50f4892a61a297518307370
+godot_ai.transport.websocket | Session t3-d7199: readiness -> importing
+mcp.server.streamable_http | Terminating session: 2cb1f822c50f4892a61a297518307370
+mcp.server.streamable_http_manager | Created new transport with session ID: d206adb91e4c4d5ab49c0aafe32d4927
+godot_ai.transport.websocket | Session t3-d7199: readiness -> ready
+mcp.server.streamable_http | Terminating session: d206adb91e4c4d5ab49c0aafe32d4927
+mcp.server.streamable_http_manager | Created new transport with session ID: faf7184bea084d1d8104de19fe94fbaf
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+mcp.server.streamable_http | Terminating session: faf7184bea084d1d8104de19fe94fbaf
+mcp.server.streamable_http_manager | Created new transport with session ID: fe154ef54f964f75b2a946fe3c91dbc4
+mcp.server.streamable_http | Terminating session: fe154ef54f964f75b2a946fe3c91dbc4
+mcp.server.streamable_http_manager | Created new transport with session ID: 6c23fd9d282f49c1a8e166a480086e3f
+mcp.server.streamable_http | Terminating session: 6c23fd9d282f49c1a8e166a480086e3f
+mcp.server.streamable_http_manager | Created new transport with session ID: 2c062026e29f46599d150f1e329fcff8
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+mcp.server.streamable_http | Terminating session: 2c062026e29f46599d150f1e329fcff8
+mcp.server.streamable_http_manager | Created new transport with session ID: f0fa3ef571914ad6828d2715e4e43b54
+MCP | [recv] get_scene_tree({"depth":10.0,"limit":100.0,"offset":0.0})
+MCP | [send] get_scene_tree -> ok
+mcp.server.streamable_http | Terminating session: f0fa3ef571914ad6828d2715e4e43b54
+mcp.server.streamable_http_manager | Created new transport with session ID: f8aa5de58aea45d9a5c192a66addb57f
+mcp.server.streamable_http | Terminating session: f8aa5de58aea45d9a5c192a66addb57f
+mcp.server.streamable_http_manager | Created new transport with session ID: b927020bde4e44d3820c75adfc44a568
+mcp.server.streamable_http | Terminating session: b927020bde4e44d3820c75adfc44a568
+mcp.server.streamable_http_manager | Created new transport with session ID: 1990b750cd134471830805969c7ed0b6
+mcp.server.streamable_http | Terminating session: 1990b750cd134471830805969c7ed0b6
+mcp.server.streamable_http_manager | Created new transport with session ID: 4782f140a7b94e75837c2df9a9777de4
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+mcp.server.streamable_http | Terminating session: 4782f140a7b94e75837c2df9a9777de4
+mcp.server.streamable_http_manager | Created new transport with session ID: 6dfbfedab93449eaac1ca700cb38f229
+MCP | [recv] set_property({"path":"/PrologueStartup","property":"process_priority","value":7.0})
+MCP | [send] set_property -> ok
+mcp.server.streamable_http | Terminating session: 6dfbfedab93449eaac1ca700cb38f229
+mcp.server.streamable_http_manager | Created new transport with session ID: e48ff37b216642e4a5b1d64bae20c847
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+mcp.server.streamable_http | Terminating session: e48ff37b216642e4a5b1d64bae20c847
+mcp.server.streamable_http_manager | Created new transport with session ID: 1c51d267e98d4afc92b3e279b9b48c7a
+MCP | [recv] get_node_properties({"fields":["process_priority"],"path":"/PrologueStartup"})
+MCP | [send] get_node_properties -> ok
+mcp.server.streamable_http | Terminating session: 1c51d267e98d4afc92b3e279b9b48c7a
+mcp.server.streamable_http_manager | Created new transport with session ID: 161199740eab4d7c8cb76345a9d17f1e
+mcp.server.streamable_http | Terminating session: 161199740eab4d7c8cb76345a9d17f1e
+mcp.server.streamable_http_manager | Created new transport with session ID: 6532c9c2e31741019fd6dad6c846f497
+mcp.server.streamable_http | Terminating session: 6532c9c2e31741019fd6dad6c846f497
+mcp.server.streamable_http_manager | Created new transport with session ID: 3db45af6f7294d189524ba8b7ad2a4c6
+MCP | [recv] run_project({"autosave":false,"mode":"main"})
+MCP | [debug] game capture pending run token 1 (run r96510-1)
+MCP | [defer] run_project (request 7a0d3094eb594499b30094b30311e9e6)
+MCP | [event] play_state_changed -> playing
+godot_ai.transport.websocket | Session t3-d7199: play state -> playing
+godot_ai.transport.websocket | Session t3-d7199: readiness -> playing
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+mcp.server.streamable_http | Terminating session: 3db45af6f7294d189524ba8b7ad2a4c6
+mcp.server.streamable_http_manager | Created new transport with session ID: 87de0e2f99e14e24aa25868d731c708f
+MCP | [recv] get_editor_state({})
+MCP | [send] get_editor_state -> ok
+mcp.server.streamable_http | Terminating session: 87de0e2f99e14e24aa25868d731c708f
+mcp.server.streamable_http_manager | Created new transport with session ID: 9832eff538c74d6f8449568da0d97033
+MCP | [recv] stop_project({})
+MCP | [defer] stop_project (request 65358d91c6f04c8893fb6905970a8b97)
+MCP | [event] play_state_changed -> stopped
+godot_ai.transport.websocket | Session t3-d7199: play state -> stopped
+godot_ai.transport.websocket | Session t3-d7199: readiness -> ready
+mcp.server.streamable_http | Terminating session: 9832eff538c74d6f8449568da0d97033
+websockets.server | connection closed
+godot_ai.transport.websocket | Session disconnected: t3-d7199fde@38a32ee275246544 (close code None, reason '')
+godot_ai.sessions.registry | Active session t3-d7199 disconnected; no active session until next register/activate
+godot_ai.orphan_reaper | Owner editor pid 3552390 is gone and no sessions or bridge leases are active; shutting down orphaned server.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+mcp.server.streamable_http_manager | StreamableHTTP session manager shutting down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3555204]
+websockets.server | server closing
+websockets.server | server closed

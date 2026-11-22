@@ -1,0 +1,428 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+MCP | using uvx (godot-ai==4.3.1)
+MCP | plugin loaded
+MCP | Probing the configured server endpoint.
+MCP | using uvx (godot-ai==4.3.1)
+MCP | plugin loaded
+MCP | Probing the configured server endpoint.
+SCAN_PROBE seconds=1.881 scanning=true progress=0.0
+SCAN_PROBE seconds=1.94 scanning=true progress=0.0
+SCAN_PROBE seconds=3.211 scanning=true progress=1.0
+Downloading pydantic-core (2.0MiB)
+Downloading pygments (1.2MiB)
+Downloading beartype (1.5MiB)
+Downloading cryptography (4.5MiB)
+SCAN_PROBE seconds=3.325 scanning=true progress=1.0
+Downloading pygments (1.2MiB)
+Downloading cryptography (4.5MiB)
+Downloading beartype (1.5MiB)
+Downloading pydantic-core (2.0MiB)
+SCAN_PROBE seconds=4.26 scanning=true progress=1.0
+SCAN_PROBE seconds=4.377 scanning=true progress=1.0
+SCAN_PROBE seconds=5.36 scanning=true progress=1.0
+SCAN_PROBE seconds=5.451 scanning=true progress=1.0
+ Downloading pygments
+ Downloading beartype
+ Downloading pydantic-core
+ Downloading cryptography
+Installed 73 packages in 8ms
+SCAN_PROBE seconds=6.429 scanning=true progress=1.0
+SCAN_PROBE seconds=6.494 scanning=true progress=1.0
+SCAN_PROBE seconds=7.466 scanning=true progress=1.0
+SCAN_PROBE seconds=7.532 scanning=true progress=1.0
+ Downloading pygments
+ Downloading beartype
+ Downloading pydantic-core
+SCAN_PROBE seconds=8.503 scanning=true progress=1.0
+ Downloading cryptography
+Installed 73 packages in 10ms
+SCAN_PROBE seconds=8.568 scanning=true progress=1.0
+SCAN_PROBE seconds=9.542 scanning=true progress=1.0
+httpx2 | HTTP Request: GET https://pypi.org/pypi/fastmcp/json "HTTP/1.1 200 OK"
+SCAN_PROBE seconds=9.607 scanning=true progress=1.0
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.1.3                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      Godot AI, 4.3.1                             │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                          🎉 Update available: 4.1.4                          │
+│                      Run: pip install --upgrade fastmcp                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+godot_ai.server | WebSocket server starting on port 19445
+godot_ai.transport.websocket | Starting WebSocket server on port 19445
+websockets.server | server listening on 127.0.0.1:19445
+godot_ai.server | Orphan reaper armed for owner editor pid 2800815
+godot_ai.server | Idle self-terminate backstop armed for plugin-spawned server
+[10/29/26 07:34:22] INFO     Starting MCP server 'Godot AI'     transport.py:358
+                             with transport 'streamable-http'
+                             on http://127.0.0.1:18445/mcp
+INFO:     Started server process [2803668]
+INFO:     Waiting for application startup.
+mcp.server.streamable_http_manager | StreamableHTTP session manager started
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18445 (Press CTRL+C to quit)
+SCAN_PROBE seconds=10.582 scanning=true progress=1.0
+SCAN_PROBE seconds=10.647 scanning=true progress=1.0
+godot-ai-telemetry | Telemetry disabled
+SCAN_PROBE seconds=11.625 scanning=true progress=1.0
+
+
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                                                                              │
+│                                                                              │
+│                         ▄▀▀ ▄▀█ █▀▀ ▀█▀ █▀▄▀█ █▀▀ █▀█                        │
+│                         █▀  █▀█ ▄▄█  █  █ ▀ █ █▄▄ █▀▀                        │
+│                                                                              │
+│                                                                              │
+│                                                                              │
+│                                FastMCP 4.1.3                                 │
+│                            https://gofastmcp.com                             │
+│                                                                              │
+│                  🖥  Server:      Godot AI, 4.3.1                             │
+│                  🚀 Deploy free: https://horizon.prefect.io                  │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭──────────────────────────────────────────────────────────────────────────────╮
+│                          🎉 Update available: 4.1.4                          │
+│                      Run: pip install --upgrade fastmcp                      │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+
+SCAN_PROBE seconds=11.686 scanning=true progress=1.0
+SCAN_PROBE seconds=12.665 scanning=true progress=1.0
+SCAN_PROBE seconds=12.728 scanning=true progress=1.0
+SCAN_PROBE seconds=13.713 scanning=true progress=1.0
+SCAN_PROBE seconds=13.772 scanning=true progress=1.0
+SCAN_PROBE seconds=14.769 scanning=true progress=1.0
+SCAN_PROBE seconds=14.823 scanning=true progress=1.0
+SCAN_PROBE seconds=15.828 scanning=true progress=1.0
+SCAN_PROBE seconds=15.874 scanning=true progress=1.0
+SCAN_PROBE seconds=16.877 scanning=true progress=1.0
+SCAN_PROBE seconds=16.935 scanning=true progress=1.0
+SCAN_PROBE seconds=17.927 scanning=true progress=1.0
+SCAN_PROBE seconds=17.988 scanning=true progress=1.0
+SCAN_PROBE seconds=18.967 scanning=true progress=1.0
+SCAN_PROBE seconds=19.028 scanning=true progress=1.0
+SCAN_PROBE seconds=20.012 scanning=true progress=1.0
+SCAN_PROBE seconds=20.072 scanning=true progress=1.0
+SCAN_PROBE seconds=21.055 scanning=true progress=1.0
+SCAN_PROBE seconds=21.116 scanning=true progress=1.0
+Traceback (most recent call last):
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/transport/capability.py", line 542, in acquire_port_claim
+    fcntl.flock(handle.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/server.py", line 474, in _lifespan
+    http_claim = acquire_port_claim(http_port)
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/transport/capability.py", line 545, in acquire_port_claim
+    raise PortClaimUnavailable(
+    ...<3 lines>...
+    ) from exc
+godot_ai.transport.capability.PortClaimUnavailable: [Errno 98] another godot-ai server claims HTTP port 18445: '$PRIVATE_FIXTURE/config/godot-ai/capabilities/http-18445.lock'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/bin/godot-ai", line 12, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/__init__.py", line 328, in main
+    _serve(args, capabilities, exclude_domains, allow_host_networks)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/__init__.py", line 427, in _serve
+    server.run(transport=args.transport, **transport_kwargs)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/fastmcp/server/mixins/transport.py", line 121, in run
+    anyio.run(
+    ~~~~~~~~~^
+        partial(
+        ^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/anyio/_core/_eventloop.py", line 83, in run
+    return async_backend.run(func, args, {}, backend_options)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 2548, in run
+    return runner.run(wrapper())
+           ~~~~~~~~~~^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.14/lib/python3.14/asyncio/runners.py", line 128, in run
+    return self._loop.run_until_complete(task)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.14/lib/python3.14/asyncio/base_events.py", line 720, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/anyio/_backends/_asyncio.py", line 2531, in wrapper
+    return await func(*args)
+           ^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/fastmcp/server/mixins/transport.py", line 99, in run_async
+    await self.run_http_async(
+    ...<3 lines>...
+    )
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/fastmcp/server/mixins/transport.py", line 352, in run_http_async
+    async with self._lifespan_manager():
+               ~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.14/lib/python3.14/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/fastmcp/server/mixins/lifespan.py", line 215, in _lifespan_manager
+    user_lifespan_result = await stack.enter_async_context(self._lifespan(self))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.14/lib/python3.14/contextlib.py", line 668, in enter_async_context
+    result = await _enter(cm)
+             ^^^^^^^^^^^^^^^^
+  File "/home/linuxbrew/.linuxbrew/opt/python@3.14/lib/python3.14/contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "$PRIVATE_FIXTURE/cache/uv/archive-v0/ut1k525hB2RdxyiBNgUbF/lib/python3.14/site-packages/godot_ai/server.py", line 482, in _lifespan
+    raise claimed from exc
+RuntimeError: HTTP port 18445 is already claimed by another godot-ai server
+SCAN_PROBE seconds=22.097 scanning=true progress=1.0
+SCAN_PROBE seconds=22.162 scanning=true progress=1.0
+MCP | server start blocked: The launched server process exited or changed identity before publishing capabilities. Server reported: RuntimeError: HTTP port 18445 is already claimed by another godot-ai server Last pending proof: capability_pair.
+SCAN_PROBE seconds=23.14 scanning=true progress=1.0
+SCAN_PROBE seconds=23.201 scanning=true progress=1.0
+SCAN_PROBE seconds=24.178 scanning=true progress=1.0
+SCAN_PROBE seconds=24.24 scanning=true progress=1.0
+SCAN_PROBE seconds=25.22 scanning=true progress=1.0
+SCAN_PROBE seconds=25.287 scanning=true progress=1.0
+SCAN_PROBE seconds=26.269 scanning=true progress=1.0
+SCAN_PROBE seconds=26.331 scanning=true progress=1.0
+SCAN_PROBE seconds=27.305 scanning=true progress=1.0
+SCAN_PROBE seconds=27.368 scanning=true progress=1.0
+SCAN_PROBE seconds=28.346 scanning=true progress=1.0
+SCAN_PROBE seconds=28.416 scanning=true progress=1.0
+SCAN_PROBE seconds=29.39 scanning=true progress=1.0
+SCAN_PROBE seconds=29.475 scanning=true progress=1.0
+SCAN_PROBE seconds=30.434 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=30.518 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=31.471 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=31.558 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=32.505 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=32.596 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=33.546 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=33.639 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=34.584 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=34.678 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=35.62 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=35.72 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=36.66 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=36.759 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=37.7 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=37.802 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=38.74 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=38.841 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=39.864 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=39.961 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=40.905 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=41.457 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=41.954 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=42.502 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=43.014 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=43.56 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=44.069 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=44.603 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=45.11 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=45.641 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=46.148 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=46.689 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=47.208 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=47.739 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=48.247 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=48.783 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=49.305 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=49.838 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=50.349 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=50.887 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=51.391 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=51.931 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=52.431 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=52.974 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=53.475 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=54.016 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=54.521 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=55.053 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=55.565 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=56.089 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=56.606 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=57.127 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=57.642 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=58.164 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=58.68 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=59.213 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=59.716 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=60.261 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=60.753 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=61.297 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=61.793 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=62.337 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=62.838 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=63.382 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=63.877 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=64.421 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=64.922 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=65.46 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=65.979 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=66.517 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=67.025 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=67.556 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=68.071 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=68.596 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=69.115 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=69.638 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=70.16 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=70.682 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=71.205 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=71.732 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=72.253 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=72.782 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=73.309 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=73.829 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=74.364 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=74.874 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=75.406 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=75.917 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=76.456 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=76.963 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=77.503 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=78.007 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=78.551 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=79.051 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=79.608 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=80.093 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+SCAN_PROBE seconds=80.65 scanning=true progress=1.0
+SCAN_PROBE TIMEOUT
+godot_ai.orphan_reaper | Owner editor pid 2800815 is gone and no sessions or bridge leases are active; shutting down orphaned server.
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+mcp.server.streamable_http_manager | StreamableHTTP session manager shutting down
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2803668]
+websockets.server | server closing
+websockets.server | server closed

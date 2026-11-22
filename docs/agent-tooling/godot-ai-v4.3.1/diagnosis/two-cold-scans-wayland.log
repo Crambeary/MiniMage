@@ -1,0 +1,307 @@
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #1, invalid UID: 'uid://cvuyhf4wy765y' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chop.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #2, invalid UID: 'uid://bufvplfcpjr5t' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chopping.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #3, invalid UID: 'uid://curqhh4je2jux' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Drink.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #4, invalid UID: 'uid://dnu05tqnmlawr' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Holding_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #5, invalid UID: 'uid://g534keusvm40' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Idle_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #6, invalid UID: 'uid://c153gx070e241' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Interact.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #7, invalid UID: 'uid://cwk843hntx42g' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Pickup.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #8, invalid UID: 'uid://dgs2xocwkyqhv' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Saw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #9, invalid UID: 'uid://cyh4mke7mfp46' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Sawing.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #10, invalid UID: 'uid://dcpmm464abtch' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Throw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #11, invalid UID: 'uid://ch7n5k17b7fek' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Walking_B.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #12, invalid UID: 'uid://yc336kmciqoa' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Work_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #13, invalid UID: 'uid://t0cvvd2mygmd' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Working_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+WARNING: res://models/fry_guy/fry_guy.tscn:4 - ext_resource, invalid UID: uid://b8f4thdipyl5q - using text path instead: res://models/fry_guy/animations/FryGuy_Chop.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:5 - ext_resource, invalid UID: uid://cmjfdrclw7ays - using text path instead: res://models/fry_guy/animations/FryGuy_Chopping.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:6 - ext_resource, invalid UID: uid://nh2e7tgvp0e3 - using text path instead: res://models/fry_guy/animations/FryGuy_Drink.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:7 - ext_resource, invalid UID: uid://bypylxhkw13r - using text path instead: res://models/fry_guy/animations/FryGuy_Holding_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:8 - ext_resource, invalid UID: uid://cckosg66po7df - using text path instead: res://models/fry_guy/animations/FryGuy_Idle_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:9 - ext_resource, invalid UID: uid://dx3b7wgjvgef2 - using text path instead: res://models/fry_guy/animations/FryGuy_Interact.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:10 - ext_resource, invalid UID: uid://cwd6g1fiu0ogx - using text path instead: res://models/fry_guy/animations/FryGuy_Pickup.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:11 - ext_resource, invalid UID: uid://d3lpqn58wf5u7 - using text path instead: res://models/fry_guy/animations/FryGuy_Saw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:12 - ext_resource, invalid UID: uid://dfvo65ufcyvqo - using text path instead: res://models/fry_guy/animations/FryGuy_Sawing.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:13 - ext_resource, invalid UID: uid://cdkbqalr6qbnq - using text path instead: res://models/fry_guy/animations/FryGuy_Throw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:14 - ext_resource, invalid UID: uid://vmkenlptvpwy - using text path instead: res://models/fry_guy/animations/FryGuy_Walking_B.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:15 - ext_resource, invalid UID: uid://b3wi3d7ms3nnp - using text path instead: res://models/fry_guy/animations/FryGuy_Work_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+WARNING: res://models/fry_guy/fry_guy.tscn:16 - ext_resource, invalid UID: uid://bsgu4rjwemi22 - using text path instead: res://models/fry_guy/animations/FryGuy_Working_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+WARNING: xdg-toplevel-icon protocol not found! Cannot set window icon.
+     at: init (platform/linuxbsd/wayland/wayland_thread.cpp:5642)
+WARNING: xdg-toplevel-icon protocol not found! Cannot set window icon.
+     at: init (platform/linuxbsd/wayland/wayland_thread.cpp:5642)
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+SCAN_PROBE pid=2908543 seconds=0.005 scanning=true importing=false processing=true progress=0.0
+SCAN_PROBE pid=2908544 seconds=0.005 scanning=true importing=false processing=true progress=0.0
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2908544 seconds=1.018 scanning=true importing=false processing=false progress=1.0
+SCAN_PROBE pid=2908543 seconds=1.178 scanning=true importing=true processing=false progress=1.0
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2908543 seconds=2.179 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=2.127 scanning=true importing=true processing=false progress=1.0
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2908543 seconds=3.179 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=3.128 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908543 seconds=4.182 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=4.128 scanning=true importing=true processing=false progress=1.0
+
+================================================================
+handle_crash: Program crashed with signal 11
+Engine version: Godot Engine v4.7.2.stable.official (ed1daf0bf001b61586d9930840f2f1394092c079)
+Dumping the backtrace. Please include this when reporting the bug on: https://github.com/godotengine/godot/issues
+Load address: 400000
+
+[1] 7f2588844e70 (libc.so.6+44e70) - /usr/lib/libc.so.6(+0x44e70) [0x7f2588844e70]
+[2] 3c4f06a (main+384f06a) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x3c4f06a]
+[3] 3c754c4 (main+38754c4) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x3c754c4]
+[4] 3e071cb (main+3a071cb) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x3e071cb]
+[5] 566334 (main+166334) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x566334]
+[6] 1e4868a (main+1a4868a) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x1e4868a]
+[7] 1e983ab (main+1a983ab) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x1e983ab]
+[8] 1e154ee (main+1a154ee) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x1e154ee]
+[9] 1e94f6b (main+1a94f6b) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x1e94f6b]
+[10] 48bff41 (main+44bff41) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x48bff41]
+[11] 2b4c0c9 (main+274c0c9) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x2b4c0c9]
+[12] 2b4d278 (main+274d278) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x2b4d278]
+[13] 2b51281 (main+2751281) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x2b51281]
+[14] 5661f9 (main+1661f9) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x5661f9]
+[15] 42c157 (main+2c157) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x42c157]
+[16] 7f2588827d0e (libc.so.6+27d0e) - /usr/lib/libc.so.6(+0x27d0e) [0x7f2588827d0e]
+[17] 7f2588827e4b (libc.so.6+27e4b) - /usr/lib/libc.so.6(__libc_start_main+0x8b) [0x7f2588827e4b]
+[18] 48a6da (main+8a6da) - /home/marc/.local/share/Ryko.GodotHub/godot-versions/4.7.2-stable/Godot_v4.7.2-stable_linux.x86_64() [0x48a6da]
+-- END OF C++ BACKTRACE --
+================================================================
+SCAN_PROBE pid=2908544 seconds=5.129 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=6.333 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=7.333 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=9.284 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=10.295 scanning=true importing=true processing=false progress=1.0
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2908544 seconds=11.657 scanning=true importing=true processing=false progress=1.0
+SCAN_PROBE pid=2908544 seconds=12.662 scanning=true importing=true processing=true progress=1.0
+ERROR: Unrecognized UID: "uid://b8f4thdipyl5q".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cmjfdrclw7ays".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://nh2e7tgvp0e3".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bypylxhkw13r".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cckosg66po7df".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dx3b7wgjvgef2".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cwd6g1fiu0ogx".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://d3lpqn58wf5u7".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dfvo65ufcyvqo".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cdkbqalr6qbnq".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://vmkenlptvpwy".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://b3wi3d7ms3nnp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bsgu4rjwemi22".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2908544 seconds=14.226 scanning=true importing=true processing=true progress=1.0
+SCAN_PROBE stopping render load
+SCAN_PROBE pid=2908544 seconds=15.348 scanning=true importing=true processing=true progress=1.0
+SCAN_PROBE pid=2908544 seconds=16.56 scanning=true importing=true processing=true progress=1.0
+SCAN_PROBE pid=2908544 seconds=17.612 scanning=true importing=true processing=true progress=1.0
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://docs/validation/feedback-125/verification.gd:44)
+ERROR: Failed to load script "res://docs/validation/feedback-125/verification.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_first" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_auto_unlock_flow.gd:78)
+ERROR: Failed to load script "res://tests/integration/test_auto_unlock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_highlights" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_focus_flow.gd:353)
+ERROR: Failed to load script "res://tests/integration/test_focus_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_hold_drag_fries.gd:105)
+ERROR: Failed to load script "res://tests/integration/test_hold_drag_fries.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:281)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "authored_subtitle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:283)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:527)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:528)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:531)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:564)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:585)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:586)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:633)
+ERROR: Failed to load script "res://tests/integration/test_introduction_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:361)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:362)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:452)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:523)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:646)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:647)
+ERROR: Failed to load script "res://tests/integration/test_marketing_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_flow.gd:316)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:88)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:89)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:144)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_navigation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:244)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:275)
+ERROR: Failed to load script "res://tests/integration/test_purchase_feedback.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:188)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:269)
+ERROR: Failed to load script "res://tests/integration/test_quest_tracking_variants.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:201)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "original" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:321)
+ERROR: Failed to load script "res://tests/integration/test_requirement_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stocked" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:83)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:89)
+ERROR: Failed to load script "res://tests/integration/test_truck_stock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:15)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:32)
+ERROR: Failed to load script "res://tests/unit/test_bottleneck_vm.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:56)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected_income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:60)
+ERROR: Failed to load script "res://tests/unit/test_economy_manager.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:147)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:149)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:180)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "next_quest_id" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:189)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "demand_limited" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:200)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "capacity" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:415)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:429)
+ERROR: Failed to load script "res://tests/unit/test_economy_simulation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:18)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:30)
+ERROR: Failed to load script "res://tests/unit/test_measure.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCAN_PROBE pid=2908544 seconds=18.688 scanning=true importing=true processing=true progress=1.0
+SCRIPT ERROR: Parse Error: Cannot infer the type of "per_second" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_throughput_dock.gd:149)
+ERROR: Failed to load script "res://tests/unit/test_throughput_dock.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+res://models/environment/source/kaykit-city/citybits_texture.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-commercial/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-roads/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/graveyard-kit/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+SCAN_PROBE pid=2908544 seconds=19.86 scanning=false importing=false processing=true progress=1.0
+SCAN_PROBE PASS

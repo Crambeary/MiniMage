@@ -1,0 +1,44 @@
+{
+  "ports": [
+    18433,
+    19433
+  ],
+  "headed": true,
+  "sessions": [
+    {
+      "session_id": "t3-d7199fde@1157f4c6c60c8c22",
+      "name": "t3-d7199fde",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$WORKTREE/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "",
+      "play_state": "stopped",
+      "readiness": "no_scene",
+      "editor_pid": 3727534,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T01:43:15.636136+00:00",
+      "last_seen": "2026-10-29T01:43:16.492184+00:00",
+      "is_active": false
+    },
+    {
+      "session_id": "fry-v4-owned-peer@9a99e1a63d0c3e98",
+      "name": "fry-v4-owned-peer",
+      "godot_version": "4.7.2-stable (official)",
+      "project_path": "$PEER/",
+      "plugin_version": "4.3.1",
+      "server_version": "4.3.1",
+      "protocol_version": 2,
+      "current_scene": "",
+      "play_state": "stopped",
+      "readiness": "importing",
+      "editor_pid": 3727535,
+      "server_launch_mode": "uvx",
+      "connected_at": "2026-10-29T01:43:15.326649+00:00",
+      "last_seen": "2026-10-29T01:43:15.433142+00:00",
+      "is_active": true
+    }
+  ],
+  "pinned_reads": []
+}

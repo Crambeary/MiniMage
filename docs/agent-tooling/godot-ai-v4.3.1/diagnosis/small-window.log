@@ -1,0 +1,373 @@
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+---  GUT  ---
+[INFO]:  using [$USER_DATA] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.4.0
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #1, invalid UID: 'uid://cvuyhf4wy765y' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chop.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #2, invalid UID: 'uid://bufvplfcpjr5t' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Chopping.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #3, invalid UID: 'uid://curqhh4je2jux' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Drink.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #4, invalid UID: 'uid://dnu05tqnmlawr' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Holding_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #5, invalid UID: 'uid://g534keusvm40' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Idle_A.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #6, invalid UID: 'uid://c153gx070e241' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Interact.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #7, invalid UID: 'uid://cwk843hntx42g' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Pickup.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #8, invalid UID: 'uid://dgs2xocwkyqhv' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Saw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #9, invalid UID: 'uid://cyh4mke7mfp46' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Sawing.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #10, invalid UID: 'uid://dcpmm464abtch' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Throw.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #11, invalid UID: 'uid://ch7n5k17b7fek' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Walking_B.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #12, invalid UID: 'uid://yc336kmciqoa' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Work_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: 'res://models/fry_guy/fry_guy.glb': In external resource #13, invalid UID: 'uid://t0cvvd2mygmd' - using text path instead: 'res://models/fry_guy/animations/FryGuy_Working_C.res'.
+     at: open (core/io/resource_format_binary.cpp:1025)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:4 - ext_resource, invalid UID: uid://b8f4thdipyl5q - using text path instead: res://models/fry_guy/animations/FryGuy_Chop.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:5 - ext_resource, invalid UID: uid://cmjfdrclw7ays - using text path instead: res://models/fry_guy/animations/FryGuy_Chopping.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:6 - ext_resource, invalid UID: uid://nh2e7tgvp0e3 - using text path instead: res://models/fry_guy/animations/FryGuy_Drink.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:7 - ext_resource, invalid UID: uid://bypylxhkw13r - using text path instead: res://models/fry_guy/animations/FryGuy_Holding_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:8 - ext_resource, invalid UID: uid://cckosg66po7df - using text path instead: res://models/fry_guy/animations/FryGuy_Idle_A.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:9 - ext_resource, invalid UID: uid://dx3b7wgjvgef2 - using text path instead: res://models/fry_guy/animations/FryGuy_Interact.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:10 - ext_resource, invalid UID: uid://cwd6g1fiu0ogx - using text path instead: res://models/fry_guy/animations/FryGuy_Pickup.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:11 - ext_resource, invalid UID: uid://d3lpqn58wf5u7 - using text path instead: res://models/fry_guy/animations/FryGuy_Saw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:12 - ext_resource, invalid UID: uid://dfvo65ufcyvqo - using text path instead: res://models/fry_guy/animations/FryGuy_Sawing.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:13 - ext_resource, invalid UID: uid://cdkbqalr6qbnq - using text path instead: res://models/fry_guy/animations/FryGuy_Throw.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:14 - ext_resource, invalid UID: uid://vmkenlptvpwy - using text path instead: res://models/fry_guy/animations/FryGuy_Walking_B.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:15 - ext_resource, invalid UID: uid://b3wi3d7ms3nnp - using text path instead: res://models/fry_guy/animations/FryGuy_Work_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+WARNING: res://models/fry_guy/fry_guy.tscn:16 - ext_resource, invalid UID: uid://bsgu4rjwemi22 - using text path instead: res://models/fry_guy/animations/FryGuy_Working_C.res
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] load_script_using_custom_warnings (res://addons/gut/warnings_manager.gd:159)
+         [1] _parse_script (res://addons/gut/test_collector.gd:75)
+         [2] add_script (res://addons/gut/test_collector.gd:126)
+         [3] add_script (res://addons/gut/gut.gd:1017)
+         [4] _apply_options (res://addons/gut/gut_config.gd:122)
+         [5] apply_options (res://addons/gut/gut_config.gd:177)
+         [6] run_tests (res://addons/gut/gui/GutRunner.gd:183)
+         [7] _run_tests (res://addons/gut/cli/gut_cli.gd:220)
+         [8] main (res://addons/gut/cli/gut_cli.gd:266)
+         [9] _init (res://addons/gut/gut_cmdln.gd:39)
+
+
+res://tests/integration/test_hold_drag_fries.gd
+* test_holding_a_finger_on_the_truck_makes_fries
+    -- Awaiting 3 idle frame(s) --
+    -- Awaiting 3 physics frame(s) --
+1/1 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+---- Totals ----
+Scripts           1
+Tests             1
+  Passing         1
+Asserts           1
+Time              0.403s
+
+
+Ran Scripts matching "test_hold_drag_fries"
+Ran Tests matching "test_holding_a_finger_on_the_truck_makes_fries"
+---- All tests passed! ----

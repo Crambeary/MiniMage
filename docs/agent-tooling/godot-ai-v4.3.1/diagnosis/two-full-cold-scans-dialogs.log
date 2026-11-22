@@ -1,0 +1,385 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+OpenGL API 3.3.0 NVIDIA 615.78.08 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 2070 with Max-Q Design
+
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+Initialize godot-rust (API v4.5.stable.official, runtime v4.7.2.stable.official, safeguards balanced)
+[GodotVim] Plugin disabled in settings, skipping initialization.
+SCAN_PROBE pid=2841236 seconds=0.004 scanning=true importing=false progress=0.0
+SCAN_PROBE pid=2841235 seconds=0.005 scanning=true importing=false progress=0.0
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2841236 seconds=1.084 scanning=true importing=false progress=1.0
+SCAN_PROBE pid=2841235 seconds=1.047 scanning=true importing=true progress=1.0
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Bold.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/Abaddon Light.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/BitPotionExt(1).ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/gameboy/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_mana_soul_gui/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_screaming_brain_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_kenney_pixel_ui/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelSmall.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelHigh.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/PixelMiddle.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/kenney_pixel/PressStart2P-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+res://resources/ui/themes/_raw_thin_tiny_buttons/Silkscreen-Regular.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2841235 seconds=2.048 scanning=true importing=true progress=1.0
+res://resources/ui/Silver.ttf: Pixel font detected, disabling subpixel positioning.
+SCAN_PROBE pid=2841236 seconds=2.229 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=3.052 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=3.231 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=4.061 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=4.232 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=5.236 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=5.257 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=6.273 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=6.455 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=7.276 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=7.575 scanning=true importing=true progress=1.0
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2841235 seconds=8.609 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=9.107 scanning=true importing=true progress=1.0
+ERROR: Unrecognized UID: "uid://c052dlxxqn0fp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2841235 seconds=9.717 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=10.115 scanning=true importing=true progress=1.0
+ERROR: Unrecognized UID: "uid://b8f4thdipyl5q".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cmjfdrclw7ays".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://nh2e7tgvp0e3".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bypylxhkw13r".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cckosg66po7df".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dx3b7wgjvgef2".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cwd6g1fiu0ogx".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://d3lpqn58wf5u7".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dfvo65ufcyvqo".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cdkbqalr6qbnq".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://vmkenlptvpwy".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://b3wi3d7ms3nnp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bsgu4rjwemi22".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2841236 seconds=11.115 scanning=true importing=true progress=1.0
+ERROR: Unrecognized UID: "uid://b8f4thdipyl5q".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cmjfdrclw7ays".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://nh2e7tgvp0e3".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bypylxhkw13r".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cckosg66po7df".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dx3b7wgjvgef2".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cwd6g1fiu0ogx".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://d3lpqn58wf5u7".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://dfvo65ufcyvqo".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://cdkbqalr6qbnq".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://vmkenlptvpwy".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://b3wi3d7ms3nnp".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Unrecognized UID: "uid://bsgu4rjwemi22".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+SCAN_PROBE pid=2841235 seconds=11.459 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=12.148 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=12.653 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=13.247 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841235 seconds=13.761 scanning=true importing=true progress=1.0
+SCAN_PROBE pid=2841236 seconds=14.385 scanning=true importing=true progress=1.0
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://docs/validation/feedback-125/verification.gd:44)
+ERROR: Failed to load script "res://docs/validation/feedback-125/verification.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCAN_PROBE pid=2841235 seconds=14.828 scanning=true importing=true progress=1.0
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_first" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_auto_unlock_flow.gd:78)
+ERROR: Failed to load script "res://tests/integration/test_auto_unlock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_highlights" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_focus_flow.gd:353)
+ERROR: Failed to load script "res://tests/integration/test_focus_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_hold_drag_fries.gd:105)
+ERROR: Failed to load script "res://tests/integration/test_hold_drag_fries.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:281)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "authored_subtitle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:283)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:527)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:528)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:531)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:564)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:585)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:586)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:633)
+ERROR: Failed to load script "res://tests/integration/test_introduction_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:361)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:362)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:452)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:523)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:646)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:647)
+ERROR: Failed to load script "res://tests/integration/test_marketing_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_flow.gd:316)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:88)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:89)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:144)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_navigation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://docs/validation/feedback-125/verification.gd:44)
+ERROR: Failed to load script "res://docs/validation/feedback-125/verification.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:244)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:275)
+ERROR: Failed to load script "res://tests/integration/test_purchase_feedback.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:188)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:269)
+ERROR: Failed to load script "res://tests/integration/test_quest_tracking_variants.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:201)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "original" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:321)
+ERROR: Failed to load script "res://tests/integration/test_requirement_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stocked" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:83)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:89)
+ERROR: Failed to load script "res://tests/integration/test_truck_stock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCAN_PROBE pid=2841236 seconds=15.443 scanning=true importing=true progress=1.0
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:15)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:32)
+ERROR: Failed to load script "res://tests/unit/test_bottleneck_vm.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:56)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected_income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:60)
+ERROR: Failed to load script "res://tests/unit/test_economy_manager.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:147)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:149)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:180)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "next_quest_id" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:189)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "demand_limited" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:200)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "capacity" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:415)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:429)
+ERROR: Failed to load script "res://tests/unit/test_economy_simulation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:18)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:30)
+ERROR: Failed to load script "res://tests/unit/test_measure.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "per_second" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_throughput_dock.gd:149)
+ERROR: Failed to load script "res://tests/unit/test_throughput_dock.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_first" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_auto_unlock_flow.gd:78)
+ERROR: Failed to load script "res://tests/integration/test_auto_unlock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+res://models/environment/source/kaykit-city/citybits_texture.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-commercial/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-roads/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/graveyard-kit/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_highlights" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_focus_flow.gd:353)
+ERROR: Failed to load script "res://tests/integration/test_focus_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_hold_drag_fries.gd:105)
+ERROR: Failed to load script "res://tests/integration/test_hold_drag_fries.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:281)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "authored_subtitle" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:283)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:527)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:528)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:531)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:564)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_money" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:585)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:586)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_introduction_flow.gd:633)
+ERROR: Failed to load script "res://tests/integration/test_introduction_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:361)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_after_claim" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:362)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:452)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:523)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:646)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_marketing_quest_flow.gd:647)
+ERROR: Failed to load script "res://tests/integration/test_marketing_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCAN_PROBE pid=2841235 seconds=15.847 scanning=false importing=false progress=1.0
+SCAN_PROBE PASS
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_flow.gd:316)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "truck_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:88)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "marketing_stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:89)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_pinned_quest_navigation.gd:144)
+ERROR: Failed to load script "res://tests/integration/test_pinned_quest_navigation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:244)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_purchase_feedback.gd:275)
+ERROR: Failed to load script "res://tests/integration/test_purchase_feedback.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:188)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_quest_tracking_variants.gd:269)
+ERROR: Failed to load script "res://tests/integration/test_quest_tracking_variants.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:201)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "original" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_requirement_flow.gd:321)
+ERROR: Failed to load script "res://tests/integration/test_requirement_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:69)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stocked" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:83)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "fries_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/integration/test_truck_stock_flow.gd:89)
+ERROR: Failed to load script "res://tests/integration/test_truck_stock_flow.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:15)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_bottleneck_vm.gd:32)
+ERROR: Failed to load script "res://tests/unit/test_bottleneck_vm.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "before_fries" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:56)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "expected_income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_manager.gd:60)
+ERROR: Failed to load script "res://tests/unit/test_economy_manager.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:147)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "income" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:149)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "stage" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:180)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "next_quest_id" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:189)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "demand_limited" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:200)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "capacity" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:415)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_economy_simulation.gd:429)
+ERROR: Failed to load script "res://tests/unit/test_economy_simulation.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "money_before" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:18)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "saved_flags" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_measure.gd:30)
+ERROR: Failed to load script "res://tests/unit/test_measure.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "per_second" variable because the value doesn't have a set type.
+          at: GDScript::reload (res://tests/unit/test_throughput_dock.gd:149)
+ERROR: Failed to load script "res://tests/unit/test_throughput_dock.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+res://models/environment/source/kaykit-city/citybits_texture.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-commercial/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/city-kit-roads/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+res://models/environment/source/graveyard-kit/Textures/colormap.png: Texture detected as used in 3D. Enabling mipmap generation and setting the texture compression mode to VRAM Compressed (S3TC/ETC/BPTC).
+SCAN_PROBE pid=2841236 seconds=16.452 scanning=false importing=true progress=1.0
+SCAN_PROBE PASS
