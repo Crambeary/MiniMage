@@ -23,7 +23,14 @@ config/icon="res://icon.png"
 [autoload]
 
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+ScreenLayout="*res://assets/scripts/screen_layout.gd"
 TouchControls="*res://assets/scripts/touch_controls.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=6
 
 [editor_plugins]
 
