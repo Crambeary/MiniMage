@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cagf5fm7kxslr"]
+
+[ext_resource type="Script" path="res://assets/scenes/ui/touch/drag_area/drag_area.gd" id="1_ddu4i"]
+
+[node name="DragArea" type="CanvasLayer" unique_id=377424031]
+layer = 100
+script = ExtResource("1_ddu4i")
+
+[node name="Feedback" type="Control" parent="." unique_id=960662713]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
