@@ -1,0 +1,187 @@
+#!/usr/bin/env bash
+# Launch, check, drive, and clean Mini Mage verification runs.
+# One game process per project path. Evidence is never deleted.
+set -euo pipefail
+
+SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+PROJECT="$(cd "$SKILL_DIR/../../.." && pwd)"
+RUN_ID="$(printf '%s' "$PROJECT" | md5sum | cut -c1-8)"
+RUN_ROOT="${VERIFY_RUN_DIR:-/tmp/verify-mini-mage-$RUN_ID}"
+EVIDENCE_ROOT="${VERIFY_EVIDENCE_DIR:-$SKILL_DIR/evidence}"
+PIDFILE="$RUN_ROOT/drive.pid"
+READY="$RUN_ROOT/import-ready"
+
+usage() {
+	echo "usage: mm-verify doctor|launch|drive <feature>|cleanup" >&2
+	exit 64
+}
+
+find_godot() {
+	if [[ -n "${GODOT:-}" && -x "$GODOT" ]]; then
+		echo "$GODOT"
+		return
+	fi
+	if command -v godot >/dev/null 2>&1; then
+		command -v godot
+		return
+	fi
+	local candidate="$HOME/.local/godot/Godot_v4.7-stable_linux.x86_64"
+	if [[ -x "$candidate" ]]; then
+		echo "$candidate"
+		return
+	fi
+	echo "mm-verify: Godot 4.7 binary not found. Set GODOT or install Godot_v4.7-stable_linux.x86_64 under \$HOME/.local/godot." >&2
+	exit 127
+}
+
+isolate() {
+	mkdir -p "$RUN_ROOT/xdg" "$RUN_ROOT/xdg-config" "$RUN_ROOT/xdg-cache"
+	export XDG_DATA_HOME="$RUN_ROOT/xdg"
+	export XDG_CONFIG_HOME="$RUN_ROOT/xdg-config"
+	export XDG_CACHE_HOME="$RUN_ROOT/xdg-cache"
+}
+
+godot_version() {
+	local bin="$1"
+	isolate
+	"$bin" --version 2>/dev/null | head -n 1
+}
+
+require_version() {
+	local ver="$1"
+	if [[ "$ver" != 4.7* ]]; then
+		echo "mm-verify: need Godot 4.7.x, got: $ver" >&2
+		exit 1
+	fi
+}
+
+drive_alive() {
+	[[ -f "$PIDFILE" ]] || return 1
+	local pid
+	pid="$(cat "$PIDFILE")"
+	[[ "$pid" =~ ^[0-9]+$ ]] || return 1
+	kill -0 "$pid" 2>/dev/null || return 1
+	local cmd
+	cmd="$(tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null || true)"
+	[[ "$cmd" == *"$PROJECT"* && "$cmd" == *drive.gd* ]]
+}
+
+cmd_doctor() {
+	local bin ver
+	bin="$(find_godot)"
+	ver="$(godot_version "$bin")"
+	require_version "$ver"
+	if [[ ! -f "$PROJECT/project.godot" ]]; then
+		echo "mm-verify: missing $PROJECT/project.godot" >&2
+		exit 1
+	fi
+	if ! grep -q 'config/features=PackedStringArray("4.7")' "$PROJECT/project.godot"; then
+		echo "mm-verify: project.godot does not declare Godot 4.7 features" >&2
+		exit 1
+	fi
+	if [[ ! -f "$PROJECT/.godot/uid_cache.bin" || ! -f "$READY" ]]; then
+		echo "mm-verify: import cache is not ready. Run: mm-verify launch" >&2
+		exit 1
+	fi
+	if [[ -z "${DISPLAY:-}" ]]; then
+		echo "mm-verify: DISPLAY is unset. Screenshots need an X11 display and OpenGL (llvmpipe works)." >&2
+		exit 1
+	fi
+	if drive_alive; then
+		echo "mm-verify: a drive is already running for $PROJECT (pid $(cat "$PIDFILE"))" >&2
+		exit 1
+	fi
+	echo "VERIFY_DOCTOR ok version=$ver project=$PROJECT display=$DISPLAY evidence=$EVIDENCE_ROOT"
+}
+
+cmd_launch() {
+	local bin ver
+	bin="$(find_godot)"
+	ver="$(godot_version "$bin")"
+	require_version "$ver"
+	isolate
+	echo "mm-verify: importing $PROJECT with $ver"
+	"$bin" --headless --path "$PROJECT" --import --quit
+	printf '%s\n' "$ver" > "$READY"
+	echo "VERIFY_READY import version=$ver"
+}
+
+refuse_if_busy() {
+	if drive_alive; then
+		echo "mm-verify: refusing a second drive against $PROJECT (pid $(cat "$PIDFILE"))" >&2
+		exit 4
+	fi
+}
+
+cmd_drive() {
+	local feature="${1:-}"
+	case "$feature" in
+		walk|start-game) ;;
+		sentry-detection|level-change|touch-scheme)
+			echo "mm-verify: no automated drive for $feature" >&2
+			exit 3
+			;;
+		*) usage ;;
+	esac
+	cmd_doctor >/dev/null
+	refuse_if_busy
+	local bin evidence
+	bin="$(find_godot)"
+	evidence="$EVIDENCE_ROOT/$feature"
+	mkdir -p "$evidence"
+	isolate
+	local log="$evidence/drive.log"
+	echo "mm-verify: driving $feature -> $evidence"
+	"$bin" --path "$PROJECT" \
+		--resolution 960x540 --position 40,40 \
+		--rendering-method gl_compatibility \
+		--audio-driver Dummy \
+		--script "$SKILL_DIR/helpers/drive.gd" -- \
+		--feature "$feature" --evidence "$evidence" \
+		> >(tee "$log") 2>&1 &
+	local pid=$!
+	echo "$pid" > "$PIDFILE"
+	local status=0
+	wait "$pid" || status=$?
+	rm -f "$PIDFILE"
+	if [[ "$status" -ne 0 ]]; then
+		echo "mm-verify: drive $feature exited $status (log $log)" >&2
+		exit "$status"
+	fi
+	if [[ ! -f "$evidence/result.json" ]]; then
+		echo "mm-verify: drive exited 0 but result.json is missing" >&2
+		exit 1
+	fi
+	echo "VERIFY_EVIDENCE $evidence"
+}
+
+cmd_cleanup() {
+	if drive_alive; then
+		local pid
+		pid="$(cat "$PIDFILE")"
+		kill "$pid" 2>/dev/null || true
+		for _ in 1 2 3 4 5; do
+			kill -0 "$pid" 2>/dev/null || break
+			sleep 0.2
+		done
+		if kill -0 "$pid" 2>/dev/null; then
+			kill -9 "$pid" 2>/dev/null || true
+		fi
+	fi
+	rm -rf "$RUN_ROOT"
+	echo "VERIFY_CLEAN run=$RUN_ROOT evidence_kept=$EVIDENCE_ROOT"
+}
+
+main() {
+	local cmd="${1:-}"
+	shift || true
+	case "$cmd" in
+		doctor) cmd_doctor ;;
+		launch) cmd_launch ;;
+		drive) cmd_drive "${1:-}" ;;
+		cleanup) cmd_cleanup ;;
+		*) usage ;;
+	esac
+}
+
+main "$@"
