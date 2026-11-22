@@ -4,7 +4,7 @@
     "x": 479.999969482422,
     "y": 299.699981689453
   },
-  "delta_x": 28.99951171875,
+  "delta_x": 28.9999084472656,
   "detail": "held physical D through the move_right action",
   "feature": "walk",
   "godot": "4.7",
@@ -14,7 +14,7 @@
   "menu_title": "Mini Mage",
   "pass": true,
   "player_after": {
-    "x": -435.00048828125,
+    "x": -435.000091552734,
     "y": -24.0
   },
   "player_before": {
