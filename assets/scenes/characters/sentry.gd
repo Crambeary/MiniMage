@@ -2,6 +2,7 @@ extends Node2D
 
 signal player_detected(detector, detection_level)
 signal player_detection_lost(detector)
+signal player_caught(catcher)
 
 var player: Node2D
 @onready var vision_manager: VisionManager = $VisionManager
@@ -25,7 +26,8 @@ const ALERTED_COLOR := Color.RED
 @onready var waypoints: Array = get_tree().get_first_node_in_group(path_group_name).get_children()
 var current_index: int = 0
 var dir: Vector2
-enum IdleTasks {PATROL, WAIT, INVESTIGATE_LKP}
+enum IdleTasks {PATROL, WAIT, INVESTIGATE_LKP, CHASE}
+const CATCH_DISTANCE: float = 8.0
 enum AlertnessState {IDLE, SUSPICIOUS, ALERTED}
 @export var idle_task = IdleTasks.PATROL
 @export var alertness_state = AlertnessState.IDLE
@@ -160,7 +162,7 @@ func update_alert_state(new_state: AlertnessState) -> void:
 		AlertnessState.ALERTED:
 			question_mark.visible = false
 			exclamation.visible = true
-			get_tree().change_scene_to_file("res://assets/scenes/ui/game_over_screen.tscn")
+			idle_task = IdleTasks.CHASE
 	
 func _ready() -> void:
 	print("Sentry _ready: Attempting to initialize status bar.")
@@ -245,12 +247,35 @@ func _physics_process(delta: float) -> void:
 		else:
 			idle_task = IdleTasks.WAIT
 
+	elif idle_task == IdleTasks.CHASE:
+		_chase_player(delta)
+
 	if is_instance_valid(vision_manager) and is_instance_valid(player):
 		var player_is_currently_visible: bool = vision_manager.can_see_point(player.global_position)
 		_on_vision_manager_player_visibility_updated(player_is_currently_visible, delta)
 
 	_handle_alertness_cooldown(delta)
 	update_alertness()
+
+func _chase_player(delta: float) -> void:
+	if not is_instance_valid(player):
+		return
+	var to_player: Vector2 = player.global_position - global_position
+	if to_player.length() <= CATCH_DISTANCE:
+		idle_task = IdleTasks.WAIT
+		player_caught.emit(self)
+		return
+	dir = to_player.normalized()
+	global_position += dir * speed * delta
+	set_vision_direction(dir)
+	_last_movement_dir = dir
+	if absf(dir.x) > absf(dir.y):
+		animated_sprite_2d.flip_h = dir.x < 0.0
+		animated_sprite_2d.play("walk_side")
+	elif dir.y > 0.0:
+		animated_sprite_2d.play("walk_down")
+	else:
+		animated_sprite_2d.play("walk_up")
 
 func _on_vision_manager_player_visibility_updated(p_is_visible: bool, delta: float) -> void:
 	if p_is_visible:
