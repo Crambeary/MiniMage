@@ -47,7 +47,9 @@ func _setup() -> void:
 	_sentry.position = Vector2.ZERO
 	level.add_child(_sentry)
 
-	_handler = (load("res://assets/scenes/characters/player_detection_handler.gd") as GDScript).new()
+	_handler = (
+		(load("res://assets/scenes/characters/player_detection_handler.gd") as GDScript).new()
+	)
 	level.add_child(_handler)
 
 
@@ -107,10 +109,19 @@ func _finish() -> void:
 		_failures.append("arrow still visible after the player left sight")
 	else:
 		_arrow_cleared = true
-	print("BEHAVIOR pos=%s closest=%s aimed=%s question=%s exclamation_hidden=%s cleared=%s" % [
-		_sentry.global_position, _closest, _saw_aimed_arrow, _saw_question,
-		_exclamation_hidden_while_suspicious, _arrow_cleared
-	])
+	print(
+		(
+			"BEHAVIOR pos=%s closest=%s aimed=%s question=%s exclamation_hidden=%s cleared=%s"
+			% [
+				_sentry.global_position,
+				_closest,
+				_saw_aimed_arrow,
+				_saw_question,
+				_exclamation_hidden_while_suspicious,
+				_arrow_cleared
+			]
+		)
+	)
 	if _failures.is_empty():
 		quit(0)
 	else:
