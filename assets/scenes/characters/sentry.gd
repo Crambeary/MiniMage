@@ -30,6 +30,10 @@ const CATCH_DISTANCE: float = 8.0
 @export_range(0.0, 1.0, 0.05) var alertness_threshold: float = 0.7
 @export var initial_alertness_increase_rate: float = 0.2
 @export var alertness_increase_rate: float = 0.5
+@export_range(1.0, 5.0, 0.1) var center_speed_multiplier: float = 2.0
+@export_range(0.0, 1.0, 0.05) var turn_delay: float = 0.7
+@export_range(1.0, 5.0, 0.1) var facing_speed_multiplier: float = 2.5
+@export_range(0.1, 10.0, 0.1) var turn_speed: float = 3.0
 @export var idle_cooldown_delay: float = 2.0
 @export var idle_cooldown_rate: float = 0.1
 @export var suspicious_cooldown_delay: float = 5.0
@@ -48,6 +52,8 @@ var player_last_known_position: Vector2 = Vector2.ZERO
 var _player_was_visible_last_frame: bool = false
 var _last_movement_dir: Vector2 = Vector2.DOWN
 var _has_caught_player: bool = false
+var _detection_time: float = 0.0
+var _has_started_turning: bool = false
 
 @onready var vision_manager: VisionManager = $VisionManager
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -221,7 +227,8 @@ func _physics_process(delta: float) -> void:
 
 		if global_position.distance_to(target) > 0.5:
 			global_position += dir * speed * delta
-			set_vision_direction(dir)
+			if not _has_started_turning:
+				set_vision_direction(dir)
 			_last_movement_dir = dir
 
 			if dir.x <= -0.5:
@@ -246,7 +253,8 @@ func _physics_process(delta: float) -> void:
 
 		if distance_to_lkp > 10.0:
 			global_position += dir * speed * delta
-			set_vision_direction(dir)
+			if not _has_started_turning:
+				set_vision_direction(dir)
 			_last_movement_dir = dir
 
 			if dir.x <= -0.5:
@@ -300,16 +308,29 @@ func _on_vision_manager_player_visibility_updated(p_is_visible: bool, delta: flo
 		is_in_cooldown = false
 		cooldown_timer = 0.0
 		was_player_seen = true
+		_detection_time += delta
+		if _detection_time >= turn_delay:
+			_has_started_turning = true
+			_turn_toward_player(delta)
+
+		var detection_multiplier: float = _get_detection_speed_multiplier()
 
 		if alertness_value < suspicion_threshold:
-			alertness_value = min(alertness_value + (initial_alertness_increase_rate * delta), 1.0)
+			alertness_value = min(
+				alertness_value + (initial_alertness_increase_rate * detection_multiplier * delta),
+				1.0
+			)
 		else:
-			alertness_value = min(alertness_value + (alertness_increase_rate * delta), 1.0)
+			alertness_value = min(
+				alertness_value + (alertness_increase_rate * detection_multiplier * delta), 1.0
+			)
 
 		if not _player_was_visible_last_frame:
 			emit_signal("player_detected", self, alertness_value)
 
 	else:
+		_detection_time = 0.0
+		_has_started_turning = false
 		if _player_was_visible_last_frame:
 			emit_signal("player_detection_lost", self)
 
@@ -325,6 +346,36 @@ func _on_vision_manager_player_visibility_updated(p_is_visible: bool, delta: flo
 				cooldown_timer = 0.0
 
 	_player_was_visible_last_frame = p_is_visible
+
+
+func _get_detection_speed_multiplier() -> float:
+	if _has_started_turning:
+		return facing_speed_multiplier
+
+	var direction_to_player: Vector2 = player.global_position - vision_manager.global_position
+	if direction_to_player.is_zero_approx():
+		return center_speed_multiplier
+
+	var facing_angle: float = absf(
+		vision_manager.get_forward_vector().angle_to(direction_to_player.normalized())
+	)
+	var half_arc: float = deg_to_rad(vision_manager.sight_arc / 2.0)
+	if half_arc <= 0.0:
+		return 1.0
+	var center_weight: float = 1.0 - clampf(facing_angle / half_arc, 0.0, 1.0)
+	return lerpf(1.0, center_speed_multiplier, center_weight)
+
+
+func _turn_toward_player(delta: float) -> void:
+	var direction_to_player: Vector2 = player.global_position - vision_manager.global_position
+	if direction_to_player.is_zero_approx():
+		return
+	var target_rotation: float = (
+		direction_to_player.angle() - vision_manager.get_local_forward_vector().angle()
+	)
+	vision_manager.global_rotation = rotate_toward(
+		vision_manager.global_rotation, target_rotation, turn_speed * delta
+	)
 
 
 func _handle_alertness_cooldown(delta: float) -> void:
