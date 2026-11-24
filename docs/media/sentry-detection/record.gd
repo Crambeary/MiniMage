@@ -1,17 +1,146 @@
 extends SceneTree
 
-## Replays player input through the real level and saves rendered frames plus
-## telemetry for the sentry detection recording. No gameplay nodes are moved.
+## Deterministic staged recording of sentry detection speed, run in the real level.
+##
+## Run with --fixed-fps 60 and --write-movie <png path> so every rendered frame is
+## exactly one physics step. Telemetry rows carry the same frame number as the
+## PNG they describe. The recorder pins the sentry's facing and freezes its patrol,
+## and teleports the player to fixed coordinates per segment, so the only value
+## that changes during a segment is the detection meter.
 
 const MAIN_MENU := "res://assets/scenes/ui/MainMenu.tscn"
 const LEVEL := "res://assets/scenes/levels/main.tscn"
-const OUTPUT_DIR := "res://docs/media/sentry-detection/frames"
-const CAPTURE_EVERY_PHYSICS_FRAMES := 6
+const SentryScript := preload("res://assets/scenes/characters/sentry.gd")
+const DEFAULT_TELEMETRY_PATH := "res://docs/media/sentry-detection/telemetry.csv"
+const SENTRY_NODE := "Sentry"
+const BYSTANDER_SENTRY_NODE := "Sentry2"
+const SENTRY_FACING := Vector2.LEFT
+const LEAD_IN_FRAMES := 60
+const TITLE_HOLD_FRAMES := 60
+const LOST_HOLD_FRAMES := 30
+const MAX_SEGMENT_FRAMES := 480
+# Stop each segment before the sentry reaches ALERTED (alertness_threshold 0.7),
+# so no chase starts and no segment ends in a catch.
+const STAGE_STOP_ALERTNESS := 0.6
+const HIDDEN_POSITION := Vector2(-900, 900)
 
-var _frame_index := 0
-var _label: Label
+const SEGMENTS := [
+	{
+		"id": "A",
+		"title": "A · PERIPHERAL — baseline fill",
+		"note": "Player 30° off axis, inside the 35° half-arc. Turn held: fill is baseline only.",
+		"angle_deg": -30.0,
+		"distance": 50.0,
+		"turns": false,
+	},
+	{
+		"id": "B",
+		"title": "B · CENTER — fills at x2.0",
+		"note": "Player dead center on the sentry's facing axis (0°), 200px away. Turn held.",
+		"angle_deg": 0.0,
+		"distance": 200.0,
+		"turns": false,
+	},
+	{
+		"id": "C",
+		"title": "C · TURN — fills at x2.5 after the turn",
+		"note": "Player starts 20° off axis. After 0.7s in view the sentry turns to face them.",
+		"angle_deg": -20.0,
+		"distance": 70.0,
+		"turns": true,
+	},
+]
+
+var _sentry: Node2D
+var _player: Node2D
+# Set per segment. While false, the detection timer is held at zero so the sentry's
+# 0.7s turn never starts and the fill stays at its baseline or center multiplier.
+var _turn_allowed := true
 var _telemetry: FileAccess
-var _output_dir := OUTPUT_DIR
+var _title: Label
+var _note: Label
+var _readout: Label
+var _meter: AlertMeter
+var _cone: SentryCone
+
+
+class AlertMeter:
+	extends Control
+	var alertness := 0.0
+	var multiplier_text := "—"
+
+	func _init() -> void:
+		custom_minimum_size = Vector2(420, 78)
+
+	func _draw() -> void:
+		var font := get_theme_default_font()
+		var bar := Rect2(Vector2(0, 30), Vector2(size.x, 22))
+		draw_rect(bar, Color(0.1, 0.12, 0.16, 0.95))
+		var fill := Color.WHITE
+		if alertness >= 0.7:
+			fill = Color(1, 0.25, 0.2)
+		elif alertness >= 0.3:
+			fill = Color(1, 0.85, 0.2)
+		draw_rect(Rect2(bar.position, Vector2(bar.size.x * alertness, bar.size.y)), fill)
+		for mark in [0.3, 0.7]:
+			var x: float = bar.position.x + bar.size.x * mark
+			draw_line(Vector2(x, bar.position.y - 4), Vector2(x, bar.end.y + 4), Color.WHITE, 2.0)
+		draw_string(
+			font,
+			Vector2(0, 20),
+			"DETECTION METER  %0.3f   fill %s" % [alertness, multiplier_text],
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			17,
+			Color.WHITE
+		)
+		draw_string(
+			font,
+			Vector2(bar.position.x + bar.size.x * 0.3 - 40, 72),
+			"suspicious 0.3",
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			13,
+			Color(1, 0.85, 0.2)
+		)
+		draw_string(
+			font,
+			Vector2(bar.position.x + bar.size.x * 0.7 - 30, 72),
+			"alerted 0.7",
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			13,
+			Color(1, 0.4, 0.35)
+		)
+
+
+class SentryCone:
+	extends Node2D
+	var sentry: Node2D
+	var player: Node2D
+	var reach := 250.0
+	var half_arc_deg := 35.0
+
+	func _draw() -> void:
+		if not is_instance_valid(sentry) or not is_instance_valid(player):
+			return
+		var vision: Node2D = sentry.vision_manager
+		var eye := to_local(vision.global_position)
+		var forward: Vector2 = vision.get_forward_vector()
+		var half := deg_to_rad(half_arc_deg)
+		var points := PackedVector2Array([eye])
+		var steps := 32
+		for i in steps + 1:
+			points.append(eye + forward.rotated(lerpf(-half, half, float(i) / steps)) * reach)
+		draw_colored_polygon(points, Color(1, 0.95, 0.5, 0.16))
+		draw_line(eye, eye + forward.rotated(half) * reach, Color(1, 0.85, 0.2, 0.9), 2.0)
+		draw_line(eye, eye + forward.rotated(-half) * reach, Color(1, 0.85, 0.2, 0.9), 2.0)
+		draw_line(eye, eye + forward * reach, Color(1, 1, 1, 0.7), 1.5)
+		var to_player := to_local(player.global_position)
+		var off_axis := absf(rad_to_deg(forward.angle_to(to_player - eye)))
+		var line_color := Color(0.4, 1, 0.5, 1) if off_axis < 2.0 else Color(1, 0.6, 0.3, 1)
+		draw_line(eye, to_player, line_color, 2.0)
+		draw_circle(to_player, 5.0, line_color)
 
 
 func _initialize() -> void:
@@ -19,24 +148,23 @@ func _initialize() -> void:
 
 
 func _run() -> void:
-	var override_dir := OS.get_environment("SENTRY_RECORD_OUTPUT_DIR")
-	if not override_dir.is_empty():
-		_output_dir = override_dir
-	var absolute_output := (
-		ProjectSettings.globalize_path(_output_dir)
-		if _output_dir.begins_with("res://")
-		else _output_dir
+	var telemetry_path := OS.get_environment("SENTRY_RECORD_TELEMETRY")
+	if telemetry_path.is_empty():
+		telemetry_path = DEFAULT_TELEMETRY_PATH
+	var absolute_telemetry := (
+		ProjectSettings.globalize_path(telemetry_path)
+		if telemetry_path.begins_with("res://")
+		else telemetry_path
 	)
-	DirAccess.make_dir_recursive_absolute(absolute_output)
-	_telemetry = FileAccess.open(absolute_output.path_join("telemetry.csv"), FileAccess.WRITE)
+	_telemetry = FileAccess.open(absolute_telemetry, FileAccess.WRITE)
 	if _telemetry == null:
-		push_error("RECORD_FAIL could not open telemetry.csv")
+		push_error("RECORD_FAIL could not open telemetry at %s" % absolute_telemetry)
 		quit(1)
 		return
 	_telemetry.store_line(
 		(
-			"frame,phase,detector,player_x,player_y,sentry_x,sentry_y,visible,angle_deg,"
-			+ "alertness,multiplier,turning"
+			"frame,segment,phase,player_x,player_y,sentry_x,sentry_y,facing_deg,visible,"
+			+ "angle_deg,alertness,multiplier,turning"
 		)
 	)
 
@@ -55,45 +183,277 @@ func _run() -> void:
 		push_error("RECORD_FAIL level did not open")
 		quit(1)
 		return
-	_add_telemetry_overlay()
 
-	# Move down into the gap, then right past the wall. These are physical player
-	# inputs using the same actions as the normal game controls.
-	await _hold_key(KEY_S, 72, true)
-	await _hold_key(KEY_D, 100, true)
+	_sentry = current_scene.get_node(SENTRY_NODE)
+	# The second patrol is switched off so only the staged sentry can see the player.
+	var bystander := current_scene.get_node(BYSTANDER_SENTRY_NODE) as Node2D
+	bystander.process_mode = Node.PROCESS_MODE_DISABLED
+	bystander.visible = false
+	_player = get_nodes_in_group("player")[0] as Node2D
+	_sentry.speed = 0.0
+	# Render at the movie's native 1152x648 so overlay pixels match video pixels whatever
+	# size the window manager gives the editor window.
+	root.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	root.content_scale_size = Vector2i(1152, 648)
+	_build_overlay()
+	print("OVERLAY screen=%s" % root.get_visible_rect().size)
 
-	# The second patrol sees the mage near the cone edge in this approach. Move
-	# along the screen using player inputs so the view angle changes naturally.
-	await _hold_keys([KEY_D, KEY_W], 20, true)
-	await _hold_key(KEY_D, 44, true)
+	_reset_sentry()
+	_player.global_position = HIDDEN_POSITION
+	_set_caption("Stage setup", "Sentry frozen and facing right. Player is out of view.")
+	for i in LEAD_IN_FRAMES:
+		await _step("SETUP", "SETUP · player hidden")
 
-	# Let the patrol turn and detection continue; stop when the tree pauses at a
-	# full alert or after the evidence window is complete.
-	for frame in 180:
-		await physics_frame
-		if frame % CAPTURE_EVERY_PHYSICS_FRAMES == 0:
-			await _capture_frame()
-		if paused:
-			break
+	for segment in SEGMENTS:
+		if not await _run_segment(segment):
+			_telemetry.close()
+			quit(1)
+			return
 
 	_telemetry.close()
-	print("RECORD_PASS frames=%d output=%s" % [_frame_index, _output_dir])
+	print("RECORD_PASS telemetry=%s" % absolute_telemetry)
 	quit(0)
 
 
-func _add_telemetry_overlay() -> void:
+func _run_segment(segment: Dictionary) -> bool:
+	var segment_id: String = segment.id
+	_turn_allowed = segment.turns
+	_reset_sentry()
+	_player.global_position = HIDDEN_POSITION
+	_set_caption(segment.title, segment.note)
+	for i in TITLE_HOLD_FRAMES:
+		await _step(segment_id, "SETUP · player hidden")
+
+	var target := _find_stage_point(segment.angle_deg, segment.distance)
+	print(
+		(
+			"STAGE %s target=(%0.1f, %0.1f) angle=%0.1f distance=%0.1f"
+			% [
+				segment_id,
+				target.x,
+				target.y,
+				segment.angle_deg,
+				target.distance_to(_sentry.vision_manager.global_position)
+			]
+		)
+	)
+	_player.global_position = target
+	var reached := false
+	for i in MAX_SEGMENT_FRAMES:
+		await _step(segment_id, "")
+		if _sentry.alertness_value >= STAGE_STOP_ALERTNESS:
+			reached = true
+			break
+	if not reached:
+		push_error(
+			(
+				"RECORD_FAIL segment %s did not reach %0.2f alertness"
+				% [segment_id, STAGE_STOP_ALERTNESS]
+			)
+		)
+		return false
+
+	_player.global_position = HIDDEN_POSITION
+	_set_caption(segment.title, "Player leaves view. Resetting the sentry for the next segment.")
+	for i in LOST_HOLD_FRAMES:
+		await _step(segment_id, "LOST · player hidden")
+	return true
+
+
+## Picks a point near the requested off-axis angle and distance that has clear floor
+## around it (no wall or prop within the player's body radius) and that the sentry can
+## see. Candidates are tried in a fixed order, so the same level gives the same point.
+func _find_stage_point(angle_deg: float, preferred_distance: float) -> Vector2:
+	var vision: Node2D = _sentry.vision_manager
+	var eye := vision.global_position
+	var space := _player.get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.collide_with_bodies = true
+	query.collide_with_areas = false
+	query.collision_mask = _player.collision_mask
+	for angle_offset in [0.0, -1.0, 1.0, -2.0, 2.0, -3.0, 3.0, -4.0, 4.0]:
+		var direction := SENTRY_FACING.rotated(deg_to_rad(angle_deg + angle_offset))
+		for distance_offset in [0.0, -20.0, 20.0, -40.0, 40.0, -60.0, 60.0, -80.0, 80.0]:
+			var distance := clampf(preferred_distance + distance_offset, 40.0, 230.0)
+			var point := eye + direction * distance
+			if not _has_clear_floor(space, query, point):
+				continue
+			if vision.can_see_point(point):
+				print("STAGE_POINT angle_offset=%0.1f distance=%0.1f" % [angle_offset, distance])
+				return point
+	push_error("RECORD_FAIL no clear visible point near %0.1f° from the sentry axis" % angle_deg)
+	return eye + SENTRY_FACING.rotated(deg_to_rad(angle_deg)) * preferred_distance
+
+
+## True when the point and its 8 neighbors at a 10px radius contain no collision body.
+func _has_clear_floor(
+	space: PhysicsDirectSpaceState2D, query: PhysicsPointQueryParameters2D, point: Vector2
+) -> bool:
+	for i in 9:
+		var sample := point
+		if i > 0:
+			sample = point + Vector2.RIGHT.rotated(TAU * (i - 1) / 8.0) * 10.0
+		query.position = sample
+		if not space.intersect_point(query).is_empty():
+			return false
+	return true
+
+
+func _step(segment_id: String, phase_override: String) -> void:
+	_freeze_sentry()
+	await physics_frame
+	_refresh(segment_id, phase_override)
+
+
+func _freeze_sentry() -> void:
+	_sentry.idle_task = SentryScript.IdleTasks.WAIT
+	if not _turn_allowed:
+		_sentry._detection_time = 0.0
+	# Pin the cone to the staged facing except while the sentry is turning toward the player.
+	if not _sentry._has_started_turning:
+		_sentry.set_vision_direction(SENTRY_FACING)
+
+
+func _reset_sentry() -> void:
+	_sentry.alertness_value = 0.0
+	_sentry.update_alert_state(SentryScript.AlertnessState.IDLE)
+	_sentry.idle_task = SentryScript.IdleTasks.WAIT
+	_sentry.is_in_cooldown = false
+	_sentry.was_player_seen = false
+	_sentry.cooldown_timer = 0.0
+	_sentry._detection_time = 0.0
+	_sentry._has_started_turning = false
+	_sentry._player_was_visible_last_frame = false
+	_sentry.set_vision_direction(SENTRY_FACING)
+
+
+func _refresh(segment_id: String, phase_override: String) -> void:
+	var vision: Node2D = _sentry.vision_manager
+	var eye: Vector2 = vision.global_position
+	var forward: Vector2 = vision.get_forward_vector()
+	var to_player: Vector2 = _player.global_position - eye
+	var visible: bool = vision.can_see_point(_player.global_position)
+	var angle_deg := rad_to_deg(absf(forward.angle_to(to_player)))
+	var multiplier: float = _sentry._get_detection_speed_multiplier()
+	var turning: bool = _sentry._has_started_turning
+	var multiplier_text := "x%.2f" % multiplier if visible else "—"
+
+	var phase := "NOT IN VIEW"
+	if not phase_override.is_empty():
+		phase = phase_override
+	elif turning:
+		phase = "TURNING · %s" % multiplier_text
+	elif visible:
+		phase = "IN VIEW · %s" % multiplier_text
+
+	_meter.alertness = _sentry.alertness_value
+	_meter.multiplier_text = multiplier_text
+	_meter.queue_redraw()
+	_cone.queue_redraw()
+	_readout.text = (
+		(
+			"Segment %s   ·   %s\nAngle off sentry axis: %0.1f°   ·   Detection multiplier: %s\n"
+			+ "Sentry turning: %s   ·   Alertness %0.3f (stop at %0.2f)"
+		)
+		% [
+			segment_id,
+			phase,
+			angle_deg,
+			multiplier_text,
+			"yes" if turning else "no",
+			_sentry.alertness_value,
+			STAGE_STOP_ALERTNESS,
+		]
+	)
+
+	(
+		_telemetry
+		. store_line(
+			(
+				"%d,%s,%s,%0.3f,%0.3f,%0.3f,%0.3f,%0.2f,%s,%0.2f,%0.4f,%0.3f,%s"
+				% [
+					Engine.get_frames_drawn(),
+					segment_id,
+					phase,
+					_player.global_position.x,
+					_player.global_position.y,
+					eye.x,
+					eye.y,
+					rad_to_deg(forward.angle()),
+					str(visible),
+					angle_deg,
+					_sentry.alertness_value,
+					multiplier,
+					str(turning),
+				]
+			)
+		)
+	)
+
+
+func _set_caption(title: String, note: String) -> void:
+	if _title == null:
+		return
+	_title.text = title
+	_note.text = note
+
+
+## Overlay layout uses fixed rectangles in screen pixels (the movie's native size), so
+## panels never depend on container minimum sizes and nothing is clipped.
+func _build_overlay() -> void:
 	var layer := CanvasLayer.new()
-	layer.name = "RecordingTelemetry"
+	layer.name = "RecordingOverlay"
+	layer.layer = 100
 	root.add_child(layer)
-	var panel := PanelContainer.new()
-	panel.position = Vector2(12, 12)
+
+	var screen := root.get_visible_rect().size
+
+	# Stops short of the game's own touch-scheme selector at the top right.
+	var caption := _make_panel(Vector2(960.0, 84.0))
+	caption.position = Vector2(16.0, 12.0)
+	_title = _make_label(26, Color(1, 0.9, 0.4))
+	_title.position = Vector2(12.0, 6.0)
+	_note = _make_label(18, Color.WHITE)
+	_note.position = Vector2(12.0, 46.0)
+	caption.add_child(_title)
+	caption.add_child(_note)
+	layer.add_child(caption)
+
+	var meter_panel := _make_panel(Vector2(440.0, 92.0))
+	meter_panel.position = Vector2(screen.x - 456.0, screen.y - 104.0)
+	_meter = AlertMeter.new()
+	_meter.position = Vector2(10.0, 6.0)
+	_meter.size = Vector2(420.0, 78.0)
+	meter_panel.add_child(_meter)
+	layer.add_child(meter_panel)
+
+	var readout_panel := _make_panel(Vector2(640.0, 92.0))
+	readout_panel.position = Vector2(16.0, screen.y - 104.0)
+	_readout = _make_label(17, Color.WHITE)
+	_readout.position = Vector2(12.0, 10.0)
+	readout_panel.add_child(_readout)
+	layer.add_child(readout_panel)
+
+	_cone = SentryCone.new()
+	_cone.sentry = _sentry
+	_cone.player = _player
+	_cone.z_index = 50
+	current_scene.add_child(_cone)
+
+
+func _make_label(font_size: int, color: Color) -> Label:
+	var label := Label.new()
+	label.add_theme_font_size_override("font_size", font_size)
+	label.add_theme_color_override("font_color", color)
+	return label
+
+
+func _make_panel(panel_size: Vector2) -> Panel:
+	var panel := Panel.new()
+	panel.size = panel_size
 	panel.add_theme_stylebox_override("panel", _panel_style())
-	layer.add_child(panel)
-	_label = Label.new()
-	_label.name = "Readout"
-	_label.add_theme_color_override("font_color", Color.WHITE)
-	_label.add_theme_font_size_override("font_size", 16)
-	panel.add_child(_label)
+	return panel
 
 
 func _panel_style() -> StyleBoxFlat:
@@ -107,122 +467,6 @@ func _panel_style() -> StyleBoxFlat:
 	style.content_margin_top = 6
 	style.content_margin_bottom = 6
 	return style
-
-
-func _capture_frame() -> void:
-	var player := get_nodes_in_group("player")[0] as Node2D
-	var best_sentry: Node2D
-	var best_visible_sentry: Node2D
-	var best_visible_value := -1.0
-	var best_value := -1.0
-	for node in get_nodes_in_group("sentry"):
-		var sentry := node as Node2D
-		var sentry_visible: bool = sentry.vision_manager.can_see_point(player.global_position)
-		if sentry_visible and sentry.alertness_value > best_visible_value:
-			best_visible_sentry = sentry
-			best_visible_value = sentry.alertness_value
-		if sentry.alertness_value > best_value:
-			best_value = sentry.alertness_value
-			best_sentry = sentry
-	if is_instance_valid(best_visible_sentry):
-		best_sentry = best_visible_sentry
-	if not is_instance_valid(best_sentry):
-		return
-
-	var to_player: Vector2 = player.global_position - best_sentry.vision_manager.global_position
-	var visible: bool = best_sentry.vision_manager.can_see_point(player.global_position)
-	var angle_deg := (
-		absf(best_sentry.vision_manager.get_forward_vector().angle_to(to_player.normalized()))
-		* 180.0
-		/ PI
-	)
-	var multiplier: float = best_sentry._get_detection_speed_multiplier()
-	var turning: bool = best_sentry._has_started_turning
-	var half_arc_deg: float = best_sentry.vision_manager.sight_arc / 2.0
-	var phase := "NOT IN VIEW"
-	if turning:
-		phase = "TURNING · x%.1f detection" % multiplier
-	elif visible and angle_deg < 12.0:
-		phase = "CENTER VIEW · x%.1f detection" % multiplier
-	elif visible and angle_deg <= half_arc_deg:
-		phase = "PERIPHERAL VIEW · x%.1f detection" % multiplier
-	elif visible:
-		phase = "CLOSE RANGE · x%.1f detection" % multiplier
-	var multiplier_text := "x%.1f" % multiplier if visible else "—"
-	_label.text = (
-		"SENTRY DETECTION DEMO · %s\n%s\nAlertness: %0.3f · View angle: %0.1f° · %s"
-		% [best_sentry.name, phase, best_sentry.alertness_value, angle_deg, multiplier_text]
-	)
-
-	var root_texture := root.get_texture()
-	if root_texture == null:
-		return
-	await RenderingServer.frame_post_draw
-	var image := root_texture.get_image()
-	var absolute_output := (
-		ProjectSettings.globalize_path(_output_dir)
-		if _output_dir.begins_with("res://")
-		else _output_dir
-	)
-	var filename := "frame-%04d.png" % _frame_index
-	var error := image.save_png(absolute_output.path_join(filename))
-	if error != OK:
-		push_error("RECORD_FAIL could not save %s: %s" % [filename, error])
-		return
-	(
-		_telemetry
-		. store_line(
-			(
-				"%d,%s,%s,%0.3f,%0.3f,%0.3f,%0.3f,%s,%0.2f,%0.3f,%0.2f,%s"
-				% [
-					_frame_index,
-					phase,
-					best_sentry.name,
-					player.global_position.x,
-					player.global_position.y,
-					best_sentry.global_position.x,
-					best_sentry.global_position.y,
-					str(visible),
-					angle_deg,
-					best_sentry.alertness_value,
-					multiplier,
-					str(turning),
-				]
-			)
-		)
-	)
-	_frame_index += 1
-
-
-func _hold_key(code: Key, frames: int, capture: bool) -> void:
-	for i in frames:
-		_push_key(code, true, i > 0)
-		await physics_frame
-		if capture and i % CAPTURE_EVERY_PHYSICS_FRAMES == 0:
-			await _capture_frame()
-	_push_key(code, false, false)
-	await physics_frame
-
-
-func _hold_keys(codes: Array[Key], frames: int, capture: bool) -> void:
-	for i in frames:
-		for code in codes:
-			_push_key(code, true, i > 0)
-		await physics_frame
-		if capture and i % CAPTURE_EVERY_PHYSICS_FRAMES == 0:
-			await _capture_frame()
-	for code in codes:
-		_push_key(code, false, false)
-	await physics_frame
-
-
-func _push_key(code: Key, pressed: bool, echo: bool) -> void:
-	var event := InputEventKey.new()
-	event.physical_keycode = code
-	event.keycode = code
-	event.pressed = pressed
-	event.echo = echo
-	Input.parse_input_event(event)
 
 
 func _wait_for_button(text: String) -> Button:
