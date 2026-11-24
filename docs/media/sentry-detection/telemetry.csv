@@ -1,0 +1,72 @@
+frame,phase,detector,player_x,player_y,sentry_x,sentry_y,visible,angle_deg,alertness,multiplier,turning
+0,NOT IN VIEW,Sentry,-464.000,-24.000,-117.833,0.000,false,3.96,0.000,1.89,false
+1,NOT IN VIEW,Sentry,-464.000,-13.292,-124.500,0.000,false,3.03,0.000,1.91,false
+2,NOT IN VIEW,Sentry,-464.000,-0.013,-131.167,0.000,false,0.86,0.000,1.98,false
+3,NOT IN VIEW,Sentry,-464.000,13.319,-137.833,0.000,false,1.45,0.000,1.96,false
+4,NOT IN VIEW,Sentry,-464.000,15.995,-144.500,0.000,false,2.84,0.000,1.92,false
+5,NOT IN VIEW,Sentry,-464.000,15.995,-151.167,0.000,false,2.90,0.000,1.92,false
+6,NOT IN VIEW,Sentry,-464.000,15.995,-157.833,0.000,false,2.97,0.000,1.92,false
+7,NOT IN VIEW,Sentry,-464.000,15.995,-164.500,0.000,false,3.03,0.000,1.91,false
+8,NOT IN VIEW,Sentry,-464.000,15.995,-171.166,0.000,false,3.10,0.000,1.91,false
+9,NOT IN VIEW,Sentry,-464.000,15.995,-177.833,0.000,false,3.17,0.000,1.91,false
+10,NOT IN VIEW,Sentry,-464.000,15.995,-184.500,0.000,false,3.25,0.000,1.91,false
+11,NOT IN VIEW,Sentry,-464.000,15.995,-191.166,0.000,false,3.32,0.000,1.91,false
+12,NOT IN VIEW,Sentry,-464.000,15.995,-192.000,-5.000,false,94.06,0.000,1.00,false
+13,NOT IN VIEW,Sentry,-464.000,15.995,-192.000,-11.667,false,95.28,0.000,1.00,false
+14,NOT IN VIEW,Sentry,-464.000,15.995,-192.000,-18.333,false,96.67,0.000,1.00,false
+15,NOT IN VIEW,Sentry,-453.292,15.995,-192.000,-25.000,false,98.23,0.000,1.00,false
+16,NOT IN VIEW,Sentry,-440.013,15.995,-192.000,-31.667,false,100.12,0.000,1.00,false
+17,NOT IN VIEW,Sentry,-426.681,15.995,-192.000,-38.333,false,102.20,0.000,1.00,false
+18,NOT IN VIEW,Sentry,-413.348,15.995,-192.000,-45.000,false,104.49,0.000,1.00,false
+19,NOT IN VIEW,Sentry,-400.015,15.995,-192.000,-51.667,false,107.01,0.000,1.00,false
+20,NOT IN VIEW,Sentry,-386.681,15.995,-192.000,-58.333,false,109.78,0.000,1.00,false
+21,NOT IN VIEW,Sentry,-373.348,15.995,-192.000,-64.167,false,112.84,0.000,1.00,false
+22,NOT IN VIEW,Sentry,-360.015,15.995,-192.000,-64.167,false,114.86,0.000,1.00,false
+23,NOT IN VIEW,Sentry,-346.682,15.995,-192.000,-64.167,false,116.66,0.000,1.00,false
+24,NOT IN VIEW,Sentry,-333.348,15.995,-192.000,-64.167,false,118.71,0.000,1.00,false
+25,CLOSE RANGE · x1.0 detection,Sentry2,-320.015,15.995,-316.834,7.826,true,124.27,0.023,1.00,false
+26,CLOSE RANGE · x1.0 detection,Sentry2,-306.682,15.995,-310.167,7.882,true,82.61,0.050,1.00,false
+27,CLOSE RANGE · x1.0 detection,Sentry2,-293.349,15.995,-303.501,7.937,true,46.07,0.070,1.00,false
+28,PERIPHERAL VIEW · x1.2 detection,Sentry2,-280.015,15.995,-296.834,7.993,true,28.78,0.097,1.18,false
+29,NOT IN VIEW,Sentry2,-266.682,15.995,-296.001,3.000,false,113.10,0.106,1.00,false
+30,NOT IN VIEW,Sentry2,-253.349,15.995,-296.000,-3.667,false,114.50,0.106,1.00,false
+31,NOT IN VIEW,Sentry2,-240.015,15.995,-296.000,-7.833,false,115.05,0.106,1.00,false
+32,NOT IN VIEW,Sentry2,-229.818,8.423,-296.000,-7.833,false,107.44,0.106,1.00,false
+33,NOT IN VIEW,Sentry2,-220.374,-0.967,-296.000,-7.833,false,101.48,0.106,1.00,false
+34,NOT IN VIEW,Sentry2,-210.946,-10.394,-296.000,-7.833,false,90.68,0.106,1.00,false
+35,NOT IN VIEW,Sentry2,-201.518,-19.822,-296.000,-7.833,false,84.69,0.106,1.00,false
+36,NOT IN VIEW,Sentry2,-188.953,-21.678,-296.000,-7.833,false,82.35,0.106,1.00,false
+37,NOT IN VIEW,Sentry2,-175.636,-21.717,-296.000,-7.833,false,83.14,0.106,1.00,false
+38,NOT IN VIEW,Sentry2,-163.006,-21.718,-296.000,-7.833,false,83.84,0.106,1.00,false
+39,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.106,1.00,false
+40,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.106,1.00,false
+41,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.106,1.00,false
+42,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.106,1.00,false
+43,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.106,1.00,false
+44,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.096,1.00,false
+45,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.083,1.00,false
+46,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.070,1.00,false
+47,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.056,1.00,false
+48,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.043,1.00,false
+49,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.030,1.00,false
+50,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.016,1.00,false
+51,NOT IN VIEW,Sentry2,-163.000,-21.718,-296.000,-7.833,false,84.04,0.003,1.00,false
+52,NOT IN VIEW,Sentry,-163.000,-21.718,-126.167,0.137,false,28.94,0.000,1.17,false
+53,NOT IN VIEW,Sentry,-163.000,-21.718,-132.833,0.123,false,33.65,0.000,1.04,false
+54,CENTER VIEW · x1.8 detection,Sentry2,-163.000,-21.718,-289.333,-7.861,true,5.90,0.049,1.83,false
+55,CENTER VIEW · x1.8 detection,Sentry2,-163.000,-21.718,-282.667,-7.889,true,6.22,0.097,1.82,false
+56,CENTER VIEW · x1.8 detection,Sentry2,-163.000,-21.718,-276.000,-7.917,true,6.58,0.146,1.81,false
+57,CENTER VIEW · x1.8 detection,Sentry2,-163.000,-21.718,-269.334,-7.944,true,6.98,0.194,1.80,false
+58,CENTER VIEW · x1.8 detection,Sentry2,-163.000,-21.718,-262.667,-7.972,true,7.43,0.242,1.79,false
+59,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-256.001,-8.000,true,0.00,0.306,2.50,true
+60,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-256.001,-8.000,true,0.00,0.472,2.50,true
+61,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-256.001,-8.000,true,0.00,0.639,2.50,true
+62,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-251.879,-8.608,true,0.00,0.806,2.50,true
+63,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-245.284,-9.581,true,0.00,0.972,2.50,true
+64,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-238.688,-10.554,true,0.00,1.000,2.50,true
+65,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-232.093,-11.526,true,0.00,1.000,2.50,true
+66,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-225.498,-12.499,true,0.00,1.000,2.50,true
+67,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-218.902,-13.472,true,0.00,1.000,2.50,true
+68,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-212.307,-14.445,true,0.00,1.000,2.50,true
+69,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-205.712,-15.418,true,0.00,1.000,2.50,true
+70,TURNING · x2.5 detection,Sentry2,-163.000,-21.718,-199.116,-16.391,true,0.00,1.000,2.50,true
