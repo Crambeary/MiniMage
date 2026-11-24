@@ -370,11 +370,16 @@ func _turn_toward_player(delta: float) -> void:
 	var direction_to_player: Vector2 = player.global_position - vision_manager.global_position
 	if direction_to_player.is_zero_approx():
 		return
-	var target_rotation: float = (
+	var desired_rotation: float = (
 		direction_to_player.angle() - vision_manager.get_local_forward_vector().angle()
 	)
+	var current_rotation: float = vision_manager.global_rotation
+	# rotate_toward steps linearly, so aim at the shortest-arc equivalent of the target.
+	var target_rotation: float = (
+		current_rotation + angle_difference(current_rotation, desired_rotation)
+	)
 	vision_manager.global_rotation = rotate_toward(
-		vision_manager.global_rotation, target_rotation, turn_speed * delta
+		current_rotation, target_rotation, turn_speed * delta
 	)
 
 
