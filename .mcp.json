@@ -4,6 +4,11 @@
       "type": "stdio",
       "command": "bash",
       "args": ["-c", "exec bash \"$(git rev-parse --show-toplevel)/tools/lsp/serve_upstream.sh\""]
+    },
+    "godot-ai": {
+      "type": "stdio",
+      "command": "bash",
+      "args": ["-c", "exec uvx --isolated --no-config --from godot-ai==4.3.1 godot-ai attach --port \"${GODOT_AI_PORT:-8000}\" --ws-port \"${GODOT_AI_WS_PORT:-9500}\""]
     }
   }
 }
