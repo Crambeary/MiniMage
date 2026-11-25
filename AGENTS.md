@@ -18,7 +18,9 @@ agents (Codex etc.) get no enforcement, so follow these rules yourself:
 - Never read `godot://` resources. They read the Active Session, which may be
   another worktree's editor. Use the equivalent tool (`editor_state`,
   `scene_get_hierarchy`, `node_get_properties`, ...) with your `session_id`.
-- Only launch an editor at your own worktree (`tools/open-editor.sh`).
+- Only launch an editor at your own worktree (`tools/open-editor.sh`, or
+  `tools/open-editor-cloud.sh` in a cloud container). Full launch, verify and
+  troubleshooting steps: `docs/agents/godot-editor.md`.
 
 
 ## Agent skills
