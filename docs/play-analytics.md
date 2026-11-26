@@ -35,13 +35,15 @@ A heartbeat is written every 15 seconds while the session is open.
 
 `menu` means the player returned to the main menu.
 
-`quit` means the game exited before a final row was written.
+`quit` means the game process exited. That row is the final row for the session.
 
 The game also prints the same JSON to stdout on a line that starts with `ANALYTICS`.
 
 ## Set the endpoint
 
 The game posts each event when an endpoint is set. An empty endpoint keeps events in the local log only.
+
+If the endpoint accepts the connection and sends no reply, closing the game waits up to 3 seconds.
 
 `MINIMAGE_ANALYTICS_URL` overrides the project setting when the variable is not empty.
 
@@ -143,4 +145,4 @@ Duration for a session is the largest `duration_ms` on that `session_id`.
 
 Use the `session_duration` row whose `partial` value is false when that row exists.
 
-Heartbeats cover a closed browser tab within 15 seconds.
+A closed browser tab can drop the final row. The last heartbeat is at most 15 seconds before the tab closed.

@@ -216,13 +216,15 @@ func _flush_blocking() -> void:
 		_queue.clear()
 		_inflight = false
 		return
-	while not _queue.is_empty():
+	var deadline := Time.get_ticks_msec() + 3000
+	while not _queue.is_empty() and Time.get_ticks_msec() <= deadline:
 		var body: String = _queue.pop_front()
-		_post_blocking(endpoint, body)
+		_post_blocking(endpoint, body, deadline)
+	_queue.clear()
 	_inflight = false
 
 
-func _post_blocking(endpoint: String, body: String) -> void:
+func _post_blocking(endpoint: String, body: String, deadline: int) -> void:
 	var parts := _split_url(endpoint)
 	if parts.is_empty():
 		print("PlayAnalytics POST failed bad url")
@@ -232,7 +234,6 @@ func _post_blocking(endpoint: String, body: String) -> void:
 	if err != OK:
 		print("PlayAnalytics POST failed connect error=%s" % err)
 		return
-	var deadline := Time.get_ticks_msec() + 3000
 	while client.get_status() == HTTPClient.STATUS_CONNECTING or client.get_status() == HTTPClient.STATUS_RESOLVING:
 		client.poll()
 		if Time.get_ticks_msec() > deadline:
