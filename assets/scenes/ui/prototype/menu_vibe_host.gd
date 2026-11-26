@@ -1,12 +1,13 @@
 extends Control
 
-## Three variants of the main menu vibe, switchable with left/right or the bottom bar, hosted on MainMenu.
+## D/E/F of the main menu, switchable with left/right or the bottom bar, hosted on MainMenu.
+## A/B/C were rejected. These ask which lighting-led layout matches stealth, fantasy, magic, and whimsy.
 ## Throwaway prototype. Debug builds only. Not the production menu.
 
 const VARIANTS: Array[Dictionary] = [
-	{"key": "A", "name": "Approach", "script": preload("res://assets/scenes/ui/prototype/variant_approach.gd")},
-	{"key": "B", "name": "Notice", "script": preload("res://assets/scenes/ui/prototype/variant_notice.gd")},
-	{"key": "C", "name": "Watch", "script": preload("res://assets/scenes/ui/prototype/variant_watch.gd")},
+	{"key": "D", "name": "Spell circle", "script": preload("res://assets/scenes/ui/prototype/variant_spell.gd")},
+	{"key": "E", "name": "Light pool", "script": preload("res://assets/scenes/ui/prototype/variant_pool.gd")},
+	{"key": "F", "name": "Firefly path", "script": preload("res://assets/scenes/ui/prototype/variant_fireflies.gd")},
 ]
 
 var _index := 0
@@ -94,8 +95,8 @@ func _typing() -> bool:
 func _build_bar() -> void:
 	var bar := PanelContainer.new()
 	bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
-	bar.offset_left = -150.0
-	bar.offset_right = 150.0
+	bar.offset_left = -170.0
+	bar.offset_right = 170.0
 	bar.offset_top = -58.0
 	bar.offset_bottom = -14.0
 	bar.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -115,7 +116,7 @@ func _build_bar() -> void:
 	bar.add_child(row)
 	row.add_child(_arrow("◀", -1))
 	_label = Label.new()
-	_label.custom_minimum_size = Vector2(150, 0)
+	_label.custom_minimum_size = Vector2(180, 0)
 	_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_label.add_theme_font_size_override(&"font_size", 16)
 	row.add_child(_label)

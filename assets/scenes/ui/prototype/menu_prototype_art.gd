@@ -4,7 +4,9 @@ extends RefCounted
 
 const CASTLE := "res://assets/art/tilesets/CastleTiles.png"
 const MAGE := "res://assets/art/characters/DG_Asha/Blue Asha Idle 32x32.png"
+const RAISE := "res://assets/art/characters/DG_Asha/Blue Asha Raising 1 32x32.png"
 const KNIGHT := "res://assets/art/characters/Knight/Idle-Sheet.png"
+const GLOW := "res://assets/art/vfx/2d_64x64_lights_and_shadows_neutral_point_light.png"
 
 static var _images: Dictionary = {}
 
@@ -54,6 +56,18 @@ static func sprite(path: String, region: Rect2i, scale: float) -> Sprite2D:
 	node.texture = region_texture(path, region)
 	node.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	node.scale = Vector2(scale, scale)
+	return node
+
+
+static func glow(scale: float, tint: Color) -> Sprite2D:
+	var node := Sprite2D.new()
+	node.texture = load(GLOW)
+	node.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	node.scale = Vector2(scale, scale)
+	node.modulate = tint
+	var material := CanvasItemMaterial.new()
+	material.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	node.material = material
 	return node
 
 
