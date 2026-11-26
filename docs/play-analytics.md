@@ -119,7 +119,7 @@ On Linux the log for this project is `~/.local/share/godot/app_userdata/GJ_TinyW
 
 Set `MINIMAGE_ANALYTICS_LOG` to an absolute path when you want a different file. The game creates missing parent directories.
 
-A web build keeps that file in the browser. The published itch build needs the endpoint.
+A web build keeps that file in the browser. The itch build sends play events to GA4 from the game page. Leave the endpoint empty for that build.
 
 ## Keep sessions private
 
@@ -145,4 +145,61 @@ Duration for a session is the largest `duration_ms` on that `session_id`.
 
 Use the `session_duration` row whose `partial` value is false when that row exists.
 
-A closed browser tab can drop the final row. The last heartbeat is at most 15 seconds before the tab closed.
+On a desktop build, closing the game can drop the final POST. The last heartbeat is at most 15 seconds before that close. The itch build sends the final `session_duration` from the game page when the tab hides or closes.
+
+## Record the itch iframe in GA4
+
+The itch store page loads measurement ID `G-9950RN0Z1T`. The game runs in a cross-origin iframe on `html-classic.itch.zone`. The store page and the game page are different documents, so the game page loads that same measurement ID itself.
+
+The Web export preset stores the Google tag in `html/head_include` in `export_presets.cfg`. Godot copies that HTML into the `<head>` of the exported page. The page defines `window.miniMageAnalytics(eventName, paramsJson)`. That function parses `paramsJson` and calls `gtag('event', eventName, params)`.
+
+A web build sends events with `JavaScriptBridge`. The page tag is the whole web path. The web build leaves `HTTPRequest` unused. The page has no API secret.
+
+These events reach GA4.
+
+- `play_pressed`
+- `level_1_complete`
+- `level_2_complete`
+- `session_duration` when the session ends
+
+Heartbeat rows stay in the local log. GA4 receives the final `session_duration` for a session, and it skips the 15 second heartbeat rows.
+
+Every GA4 event includes these parameters.
+
+- `game_session_id` is the `session_id` on the local row.
+- `game_platform` is the `platform` on the local row.
+- `duration_ms` is the number of milliseconds since this session started.
+
+`session_duration` also includes `session_end_reason` and `partial`.
+
+`session_end_reason` is `menu` when the player returns to the main menu. It is `quit` when the page hides or the game exits.
+
+`partial` is false on that final row.
+
+While a session is open, the game keeps `window.miniMageSession` updated. `startedMs` on that object is the session start in Unix milliseconds. `pagehide` and `visibilitychange` call the flush when the document hides. If `window.miniMageSession.open` is still true, the page sends one `session_duration` with `session_end_reason` set to `quit`, `partial` set to false, and `transport_type` set to `beacon`. `duration_ms` is the time from `startedMs` to that hide.
+
+The page sends that final `session_duration` once. A session the menu path or the quit path already ended stays closed, and the hide handler leaves it alone. A quit from the game itself also sends `transport_type` `beacon`, so the row can leave during unload.
+
+## Add the GA4 definitions
+
+In the GA4 property for `G-9950RN0Z1T`, create event-scoped custom dimensions for these parameters.
+
+- `game_session_id`
+- `game_platform`
+- `session_end_reason`
+
+Create a custom metric for `duration_ms`.
+
+Mark these key events.
+
+- `play_pressed`
+- `level_1_complete`
+- `level_2_complete`
+
+GA4 stores a custom definition for events that arrive after you create it. Create the definitions before you read a report.
+
+## Upload a new itch build
+
+The build already on itch was exported before this tag. Export the Web preset again and upload those files to itch. Play events from the iframe start after that upload.
+
+After the upload, open the itch page, press Start Game, and check GA4 Realtime. `play_pressed` should show `game_session_id` and `game_platform`.

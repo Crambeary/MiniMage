@@ -16,17 +16,19 @@ var _sent := {}
 var _queue: Array[String] = []
 var _inflight := false
 var _exiting := false
+var _web_warned := false
 var _http: HTTPRequest
 var _timer: Timer
 
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	_http = HTTPRequest.new()
-	_http.process_mode = Node.PROCESS_MODE_ALWAYS
-	_http.timeout = 10.0
-	add_child(_http)
-	_http.request_completed.connect(_on_request_completed)
+	if not OS.has_feature("web"):
+		_http = HTTPRequest.new()
+		_http.process_mode = Node.PROCESS_MODE_ALWAYS
+		_http.timeout = 10.0
+		add_child(_http)
+		_http.request_completed.connect(_on_request_completed)
 	_timer = Timer.new()
 	_timer.process_mode = Node.PROCESS_MODE_ALWAYS
 	_timer.wait_time = HEARTBEAT_SEC
@@ -63,11 +65,13 @@ func _start_session() -> void:
 	_sent.clear()
 	if is_instance_valid(_timer):
 		_timer.start()
+	_publish_web_session(true)
 
 
 func _on_heartbeat() -> void:
 	if not _open or _finished:
 		return
+	_publish_web_session(false)
 	_emit("session_duration", {
 		"duration_ms": _elapsed_ms(),
 		"partial": true,
@@ -102,6 +106,7 @@ func _finish(reason: String) -> void:
 		"partial": false,
 		"reason": reason,
 	})
+	_publish_web_session(false)
 
 
 func _emit_named(event_name: String, extra: Dictionary) -> void:
@@ -123,12 +128,65 @@ func _emit(event_name: String, extra: Dictionary) -> void:
 	var line := JSON.stringify(payload)
 	_write_line(line)
 	print("ANALYTICS " + line)
+	if OS.has_feature("web"):
+		_send_web(event_name, payload)
+		return
 	if _endpoint().is_empty():
 		return
 	_queue.append(line)
 	if _exiting:
 		return
 	_pump()
+
+
+func _ga_params(event_name: String, payload: Dictionary) -> Dictionary:
+	var params := {
+		"game_session_id": str(payload.get("session_id", "")),
+		"game_platform": str(payload.get("platform", "")),
+	}
+	if payload.has("duration_ms"):
+		params["duration_ms"] = int(payload["duration_ms"])
+	else:
+		params["duration_ms"] = _elapsed_ms()
+	if event_name == "session_duration":
+		params["session_end_reason"] = str(payload.get("reason", ""))
+		params["partial"] = bool(payload.get("partial", false))
+		if str(payload.get("reason", "")) == "quit":
+			params["transport_type"] = "beacon"
+	return params
+
+
+func _send_web(event_name: String, payload: Dictionary) -> void:
+	if event_name == "session_duration" and payload.get("partial", false):
+		return
+	var params_json := JSON.stringify(_ga_params(event_name, payload))
+	var code := (
+		"(function(){"
+		+ "if(typeof window.miniMageAnalytics!=='function')return false;"
+		+ "window.miniMageAnalytics(%s,%s);return true;"
+		+ "})()"
+	) % [JSON.stringify(event_name), JSON.stringify(params_json)]
+	var sent: Variant = JavaScriptBridge.eval(code, true)
+	if sent != true and not _web_warned:
+		_web_warned = true
+		print("PlayAnalytics web bridge missing window.miniMageAnalytics")
+
+
+func _publish_web_session(reset_final: bool) -> void:
+	if not OS.has_feature("web"):
+		return
+	var state := JSON.stringify({
+		"open": _open and not _finished,
+		"id": _session_id,
+		"startedMs": _started_ms,
+		"platform": OS.get_name(),
+	})
+	var reset := "true" if reset_final else "false"
+	var code := (
+		"if(typeof window.miniMagePublishSession==='function')"
+		+ "window.miniMagePublishSession(%s,%s);"
+	) % [state, reset]
+	JavaScriptBridge.eval(code, true)
 
 
 func _elapsed_ms() -> int:
@@ -178,7 +236,7 @@ func _ensure_parent(path: String) -> void:
 
 
 func _pump() -> void:
-	if _exiting or _inflight or _queue.is_empty():
+	if OS.has_feature("web") or _exiting or _inflight or _queue.is_empty():
 		return
 	var endpoint := _endpoint()
 	if endpoint.is_empty():
@@ -211,6 +269,10 @@ func _on_request_completed(
 
 
 func _flush_blocking() -> void:
+	if OS.has_feature("web"):
+		_queue.clear()
+		_inflight = false
+		return
 	var endpoint := _endpoint()
 	if endpoint.is_empty():
 		_queue.clear()
