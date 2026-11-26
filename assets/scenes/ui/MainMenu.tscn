@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://mea4cjnbdw1w"]
+[gd_scene load_steps=3 format=3 uid="uid://mea4cjnbdw1w"]
 
 [ext_resource type="Script" uid="uid://c3s7xy1nj1vmj" path="res://assets/scenes/ui/main_menu.gd" id="1_br1er"]
+[ext_resource type="Script" uid="uid://t7mqemu6517u" path="res://assets/scenes/ui/prototype/menu_vibe_host.gd" id="2_proto"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -50,5 +51,10 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Start Game"
+
+[node name="MenuVibePrototype" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_proto")
 
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
