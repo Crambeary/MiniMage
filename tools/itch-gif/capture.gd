@@ -4,14 +4,14 @@ const LEVEL_SCENE := "res://assets/scenes/levels/main.tscn"
 const SAMPLE_EVERY := 6
 
 const BEATS: Array[Dictionary] = [
-	{"op": "menu", "frames": 42},
 	{"op": "click", "button": "Start Game"},
 	{"op": "wait_level"},
-	{"op": "wait", "frames": 18},
+	{"op": "wait", "frames": 12},
 	{"op": "hold", "key": KEY_S, "frames": 40},
-	{"op": "hold", "key": KEY_D, "frames": 110},
-	{"op": "wait", "frames": 18},
-	{"op": "hold", "key": KEY_A, "frames": 50},
+	{"op": "hold", "key": KEY_D, "frames": 48},
+	{"op": "hold", "key": KEY_W, "frames": 55},
+	{"op": "hold", "key": KEY_D, "frames": 70},
+	{"op": "hold", "key": KEY_A, "frames": 100},
 	{"op": "wait", "frames": 18},
 ]
 
@@ -19,6 +19,7 @@ var _out := ""
 var _shot := 0
 var _since_shot := 0
 var _failed := false
+var _recording := false
 
 
 func _initialize() -> void:
@@ -32,10 +33,8 @@ func _initialize() -> void:
 	for beat in BEATS:
 		var op: String = beat["op"]
 		match op:
-			"menu":
-				await _menu(int(beat["frames"]))
 			"click":
-				await _click_button(str(beat["button"]))
+				await _open_level(str(beat["button"]))
 			"wait_level":
 				await _wait_level()
 			"wait":
@@ -74,19 +73,18 @@ func _main_scene_path() -> String:
 	return raw
 
 
-func _menu(hold_frames: int) -> void:
+func _open_level(text: String) -> void:
 	var button: Button = null
 	for _i in 90:
 		await process_frame
-		_sample()
-		button = _find_button("Start Game")
+		button = _find_button(text)
 		if button != null and button.get_global_rect().size.x > 1.0:
 			break
 	if button == null:
 		_fail("Start Game button did not appear")
 		return
-	print("ITCH_GIF_MENU title=%s" % _label_text("Mini Mage"))
-	await _frames(hold_frames)
+	print("ITCH_GIF_MENU title=%s skipped=true" % _label_text("Mini Mage"))
+	await _click_button(text)
 
 
 func _click_button(text: String) -> void:
@@ -100,7 +98,6 @@ func _click_button(text: String) -> void:
 	motion.global_position = center
 	root.push_input(motion)
 	await process_frame
-	_sample()
 	var press := InputEventMouseButton.new()
 	press.button_index = MOUSE_BUTTON_LEFT
 	press.pressed = true
@@ -109,7 +106,6 @@ func _click_button(text: String) -> void:
 	press.button_mask = MOUSE_BUTTON_MASK_LEFT
 	root.push_input(press)
 	await process_frame
-	_sample()
 	var release := InputEventMouseButton.new()
 	release.button_index = MOUSE_BUTTON_LEFT
 	release.pressed = false
@@ -118,17 +114,16 @@ func _click_button(text: String) -> void:
 	release.button_mask = 0
 	root.push_input(release)
 	await process_frame
-	_sample()
 	print("ITCH_GIF_CLICK %s at %s" % [text, center])
 
 
 func _wait_level() -> void:
 	for _i in 180:
 		await process_frame
-		_sample()
 		if current_scene != null and current_scene.scene_file_path == LEVEL_SCENE:
 			if get_nodes_in_group("player").size() > 0:
 				var player := get_nodes_in_group("player")[0] as Node2D
+				_recording = true
 				print("ITCH_GIF_LEVEL player=%s" % player.global_position)
 				return
 	_fail("Start Game did not open %s" % LEVEL_SCENE)
@@ -156,7 +151,26 @@ func _frames(count: int, key: int = 0) -> void:
 	_log_player()
 
 
+func _question_visible() -> bool:
+	for node in get_nodes_in_group("sentry"):
+		var mark = node.get("question_mark")
+		if mark != null and mark.visible:
+			return true
+	return false
+
+
+func _max_alert() -> float:
+	var best := 0.0
+	for node in get_nodes_in_group("sentry"):
+		var value = node.get("alertness_value")
+		if value != null:
+			best = maxf(best, float(value))
+	return best
+
+
 func _sample() -> void:
+	if not _recording:
+		return
 	_since_shot += 1
 	if _since_shot < SAMPLE_EVERY:
 		return
@@ -175,7 +189,14 @@ func _flush_shot() -> void:
 	if err != OK:
 		_fail("save %s error %s" % [path, err])
 		return
-	print("ITCH_GIF_SHOT %s %s player=%s" % [path, image.get_size(), _player_pos()])
+	var alert := _max_alert()
+	if alert >= 0.7:
+		_fail("sentry alertness reached %s" % alert)
+		return
+	print(
+		"ITCH_GIF_SHOT %s %s player=%s alert=%s question=%s"
+		% [path, image.get_size(), _player_pos(), alert, _question_visible()]
+	)
 
 
 func _log_player() -> void:
