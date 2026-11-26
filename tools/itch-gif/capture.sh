@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-# Play Mini Mage from the menu into a short stealth route and write a GIF.
-# Frames come from the game viewport. ffmpeg scales them with nearest-neighbor.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"

@@ -18,4 +18,4 @@ Set `GODOT` when the binary is not on `PATH` and not at `$HOME/.local/godot/Godo
 
 The route is the `BEATS` array in `tools/itch-gif/capture.gd`. A run that follows that array leaves the player near `(-362, 16)` after starting at `(-464, -24)`.
 
-A checked run wrote 51 frames at 10 fps (5.1 seconds), scaled to 480×270. That file is 714736 bytes. A later run can differ by a few hundred bytes, because the sentry is still on its patrol.
+A checked run wrote 51 frames at 10 fps. The clip is 5.1 seconds and 480×270. That file is 714736 bytes. A later run can differ by a few hundred bytes, because the sentry is still on its patrol.

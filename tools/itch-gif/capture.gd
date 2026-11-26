@@ -1,9 +1,5 @@
 extends SceneTree
 
-## Records a real menu-to-level playthrough as PNG frames.
-## Input is the same path a player uses: a click on Start Game, then held keys.
-## The beat list is the whole route. Each beat is one op.
-
 const LEVEL_SCENE := "res://assets/scenes/levels/main.tscn"
 const SAMPLE_EVERY := 6
 
@@ -12,8 +8,6 @@ const BEATS: Array[Dictionary] = [
 	{"op": "click", "button": "Start Game"},
 	{"op": "wait_level"},
 	{"op": "wait", "frames": 18},
-	# Spawn sits in a west alcove. The crate blocks east until the player
-	# drops south of it. The mover also spends the first frames turning.
 	{"op": "hold", "key": KEY_S, "frames": 40},
 	{"op": "hold", "key": KEY_D, "frames": 110},
 	{"op": "wait", "frames": 18},
