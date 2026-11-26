@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://mea4cjnbdw1w"]
+[gd_scene load_steps=3 format=3 uid="uid://mea4cjnbdw1w"]
 
 [ext_resource type="Script" uid="uid://c3s7xy1nj1vmj" path="res://assets/scenes/ui/main_menu.gd" id="1_br1er"]
+[ext_resource type="Script" uid="uid://cxiy4exuipop2" path="res://assets/scenes/ui/menu_backdrop.gd" id="2_backdrop"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -12,7 +13,12 @@ script = ExtResource("1_br1er")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.109804, 0.0901961, 0.172549, 1)
+
+[node name="Backdrop" type="Control" parent="."]
+layout_mode = 2
+mouse_filter = 2
+script = ExtResource("2_backdrop")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
