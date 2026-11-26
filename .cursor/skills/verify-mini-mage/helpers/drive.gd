@@ -10,6 +10,7 @@ const MIN_RIGHT_PX := 20.0
 var _feature := ""
 var _evidence := ""
 
+
 func _initialize() -> void:
 	_parse_args()
 	if _feature not in ["walk", "start-game"]:
@@ -40,7 +41,14 @@ func _initialize() -> void:
 	await _shot("level-before.png")
 	print("VERIFY_LEVEL scene=%s player=%s" % [current_scene.scene_file_path, before])
 	if _feature == "start-game":
-		_write_result(true, title, click_at, before, before, "start-game checks the menu and the spawned player")
+		_write_result(
+			true,
+			title,
+			click_at,
+			before,
+			before,
+			"start-game checks the menu and the spawned player"
+		)
 		print("VERIFY_PASS start-game")
 		quit(0)
 		return
@@ -50,12 +58,16 @@ func _initialize() -> void:
 	var moved := after.x - before.x
 	print("VERIFY_MOVED before=%s after=%s dx=%s" % [before, after, moved])
 	if moved < MIN_RIGHT_PX:
-		_write_result(false, title, click_at, before, after, "D moved the player %.2f px; need >= %.0f" % [moved, MIN_RIGHT_PX])
+		var detail := "D moved the player %.2f px; need >= %.0f" % [moved, MIN_RIGHT_PX]
+		_write_result(false, title, click_at, before, after, detail)
 		_fail("walk did not move right far enough (dx=%s)" % moved)
 		return
-	_write_result(true, title, click_at, before, after, "held physical D through the move_right action")
+	_write_result(
+		true, title, click_at, before, after, "held physical D through the move_right action"
+	)
 	print("VERIFY_PASS walk")
 	quit(0)
+
 
 func _parse_args() -> void:
 	var args := OS.get_cmdline_user_args()
@@ -73,6 +85,7 @@ func _parse_args() -> void:
 	if _evidence.is_empty():
 		_evidence = "user://verify-mini-mage"
 
+
 func _main_scene_path() -> String:
 	var raw := str(ProjectSettings.get_setting("application/run/main_scene"))
 	if raw.begins_with("uid://"):
@@ -81,6 +94,7 @@ func _main_scene_path() -> String:
 			return ResourceUID.get_id_path(id)
 	return raw
 
+
 func _wait_for_button(text: String) -> Button:
 	for _i in 60:
 		await process_frame
@@ -88,6 +102,7 @@ func _wait_for_button(text: String) -> Button:
 		if button != null and button.get_global_rect().size.x > 1.0:
 			return button
 	return null
+
 
 func _find_button(text: String) -> Button:
 	if current_scene == null:
@@ -98,6 +113,7 @@ func _find_button(text: String) -> Button:
 			return button
 	return null
 
+
 func _label_text(expected: String) -> String:
 	if current_scene == null:
 		return ""
@@ -106,6 +122,7 @@ func _label_text(expected: String) -> String:
 		if label.text == expected:
 			return label.text
 	return ""
+
 
 func _click(control: Control) -> Vector2:
 	var center := control.get_global_rect().get_center()
@@ -132,6 +149,7 @@ func _click(control: Control) -> Vector2:
 	await process_frame
 	return center
 
+
 func _wait_for_level() -> bool:
 	for _i in 120:
 		await process_frame
@@ -139,6 +157,7 @@ func _wait_for_level() -> bool:
 			if get_nodes_in_group("player").size() > 0:
 				return true
 	return false
+
 
 func _hold_key(code: Key, frames: int) -> void:
 	for i in frames:
@@ -156,6 +175,7 @@ func _hold_key(code: Key, frames: int) -> void:
 	Input.parse_input_event(up)
 	await physics_frame
 
+
 func _shot(name: String) -> void:
 	var image := root.get_texture().get_image() if root.get_texture() else null
 	if image == null:
@@ -168,7 +188,10 @@ func _shot(name: String) -> void:
 	else:
 		print("VERIFY_SHOT %s %s" % [path, image.get_size()])
 
-func _write_result(passed: bool, title: String, click_at: Vector2, before: Vector2, after: Vector2, detail: String) -> void:
+
+func _write_result(
+	passed: bool, title: String, click_at: Vector2, before: Vector2, after: Vector2, detail: String
+) -> void:
 	var version := Engine.get_version_info()
 	var body := {
 		"feature": _feature,
@@ -192,6 +215,7 @@ func _write_result(passed: bool, title: String, click_at: Vector2, before: Vecto
 		return
 	file.store_string(JSON.stringify(body, "  "))
 	file.close()
+
 
 func _fail(reason: String) -> void:
 	push_error("VERIFY_FAIL %s" % reason)
