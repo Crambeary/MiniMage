@@ -41,7 +41,9 @@ func set_mode(scheme_name: String) -> void:
 	add_child(_scheme)
 	_current_scheme_name = scheme_name
 	for button_scheme_name: String in _scheme_buttons:
-		(_scheme_buttons[button_scheme_name] as Button).button_pressed = button_scheme_name == scheme_name
+		(_scheme_buttons[button_scheme_name] as Button).button_pressed = (
+			button_scheme_name == scheme_name
+		)
 
 
 ## The scheme in use ("locked", "floating", "drag"), or "" when touch controls are off.
@@ -54,9 +56,22 @@ func get_scheme() -> Node:
 	return _scheme if is_instance_valid(_scheme) else null
 
 
+## Hides the switcher and the scheme and stops them taking input, e.g. while a
+## settings screen needs every touch for its own sliders.
+func set_suspended(suspended: bool) -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED if suspended else Node.PROCESS_MODE_ALWAYS
+	visible = not suspended
+	if is_instance_valid(_scheme) and _scheme is CanvasLayer:
+		(_scheme as CanvasLayer).visible = not suspended
+
+
 ## True when a viewport point lands on a switcher button, so a scheme can leave that touch alone.
 func is_switcher_at(viewport_position: Vector2) -> bool:
-	return is_instance_valid(_switcher) and _switcher.visible and _switcher.get_global_rect().has_point(viewport_position)
+	return (
+		is_instance_valid(_switcher)
+		and _switcher.visible
+		and _switcher.get_global_rect().has_point(viewport_position)
+	)
 
 
 func _requested_scheme_name() -> String:
@@ -71,7 +86,11 @@ func _requested_scheme_name() -> String:
 func _should_show_touch_controls(requested_scheme: String) -> bool:
 	if requested_scheme == DISABLED_SCHEME:
 		return false
-	return DisplayServer.is_touchscreen_available() or OS.has_feature("web") or requested_scheme in SCHEME_SCENES
+	return (
+		DisplayServer.is_touchscreen_available()
+		or OS.has_feature("web")
+		or requested_scheme in SCHEME_SCENES
+	)
 
 
 func _build_switcher() -> void:

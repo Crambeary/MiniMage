@@ -24,6 +24,7 @@ config/icon="res://icon.png"
 
 _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 ScreenLayout="*res://assets/scripts/screen_layout.gd"
+ViewSettings="*res://assets/scripts/view_settings.gd"
 TouchControls="*res://assets/scripts/touch_controls.gd"
 GameOverManager="*res://assets/scripts/game_over_manager.gd"
 PlayAnalytics="*res://assets/scripts/play_analytics.gd"
