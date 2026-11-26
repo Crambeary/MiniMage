@@ -11,8 +11,10 @@ You need Godot 4.7, ffmpeg, and a display. The window matches `mm-verify`. It is
 Run this from the repo root.
 
 ```
-tools/itch-gif/capture.sh /path/to/menu-to-stealth.gif
+tools/itch-gif/capture.sh
 ```
+
+With no path, the script writes `tools/itch-gif/menu-to-stealth.gif`. That file is committed.
 
 `capture.sh` imports the project when `.godot/uid_cache.bin` is missing. It then runs `tools/itch-gif/capture.gd`, which saves a PNG every 6 frames after the level loads. ffmpeg scales those frames to 480×270 with nearest-neighbor filtering and writes a GIF that loops.
 
