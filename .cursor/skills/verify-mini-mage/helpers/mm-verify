@@ -116,7 +116,7 @@ refuse_if_busy() {
 cmd_drive() {
 	local feature="${1:-}"
 	case "$feature" in
-		walk|start-game|touch-scheme) ;;
+		walk|start-game|touch-scheme|view-settings) ;;
 		sentry-detection|level-change)
 			echo "mm-verify: no automated drive for $feature" >&2
 			exit 3

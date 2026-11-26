@@ -44,7 +44,7 @@ A healthy doctor prints `VERIFY_DOCTOR ok`.
 .cursor/skills/verify-mini-mage/helpers/mm-verify drive walk
 ```
 
-`start-game` and `touch-scheme` are the other automated features. `sentry-detection` and `level-change` are mapped but not automated: `drive` exits 3 and does not write a pass.
+`start-game`, `touch-scheme` and `view-settings` are the other automated features. `sentry-detection` and `level-change` are mapped but not automated: `drive` exits 3 and does not write a pass.
 
 The window is 960×540 at (40, 40) unless `MM_VERIFY_RESOLUTION=WxH` is set, in which case the evidence directory gets a `-WxH` suffix. A tiling compositor (Hyprland, sway) ignores `--resolution`; run through `GODOT=helpers/godot-gamescope GODOT_BIN=<godot>` to get the exact size in a nested gamescope. gamescope may make `drive` exit 1 after `VERIFY_PASS` ("Broken pipe" on teardown); `result.json` is the verdict.
 
@@ -53,6 +53,8 @@ Stretch is `canvas_items`/`expand` and `ScreenLayout` sets the content scale, so
 The renderer is `gl_compatibility` and the audio driver is `Dummy`. `drive.gd` loads the project main scene, waits until a `Button` with text `Start Game` has a real rectangle, left-clicks that rectangle through `Viewport.push_input`, and waits until the current scene is `res://assets/scenes/levels/main.tscn` with a node in group `player`. `walk` then posts a physical `D` key-down on every physics frame for 45 frames and one key-up. A script has no OS key repeat, so the repeated key-down is how the held key reaches `Input.get_vector("move_left", "move_right", "move_up", "move_down")`. The driver never writes `position` or `velocity`.
 
 `touch-scheme` presses `Locked`, `Floating`, then `Drag` on the switcher. After each press it swipes with `InputEventScreenTouch`/`InputEventScreenDrag`: locked from the stick's centre to the right, floating at (0.3w, 0.65h) to the left, drag at (0.5w, 0.65h) to the right. It holds for 45 physics frames and releases. Pass: each press makes that scheme current, and each swipe moves the player at least 8 px the right way. Directions alternate because of the wall right of the spawn.
+
+`view-settings` presses `Settings` on the menu and turns on `Debug readout`. It then taps the world-view slider at its left end, middle and right end, and the HUD slider at its left and right ends, with `InputEventScreenTouch`. After each tap it reads `ViewSettings`, the preview camera's zoom, the status bar's and the sample detection arrow's scale. Then it presses `Back`, reads `user://settings.cfg`, presses `Start Game`, and reads the level camera and the status bar again. Pass: each tap sets the matching value, the camera shows `ViewSettings.get_visible_world_area()` within 1%, the HUD nodes take the HUD scale, the file holds FOV 1.15 and HUD 2.5, and the level opens with those values and the touch switcher back. The settings file persists between drives, so run `mm-verify cleanup` and `launch` before each one.
 
 Pass for `walk`: the player's `global_position.x` increases by at least 20 pixels. From the level-1 spawn `(-464, -24)`, `D` stops near `x=-435` on a collision, so a longer hold does not mean a longer walk.
 
@@ -64,10 +66,11 @@ Proof for a drive is the directory `.cursor/skills/verify-mini-mage/evidence/<fe
 - `level-before.png` — level 1 after the click, before movement
 - `level-after.png` — `walk` only, after the key-up
 - `touch-<scheme>.png` — `touch-scheme` only, after each scheme's swipe
-- `result.json` — feature id, pass flag, Godot version, click point, scene path, player position before and after, `delta_x`, window pixels and viewport units; `touch_runs` for `touch-scheme`
+- `fov-{min,default,max}.png`, `hud-{min,max}.png`, `level-applied.png` — `view-settings` only, after each slider tap and in the level after `Back`
+- `result.json` — feature id, pass flag, Godot version, click point, scene path, player position before and after, `delta_x`, window pixels and viewport units; `touch_runs` for `touch-scheme`; `checks`, `fov_runs`, `hud_runs`, `saved` and `level_view` for `view-settings`
 - `drive.log` — stdout and stderr, including `VERIFY_READY`, `VERIFY_MOVED`, and `VERIFY_PASS` or `VERIFY_FAIL`
 
-Override the directory with `VERIFY_EVIDENCE_DIR`. The seed proof for `walk` is committed under `evidence/walk/`, and `touch-scheme` at phone landscape, phone portrait and design size under `evidence/touch-scheme-{844x390,390x844,1152x648}/`. The original (pre-stretch, 960×540 at zoom 3) `walk` run is in git history: `git show a380741:.cursor/skills/verify-mini-mage/evidence/walk/result.json` (and the PNGs at the same commit).
+Override the directory with `VERIFY_EVIDENCE_DIR`. The seed proof for `walk` is committed under `evidence/walk/`, and `touch-scheme` at phone landscape, phone portrait and design size under `evidence/touch-scheme-{844x390,390x844,1152x648}/`, and `view-settings` at the same three sizes under `evidence/view-settings-{844x390,390x844,1152x648}/`. The original (pre-stretch, 960×540 at zoom 3) `walk` run is in git history: `git show a380741:.cursor/skills/verify-mini-mage/evidence/walk/result.json` (and the PNGs at the same commit).
 
 Standards: click, key and screen-touch events only (`InputEventScreenTouch`/`InputEventScreenDrag` for `touch-scheme`), then read the scene path and the player position back through public API (`TouchControls.get_scheme_name()`, `LockedJoystick.get_base_center()`), never underscore members. Screenshots show the window at the action and after it. Do not treat a log line alone as proof. Audio falling back to Dummy does not touch gameplay. `gl_compatibility` is the verification renderer because machines without Vulkan (including llvmpipe on X11) cannot start the default renderer.
 

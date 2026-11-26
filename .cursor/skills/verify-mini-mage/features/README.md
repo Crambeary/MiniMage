@@ -38,3 +38,4 @@ Each feature file has an H1, one opening paragraph, then these H2 headings in or
 - [Sentry detection](./sentry-detection.md) covers patrols noticing the mage.
 - [Level change](./level-change.md) covers the exit from level 1 into level 2 and the end screen.
 - [Touch scheme](./touch-scheme.md) covers the on-screen movement switcher.
+- [View settings](./view-settings.md) covers the Settings screen: world view (FOV), HUD size and the debug readout.
