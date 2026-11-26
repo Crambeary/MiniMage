@@ -26,7 +26,8 @@ const WEB_SAFE_AREA_QUERY: String = """(function () {
 		probe = document.createElement('div');
 		probe.id = 'mm-safe-area';
 		probe.style.cssText = 'position:fixed;top:0;left:0;visibility:hidden;pointer-events:none;'
-			+ 'padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);';
+			+ 'padding:env(safe-area-inset-top) env(safe-area-inset-right) '
+			+ 'env(safe-area-inset-bottom) env(safe-area-inset-left);';
 		document.body.appendChild(probe);
 	}
 	var s = getComputedStyle(probe);
@@ -78,7 +79,9 @@ func _relayout() -> void:
 		return
 	var screen_scale: float = maxf(DisplayServer.screen_get_scale(), 1.0)
 	_logical_short_side = minf(window_size.x, window_size.y) / screen_scale
-	var units: int = roundi(clampf(_logical_short_side / MIN_POINTS_PER_UNIT, MIN_SHORT_SIDE, DESIGN_SHORT_SIDE))
+	var units: int = roundi(
+		clampf(_logical_short_side / MIN_POINTS_PER_UNIT, MIN_SHORT_SIDE, DESIGN_SHORT_SIDE)
+	)
 	var content_size := Vector2i(units, units)
 	if window.content_scale_size != content_size:
 		window.content_scale_size = content_size
@@ -107,5 +110,6 @@ func _read_safe_insets_in_window_pixels(window: Window, screen_scale: float) -> 
 			maxi(safe.position.x - window_rect.position.x, 0),
 			maxi(safe.position.y - window_rect.position.y, 0),
 			maxi(window_rect.end.x - safe.end.x, 0),
-			maxi(window_rect.end.y - safe.end.y, 0))
+			maxi(window_rect.end.y - safe.end.y, 0)
+		)
 	return Vector4.ZERO

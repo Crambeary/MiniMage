@@ -69,8 +69,15 @@ func _exit_tree() -> void:
 
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_PAUSED, NOTIFICATION_APPLICATION_FOCUS_OUT,
-			NOTIFICATION_APPLICATION_PAUSED, NOTIFICATION_WM_WINDOW_FOCUS_OUT]:
+	if (
+		what
+		in [
+			NOTIFICATION_PAUSED,
+			NOTIFICATION_APPLICATION_FOCUS_OUT,
+			NOTIFICATION_APPLICATION_PAUSED,
+			NOTIFICATION_WM_WINDOW_FOCUS_OUT
+		]
+	):
 		_end_drag()
 
 
@@ -202,7 +209,9 @@ func _publish_vector(new_vector: Vector2) -> void:
 	if new_vector == _vector:
 		return
 	_vector = new_vector
-	var action_vector: Vector2 = _compensate_input_map_deadzone(new_vector) if compensate_action_deadzone else new_vector
+	var action_vector: Vector2 = (
+		_compensate_input_map_deadzone(new_vector) if compensate_action_deadzone else new_vector
+	)
 	_drive_action(action_left, maxf(-action_vector.x, 0.0))
 	_drive_action(action_right, maxf(action_vector.x, 0.0))
 	_drive_action(action_up, maxf(-action_vector.y, 0.0))
@@ -210,7 +219,8 @@ func _publish_vector(new_vector: Vector2) -> void:
 	vector_changed.emit(new_vector)
 
 
-# Input.get_vector() remaps lengths (deadzone..1) to (0..1); pre-invert that so low strengths survive.
+# Input.get_vector() remaps lengths (deadzone..1) to (0..1);
+# pre-invert that so low strengths survive.
 func _compensate_input_map_deadzone(vector: Vector2) -> Vector2:
 	if vector == Vector2.ZERO:
 		return vector
@@ -246,6 +256,8 @@ func _on_feedback_draw() -> void:
 	if not show_feedback or _active_pointer == NO_POINTER:
 		return
 	var max_distance: float = get_max_distance()
-	_feedback.draw_arc(_origin, max_distance, 0.0, TAU, CIRCLE_SEGMENTS, ring_color, ring_width, true)
+	_feedback.draw_arc(
+		_origin, max_distance, 0.0, TAU, CIRCLE_SEGMENTS, ring_color, ring_width, true
+	)
 	var dot_center: Vector2 = _origin + (_finger - _origin).limit_length(max_distance)
 	_feedback.draw_circle(dot_center, max_distance * dot_radius_ratio, dot_color)

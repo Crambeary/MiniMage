@@ -157,6 +157,8 @@ func _on_visibility_changed() -> void:
 func _on_canvas_draw() -> void:
 	var center: Vector2 = get_base_center()
 	_canvas.draw_circle(center, radius, base_color)
-	_canvas.draw_arc(center, radius, 0.0, TAU, CIRCLE_SEGMENTS, base_border_color, BASE_BORDER_WIDTH, true)
+	_canvas.draw_arc(
+		center, radius, 0.0, TAU, CIRCLE_SEGMENTS, base_border_color, BASE_BORDER_WIDTH, true
+	)
 	var current_knob_color: Color = knob_pressed_color if _is_held() else knob_color
 	_canvas.draw_circle(center + _knob_offset_px, radius * KNOB_RADIUS_FACTOR, current_knob_color)
