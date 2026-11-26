@@ -23,7 +23,13 @@ func _on_body_entered(body: Node2D) -> void:
 			print_debug("LevelChangeArea: next_level_path is not set on ", get_path())
 			return
 		
+		var from_path := ""
+		var current := get_tree().current_scene
+		if current != null:
+			from_path = current.scene_file_path
 		print_debug("Player entered ", name, ". Changing to level: ", next_level_path)
 		var error_code = get_tree().change_scene_to_file(next_level_path)
 		if error_code != OK:
 			print_debug("LevelChangeArea: Error changing scene to '" + next_level_path + "'. Error code: ", error_code)
+			return
+		PlayAnalytics.notify_level_exit(from_path)
