@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# Play the real menu and both levels headless, then check the analytics sinks.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
