@@ -47,6 +47,9 @@ func _initialize() -> void:
 	if _feature == "view-settings":
 		await _drive_view_settings(title)
 		return
+	if _feature == "touch-scheme":
+		await _drive_touch_schemes(title)
+		return
 	await _drive_level(title, button)
 
 
@@ -64,7 +67,7 @@ func _open_menu() -> Button:
 	return button
 
 
-## Presses Start Game and runs the walk, start-game or touch-scheme drive in the level.
+## Presses Start Game and runs the walk or start-game drive in the level.
 func _drive_level(title: String, button: Button) -> void:
 	var click_at := await _click(button)
 	var reached := await _wait_for_level()
@@ -87,9 +90,6 @@ func _drive_level(title: String, button: Button) -> void:
 			]
 		)
 	)
-	if _feature == "touch-scheme":
-		await _drive_touch_schemes(title, click_at, player)
-		return
 	if _feature == "start-game":
 		_write_result(
 			true,
@@ -206,68 +206,115 @@ func _click(control: Control) -> Vector2:
 	return center
 
 
-func _drive_touch_schemes(title: String, click_at: Vector2, player: CharacterBody2D) -> void:
+# Picks each scheme in Settings, starts the level and swipes it. Between runs the drive
+# reopens the menu by scene change, since the level has no way back to it.
+func _drive_touch_schemes(title: String) -> void:
 	var touch_controls := root.get_node_or_null("TouchControls")
 	if touch_controls == null:
 		_fail("TouchControls autoload is missing")
 		return
-	var start: Vector2 = player.global_position
+	var checks: Dictionary = {
+		"default_floating": touch_controls.call("get_scheme_name") == "floating",
+	}
 	var runs: Array = []
 	var all_passed := true
+	var click_at := Vector2.ZERO
+	var start := Vector2.ZERO
 	for entry: Dictionary in TOUCH_SCHEMES:
-		var button := _find_button_under(touch_controls, entry.label)
-		if button == null:
-			_fail("no %s switcher button" % entry.label)
+		var run := await _pick_scheme_in_settings(entry, touch_controls)
+		if run.is_empty():
 			return
-		await _click(button)
-		await process_frame
-		var active: String = touch_controls.call("get_scheme_name")
+		var start_button := await _wait_for_button("Start Game")
+		click_at = await _click(start_button)
+		if not await _wait_for_level():
+			_fail("Start Game did not open %s" % LEVEL_SCENE)
+			return
+		for _i in 10:
+			await physics_frame
+		var player := get_nodes_in_group("player")[0] as CharacterBody2D
+		if runs.is_empty():
+			start = player.global_position
 		var finger := _touch_start(entry.scheme, touch_controls)
 		var before: Vector2 = player.global_position
 		await _swipe(finger, finger + Vector2(entry.direction * TOUCH_PUSH_UNITS, 0.0), HOLD_FRAMES)
 		var after: Vector2 = player.global_position
 		await _shot("touch-%s.png" % entry.scheme)
 		var moved: float = (after.x - before.x) * entry.direction
-		var passed: bool = active == entry.scheme and moved >= MIN_TOUCH_PX
-		all_passed = all_passed and passed
-		print(
-			(
-				"VERIFY_TOUCH scheme=%s active=%s finger=%s before=%s after=%s moved=%s pass=%s"
-				% [entry.scheme, active, finger, before, after, moved, passed]
-			)
+		run["level_scheme"] = touch_controls.call("get_scheme_name")
+		run["hud_buttons"] = touch_controls.find_children("*", "Button", true, false).size()
+		run["finger_viewport"] = {"x": finger.x, "y": finger.y}
+		run["direction"] = entry.direction
+		run["moved_px"] = moved
+		run["player_before"] = {"x": before.x, "y": before.y}
+		run["player_after"] = {"x": after.x, "y": after.y}
+		run["pass"] = (
+			run.active_after_click == entry.scheme
+			and run.button_pressed
+			and run.level_scheme == entry.scheme
+			and run.hud_buttons == 0
+			and moved >= MIN_TOUCH_PX
 		)
-		(
-			runs
-			. append(
-				{
-					"scheme": entry.scheme,
-					"active_after_click": active,
-					"pass": passed,
-					"button_rect": _rect_dict(button.get_global_rect()),
-					"finger_viewport": {"x": finger.x, "y": finger.y},
-					"direction": entry.direction,
-					"moved_px": moved,
-					"player_before": {"x": before.x, "y": before.y},
-					"player_after": {"x": after.x, "y": after.y},
-				}
-			)
-		)
-	var detail := "switched to each scheme with its button, then swiped with ScreenTouch/ScreenDrag"
+		all_passed = all_passed and run.pass
+		print("VERIFY_TOUCH %s" % JSON.stringify(run))
+		runs.append(run)
+	var saved := ConfigFile.new()
+	var load_error := saved.load("user://settings.cfg")
+	var saved_scheme: String = str(saved.get_value("touch", "scheme", ""))
+	checks["saved_last_scheme"] = load_error == OK and saved_scheme == TOUCH_SCHEMES[-1].scheme
+	for key: String in checks:
+		all_passed = all_passed and bool(checks[key])
+	var player_now := get_first_node_in_group("player") as Node2D
+	var detail := "picked each scheme in Settings, started the level, swiped with ScreenTouch/Drag"
 	_write_result(
-		all_passed, title, click_at, start, player.global_position, detail, {"touch_runs": runs}
+		all_passed,
+		title,
+		click_at,
+		start,
+		player_now.global_position,
+		detail,
+		{"checks": checks, "saved_scheme": saved_scheme, "touch_runs": runs}
 	)
 	if not all_passed:
-		_fail("a touch scheme did not move the player (see result.json)")
+		_fail("touch-scheme check failed (see result.json): %s" % JSON.stringify(checks))
 		return
 	print("VERIFY_PASS touch-scheme")
 	quit(0)
 
 
-func _find_button_under(parent: Node, text: String) -> Button:
-	for node in parent.find_children("*", "Button", true, false):
-		if (node as Button).text == text:
-			return node as Button
-	return null
+# Opens Settings from the menu, presses the scheme's button and goes Back to the menu.
+# Returns the run record so far, or {} after failing the drive.
+func _pick_scheme_in_settings(entry: Dictionary, touch_controls: Node) -> Dictionary:
+	if current_scene == null or current_scene.scene_file_path != MENU_SCENE:
+		change_scene_to_file(MENU_SCENE)
+		if not await _wait_for_scene(MENU_SCENE):
+			_fail("could not reopen %s" % MENU_SCENE)
+			return {}
+	var settings_button := await _wait_for_button("Settings")
+	if settings_button == null:
+		_fail("no Settings button on the menu")
+		return {}
+	await _click(settings_button)
+	if not await _wait_for_scene(SETTINGS_SCENE):
+		_fail("Settings did not open %s" % SETTINGS_SCENE)
+		return {}
+	var button := await _wait_for_button(entry.label)
+	if button == null:
+		_fail("no %s button in Settings" % entry.label)
+		return {}
+	await _click(button)
+	await process_frame
+	var run := {
+		"scheme": entry.scheme,
+		"active_after_click": touch_controls.call("get_scheme_name"),
+		"button_pressed": button.button_pressed,
+		"button_rect": _rect_dict(button.get_global_rect()),
+	}
+	await _shot("settings-%s.png" % entry.scheme)
+	await _click(_find_button("Back"))
+	if not await _wait_for_scene(MENU_SCENE):
+		_fail("Back did not return to %s" % MENU_SCENE)
+		return {}
+	return run
 
 
 # Where a thumb goes down for each scheme, in viewport units.
@@ -327,6 +374,7 @@ func _drive_view_settings(title: String) -> void:
 		await process_frame
 	var checks: Dictionary = {}
 	checks["touch_controls_suspended"] = touch_controls == null or not touch_controls.visible
+	checks["touch_row_shows_scheme"] = _settings_shows_scheme(touch_controls)
 	await _click(current_scene.find_child("ReadoutToggle", true, false) as Control)
 	checks["readout_on"] = bool(view_settings.get("debug_readout"))
 	var fov_slider := current_scene.find_child("FovSlider", true, false) as HSlider
@@ -423,6 +471,21 @@ func _drive_view_settings(title: String) -> void:
 		return
 	print("VERIFY_PASS view-settings")
 	quit(0)
+
+
+# True when the Settings touch row has exactly the active scheme's button pressed.
+func _settings_shows_scheme(touch_controls: Node) -> bool:
+	if touch_controls == null:
+		return false
+	var active: String = touch_controls.call("get_scheme_name")
+	var pressed: Array = []
+	for entry: Dictionary in TOUCH_SCHEMES:
+		var button := _find_button(entry.label)
+		if button == null:
+			return false
+		if button.button_pressed:
+			pressed.append(entry.scheme)
+	return pressed == [active]
 
 
 # Taps a slider's track with a screen touch (mouse comes from touch emulation, as on a phone).

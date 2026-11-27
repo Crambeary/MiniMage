@@ -27,6 +27,6 @@ Preconditions:
 ## Gotchas
 
 - The button signal is `button_up`. A press without a release does not leave the menu.
-- Click the button inside the menu, not the `Locked`, `Floating`, or `Drag` buttons. Those belong to the touch switcher and sit on the top-right of the window.
+- Click `Start Game`, not `Settings` below it. Touch scheme buttons live in Settings, not on the menu.
 - `load()` of the main-scene uid fails before `mm-verify launch`. The symptom is an empty window and a missing player.
 - `drive start-game` does not check keyboard movement. Use [Walk](./walk.md) for that.
