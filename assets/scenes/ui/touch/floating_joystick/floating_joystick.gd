@@ -82,10 +82,10 @@ func _is_genuine_mouse(event: InputEvent) -> bool:
 	return _active_pointer == NO_POINTER or _active_pointer == MOUSE_POINTER
 
 
+# activation_area is a fraction of the safe rect, so a press on the home indicator or
+# beside a notch never starts a stick.
 func _is_in_activation_area(screen_position: Vector2) -> bool:
-	var viewport_size: Vector2 = get_viewport().get_visible_rect().size
-	var area_in_pixels := Rect2(activation_area.position * viewport_size, activation_area.size * viewport_size)
-	return area_in_pixels.has_point(screen_position)
+	return ScreenLayout.get_safe_fraction_rect(activation_area).has_point(screen_position)
 
 
 func _try_begin(pointer: int, screen_position: Vector2) -> void:

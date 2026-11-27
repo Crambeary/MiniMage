@@ -5,6 +5,18 @@ extends Control
 
 @onready var display_bar: ProgressBar = $DisplayBar
 
+
+func _ready() -> void:
+	ViewSettings.changed.connect(_apply_hud_scale)
+	_apply_hud_scale()
+
+
+# Grows from the bar's bottom edge, so a bigger bar rises away from the sentry's head.
+func _apply_hud_scale() -> void:
+	pivot_offset = Vector2(0.0, display_bar.offset_bottom)
+	scale = Vector2.ONE * ViewSettings.hud_scale
+
+
 # Sets the maximum value of the progress bar.
 func set_max_value(max_val: float) -> void:
 	if not is_instance_valid(display_bar):
@@ -12,12 +24,14 @@ func set_max_value(max_val: float) -> void:
 		return
 	display_bar.max_value = max_val
 
+
 # Sets the current value of the progress bar.
 func set_value(current_val: float) -> void:
 	if not is_instance_valid(display_bar):
 		push_warning("DisplayBar node not ready or invalid.")
 		return
 	display_bar.value = current_val
+
 
 # Updates both the current and maximum values of the progress bar.
 func update_status(current_val: float, max_val: float) -> void:
@@ -27,6 +41,7 @@ func update_status(current_val: float, max_val: float) -> void:
 	display_bar.max_value = max_val
 	display_bar.value = current_val
 
+
 # Optional: Function to set the size of the status bar control itself
 func set_bar_size(new_size: Vector2) -> void:
 	size = new_size
@@ -34,6 +49,7 @@ func set_bar_size(new_size: Vector2) -> void:
 	# Otherwise, you might need to resize DisplayBar too:
 	# if is_instance_valid(display_bar):
 	#    display_bar.size = new_size
+
 
 # Optional: Function to set tint or color if needed via code
 func set_fill_color(new_color: Color) -> void:
@@ -50,4 +66,9 @@ func set_fill_color(new_color: Color) -> void:
 		var new_style_box = StyleBoxFlat.new()
 		new_style_box.bg_color = new_color
 		display_bar.add_theme_stylebox_override("fill", new_style_box)
-		push_warning("StatusBar: 'fill' StyleBoxFlat was not found for ProgressBar. Created a new one. Please set up theme overrides in status_bar.tscn.")
+		push_warning(
+			(
+				"StatusBar: 'fill' StyleBoxFlat was not found for ProgressBar. "
+				+ "Created a new one. Please set up theme overrides in status_bar.tscn."
+			)
+		)

@@ -116,8 +116,8 @@ refuse_if_busy() {
 cmd_drive() {
 	local feature="${1:-}"
 	case "$feature" in
-		walk|start-game) ;;
-		sentry-detection|level-change|touch-scheme)
+		walk|start-game|touch-scheme|view-settings) ;;
+		sentry-detection|level-change)
 			echo "mm-verify: no automated drive for $feature" >&2
 			exit 3
 			;;
@@ -127,13 +127,13 @@ cmd_drive() {
 	refuse_if_busy
 	local bin evidence
 	bin="$(find_godot)"
-	evidence="$EVIDENCE_ROOT/$feature"
+	evidence="$EVIDENCE_ROOT/$feature${MM_VERIFY_RESOLUTION:+-$MM_VERIFY_RESOLUTION}"
 	mkdir -p "$evidence"
 	isolate
 	local log="$evidence/drive.log"
 	echo "mm-verify: driving $feature -> $evidence"
 	"$bin" --path "$PROJECT" \
-		--resolution 960x540 --position 40,40 \
+		--resolution "${MM_VERIFY_RESOLUTION:-960x540}" --position 40,40 \
 		--rendering-method gl_compatibility \
 		--audio-driver Dummy \
 		--script "$SKILL_DIR/helpers/drive.gd" -- \

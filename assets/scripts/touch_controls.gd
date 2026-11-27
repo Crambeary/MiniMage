@@ -1,5 +1,11 @@
 extends CanvasLayer
 
+## Shows the on-screen touch scheme that moves the mage.
+##
+## The player picks the scheme in Settings; the choice lives in ViewSettings.touch_scheme
+## and persists with the other settings. On the web, `?touch=<scheme>` (or `?touch=off`)
+## overrides the saved choice for that page load.
+
 const SCHEME_SCENES: Dictionary = {
 	"locked": "res://assets/scenes/ui/touch/locked_joystick/locked_joystick.tscn",
 	"floating": "res://assets/scenes/ui/touch/floating_joystick/floating_joystick.tscn",
@@ -10,14 +16,10 @@ const DEFAULT_SCHEME: String = "floating"
 const DISABLED_SCHEME: String = "off"
 const WEB_SCHEME_QUERY: String = "new URLSearchParams(location.search).get('touch') || ''"
 const ALWAYS_ON_TOP_LAYER: int = 101
-const SWITCHER_MARGIN: int = 8
-const SWITCHER_SPACING: int = 4
-const SWITCHER_BUTTON_SIZE: Vector2 = Vector2(72, 36)
-const SWITCHER_BUTTON_ALPHA: float = 0.7
 
 var _current_scheme_name: String = ""
 var _scheme: Node
-var _scheme_buttons: Dictionary = {}
+var _suspended: bool = false
 
 
 func _ready() -> void:
@@ -26,50 +28,69 @@ func _ready() -> void:
 	var requested_scheme: String = _requested_scheme_name()
 	if not _should_show_touch_controls(requested_scheme):
 		return
-	_build_switcher()
-	set_mode(requested_scheme if requested_scheme in SCHEME_SCENES else DEFAULT_SCHEME)
+	_show_scheme(requested_scheme if requested_scheme in SCHEME_SCENES else DEFAULT_SCHEME)
 
 
+## Switches to a scheme ("locked", "floating", "drag") and saves it as the player's choice.
+## Does nothing while touch controls are off.
 func set_mode(scheme_name: String) -> void:
-	if not SCHEME_SCENES.has(scheme_name) or scheme_name == _current_scheme_name:
+	if not SCHEME_SCENES.has(scheme_name) or _current_scheme_name.is_empty():
+		return
+	ViewSettings.set_touch_scheme(scheme_name)
+	_show_scheme(scheme_name)
+
+
+## The scheme in use ("locked", "floating", "drag"), or "" when touch controls are off.
+func get_scheme_name() -> String:
+	return _current_scheme_name
+
+
+## The active scheme node (a LockedJoystick, FloatingJoystick or DragArea), or null.
+func get_scheme() -> Node:
+	return _scheme if is_instance_valid(_scheme) else null
+
+
+## Hides the scheme and stops it taking input, e.g. while a settings screen needs
+## every touch for its own sliders.
+func set_suspended(suspended: bool) -> void:
+	_suspended = suspended
+	process_mode = Node.PROCESS_MODE_DISABLED if suspended else Node.PROCESS_MODE_ALWAYS
+	visible = not suspended
+	_apply_suspended_to_scheme()
+
+
+func _show_scheme(scheme_name: String) -> void:
+	if scheme_name == _current_scheme_name:
 		return
 	if is_instance_valid(_scheme):
 		_scheme.queue_free()
 	_scheme = (load(SCHEME_SCENES[scheme_name]) as PackedScene).instantiate()
 	add_child(_scheme)
 	_current_scheme_name = scheme_name
-	for button_scheme_name: String in _scheme_buttons:
-		(_scheme_buttons[button_scheme_name] as Button).button_pressed = button_scheme_name == scheme_name
+	_apply_suspended_to_scheme()
+
+
+# A scheme is its own CanvasLayer, which does not inherit this layer's visibility.
+func _apply_suspended_to_scheme() -> void:
+	if is_instance_valid(_scheme) and _scheme is CanvasLayer:
+		(_scheme as CanvasLayer).visible = not _suspended
 
 
 func _requested_scheme_name() -> String:
-	if not OS.has_feature("web"):
-		return DEFAULT_SCHEME
-	var url_choice: Variant = JavaScriptBridge.eval(WEB_SCHEME_QUERY)
-	if url_choice is String and not (url_choice as String).is_empty():
-		return url_choice
+	if OS.has_feature("web"):
+		var url_choice: Variant = JavaScriptBridge.eval(WEB_SCHEME_QUERY)
+		if url_choice is String and not (url_choice as String).is_empty():
+			return url_choice
+	if ViewSettings.touch_scheme in SCHEME_SCENES:
+		return ViewSettings.touch_scheme
 	return DEFAULT_SCHEME
 
 
 func _should_show_touch_controls(requested_scheme: String) -> bool:
 	if requested_scheme == DISABLED_SCHEME:
 		return false
-	return DisplayServer.is_touchscreen_available() or OS.has_feature("web") or requested_scheme in SCHEME_SCENES
-
-
-func _build_switcher() -> void:
-	var row := HBoxContainer.new()
-	row.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT, Control.PRESET_MODE_MINSIZE, SWITCHER_MARGIN)
-	row.grow_horizontal = Control.GROW_DIRECTION_BEGIN
-	row.add_theme_constant_override("separation", SWITCHER_SPACING)
-	add_child(row)
-	for scheme_name: String in SCHEME_SCENES:
-		var button := Button.new()
-		button.text = SCHEME_LABELS[scheme_name]
-		button.toggle_mode = true
-		button.focus_mode = Control.FOCUS_NONE
-		button.custom_minimum_size = SWITCHER_BUTTON_SIZE
-		button.modulate.a = SWITCHER_BUTTON_ALPHA
-		button.pressed.connect(set_mode.bind(scheme_name))
-		row.add_child(button)
-		_scheme_buttons[scheme_name] = button
+	return (
+		DisplayServer.is_touchscreen_available()
+		or OS.has_feature("web")
+		or requested_scheme in SCHEME_SCENES
+	)

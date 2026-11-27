@@ -1,0 +1,196 @@
+{
+  "button": "Start Game",
+  "checks": {
+    "applied_in_level": true,
+    "fov_steps": true,
+    "hud_steps": true,
+    "readout_on": true,
+    "saved": true,
+    "touch_controls_suspended": true
+  },
+  "click": {
+    "x": 194.549652099609,
+    "y": 427.854858398438
+  },
+  "delta_x": 0.0,
+  "detail": "tapped FOV and HUD sliders at min/default/max, then started the game",
+  "feature": "view-settings",
+  "fov_runs": [
+    {
+      "detection_arrow_scale": 1.0,
+      "expected_world_area": 59927.04,
+      "fov_scale": 0.85,
+      "hud_scale": 1.0,
+      "orientation": "portrait",
+      "pass": true,
+      "slider_value": 85.0,
+      "status_bar_scale": 1.0,
+      "step": "min",
+      "tiles": {
+        "x": 10.4007720947266,
+        "y": 22.5069828033447
+      },
+      "viewport_units": {
+        "x": 433.0,
+        "y": 937.0
+      },
+      "world_area": 59927.0396614447,
+      "world_px": {
+        "x": 166.412353515625,
+        "y": 360.111724853516
+      },
+      "zoom": 2.60197019577026
+    },
+    {
+      "detection_arrow_scale": 1.0,
+      "expected_world_area": 82944.0,
+      "fov_scale": 1.0,
+      "hud_scale": 1.0,
+      "orientation": "portrait",
+      "pass": true,
+      "slider_value": 100.0,
+      "status_bar_scale": 1.0,
+      "step": "default",
+      "tiles": {
+        "x": 12.2362031936646,
+        "y": 26.4788036346436
+      },
+      "viewport_units": {
+        "x": 433.0,
+        "y": 937.0
+      },
+      "world_area": 82944.0055292523,
+      "world_px": {
+        "x": 195.779251098633,
+        "y": 423.660858154297
+      },
+      "zoom": 2.21167469024658
+    },
+    {
+      "detection_arrow_scale": 1.0,
+      "expected_world_area": 109693.44,
+      "fov_scale": 1.15,
+      "hud_scale": 1.0,
+      "orientation": "portrait",
+      "pass": true,
+      "slider_value": 115.0,
+      "status_bar_scale": 1.0,
+      "step": "max",
+      "tiles": {
+        "x": 14.0716333389282,
+        "y": 30.4506244659424
+      },
+      "viewport_units": {
+        "x": 433.0,
+        "y": 937.0
+      },
+      "world_area": 109693.445741091,
+      "world_px": {
+        "x": 225.146133422852,
+        "y": 487.209991455078
+      },
+      "zoom": 1.92319536209106
+    }
+  ],
+  "godot": "4.7",
+  "godot_string": "4.7.2-stable (official)",
+  "hold_frames": 0,
+  "hud_runs": [
+    {
+      "detection_arrow_scale": 0.75,
+      "fov_scale": 1.15,
+      "hud_scale": 0.75,
+      "orientation": "portrait",
+      "pass": true,
+      "slider_value": 75.0,
+      "status_bar_scale": 0.75,
+      "step": "min",
+      "tiles": {
+        "x": 14.0716333389282,
+        "y": 30.4506244659424
+      },
+      "viewport_units": {
+        "x": 433.0,
+        "y": 937.0
+      },
+      "world_area": 109693.445741091,
+      "world_px": {
+        "x": 225.146133422852,
+        "y": 487.209991455078
+      },
+      "zoom": 1.92319536209106
+    },
+    {
+      "detection_arrow_scale": 2.5,
+      "fov_scale": 1.15,
+      "hud_scale": 2.5,
+      "orientation": "portrait",
+      "pass": true,
+      "slider_value": 250.0,
+      "status_bar_scale": 2.5,
+      "step": "max",
+      "tiles": {
+        "x": 14.0716333389282,
+        "y": 30.4506244659424
+      },
+      "viewport_units": {
+        "x": 433.0,
+        "y": 937.0
+      },
+      "world_area": 109693.445741091,
+      "world_px": {
+        "x": 225.146133422852,
+        "y": 487.209991455078
+      },
+      "zoom": 1.92319536209106
+    }
+  ],
+  "key": "",
+  "level_view": {
+    "detection_arrow_scale": 0.0,
+    "fov_scale": 1.15,
+    "hud_scale": 2.5,
+    "orientation": "portrait",
+    "status_bar_scale": 2.5,
+    "tiles": {
+      "x": 14.0716333389282,
+      "y": 30.4506244659424
+    },
+    "touch_controls_visible": true,
+    "viewport_units": {
+      "x": 433.0,
+      "y": 937.0
+    },
+    "world_area": 109693.445741091,
+    "world_px": {
+      "x": 225.146133422852,
+      "y": 487.209991455078
+    },
+    "zoom": 1.92319536209106
+  },
+  "menu_title": "Mini Mage",
+  "pass": true,
+  "player_after": {
+    "x": -464.0,
+    "y": -24.0
+  },
+  "player_before": {
+    "x": -464.0,
+    "y": -24.0
+  },
+  "saved": {
+    "debug_readout": true,
+    "fov_scale": 1.15,
+    "hud_scale": 2.5,
+    "load_error": 0
+  },
+  "scene_after_click": "res://assets/scenes/levels/main.tscn",
+  "viewport_units": {
+    "x": 433.0,
+    "y": 937.0
+  },
+  "window_px": {
+    "x": 390,
+    "y": 844
+  }
+}
