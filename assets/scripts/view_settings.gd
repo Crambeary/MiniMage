@@ -1,12 +1,14 @@
 extends Node
 
-## The player's view settings: how much world the camera shows and how big the world HUD is.
+## The player's settings: how much world the camera shows, how big the world HUD is,
+## and which on-screen touch scheme moves the mage.
 ##
 ## Every screen shows the same area of world (DEFAULT_VISIBLE_WORLD_AREA), in portrait
 ## and landscape alike, so a phone sees as much of a sentry's patrol as a desktop.
 ## The FOV setting scales that area's width and height by a narrow factor. The HUD
 ## scale grows the in-world HUD (sentry status bars, detection arrows) without
-## changing the world view. Both persist in SETTINGS_PATH.
+## changing the world view. TouchControls applies touch_scheme. All of them persist
+## in SETTINGS_PATH.
 
 signal changed
 
@@ -19,17 +21,20 @@ const HUD_SCALE_MIN: float = 0.75
 const HUD_SCALE_MAX: float = 2.5
 const SETTINGS_PATH: String = "user://settings.cfg"
 const SECTION: String = "view"
+const TOUCH_SECTION: String = "touch"
 const SAVE_DELAY_SECONDS: float = 0.5
 const READOUT_TOGGLE_KEY: Key = KEY_F3
-const READOUT_LAYER: int = 100
+## Above TouchControls (layer 101), so no touch scheme ever draws over the readout.
+const READOUT_LAYER: int = 102
 const READOUT_MARGIN: float = 8.0
-## Clears the 48-unit touch scheme switcher row that spans the top of a phone screen.
-const READOUT_TOP_OFFSET: float = 64.0
 const READOUT_FONT_SIZE: int = 14
 
 var fov_scale: float = 1.0
 var hud_scale: float = 1.0
 var debug_readout: bool = false
+## The saved touch scheme name, or "" when the player never picked one (TouchControls
+## then uses its default).
+var touch_scheme: String = ""
 
 var _save_timer: Timer
 var _readout_layer: CanvasLayer
@@ -82,6 +87,13 @@ func set_debug_readout(enabled: bool) -> void:
 	_on_setting_changed()
 
 
+func set_touch_scheme(scheme_name: String) -> void:
+	if scheme_name == touch_scheme:
+		return
+	touch_scheme = scheme_name
+	_on_setting_changed()
+
+
 ## World pixels the camera should show at this FOV.
 func get_visible_world_area() -> float:
 	return DEFAULT_VISIBLE_WORLD_AREA * fov_scale * fov_scale
@@ -92,6 +104,8 @@ func save() -> void:
 	config.set_value(SECTION, "fov_scale", fov_scale)
 	config.set_value(SECTION, "hud_scale", hud_scale)
 	config.set_value(SECTION, "debug_readout", debug_readout)
+	if not touch_scheme.is_empty():
+		config.set_value(TOUCH_SECTION, "scheme", touch_scheme)
 	var error := config.save(SETTINGS_PATH)
 	if error != OK:
 		push_error("ViewSettings: could not save %s (%s)" % [SETTINGS_PATH, error_string(error)])
@@ -106,6 +120,7 @@ func _load() -> void:
 		float(config.get_value(SECTION, "hud_scale", 1.0)), HUD_SCALE_MIN, HUD_SCALE_MAX
 	)
 	debug_readout = bool(config.get_value(SECTION, "debug_readout", false))
+	touch_scheme = str(config.get_value(TOUCH_SECTION, "scheme", ""))
 
 
 func _on_setting_changed() -> void:
@@ -128,10 +143,10 @@ func _build_readout() -> void:
 	_place_readout()
 
 
-# Top-left of the safe area, below the touch scheme switcher.
+# Top-left corner of the safe area; no other screen element sits there.
 func _place_readout() -> void:
 	var safe: Rect2 = ScreenLayout.get_safe_rect()
-	_readout.position = safe.position + Vector2(READOUT_MARGIN, READOUT_TOP_OFFSET)
+	_readout.position = safe.position + Vector2(READOUT_MARGIN, READOUT_MARGIN)
 
 
 func _readout_text() -> String:
@@ -148,7 +163,14 @@ func _readout_text() -> String:
 				get_tree().root.size.y
 			]
 		),
-		"fov %d%%  hud %d%%" % [roundi(fov_scale * 100.0), roundi(hud_scale * 100.0)],
+		(
+			"fov %d%%  hud %d%%  touch %s"
+			% [
+				roundi(fov_scale * 100.0),
+				roundi(hud_scale * 100.0),
+				TouchControls.get_scheme_name() if TouchControls.get_scheme_name() else "off"
+			]
+		),
 	]
 	var camera: Camera2D = get_viewport().get_camera_2d()
 	if camera != null and camera.zoom.x > 0.0:

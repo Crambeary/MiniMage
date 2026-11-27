@@ -6,6 +6,8 @@ extends Node
 ## are real) but no physics, so nothing moves, detects or ends the game. The
 ## sliders change ViewSettings, and the level's own CameraFit and HUD redraw at
 ## once, so the screen behind the panel is exactly what play will look like.
+## The touch row switches TouchControls' scheme at once; the scheme itself stays
+## hidden here so it never takes a slider touch, and shows again in the level.
 
 const MAIN_MENU_SCENE: String = "res://assets/scenes/ui/MainMenu.tscn"
 const PREVIEW_LEVEL_SCENE: PackedScene = preload("res://assets/scenes/levels/main.tscn")
@@ -16,6 +18,15 @@ const PANEL_MARGIN: float = 8.0
 const PANEL_MAX_WIDTH: float = 560.0
 ## In landscape the panel takes at most this share of the width, so the player stays in view.
 const PANEL_LANDSCAPE_WIDTH_FRACTION: float = 0.42
+const TOUCH_BUTTON_SIZE: Vector2 = Vector2(72, 48)
+const TOUCH_BUTTON_FONT_SIZE: int = 18
+const TOUCH_HINTS: Dictionary = {
+	"locked": "Fixed stick in the bottom-left corner",
+	"floating": "Stick appears where your thumb lands",
+	"drag": "Drag anywhere; the mage follows your thumb",
+}
+
+var _touch_buttons: Dictionary = {}
 
 @onready var _preview: Node2D = $Preview
 @onready var _panel: PanelContainer = $UI/Panel
@@ -24,6 +35,8 @@ const PANEL_LANDSCAPE_WIDTH_FRACTION: float = 0.42
 @onready var _hud_slider: HSlider = %HudSlider
 @onready var _hud_label: Label = %HudLabel
 @onready var _readout_toggle: CheckButton = %ReadoutToggle
+@onready var _touch_row: HBoxContainer = %TouchRow
+@onready var _touch_hint: Label = %TouchHint
 
 
 func _ready() -> void:
@@ -32,6 +45,7 @@ func _ready() -> void:
 	_fov_slider.max_value = ViewSettings.FOV_MAX * 100.0
 	_hud_slider.min_value = ViewSettings.HUD_SCALE_MIN * 100.0
 	_hud_slider.max_value = ViewSettings.HUD_SCALE_MAX * 100.0
+	_build_touch_buttons()
 	_sync_controls()
 	_fov_slider.value_changed.connect(_on_fov_changed)
 	_hud_slider.value_changed.connect(_on_hud_changed)
@@ -65,11 +79,46 @@ func _sync_controls() -> void:
 	_hud_slider.set_value_no_signal(ViewSettings.hud_scale * 100.0)
 	_readout_toggle.set_pressed_no_signal(ViewSettings.debug_readout)
 	_update_labels()
+	_sync_touch_buttons()
 
 
 func _update_labels() -> void:
 	_fov_label.text = "World view: %d%%" % roundi(_fov_slider.value)
 	_hud_label.text = "HUD size: %d%%" % roundi(_hud_slider.value)
+
+
+# One toggle per scheme. Hidden when touch controls are off (e.g. `?touch=off`).
+func _build_touch_buttons() -> void:
+	var active: bool = not TouchControls.get_scheme_name().is_empty()
+	_touch_row.visible = active
+	_touch_hint.visible = active
+	if not active:
+		return
+	var group := ButtonGroup.new()
+	for scheme_name: String in TouchControls.SCHEME_SCENES:
+		var button := Button.new()
+		button.text = TouchControls.SCHEME_LABELS[scheme_name]
+		button.toggle_mode = true
+		button.button_group = group
+		button.focus_mode = Control.FOCUS_NONE
+		button.custom_minimum_size = TOUCH_BUTTON_SIZE
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		button.add_theme_font_size_override("font_size", TOUCH_BUTTON_FONT_SIZE)
+		button.pressed.connect(_on_touch_scheme_pressed.bind(scheme_name))
+		_touch_row.add_child(button)
+		_touch_buttons[scheme_name] = button
+
+
+func _sync_touch_buttons() -> void:
+	var current: String = TouchControls.get_scheme_name()
+	for scheme_name: String in _touch_buttons:
+		(_touch_buttons[scheme_name] as Button).set_pressed_no_signal(scheme_name == current)
+	_touch_hint.text = TOUCH_HINTS.get(current, "")
+
+
+func _on_touch_scheme_pressed(scheme_name: String) -> void:
+	TouchControls.set_mode(scheme_name)
+	_sync_touch_buttons()
 
 
 func _on_fov_changed(value: float) -> void:
@@ -98,11 +147,15 @@ func _on_back_pressed() -> void:
 func _place_panel() -> void:
 	var safe: Rect2 = ScreenLayout.get_safe_rect().grow(-PANEL_MARGIN)
 	var height: float = _panel.get_combined_minimum_size().y
+	# On a screen shorter than the panel, keep the header (and Back) on screen.
 	if safe.size.x > safe.size.y:
 		var side_width: float = minf(safe.size.x * PANEL_LANDSCAPE_WIDTH_FRACTION, PANEL_MAX_WIDTH)
-		_panel.position = Vector2(safe.end.x - side_width, safe.get_center().y - height / 2.0)
+		var top: float = maxf(safe.get_center().y - height / 2.0, safe.position.y)
+		_panel.position = Vector2(safe.end.x - side_width, top)
 		_panel.size = Vector2(side_width, height)
 		return
 	var width: float = minf(safe.size.x, PANEL_MAX_WIDTH)
-	_panel.position = Vector2(safe.get_center().x - width / 2.0, safe.end.y - height)
+	_panel.position = Vector2(
+		safe.get_center().x - width / 2.0, maxf(safe.end.y - height, safe.position.y)
+	)
 	_panel.size = Vector2(width, height)

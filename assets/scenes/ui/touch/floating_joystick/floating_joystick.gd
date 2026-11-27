@@ -91,9 +91,6 @@ func _is_in_activation_area(screen_position: Vector2) -> bool:
 func _try_begin(pointer: int, screen_position: Vector2) -> void:
 	if _active_pointer != NO_POINTER or not _is_in_activation_area(screen_position):
 		return
-	# _input runs before the GUI, so a press on a scheme button would also spawn a stick.
-	if TouchControls.is_switcher_at(screen_position):
-		return
 	_active_pointer = pointer
 	_base_center = screen_position
 	_knob_offset = Vector2.ZERO
