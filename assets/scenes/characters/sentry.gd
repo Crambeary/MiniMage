@@ -3,6 +3,7 @@ extends Node2D
 signal player_detected(detector, detection_level)
 signal player_detection_lost(detector)
 signal player_caught(catcher)
+signal player_surprised(surpriser)
 
 enum IdleTasks { PATROL, WAIT, INVESTIGATE_LKP, CHASE }
 enum AlertnessState { IDLE, SUSPICIOUS, ALERTED }
@@ -13,7 +14,10 @@ const PADDING_BELOW_EMOTE: float = 2.0
 const IDLE_COLOR := Color.WHITE
 const SUSPICIOUS_COLOR := Color.YELLOW
 const ALERTED_COLOR := Color.RED
+const SURPRISED_COLOR := Color.ORANGE
 const CATCH_DISTANCE: float = 8.0
+# Centre of the sentry's body capsule, measured from its feet.
+const BODY_CENTER_OFFSET := Vector2(0.0, -8.0)
 
 @export var path_group_name: String = "Sentry1"
 @export var idle_task = IdleTasks.PATROL
@@ -41,6 +45,22 @@ const CATCH_DISTANCE: float = 8.0
 @export var obstacle_collision_mask: int = 1
 @export var speed: float = 10.0
 
+@export_group("Detection Distance")
+## Detection speed multiplier when the player is right next to the sentry.
+@export_range(0.0, 5.0, 0.05) var near_detection_multiplier: float = 2.0
+## Detection speed multiplier at the edge of sight (VisionManager.cant_see_past_dist).
+@export_range(0.0, 5.0, 0.05) var far_detection_multiplier: float = 0.5
+## Optional override: x is distance / sight range (0..1), y is the multiplier.
+@export var detection_distance_curve: Curve
+
+@export_group("Surprise")
+## Player within this distance of the sentry's body counts as touching it.
+@export_range(0.0, 64.0, 0.5) var touch_distance: float = 12.0
+## Seconds the sentry stays surprised after a touch before it alerts.
+@export_range(0.0, 5.0, 0.05) var surprise_duration: float = 1.0
+## Player still within this distance when the surprise ends gets the sentry alerted.
+@export_range(0.0, 128.0, 0.5) var surprise_reach_distance: float = 24.0
+
 var player: Node2D
 var status_bar_instance: StatusBar
 var current_index: int = 0
@@ -54,6 +74,7 @@ var _last_movement_dir: Vector2 = Vector2.DOWN
 var _has_caught_player: bool = false
 var _detection_time: float = 0.0
 var _has_started_turning: bool = false
+var _surprise_time_left: float = 0.0
 
 @onready var vision_manager: VisionManager = $VisionManager
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -186,6 +207,8 @@ func _ready() -> void:
 	print("Sentry _ready: STATUS_BAR_SCENE loaded successfully.")
 
 	player = get_tree().get_first_node_in_group("player")
+	# The sight ray starts on the sentry's own body; never let that body block it.
+	vision_manager.ray_cast_2d.add_exception($RigidBody2D)
 
 	if STATUS_BAR_SCENE:
 		status_bar_instance = STATUS_BAR_SCENE.instantiate() as StatusBar
@@ -208,16 +231,80 @@ func _ready() -> void:
 	player_last_known_position = global_position
 
 
-func _physics_process(delta: float) -> void:
-	if idle_task == IdleTasks.WAIT:
-		if abs(_last_movement_dir.x) > abs(_last_movement_dir.y):
-			animated_sprite_2d.play("idle_side")
-			animated_sprite_2d.flip_h = _last_movement_dir.x < 0
+func _play_idle_animation() -> void:
+	if abs(_last_movement_dir.x) > abs(_last_movement_dir.y):
+		animated_sprite_2d.play("idle_side")
+		animated_sprite_2d.flip_h = _last_movement_dir.x < 0
+	else:
+		if _last_movement_dir.y > 0:
+			animated_sprite_2d.play("idle_down")
 		else:
-			if _last_movement_dir.y > 0:
-				animated_sprite_2d.play("idle_down")
-			else:
-				animated_sprite_2d.play("idle_up")
+			animated_sprite_2d.play("idle_up")
+
+
+func is_surprised() -> bool:
+	return _surprise_time_left > 0.0
+
+
+func _distance_to_player_body() -> float:
+	return (global_position + BODY_CENTER_OFFSET).distance_to(player.global_position)
+
+
+## Returns true while the surprise window holds the sentry frozen in place.
+func _update_surprise(delta: float) -> bool:
+	if not is_instance_valid(player):
+		_surprise_time_left = 0.0
+		return false
+	# An alerted sentry catches on contact instead; surprise must never delay that.
+	if alertness_state == AlertnessState.ALERTED or alertness_value >= alertness_threshold:
+		_surprise_time_left = 0.0
+		return false
+	if not is_surprised():
+		if _distance_to_player_body() <= touch_distance:
+			_start_surprise()
+			return true
+		return false
+	_surprise_time_left -= delta
+	if is_surprised():
+		_play_idle_animation()
+		return true
+	_end_surprise(_distance_to_player_body() <= surprise_reach_distance)
+	return false
+
+
+func _start_surprise() -> void:
+	_surprise_time_left = maxf(surprise_duration, get_physics_process_delta_time())
+	player_last_known_position = player.global_position
+	question_mark.visible = false
+	exclamation.visible = true
+	if is_instance_valid(status_bar_instance):
+		status_bar_instance.set_fill_color(SURPRISED_COLOR)
+	_play_idle_animation()
+	player_surprised.emit(self)
+
+
+func _end_surprise(player_in_reach: bool) -> void:
+	_surprise_time_left = 0.0
+	was_player_seen = true
+	is_in_cooldown = false
+	cooldown_timer = 0.0
+	if player_in_reach:
+		player_last_known_position = player.global_position
+		alertness_value = 1.0
+	else:
+		alertness_value = maxf(alertness_value, suspicion_threshold)
+	_update_status_bar_color()
+	question_mark.visible = alertness_state == AlertnessState.SUSPICIOUS
+	exclamation.visible = alertness_state == AlertnessState.ALERTED
+	update_alertness()
+
+
+func _physics_process(delta: float) -> void:
+	if _update_surprise(delta):
+		return
+
+	if idle_task == IdleTasks.WAIT:
+		_play_idle_animation()
 
 	elif idle_task == IdleTasks.PATROL:
 		if waypoints.size() == 0:
@@ -313,7 +400,9 @@ func _on_vision_manager_player_visibility_updated(p_is_visible: bool, delta: flo
 			_has_started_turning = true
 			_turn_toward_player(delta)
 
-		var detection_multiplier: float = _get_detection_speed_multiplier()
+		var detection_multiplier: float = (
+			_get_detection_speed_multiplier() * get_distance_detection_multiplier()
+		)
 
 		if alertness_value < suspicion_threshold:
 			alertness_value = min(
@@ -364,6 +453,23 @@ func _get_detection_speed_multiplier() -> float:
 		return 1.0
 	var center_weight: float = 1.0 - clampf(facing_angle / half_arc, 0.0, 1.0)
 	return lerpf(1.0, center_speed_multiplier, center_weight)
+
+
+func get_distance_detection_multiplier() -> float:
+	if not is_instance_valid(player):
+		return 1.0
+	var sight_range: float = vision_manager.cant_see_past_dist
+	if sight_range <= 0.0:
+		return near_detection_multiplier
+	var distance: float = vision_manager.global_position.distance_to(player.global_position)
+	var normalized_distance: float = clampf(distance / sight_range, 0.0, 1.0)
+	if detection_distance_curve:
+		return maxf(detection_distance_curve.sample_baked(normalized_distance), 0.0)
+	return lerpf(
+		near_detection_multiplier,
+		far_detection_multiplier,
+		smoothstep(0.0, 1.0, normalized_distance)
+	)
 
 
 func _turn_toward_player(delta: float) -> void:
