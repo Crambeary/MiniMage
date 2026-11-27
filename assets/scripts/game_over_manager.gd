@@ -1,9 +1,11 @@
 extends Node
 
 const GAME_OVER_SCREEN: PackedScene = preload("res://assets/scenes/ui/GameOverScreen.tscn")
+const CAUGHT_MOMENT: GDScript = preload("res://assets/scenes/ui/caught_moment.gd")
 const SENTRY_GROUP: StringName = &"sentry"
 
 var _screen: Node
+var _moment: Node
 
 
 func _ready() -> void:
@@ -14,6 +16,8 @@ func _ready() -> void:
 func show_game_over() -> void:
 	if is_instance_valid(_screen):
 		return
+	# A skipped or interrupted moment must never leave the game in slow motion.
+	Engine.time_scale = 1.0
 	get_tree().paused = true
 	_screen = GAME_OVER_SCREEN.instantiate()
 	_screen.retry_requested.connect(_on_retry_requested)
@@ -27,7 +31,17 @@ func _on_node_added(node: Node) -> void:
 
 
 func _on_player_caught(_catcher: Node2D) -> void:
-	show_game_over.call_deferred()
+	show_caught_moment.call_deferred()
+
+
+## Plays the short "SPOTTED" beat, then the game-over screen. Failure is already
+## decided; this is presentation only.
+func show_caught_moment() -> void:
+	if is_instance_valid(_screen) or is_instance_valid(_moment):
+		return
+	_moment = CAUGHT_MOMENT.new()
+	_moment.finished.connect(show_game_over, CONNECT_ONE_SHOT | CONNECT_DEFERRED)
+	get_tree().root.add_child(_moment)
 
 
 func _on_retry_requested() -> void:
@@ -41,6 +55,7 @@ func _on_main_menu_requested() -> void:
 
 
 func _close_screen() -> void:
+	Engine.time_scale = 1.0
 	get_tree().paused = false
 	_screen.queue_free()
 	_screen = null
