@@ -10,6 +10,7 @@ extends SceneTree
 #   mismatch  - a release of another touch does not end a skip
 #   held      - a skip still held at the cap keeps swallowing until its release
 #   same_frame- replacing the scene in the catch frame abandons the run
+#   fit       - the title shrinks to fit the narrowest portrait viewport
 #   shutdown  - leaving the tree restores time scale and pause
 
 const MIN_SECONDS := 1.5
@@ -45,6 +46,7 @@ func _run() -> void:
 	await _mismatch()
 	await _held()
 	await _same_frame()
+	await _fit()
 	await _shutdown()
 	if _failures.is_empty():
 		print("CAUGHT_MOMENT all scenarios passed")
@@ -301,3 +303,25 @@ func _shutdown() -> void:
 	if Engine.time_scale != 1.0:
 		_failures.append("shutdown: leaving the tree left time scale at %s" % Engine.time_scale)
 	root.add_child(_manager)
+
+
+func _fit() -> void:
+	var window := root
+	var before := window.content_scale_size
+	var before_mode := window.content_scale_mode
+	window.content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	window.content_scale_size = Vector2i(360, 360)
+	var moment := CaughtMoment.new()
+	root.add_child(moment)
+	await process_frame
+	var title := moment.find_children("*", "Label", true, false)[0] as Label
+	var font := title.get_theme_font("font")
+	var size := title.get_theme_font_size("font_size")
+	var width := font.get_string_size(title.text, HORIZONTAL_ALIGNMENT_LEFT, -1, size).x
+	if title.text != "DETENTION":
+		_failures.append("fit: title reads %s" % title.text)
+	if width > 360.0:
+		_failures.append("fit: title is %spx wide in a 360 viewport" % width)
+	moment.free()
+	window.content_scale_size = before
+	window.content_scale_mode = before_mode

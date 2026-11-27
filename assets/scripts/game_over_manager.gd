@@ -45,7 +45,7 @@ func _on_player_caught(_catcher: Node2D) -> void:
 	show_caught_moment.call_deferred()
 
 
-## Plays the short "SPOTTED" beat, then the game-over screen. Failure is already
+## Plays the short "DETENTION" beat, then the game-over screen. Failure is already
 ## decided; this is presentation only.
 func show_caught_moment() -> void:
 	if is_instance_valid(_screen) or is_instance_valid(_moment):

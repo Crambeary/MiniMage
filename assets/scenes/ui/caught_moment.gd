@@ -1,6 +1,6 @@
 class_name CaughtMoment
 extends CanvasLayer
-## Short "SPOTTED" beat played when a sentry catches the player, just before the
+## Short "DETENTION" beat played when a sentry catches the player, just before the
 ## game-over screen. The world is already frozen (the manager pauses the tree);
 ## this drains the colour, punches in a title card and plays a low sting.
 ## A key, click or touch skips it, and the skip finishes only on the matching
@@ -13,6 +13,12 @@ const BELOW_GAME_OVER_LAYER: int = 101
 const SHADER: Shader = preload("res://assets/scenes/ui/caught_moment.gdshader")
 const STING: AudioStream = preload("res://assets/audio/sfx/boo_1.wav")
 
+const TITLE: String = "DETENTION"
+const TITLE_FONT_SIZE: int = 96
+const TITLE_MIN_FONT_SIZE: int = 24
+## Share of the viewport width the title may take, outline included.
+const TITLE_MAX_WIDTH_FRACTION: float = 0.9
+const TITLE_OUTLINE_SIZE: int = 12
 const DRAIN_SECONDS: float = 0.2
 const TITLE_DELAY_SECONDS: float = 0.15
 const TITLE_IN_SECONDS: float = 0.25
@@ -129,11 +135,12 @@ func _build() -> void:
 	add_child(center)
 
 	_title = Label.new()
-	_title.text = "SPOTTED"
-	_title.add_theme_font_size_override("font_size", 96)
+	_title.text = TITLE
+	_fit_title()
+	get_viewport().size_changed.connect(_fit_title)
 	_title.add_theme_color_override("font_color", Color(0.85, 0.08, 0.1))
 	_title.add_theme_color_override("font_outline_color", Color(0.05, 0.0, 0.0))
-	_title.add_theme_constant_override("outline_size", 12)
+	_title.add_theme_constant_override("outline_size", TITLE_OUTLINE_SIZE)
 	_title.modulate.a = 0.0
 	_title.resized.connect(_center_pivot)
 	center.add_child(_title)
@@ -144,6 +151,18 @@ func _build() -> void:
 	sting.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(sting)
 	sting.play()
+
+
+## Shrinks the title so it fits a narrow viewport (a phone in portrait).
+func _fit_title() -> void:
+	var font: Font = _title.get_theme_font("font")
+	var width: float = font.get_string_size(TITLE, HORIZONTAL_ALIGNMENT_LEFT, -1, TITLE_FONT_SIZE).x
+	width += TITLE_OUTLINE_SIZE * 2.0
+	var available: float = get_viewport().get_visible_rect().size.x * TITLE_MAX_WIDTH_FRACTION
+	var size: int = clampi(
+		floori(TITLE_FONT_SIZE * available / width), TITLE_MIN_FONT_SIZE, TITLE_FONT_SIZE
+	)
+	_title.add_theme_font_size_override("font_size", size)
 
 
 func _center_pivot() -> void:
