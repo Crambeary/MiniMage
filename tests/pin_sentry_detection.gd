@@ -121,10 +121,16 @@ func _finish() -> void:
 		_arrow_cleared = true
 	print(
 		(
-			"BEHAVIOR pos=%s closest=%s aimed=%s question=%s exclamation_hidden=%s cleared=%s"
+			(
+				"BEHAVIOR pos=%s closest=%s deviation=%s alert=%s surprise=%s "
+				+ "aimed=%s question=%s exclamation_hidden=%s cleared=%s"
+			)
 			% [
 				_sentry.global_position,
 				_closest,
+				_max_patrol_deviation,
+				_saw_alert,
+				_saw_surprise,
 				_saw_aimed_arrow,
 				_saw_question,
 				_exclamation_hidden_while_suspicious,
