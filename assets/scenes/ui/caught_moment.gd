@@ -16,7 +16,6 @@ const STING: AudioStream = preload("res://assets/audio/sfx/boo_1.wav")
 const TITLE: String = "DETENTION"
 const TITLE_FONT_SIZE: int = 96
 const TITLE_MIN_FONT_SIZE: int = 24
-## Share of the viewport width the title may take, outline included.
 const TITLE_MAX_WIDTH_FRACTION: float = 0.9
 const TITLE_OUTLINE_SIZE: int = 12
 const DRAIN_SECONDS: float = 0.2
@@ -24,7 +23,6 @@ const TITLE_DELAY_SECONDS: float = 0.15
 const TITLE_IN_SECONDS: float = 0.25
 const TOTAL_SECONDS: float = 2.1
 const FADE_OUT_SECONDS: float = 0.25
-## A skip waits for the release of its press, but never longer than this.
 const MAX_RELEASE_WAIT_MSEC: int = 600
 
 var _done: bool = false
@@ -44,7 +42,6 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
-	# Freed from outside: stop the tween, emit nothing; the manager cleans up.
 	_done = true
 	if _tween != null:
 		_tween.kill()
@@ -98,7 +95,6 @@ func _swallow_leftover(id: String, pressed: bool) -> void:
 		elif id == _skip_id:
 			get_viewport().set_input_as_handled()
 		elif pressed:
-			# A new gesture means the old release was lost; stop swallowing.
 			queue_free()
 
 
@@ -153,7 +149,6 @@ func _build() -> void:
 	sting.play()
 
 
-## Shrinks the title so it fits a narrow viewport (a phone in portrait).
 func _fit_title() -> void:
 	var font: Font = _title.get_theme_font("font")
 	var width: float = font.get_string_size(TITLE, HORIZONTAL_ALIGNMENT_LEFT, -1, TITLE_FONT_SIZE).x
@@ -204,7 +199,6 @@ func _finish() -> void:
 	var held: bool = not _skip_id.is_empty() and not _skip_released
 	finished.emit()
 	if held:
-		# Stay in the tree, invisible, until the skip press is released.
 		_title.hide()
 	else:
 		queue_free()

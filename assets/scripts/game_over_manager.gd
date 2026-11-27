@@ -55,7 +55,6 @@ func show_caught_moment() -> void:
 		_caught_scene = get_tree().current_scene
 		get_tree().paused = true
 	elif _caught_scene_replaced():
-		# The scene was swapped between the catch and now; this run is gone.
 		_abandon_moment()
 		return
 	_moment_finished = false

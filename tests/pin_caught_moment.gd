@@ -1,18 +1,5 @@
 extends SceneTree
 
-# The caught moment follows a real player_caught, freezes the world at once and
-# always leaves the game in a clean state. Scenarios run in order:
-#   natural   - runs out on its own within 1.5-2.5s, then opens game over once
-#   skip      - skip() ends it at once and still opens the game-over screen
-#   gesture   - emulated mouse is ignored; a skip ends on the touch release
-#   interrupt - freeing the moment mid-run unfreezes and opens no screen
-#   teardown  - replacing the scene mid-run cleans up and opens no screen
-#   mismatch  - a release of another touch does not end a skip
-#   held      - a skip still held at the cap keeps swallowing until its release
-#   same_frame- replacing the scene in the catch frame abandons the run
-#   fit       - the title shrinks to fit the narrowest portrait viewport
-#   shutdown  - leaving the tree restores time scale and pause
-
 const MIN_SECONDS := 1.5
 const MAX_SECONDS := 2.5
 const COUNTER_SOURCE := """extends Node
