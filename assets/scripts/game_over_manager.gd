@@ -40,6 +40,7 @@ func _on_player_caught(_catcher: Node2D) -> void:
 	# The catch is final the instant it happens: freeze the world now, play the
 	# beat over it afterwards.
 	_caught = true
+	_caught_scene = get_tree().current_scene
 	get_tree().paused = true
 	show_caught_moment.call_deferred()
 
@@ -49,16 +50,27 @@ func _on_player_caught(_catcher: Node2D) -> void:
 func show_caught_moment() -> void:
 	if is_instance_valid(_screen) or is_instance_valid(_moment):
 		return
-	_caught = true
-	get_tree().paused = true
+	if not _caught:
+		_caught = true
+		_caught_scene = get_tree().current_scene
+		get_tree().paused = true
+	elif _caught_scene_replaced():
+		# The scene was swapped between the catch and now; this run is gone.
+		_abandon_moment()
+		return
 	_moment_finished = false
-	_caught_scene = get_tree().current_scene
-	if _caught_scene != null:
+	if is_instance_valid(_caught_scene):
 		_caught_scene.tree_exited.connect(_on_caught_scene_exited, CONNECT_ONE_SHOT)
 	_moment = CAUGHT_MOMENT.new()
 	_moment.finished.connect(_on_moment_finished, CONNECT_ONE_SHOT)
 	_moment.tree_exited.connect(_on_moment_exited, CONNECT_ONE_SHOT)
 	get_tree().root.add_child(_moment)
+
+
+func _caught_scene_replaced() -> bool:
+	if _caught_scene == null:
+		return false
+	return not is_instance_valid(_caught_scene) or get_tree().current_scene != _caught_scene
 
 
 func _on_moment_finished() -> void:
@@ -90,18 +102,20 @@ func _on_caught_scene_exited() -> void:
 
 
 func _abandon_moment() -> void:
-	# Engine shutdown frees the overlay after the tree is gone; nothing to undo then.
-	if not is_inside_tree():
-		return
+	# Restore what we can unconditionally; at engine shutdown the tree is gone.
+	Engine.time_scale = 1.0
 	_disconnect_scene_watch()
 	if is_instance_valid(_moment):
 		_moment.queue_free()
 	_moment = null
 	_caught_scene = null
 	_caught = false
-	Engine.time_scale = 1.0
-	if not is_instance_valid(_screen):
+	if is_inside_tree() and not is_instance_valid(_screen):
 		get_tree().paused = false
+
+
+func _exit_tree() -> void:
+	Engine.time_scale = 1.0
 
 
 func _disconnect_scene_watch() -> void:

@@ -23,6 +23,8 @@ const MAX_RELEASE_WAIT_MSEC: int = 600
 
 var _done: bool = false
 var _skip_pressed_at_msec: int = -1
+var _skip_id: String = ""
+var _skip_released: bool = false
 var _filter: ColorRect
 var _title: Label
 var _tween: Tween
@@ -44,7 +46,8 @@ func _exit_tree() -> void:
 
 func _process(_delta: float) -> void:
 	if (
-		_skip_pressed_at_msec >= 0
+		not _done
+		and _skip_pressed_at_msec >= 0
 		and Time.get_ticks_msec() - _skip_pressed_at_msec > MAX_RELEASE_WAIT_MSEC
 	):
 		_finish()
@@ -56,32 +59,59 @@ func skip() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if _done:
-		return
 	# Touch emulates a mouse click ahead of the touch itself; the touch is the
 	# gesture we follow, so swallow the emulated mouse events.
 	if event is InputEventMouseButton and event.device == InputEvent.DEVICE_ID_EMULATION:
 		get_viewport().set_input_as_handled()
 		return
-	var is_press: bool = (
-		(event is InputEventKey and event.pressed and not event.echo)
-		or (event is InputEventMouseButton and event.pressed)
-		or (event is InputEventScreenTouch and event.pressed)
-		or (event is InputEventJoypadButton and event.pressed)
-	)
-	var is_release: bool = (
-		(event is InputEventKey and not event.pressed)
-		or (event is InputEventMouseButton and not event.pressed)
-		or (event is InputEventScreenTouch and not event.pressed)
-		or (event is InputEventJoypadButton and not event.pressed)
-	)
-	if is_press:
+	var id: String = _gesture_id(event)
+	if id.is_empty():
+		return
+	var pressed: bool = _is_press(event)
+	if _done:
+		_swallow_leftover(id, pressed)
+		return
+	if pressed:
 		get_viewport().set_input_as_handled()
-		if _skip_pressed_at_msec < 0:
+		if _skip_id.is_empty():
+			_skip_id = id
 			_skip_pressed_at_msec = Time.get_ticks_msec()
-	elif is_release and _skip_pressed_at_msec >= 0:
+	elif id == _skip_id:
 		get_viewport().set_input_as_handled()
+		_skip_released = true
 		_finish()
+
+
+## After a skip that ended while its gesture was still held, keep eating that
+## gesture until its own release so it cannot activate the game-over controls.
+func _swallow_leftover(id: String, pressed: bool) -> void:
+	if not _skip_id.is_empty() and not _skip_released:
+		if id == _skip_id and not pressed:
+			get_viewport().set_input_as_handled()
+			queue_free()
+		elif id == _skip_id:
+			get_viewport().set_input_as_handled()
+		elif pressed:
+			# A new gesture means the old release was lost; stop swallowing.
+			queue_free()
+
+
+static func _gesture_id(event: InputEvent) -> String:
+	if event is InputEventKey:
+		if event.echo:
+			return ""
+		return "key:%d:%d" % [event.device, event.physical_keycode]
+	if event is InputEventMouseButton:
+		return "mouse:%d:%d" % [event.device, event.button_index]
+	if event is InputEventScreenTouch:
+		return "touch:%d" % event.index
+	if event is InputEventJoypadButton:
+		return "joy:%d:%d" % [event.device, event.button_index]
+	return ""
+
+
+static func _is_press(event: InputEvent) -> bool:
+	return event.is_pressed()
 
 
 func _build() -> void:
@@ -152,5 +182,10 @@ func _finish() -> void:
 	_done = true
 	if _tween != null:
 		_tween.kill()
+	var held: bool = not _skip_id.is_empty() and not _skip_released
 	finished.emit()
-	queue_free()
+	if held:
+		# Stay in the tree, invisible, until the skip press is released.
+		_title.hide()
+	else:
+		queue_free()
