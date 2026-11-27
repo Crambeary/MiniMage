@@ -59,50 +59,58 @@ func _forward_canvas_gui_input(event: InputEvent) -> bool:
 			return true
 
 	if event is InputEventMouseMotion:
-		var motion := event as InputEventMouseMotion
-		if _is_dragging():
-			if not (motion.button_mask & MOUSE_BUTTON_MASK_LEFT):
-				# The release happened outside the viewport and never reached us.
-				_commit_drag()
-				return false
-			_drag_wp.global_position = _path.snap_global(_screen_to_global(motion.position))
-			update_overlays()
-			return true
-		var hover := _pick_handle(motion.position)
-		if hover != _hover_index:
-			_hover_index = hover
-			update_overlays()
-		return false
+		return _handle_motion(event as InputEventMouseMotion)
+	if event is InputEventMouseButton:
+		return _handle_button(event as InputEventMouseButton)
+	return false
 
-	if not event is InputEventMouseButton:
-		return false
-	var button := event as InputEventMouseButton
 
+func _handle_motion(motion: InputEventMouseMotion) -> bool:
+	if _is_dragging():
+		if not motion.button_mask & MOUSE_BUTTON_MASK_LEFT:
+			# The release happened outside the viewport and never reached us.
+			_commit_drag()
+			return false
+		_drag_wp.global_position = _path.snap_global(_screen_to_global(motion.position))
+		update_overlays()
+		return true
+	var hover := _pick_handle(motion.position)
+	if hover != _hover_index:
+		_hover_index = hover
+		update_overlays()
+	return false
+
+
+func _handle_button(button: InputEventMouseButton) -> bool:
 	if button.button_index == MOUSE_BUTTON_LEFT:
 		if button.pressed:
-			var index := _pick_handle(button.position)
-			if button.ctrl_pressed or button.meta_pressed:
-				if index < 0: # Ctrl+click on a handle must not stack a new waypoint on it
-					_add_waypoint_at(button.position)
-				return true
-			if index >= 0:
-				_drag_index = index
-				_drag_wp = _path.get_waypoints()[index]
-				_drag_from = _drag_wp.position
-				return true
-		elif _is_dragging():
+			return _press_left(button)
+		if _is_dragging():
 			_commit_drag()
 			return true
-
+		return false
 	if button.button_index == MOUSE_BUTTON_RIGHT and button.pressed:
 		if _is_dragging():
-			return true # never remove waypoints mid-drag
+			return true  # never remove waypoints mid-drag
 		var index := _pick_handle(button.position)
 		if index >= 0:
 			_remove_waypoint(index)
 			return true
-
 	return false
+
+
+func _press_left(button: InputEventMouseButton) -> bool:
+	var index := _pick_handle(button.position)
+	if button.ctrl_pressed or button.meta_pressed:
+		if index < 0:  # Ctrl+click on a handle must not stack a new waypoint on it
+			_add_waypoint_at(button.position)
+		return true
+	if index < 0:
+		return false
+	_drag_index = index
+	_drag_wp = _path.get_waypoints()[index]
+	_drag_from = _drag_wp.position
+	return true
 
 
 func _forward_canvas_draw_over_viewport(overlay: Control) -> void:
@@ -112,13 +120,33 @@ func _forward_canvas_draw_over_viewport(overlay: Control) -> void:
 	var wps := _path.get_waypoints()
 	for i in wps.size():
 		var screen := _global_to_screen(wps[i].global_position)
-		var fill := Color(1.0, 1.0, 1.0) if i == _hover_index or i == _drag_index else _path.preview_color
+		var fill := (
+			Color(1.0, 1.0, 1.0) if i == _hover_index or i == _drag_index else _path.preview_color
+		)
 		overlay.draw_circle(screen, HANDLE_RADIUS + 1.5, Color(0, 0, 0, 0.8))
 		overlay.draw_circle(screen, HANDLE_RADIUS, fill)
-		overlay.draw_string(font, screen + Vector2(HANDLE_RADIUS + 2.0, -HANDLE_RADIUS), str(i + 1),
-				HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color.WHITE)
-	var hint := "Patrol path: drag to move (Esc cancels) · click to select · Ctrl+click to add · right-click to remove"
-	overlay.draw_string(font, Vector2(8, overlay.size.y - 10), hint, HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(1, 1, 1, 0.8))
+		overlay.draw_string(
+			font,
+			screen + Vector2(HANDLE_RADIUS + 2.0, -HANDLE_RADIUS),
+			str(i + 1),
+			HORIZONTAL_ALIGNMENT_LEFT,
+			-1,
+			14,
+			Color.WHITE
+		)
+	var hint := (
+		"Patrol path: drag to move (Esc cancels) · click to select"
+		+ " · Ctrl+click to add · right-click to remove"
+	)
+	overlay.draw_string(
+		font,
+		Vector2(8, overlay.size.y - 10),
+		hint,
+		HORIZONTAL_ALIGNMENT_LEFT,
+		-1,
+		14,
+		Color(1, 1, 1, 0.8)
+	)
 
 
 func _is_dragging() -> bool:
@@ -205,7 +233,7 @@ func _insert_index_for(screen_pos: Vector2) -> int:
 	var wps := _path.get_waypoints()
 	var segments := wps.size() - 1
 	if _path.mode == PatrolPath2D.Mode.LOOP and wps.size() > 2:
-		segments += 1 # the closing segment; inserting there means appending
+		segments += 1  # the closing segment; inserting there means appending
 	var best := -1
 	var best_distance := SEGMENT_PICK_DISTANCE
 	for i in segments:

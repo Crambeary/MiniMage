@@ -66,7 +66,6 @@ var player: Node2D
 var status_bar_instance: StatusBar
 var waypoints: Array[Waypoint2D] = []
 var current_index: int = 0
-var _patrol_step: int = 1
 var dir: Vector2
 var cooldown_timer: float = 0.0
 var is_in_cooldown: bool = false
@@ -78,6 +77,7 @@ var _has_caught_player: bool = false
 var _detection_time: float = 0.0
 var _has_started_turning: bool = false
 var _surprise_time_left: float = 0.0
+var _patrol_step: int = 1
 
 @onready var vision_manager: VisionManager = $VisionManager
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

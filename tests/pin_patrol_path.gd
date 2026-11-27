@@ -23,13 +23,27 @@ func _run() -> void:
 
 	# Each sentry in each level must resolve to the same global waypoint
 	# positions its old group lookup found (copied from the pre-migration scenes).
-	_check_level("res://assets/scenes/levels/main.tscn", {
-		"Sentry": [Vector2(-192, 0), Vector2(-192, -64), Vector2(-112, -64), Vector2(-112, 0)],
-		"Sentry2": [Vector2(-336, -64), Vector2(-336, 8), Vector2(-296, 8), Vector2(-296, -8), Vector2(-256, -8), Vector2(-256, -64)],
-	})
-	_check_level("res://assets/scenes/levels/level_3.tscn", {
-		"Sentry": [Vector2(40, 82)],
-	})
+	_check_level(
+		"res://assets/scenes/levels/main.tscn",
+		{
+			"Sentry": [Vector2(-192, 0), Vector2(-192, -64), Vector2(-112, -64), Vector2(-112, 0)],
+			"Sentry2":
+			[
+				Vector2(-336, -64),
+				Vector2(-336, 8),
+				Vector2(-296, 8),
+				Vector2(-296, -8),
+				Vector2(-256, -8),
+				Vector2(-256, -64)
+			],
+		}
+	)
+	_check_level(
+		"res://assets/scenes/levels/level_3.tscn",
+		{
+			"Sentry": [Vector2(40, 82)],
+		}
+	)
 	_check_level_counts("res://assets/scenes/levels/level_2.tscn", {"Sentry": 12, "Sentry2": 10})
 
 	if _failures.is_empty():
@@ -89,7 +103,9 @@ func _check_level(scene_path: String, expected: Dictionary) -> void:
 		for wp in sentry.waypoints:
 			got.append(wp.global_position)
 		if got != expected[sentry_name]:
-			_failures.append("%s/%s: expected %s got %s" % [scene_path, sentry_name, expected[sentry_name], got])
+			_failures.append(
+				"%s/%s: expected %s got %s" % [scene_path, sentry_name, expected[sentry_name], got]
+			)
 	level.free()
 
 
@@ -98,5 +114,7 @@ func _check_level_counts(scene_path: String, expected: Dictionary) -> void:
 	for sentry_name in expected:
 		var sentry := level.get_node(NodePath(sentry_name))
 		if sentry.patrol_path == null or sentry.waypoints.size() != expected[sentry_name]:
-			_failures.append("%s/%s: expected %d waypoints" % [scene_path, sentry_name, expected[sentry_name]])
+			_failures.append(
+				"%s/%s: expected %d waypoints" % [scene_path, sentry_name, expected[sentry_name]]
+			)
 	level.free()

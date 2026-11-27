@@ -7,8 +7,8 @@ extends Node2D
 ## docs/design/patrol-path-editor.md.
 
 enum Mode {
-	LOOP, ## 0 → n−1, then back to 0.
-	PING_PONG, ## 0 → n−1 → 0 by retracing, without repeating an end point.
+	LOOP,  ## 0 → n−1, then back to 0.
+	PING_PONG,  ## 0 → n−1 → 0 by retracing, without repeating an end point.
 }
 
 @export var mode: Mode = Mode.LOOP:
@@ -72,7 +72,9 @@ func _on_child_order_changed() -> void:
 
 func _get_configuration_warnings() -> PackedStringArray:
 	if get_waypoints().is_empty():
-		return PackedStringArray(["Add Waypoint2D children (Ctrl+click in the 2D viewport with this node selected)."])
+		return PackedStringArray(
+			["Add Waypoint2D children (Ctrl+click in the 2D viewport with this node selected)."]
+		)
 	return PackedStringArray()
 
 
@@ -101,4 +103,6 @@ func _draw_segment(from: Vector2, to: Vector2, width: float) -> void:
 	var dir := (to - from) / length
 	var tip := from.lerp(to, 0.5) + dir * 3.0
 	var side := dir.orthogonal() * 3.0
-	draw_colored_polygon(PackedVector2Array([tip, tip - dir * 6.0 + side, tip - dir * 6.0 - side]), preview_color)
+	draw_colored_polygon(
+		PackedVector2Array([tip, tip - dir * 6.0 + side, tip - dir * 6.0 - side]), preview_color
+	)
