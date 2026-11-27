@@ -10,6 +10,9 @@ var _handler: Node
 var _elapsed := 0.0
 var _hid_player := false
 var _closest := INF
+var _max_patrol_deviation := 0.0
+var _saw_alert := false
+var _saw_surprise := false
 var _saw_aimed_arrow := false
 var _saw_question := false
 var _arrow_cleared := false
@@ -56,11 +59,14 @@ func _setup() -> void:
 func _process(delta: float) -> bool:
 	_elapsed += delta
 	_closest = minf(_closest, _sentry.global_position.distance_to(WAYPOINT))
+	_max_patrol_deviation = maxf(_max_patrol_deviation, absf(_sentry.global_position.y))
+	_saw_alert = _saw_alert or _sentry.alertness_value >= _sentry.alertness_threshold
+	_saw_surprise = _saw_surprise or _sentry.is_surprised()
 	_note_what_the_player_sees()
-	if _elapsed > 2.0 and not _hid_player:
+	if _saw_question and _saw_aimed_arrow and not _hid_player:
 		_hid_player = true
 		_player.global_position = PLAYER_HIDDEN
-	if _hid_player and _elapsed > 2.4:
+	if _hid_player and _visible_arrow_count() == 0:
 		_finish()
 		return true
 	if _elapsed > 4.0:
@@ -97,8 +103,12 @@ func _finish() -> void:
 	var start_distance := Vector2.ZERO.distance_to(WAYPOINT)
 	if _closest > start_distance - 5.0:
 		_failures.append("sentry did not close on the waypoint, closest=%s" % _closest)
-	if absf(_sentry.global_position.y) > 1.0:
-		_failures.append("sentry left the patrol line, y=%s" % _sentry.global_position.y)
+	if _max_patrol_deviation > 1.0:
+		_failures.append("sentry left the patrol line, deviation=%s" % _max_patrol_deviation)
+	if _saw_alert:
+		_failures.append("sentry became alerted during the suspicion check")
+	if _saw_surprise:
+		_failures.append("sentry entered the surprise window during the suspicion check")
 	if not _saw_aimed_arrow:
 		_failures.append("no visible arrow pointed at the sentry")
 	if not _saw_question:
