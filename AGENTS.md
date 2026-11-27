@@ -22,6 +22,21 @@ agents (Codex etc.) get no enforcement, so follow these rules yourself:
   `tools/open-editor-cloud.sh` in a cloud container). Full launch, verify and
   troubleshooting steps: `docs/agents/godot-editor.md`.
 
+## Running `gh` and other sandbox-excluded commands
+
+`gh`, `git push`, `docker`, `sudo` and the like are listed in
+`sandbox.excludedCommands`, so they run unsandboxed on their own, but only when
+they are the whole command.
+
+- Run them standalone, e.g. `gh issue view 20 --repo Crambeary/MiniMage`. Never
+  chain them after `cd`, `&&`, `;` or a pipe: the match then fails, `gh` runs in
+  the sandbox, and it dies with "permission denied" on `~/.config/gh/hosts.yml`.
+  Pass paths and repo with flags (`--repo`, `git -C <dir>`) instead of `cd`.
+- Never pass `dangerouslyDisableSandbox: true` for them. It triggers an approval
+  prompt and is not needed.
+- If a standalone call still fails with a sandbox error, report it instead of
+  retrying with the flag.
+
 
 ## Agent skills
 
