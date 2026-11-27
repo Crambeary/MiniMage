@@ -42,6 +42,7 @@ func _ready() -> void:
 
 
 func _exit_tree() -> void:
+	# Freed from outside: stop the tween, emit nothing; the manager cleans up.
 	_done = true
 	if _tween != null:
 		_tween.kill()
@@ -88,14 +89,15 @@ func _input(event: InputEvent) -> void:
 ## After a skip that ended while its gesture was still held, keep eating that
 ## gesture until its own release so it cannot activate the game-over controls.
 func _swallow_leftover(id: String, pressed: bool) -> void:
-	if not _skip_id.is_empty() and not _skip_released:
-		if id == _skip_id and not pressed:
-			get_viewport().set_input_as_handled()
+	if _skip_id.is_empty() or _skip_released:
+		return
+	if id == _skip_id:
+		get_viewport().set_input_as_handled()
+		if not pressed:
 			queue_free()
-		elif id == _skip_id:
-			get_viewport().set_input_as_handled()
-		elif pressed:
-			queue_free()
+	elif pressed:
+		# A new gesture means the old release was lost; stop swallowing.
+		queue_free()
 
 
 static func _gesture_id(event: InputEvent) -> String:
@@ -199,6 +201,7 @@ func _finish() -> void:
 	var held: bool = not _skip_id.is_empty() and not _skip_released
 	finished.emit()
 	if held:
+		# Stay in the tree, invisible, until the skip press is released.
 		_title.hide()
 	else:
 		queue_free()
