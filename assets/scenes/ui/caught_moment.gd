@@ -1,9 +1,11 @@
 class_name CaughtMoment
 extends CanvasLayer
 ## Short "SPOTTED" beat played when a sentry catches the player, just before the
-## game-over screen. Slows time, drains the colour, punches in a title card and
-## plays a low sting. Any key, click or touch skips it. Emits `finished` once,
-## after restoring the time scale.
+## game-over screen. The world is already frozen (the manager pauses the tree);
+## this drains the colour, punches in a title card and plays a low sting.
+## A key, click or touch skips it, and the skip finishes only on the matching
+## release so the rest of that gesture cannot reach the game-over screen.
+## Emits `finished` once, unless the node is freed first.
 
 signal finished
 
@@ -11,14 +13,16 @@ const BELOW_GAME_OVER_LAYER: int = 101
 const SHADER: Shader = preload("res://assets/scenes/ui/caught_moment.gdshader")
 const STING: AudioStream = preload("res://assets/audio/sfx/boo_1.wav")
 
-const SLOW_TIME_SCALE: float = 0.15
-const SLOW_IN_SECONDS: float = 0.2
+const DRAIN_SECONDS: float = 0.2
 const TITLE_DELAY_SECONDS: float = 0.15
 const TITLE_IN_SECONDS: float = 0.25
 const TOTAL_SECONDS: float = 2.1
 const FADE_OUT_SECONDS: float = 0.25
+## A skip waits for the release of its press, but never longer than this.
+const MAX_RELEASE_WAIT_MSEC: int = 600
 
 var _done: bool = false
+var _skip_pressed_at_msec: int = -1
 var _filter: ColorRect
 var _title: Label
 var _tween: Tween
@@ -31,6 +35,22 @@ func _ready() -> void:
 	_play()
 
 
+func _exit_tree() -> void:
+	# Freed from outside: stop the tween, emit nothing; the manager cleans up.
+	_done = true
+	if _tween != null:
+		_tween.kill()
+
+
+func _process(_delta: float) -> void:
+	if (
+		_skip_pressed_at_msec >= 0
+		and Time.get_ticks_msec() - _skip_pressed_at_msec > MAX_RELEASE_WAIT_MSEC
+	):
+		_finish()
+
+
+## Ends the moment at once, as if it had run out.
 func skip() -> void:
 	_finish()
 
@@ -38,13 +58,28 @@ func skip() -> void:
 func _input(event: InputEvent) -> void:
 	if _done:
 		return
-	var pressed: bool = (
+	# Touch emulates a mouse click ahead of the touch itself; the touch is the
+	# gesture we follow, so swallow the emulated mouse events.
+	if event is InputEventMouseButton and event.device == InputEvent.DEVICE_ID_EMULATION:
+		get_viewport().set_input_as_handled()
+		return
+	var is_press: bool = (
 		(event is InputEventKey and event.pressed and not event.echo)
 		or (event is InputEventMouseButton and event.pressed)
 		or (event is InputEventScreenTouch and event.pressed)
 		or (event is InputEventJoypadButton and event.pressed)
 	)
-	if pressed:
+	var is_release: bool = (
+		(event is InputEventKey and not event.pressed)
+		or (event is InputEventMouseButton and not event.pressed)
+		or (event is InputEventScreenTouch and not event.pressed)
+		or (event is InputEventJoypadButton and not event.pressed)
+	)
+	if is_press:
+		get_viewport().set_input_as_handled()
+		if _skip_pressed_at_msec < 0:
+			_skip_pressed_at_msec = Time.get_ticks_msec()
+	elif is_release and _skip_pressed_at_msec >= 0:
 		get_viewport().set_input_as_handled()
 		_finish()
 
@@ -88,13 +123,9 @@ func _center_pivot() -> void:
 func _play() -> void:
 	_center_pivot()
 	_title.scale = Vector2(1.8, 1.8)
-	# Tweens run on real time so the slow-mo does not stretch the moment itself.
-	_tween = create_tween().set_ignore_time_scale(true)
+	_tween = create_tween()
 	_tween.set_parallel(true)
-	_tween.tween_property(Engine, "time_scale", SLOW_TIME_SCALE, SLOW_IN_SECONDS).set_trans(
-		Tween.TRANS_QUAD
-	)
-	_tween.tween_method(_set_amount, 0.0, 1.0, SLOW_IN_SECONDS).set_trans(Tween.TRANS_QUAD)
+	_tween.tween_method(_set_amount, 0.0, 1.0, DRAIN_SECONDS).set_trans(Tween.TRANS_QUAD)
 	_tween.tween_property(_title, "modulate:a", 1.0, TITLE_IN_SECONDS).set_delay(
 		TITLE_DELAY_SECONDS
 	)
@@ -121,6 +152,5 @@ func _finish() -> void:
 	_done = true
 	if _tween != null:
 		_tween.kill()
-	Engine.time_scale = 1.0
 	finished.emit()
 	queue_free()
